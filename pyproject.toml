@@ -1,0 +1,138 @@
+[tool.poetry]
+name = "saritasa-invocations"
+version = "0.1.0"
+description = "Collection of invoke commands used by Saritasa"
+authors = [
+  "Saritasa <pypi@saritasa.com>",
+]
+maintainers = [
+    "Stanislav Khlud <stanislav.khlud@saritasa.com>",
+]
+homepage = "https://pypi.org/project/saritasa-invocations/"
+repository = "https://github.com/saritasa-nest/saritasa-python-invocations/"
+keywords = [
+  "python",
+  "invoke"
+]
+license = "MIT"
+readme = "README.md"
+packages = [
+  { include = "saritasa_invocations" }
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+# Invoke is a Python (2.7 and 3.4+) task execution tool & library,
+# drawing inspiration from various sources to arrive at a powerful & clean feature set.
+# http://www.pyinvoke.org/
+invoke = "^2"
+# Rich is a Python library for writing rich text (with color and style) to the terminal,
+# and for displaying advanced content such as tables, markdown, and syntax highlighted code.
+# https://rich.readthedocs.io/en/stable/introduction.html
+rich = "^13"
+
+[tool.poetry.group.dev.dependencies]
+# Improved REPL
+ipdb = "^0.13.13"
+ipython = "^8.13.2"
+# A framework for managing and maintaining multi-language pre-commit hooks.
+# https://pre-commit.com/
+pre-commit = "^3.3.1"
+
+[tool.poetry.group.linters.dependencies]
+# Flake dependencies are added so that VSCode extension for flake8
+# would work properly
+# https://marketplace.visualstudio.com/items?itemName=ms-python.flake8&ssr=false#overview
+flake8 = "^6.0.0"
+# A plugin for Flake8 finding likely bugs and design problems in your program.
+# https://github.com/PyCQA/flake8-bugbear
+flake8-bugbear = "^23.5.9"
+# Extension to enforce better comma placement.
+# https://github.com/PyCQA/flake8-commas
+flake8-commas = "^2.1.0"
+# A flake8 plugin that warn about backslashes usage.
+# https://github.com/wemake-services/flake8-broken-line
+flake8-broken-line = "^1.0.0"
+# A simple module that adds an extension for the fantastic pydocstyle tool to flake8.
+# https://github.com/PyCQA/flake8-docstrings
+flake8-docstrings = "^1.7.0"
+# A flake8 plugin loading the configuration from pyproject.toml
+# https://github.com/john-hen/Flake8-pyproject
+flake8-pyproject = "^1.2.3"
+# McCabe complexity checker.
+# https://github.com/PyCQA/mccabe
+mccabe = "^0.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 79
+multi_line_output = 3
+skip = [
+    "_tmp",
+    "src",
+    ".venv",
+]
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
+include_trailing_comma = true
+default_section = "THIRDPARTY"
+
+[tool.flake8]
+ignore = [
+    # https://www.flake8rules.com/rules/E126.html
+    "E126",
+    # https://www.flake8rules.com/rules/W503.html
+    "W503",
+    # https://www.flake8rules.com/rules/W504.html
+    "W504",
+    # https://github.com/m-burst/flake8-pytest-style/blob/master/docs/rules/PT004.md
+    "PT004",
+    # https://www.pydocstyle.org/en/latest/error_codes.html
+    # Missing docstring in public module
+    "D100",
+    # Missing docstring in public nested class
+    "D106",
+    # Missing docstring in __init__
+    "D107",
+    # Use r””” if any backslashes in a docstring
+    "D301",
+]
+statistics = true
+count = true
+max-complexity = 10
+pytest-fixture-no-parentheses = true
+pytest-parametrize-names-type = "list"
+pytest-parametrize-values-type = "list"
+pytest-parametrize-values-row-type = "list"
+inline-quotes = "double"
+docstring-quotes = "double"
+docstring-convention = "pep257"
+exclude = [
+    ".venv",
+    "__init__.py",
+    "docs",
+]
+
+[tool.black]
+line-length = 79
+target-version = [
+  "py311",
+]
