@@ -1,2 +1,3 @@
-# saritasa-python-invocations
-Django Import Export Jobs Repository For Saritasa-Python
+# saritasa-invocations
+
+Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
