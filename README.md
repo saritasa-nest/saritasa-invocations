@@ -1,5 +1,14 @@
 # saritasa-invocations
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-python-invocations/checks.yml)
+![PyPI](https://img.shields.io/pypi/v/saritasa-invocations)
+![PyPI - Status](https://img.shields.io/pypi/status/saritasa-invocations)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/saritasa-invocations)
+![PyPI - License](https://img.shields.io/pypi/l/saritasa-invocations)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/saritasa-invocations)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+
 Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
 
 ## Installation
@@ -54,10 +63,10 @@ ns.configure(
             ),
             "merge_ff": "true",
             "pull_ff": "only",
-            "docker-main-container" = [
+            "docker_main_containers": (
                 "opensearch",
                 "redis",
-            ],
+            ),
             "vs_code_settings_template": ".vscode/recommended_settings.json",
             "settings_template": "config/.env.local",
             "save_settings_from_template_to": "config/.env",
