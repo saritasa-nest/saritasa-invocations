@@ -1,0 +1,89 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: ".*\\.vscode/"
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-aws-credentials
+        args: [--allow-missing-credentials]
+      - id: debug-statements
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: 1.5.0
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+        # Do not update locked versions, only refresh lock file.
+        args: ["--no-update"]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        exclude: .venv|__init__.py
+        additional_dependencies: [
+          # A plugin for Flake8 finding likely bugs and design problems in your program.
+          # https://github.com/PyCQA/flake8-bugbear
+          flake8-bugbear,
+          # Extension to enforce better comma placement.
+          # https://github.com/PyCQA/flake8-commas
+          flake8-commas,
+          # A flake8 plugin checking common style issues or inconsistencies with pytest-based tests.
+          # https://github.com/m-burst/flake8-pytest-style
+          flake8-pytest-style,
+          # A flake8 plugin that warn about backslashes usage.
+          # https://github.com/wemake-services/flake8-broken-line
+          flake8-broken-line,
+          # A simple module that adds an extension for the fantastic pydocstyle tool to flake8.
+          # https://github.com/PyCQA/flake8-docstrings
+          flake8-docstrings,
+          # A flake8 plugin loading the configuration from pyproject.toml
+          # https://github.com/john-hen/Flake8-pyproject
+          flake8-pyproject,
+          # McCabe complexity checker.
+          # https://github.com/PyCQA/mccabe
+          mccabe,
+        ]
+
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v2.5.1
+    hooks:
+      - id: add-trailing-comma
+
+  - repo: https://github.com/pycqa/docformatter
+    rev: v1.7.3
+    hooks:
+      - id: docformatter
+        args: [
+          --wrap-descriptions=0,
+          --in-place,
+          --blank
+        ]
+
+  - repo: local
+    hooks:
+      - id: check_list
+        name: short start up check
+        entry: inv -l
+        language: system
+        pass_filenames: false
+        types: [ file ]
+        stages: [ push ]
