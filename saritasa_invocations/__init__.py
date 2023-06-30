@@ -1,8 +1,13 @@
 from saritasa_invocations import (
+    celery,
+    django,
     docker,
+    fastapi,
     git,
     github_actions,
+    open_api,
     pre_commit,
+    python,
     system,
 )
 from saritasa_invocations.printing import (

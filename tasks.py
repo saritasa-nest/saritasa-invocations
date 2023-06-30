@@ -1,18 +1,28 @@
 import invoke
 
 from saritasa_invocations import (
+    celery,
+    django,
     docker,
+    fastapi,
     git,
     github_actions,
+    open_api,
     pre_commit,
+    python,
     system,
 )
 
 ns = invoke.Collection(
+    celery,
+    django,
     docker,
+    fastapi,
     git,
     github_actions,
+    open_api,
     pre_commit,
+    python,
     system,
 )
 
