@@ -14,6 +14,9 @@ ns = invoke.Collection(
     saritasa_invocations.pre_commit,
     saritasa_invocations.python,
     saritasa_invocations.system,
+    saritasa_invocations.db_k8s,
+    saritasa_invocations.db,
+    saritasa_invocations.k8s,
 )
 
 # Configurations for run command

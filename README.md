@@ -47,6 +47,10 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.run](#djangorun)
     * [django.shell](#djangoshell)
     * [django.dbshell](#djangodbshell)
+    * [django.load-db-dump](#djangoload-db-dump)
+    * [django.backup-local-db](#djangobackup-local-db)
+    * [django.backup-remote-db](#djangobackup-remote-db)
+    * [django.load-remote-db](#djangoload-remote-db)
   * [fastapi](#fastapi)
     * [fastapi.run](#fastapirun)
   * [alembic](#alembic)
@@ -60,6 +64,21 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [celery.run](#celeryrun)
   * [open-api](#open-api)
     * [open-api.validate-swagger](#open-apivalidate-swagger)
+  * [db](#db)
+    * [db.load-db-dump](#dbload-db-dump)
+    * [db.backup-local-db](#dbbackup-local-db)
+  * [k8s](#k8s)
+    * [k8s.login](#k8slogin)
+    * [k8s.set-context](#k8sset-context)
+    * [k8s.logs](#k8slogs)
+    * [k8s.pods](#k8spods)
+    * [k8s.execute](#k8sexecute)
+    * [k8s.python-shell](#k8spython-shell)
+    * [k8s.health-check](#k8shealth-check)
+    * [k8s.download-file](#k8sdownload-file)
+  * [db-k8s](#db-k8s)
+    * [db-k8s.create-dump](#db-k8screate-dump)
+    * [db-k8s.get-dump](#db-k8sget-dump)
 
 ## Installation
 
@@ -90,6 +109,29 @@ ns = invoke.Collection(
     saritasa_invocations.github_actions,
     saritasa_invocations.pre_commit,
     saritasa_invocations.system,
+)
+
+# For K8S settings you just need to create a instances of K8SSettings for each
+# environnement. It'll be all collected automatically.
+saritasa_invocations.K8SSettings(
+    name="dev",
+    cluster="teleport.company.somewhere.com",
+    namespace="project_name",
+    proxy="teleport.company.com",
+    db_config=saritasa_invocations.K8SDBSettings(
+        namespace="db",
+        pod_selector="app=pod-selector-db",
+    ),
+)
+saritasa_invocations.K8SSettings(
+    name="prod",
+    cluster="teleport.client.somewhere.com",
+    namespace="project_name",
+    proxy="teleport.client.com",
+    db_config=saritasa_invocations.K8SDBSettings(
+        namespace="db",
+        pod_selector="app=pod-selector-db",
+    ),
 )
 
 # Configurations for run command
@@ -301,6 +343,10 @@ Reset database to initial state (including test DB).
 
 Requires [django-extensions](https://django-extensions.readthedocs.io/en/latest/installation_instructions.html)
 
+Settings:
+
+* `django_settings_path` default django settings (Default: `config.settings.local`)
+
 #### django.createsuperuser
 
 Create superuser.
@@ -334,6 +380,47 @@ Settings:
 #### django.dbshell
 
 Open database shell with credentials from current django settings.
+
+#### django.load-db-dump
+
+Reset db and load db dump.
+
+Uses [resetdb](#djangoresetdb) and [load-db-dump](#dbload-db-dump)
+
+Settings:
+
+* `django_settings_path` default django settings (Default: `config.settings.local`)
+
+#### django.backup-local-db
+
+Back up local db.
+
+Uses [backup_local_db](#dbbackup-local-db)
+
+Settings:
+
+* `django_settings_path` default django settings (Default: `config.settings.local`)
+
+#### django.backup-remote-db
+
+Make dump of remote db and download it.
+
+Uses [create_dump](#db-k8screate-dump) and [get-dump](#db-k8sget-dump)
+
+Settings:
+
+* `django_settings_path` default django settings (Default: `config.settings.local`)
+
+#### django.load-remote-db
+
+Make dump of remote db and download it and apply to local db.
+
+Uses [create_dump](#db-k8screate-dump) and [get-dump](#db-k8sget-dump) and
+[load-db-dump](#djangoload-db-dump)
+
+Settings:
+
+* `django_settings_path` default django settings (Default: `config.settings.local`)
 
 ### fastapi
 
@@ -407,3 +494,127 @@ Settings:
 Check that generated open_api spec is valid. This command uses
 [drf-spectacular](https://github.com/tfranzel/drf-spectacular) and
 it's default validator. It creates spec file in ./tmp folder and then validates it.
+
+### db
+
+#### db.load-db-dump
+
+Load db dump to local db.
+
+Settings:
+
+* `load_dump_command` template for load command(Default located in `_config.pp > dbSettings`)
+* `dump_filename` filename for dump (Default: `local_db_dump`)
+* `load_additional_params` additional params for load command (Default: `--quite`)
+
+#### db.backup-local-db
+
+Back up local db.
+
+Settings:
+
+* `dump_command` template for dump command (Default located in `_config.pp > dbSettings`)
+* `dump_filename` filename for dump (Default: `local_db_dump`)
+* `dump_additional_params` additional params for dump command (Default: `--no-owner`)
+
+### k8s
+
+For K8S settings you just need to create a instances of `K8SSettings` for each
+environnement. It'll be all collected automatically.
+
+#### k8s.login
+
+Login into k8s via teleport.
+
+Settings:
+
+* `proxy` teleport proxy (**REQUIRED**)
+* `port` teleport port (Default: `443`)
+* `auth` teleport auth method (Default: `github`)
+
+#### k8s.set-context
+
+Set k8s context to current project
+
+Settings:
+
+* `namespace` namespace for k8s (Default: Name of project from `project_name`)
+
+#### k8s.logs
+
+Get logs for k8s pod
+
+Settings:
+
+* `default_component` default component (Default: `backend`)
+
+#### k8s.pods
+
+Get pods from k8s.
+
+#### k8s.execute
+
+Execute command inside k8s pod.
+
+Settings:
+
+* `default_component` default component (Default: `backend`)
+* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher bash`)
+
+#### k8s.python-shell
+
+Enter python shell inside k8s pod.
+
+Settings:
+
+* `default_component` default component (Default: `backend`)
+* `python_shell` shell cmd (Default: `shell_plus`)
+
+#### k8s.health-check
+
+Check health of component.
+
+Settings:
+
+* `default_component` default component (Default: `backend`)
+* `health_check` health check cmd (Default: `health_check`)
+
+#### k8s.download-file
+
+Download file from pod.
+
+* `default_component` default component (Default: `backend`)
+
+### db-k8s
+
+While you probably won't use this module directly some other modules
+commands are use it(getting remote db dump)
+
+Make sure to set up these configs:
+
+* `pod_namespace` db namespace (**REQUIRED**)
+* `pod_selector` pod selector for db (**REQUIRED**)
+
+#### db-k8s.create-dump
+
+Execute dump command in db pod.
+
+Settings:
+
+* `pod_namespace` db namespace (**REQUIRED**)
+* `pod_selector` pod selector for db (**REQUIRED**)
+* `pod_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
+* `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
+* `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
+* `dump_additional_params` additional dump commands (Default: `--no-owner`)
+
+#### db-k8s.get-dump
+
+Download db data from db pod if it present
+
+Settings:
+
+* `pod_namespace` db namespace (**REQUIRED**)
+* `pod_selector` pod selector for db (**REQUIRED**)
+* `pod_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
+* `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)

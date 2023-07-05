@@ -39,6 +39,14 @@ invoke = "^2"
 # and for displaying advanced content such as tables, markdown, and syntax highlighted code.
 # https://rich.readthedocs.io/en/stable/introduction.html
 rich = "^13"
+# Decouple helps you to organize your settings so that you can change
+# parameters without having to redeploy your app.
+# Used to get settings from .env files
+# https://github.com/HBNetwork/python-decouple
+python-decouple = {version= "^3", optional = true}
+
+[tool.poetry.extras]
+env_settings = ["python-decouple"]
 
 [tool.poetry.group.dev.dependencies]
 # Improved REPL

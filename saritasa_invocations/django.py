@@ -1,8 +1,9 @@
 import collections.abc
+import os
 
 import invoke
 
-from . import _config, docker, printing, python, system
+from . import _config, db, db_k8s, docker, k8s, printing, python, system
 
 
 def wait_for_database(context: invoke.Context) -> None:
@@ -92,14 +93,8 @@ def resetdb(
 
     """
     printing.print_success("Reset database to its initial state")
-    manage(
-        context,
-        command="drop_test_database --noinput",
-    )
-    manage(
-        context,
-        command="reset_db -c --noinput",
-    )
+    manage(context, command="drop_test_database --noinput")
+    manage(context, command="reset_db -c --noinput")
     if not apply_migrations:
         return
     makemigrations(context)
@@ -207,3 +202,97 @@ def set_default_site(context: invoke.Context) -> None:
             "set_default_site --name localhost:8000 --domain localhost:8000"
         ),
     )
+
+
+@invoke.task
+def load_db_dump(context: invoke.Context, file: str = "") -> None:
+    """Reset db and load db dump."""
+    resetdb(context, apply_migrations=False)
+    db.load_db_dump(
+        context,
+        file=file,
+        **load_django_db_settings(context),
+    )
+
+
+@invoke.task
+def backup_local_db(
+    context: invoke.Context,
+    file: str = "",
+) -> None:
+    """Back up local db."""
+    db.backup_local_db(
+        context,
+        file=file,
+        **load_django_db_settings(context),
+    )
+
+
+@invoke.task
+def backup_remote_db(
+    context: invoke.Context,
+    file: str = "",
+) -> None:
+    """Make dump of remote db and download it."""
+    settings = load_django_remote_env_db_settings(context)
+    db_k8s.create_dump(context, file=file, **settings)
+    db_k8s.get_dump(context, file=file)
+
+
+@invoke.task
+def load_remote_db(
+    context: invoke.Context,
+    file: str = "",
+) -> None:
+    """Make dump of remote db, download it and apply it."""
+    file = backup_remote_db(context, file=file)
+    load_db_dump(context, file=file)
+
+
+def load_django_db_settings(context: invoke.Context) -> dict[str, str]:
+    """Load django settings from settings file (DJANGO_SETTINGS_MODULE)."""
+    config = _config.Config.from_context(context)
+    os.environ["DJANGO_SETTINGS_MODULE"] = config.django.settings_path
+
+    from django.conf import settings
+
+    db_settings = settings.DATABASES["default"]
+    return {
+        "dbname": db_settings["NAME"],
+        "host": db_settings["HOST"],
+        "port": db_settings["PORT"],
+        "username": str(db_settings["USER"]),
+        "password": db_settings["PASSWORD"],
+    }
+
+
+def load_django_remote_env_db_settings(
+    context: invoke.Context,
+) -> dict[str, str]:
+    """Load remote django settings from .env file.
+
+    Requires python-decouple:
+        https://github.com/HBNetwork/python-decouple
+
+    """
+    system.create_tmp_folder(context)
+    env_path = ".tmp/.env.tmp"
+    config = _config.Config.from_context(context)
+    k8s.download_file(
+        context,
+        path_to_file_in_pod=config.django.path_to_remote_config_file,
+        path_to_where_save_file=env_path,
+    )
+
+    # decouple could not be installed during project init
+    # so we import decouple this way because it may not be installed
+    # at the project initialization stage
+
+    import decouple
+
+    env_config = decouple.Config(decouple.RepositoryEnv(env_path))
+    context.run(f"rm {env_path}")
+    return {
+        arg: str(env_config(env_var))
+        for arg, env_var in config.django.remote_db_config_mapping.items()
+    }
