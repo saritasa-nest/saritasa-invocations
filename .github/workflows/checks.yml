@@ -52,4 +52,4 @@ jobs:
         source $VENV && echo PATH=$PATH >> $GITHUB_ENV
     - name: Run checks
       run: |
-        pre-commit run --all-files
+        pre-commit run --hook-stage push --all-files
