@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Improve readme
+- Add alembic invocations
 
 ## 0.2.0
 
