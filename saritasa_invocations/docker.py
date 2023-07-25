@@ -52,10 +52,10 @@ def buildpack(
 
 def docker_compose_run(
     context: invoke.Context,
-    params: str,
+    params: str | None,
     container: str,
     command: str,
-    watchers=(),
+    watchers: typing.Iterable[invoke.StreamWatcher] = (),
 ) -> None:
     """Run ``command`` using docker-compose.
 
@@ -73,8 +73,10 @@ def docker_compose_run(
         watchers: Automated responders to command
 
     """
-    cmd = f"docker-compose run {params} {container} {command}"
-    context.run(cmd, watchers=watchers)
+    context.run(
+        command=f"docker-compose run {params or ''} {container} {command}",
+        watchers=watchers,
+    )
 
 
 def docker_compose_exec(
