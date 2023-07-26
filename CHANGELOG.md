@@ -2,7 +2,7 @@
 
 We follow [Semantic Versions](https://semver.org/).
 
-## Unreleased
+## 0.2.0
 
 - Add python invocations
 - Add django invocations
