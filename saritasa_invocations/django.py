@@ -18,7 +18,7 @@ def wait_for_database(context: invoke.Context) -> None:
         return
     docker.up(context)
     # Not using manage to avoid infinite loop
-    python.run_python(
+    python.run(
         context,
         command="manage.py wait_for_database --stable 0",
     )
@@ -45,7 +45,7 @@ def manage(
 
     """
     wait_for_database(context)
-    python.run_python(
+    python.run(
         context,
         docker_params=docker_params,
         command=f"manage.py {command}",

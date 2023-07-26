@@ -2,6 +2,10 @@
 
 We follow [Semantic Versions](https://semver.org/).
 
+## unreleased
+
+- Improve readme
+
 ## 0.2.0
 
 - Add python invocations

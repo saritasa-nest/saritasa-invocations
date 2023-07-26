@@ -11,6 +11,49 @@
 
 Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
 
+## Table of contents
+
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Modules](#modules)
+  * [system](#system)
+    * [system.copy-local-settings](#systemcopy-local-settings)
+    * [system.copy-vscode-settings](#systemcopy-vscode-settings)
+    * [system.chown](#systemchown)
+    * [system.create-tmp-folder](#systemcreate-tmp-folder)
+  * [git](#git)
+    * [git.set-git-setting](#gitset-git-setting)
+    * [git.setup](#gitsetup)
+  * [pre-commit](#pre-commit)
+    * [pre-commit.install](#pre-commitinstall)
+    * [pre-commit.run-hooks](#pre-commitrun-hooks)
+  * [docker](#docker)
+    * [docker.build-service](#dockerbuild-service)
+    * [docker.buildpack](#dockerbuildpack)
+    * [docker.stop-all-containers](#dockerstop-all-containers)
+    * [docker.up](#dockerup)
+    * [docker.stop](#dockerstop)
+    * [docker.clear](#dockerclear)
+  * [github-actions](#github-actions)
+    * [github-actions.set-up-hosts](#github-actionsset-up-hosts)
+  * [python](#python)
+    * [run](#pythonrun)
+  * [django](#django)
+    * [django.manage](#djangomanage)
+    * [django.makemigrations](#djangomakemigrations)
+    * [django.migrate](#djangomigrate)
+    * [django.resetdb](#djangoresetdb)
+    * [django.createsuperuser](#djangocreatesuperuser)
+    * [django.run](#djangorun)
+    * [django.shell](#djangoshell)
+    * [django.dbshell](#djangodbshell)
+  * [fastapi](#fastapi)
+    * [fastapi.run](#fastapirun)
+  * [celery](#celery)
+    * [celery.run](#celeryrun)
+  * [open-api](#open-api)
+    * [open-api.validate-swagger](#open-apivalidate-swagger)
+
 ## Installation
 
 ```bash
@@ -79,39 +122,41 @@ ns.configure(
 
 ### system
 
-#### copy-local-settings
+#### system.copy-local-settings
 
 Copies local template for settings into specified file
 
 Settings:
+
 * `settings_template` path to settings template (Default: `config/settings/local.template.py`)
 * `save_settings_from_template_to` path to where save settings (Default: `config/settings/local.py`)
 
-#### copy-local-settings
+#### system.copy-vscode-settings
 
 Copies local template for vscode settings into `.vscode` folder
 
 Settings:
+
 * `vs_code_settings_template` path to settings template (Default: `.vscode/recommended_settings.json`)
 
-#### chown
+#### system.chown
 
 Change owner ship of project files to current user.
 
 Shortcut for owning apps dir by current user after some files were
 generated using docker-compose (migrations, new app, etc).
 
-#### create-tmp-folder
+#### system.create-tmp-folder
 
 Create folder for temporary files(`.tmp`).
 
 ### git
 
-#### set-git-setting
+#### git.set-git-setting
 
 Set git setting in config
 
-#### setup
+#### git.setup
 
 Preform setup of git:
 
@@ -120,71 +165,73 @@ Preform setup of git:
 * Set pull.ff
 
 Settings:
+
 * `merge_ff` setting value for `merge.ff` (Default: `false`)
 * `pull_ff` setting value for `pull.ff` (Default: `only`)
 
 ### pre-commit
 
-#### install
+#### pre-commit.install
 
 Install git hooks via pre-commit.
 
 Settings:
+
 * `pre_commit_hooks` list of hooks to install (Default: `["pre-commit", "pre-push", "commit-msg"]`)
 
-#### run-hooks
+#### pre-commit.run-hooks
 
 Run all hooks against all files
 
 ### docker
 
-#### build-service
+#### docker.build-service
 
 Build service image from docker compose
 
-#### buildpack
+#### docker.buildpack
 
 Build project via [pack-cli](https://buildpacks.io/docs/tools/pack/)
 
 Settings:
+
 * `buildpack_builder` image tag of builder (Default: `paketobuildpacks/builder:base`)
 * `buildpack_runner` image tag of runner (Default: `paketobuildpacks/run:base`)
 * `build_image_tag` image tag of builder (Default: Name of project from `project_name`)
 * `buildpack_requirements_path` path to folder with requirements (Default: `requirements`)
 
-#### stop-all-containers
+#### docker.stop-all-containers
 
 Shortcut for stopping ALL running docker containers
 
-#### up
+#### docker.up
 
 Bring up main containers and start them.
 
 Settings:
+
 * `docker_main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
-#### stop
+#### docker.stop
 
 Stop main containers.
 
 Settings:
+
 * `docker_main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
-#### clear
+#### docker.clear
 
 Stop and remove all containers defined in docker-compose. Also remove images.
 
 ### github-actions
 
-#### set-up-host
-
-Set up host in `/etc/hosts`
-
-#### set-up-hosts
+#### github-actions.set-up-hosts
 
 Add hosts to `/etc/hosts`.
 
 Settings:
+
 * `github_action_hosts` image tag of builder (Default: see `docker-main-containers`)
 
 ### python
@@ -202,18 +249,19 @@ Example of usage
 PYTHON_ENV=docker inv python.run-python --command="--version"
 ```
 
-#### run_python
+#### python.run
 
 Run python command depending on `PYTHON_ENV` variable(`docker` or `local`).
 
 Settings:
+
 * `python_entry` python entry command (Default: `python`)
 * `python_docker_service` python service name (Default: `web`)
 * `python_docker_service_params` params for docker (Default: `--rm`)
 
 ### django
 
-#### manage
+#### django.manage
 
 Run `manage.py` with specified command.
 
@@ -222,66 +270,71 @@ be ready.
 
 Requires [django_probes](https://github.com/painless-software/django-probes#basic-usage)
 
-#### makemigrations
+#### django.makemigrations
 
 Run `makemigrations` command and chown created migrations (only for docker env).
 
-#### check_new_migrations
+#### django.check_new_migrations
 
 Check if there is new migrations or not. Result should be check via exit code.
 
-#### migrate
+#### django.migrate
 
 Run `migrate` command.
 
 Settings:
+
 * `django_migrate_command` migrate command (Default: `migrate`)
 
-#### resetdb
+#### django.resetdb
 
 Reset database to initial state (including test DB).
 
 Requires [django-extensions](https://django-extensions.readthedocs.io/en/latest/installation_instructions.html)
 
 
-#### createsuperuser
+#### django.createsuperuser
 
 Create superuser.
 
 Settings:
+
 * `default_superuser_email` default email of superuser (Default: `root@localhost`)
 * `default_superuser_username` default username of superuser (Default: `root`)
 * `default_superuser_password` default password of superuser (Default: `root`)
 
-#### run
+#### django.run
 
 Run development web-server.
 
 Settings:
+
 * `runserver_docker_params` params for docker (Default: `--rm --service-ports`)
 * `runserver_command` runserver command (Default: `runserver_plus`)
 * `runserver_host` host of server (Default: `0.0.0.0`)
 * `runserver_port` port of server (Default: `8000`)
 * `runserver_params` params for runserver command (Default: `""`)
 
-#### shell
+#### django.shell
 
 Shortcut for manage.py shell command.
 
 Settings:
+
 * `shell_command` command to start python shell (Default: `shell_plus --ipython`)
 
-#### dbshell
+#### django.dbshell
 
 Open database shell with credentials from current django settings.
 
 ### fastapi
 
-#### run
+#### fastapi.run
 
 Run development web-server.
 
 Settings:
+
 * `fastapi_docker_params` params for docker (Default: `--rm --service-ports`)
 * `fastapi_uvicorn_command` uvicorn command (Default: `-m uvicorn`)
 * `fastapi_app` path to fastapi app (Default: `config:fastapi_app`)
@@ -289,20 +342,20 @@ Settings:
 * `fastapi_port` port of server (Default: `8000`)
 * `fastapi_params` params for uvicorn (Default: `--reload`)
 
-
 ### celery
 
-#### run
+#### celery.run
 
 Start celery worker.
 
 Settings:
+
 * `celery_local_cmd` command for celery (Default: `celery --app config.celery:app worker --beat --scheduler=django --loglevel=info`)
 * `celery_service_name` name of celery service (Default: `celery`)
 
 ### open-api
 
-#### validate-swagger
+#### open-api.validate-swagger
 
 Check that generated open_api spec is valid. This command uses
 [drf-spectacular](https://github.com/tfranzel/drf-spectacular) and

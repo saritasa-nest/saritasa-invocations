@@ -85,7 +85,7 @@ def run_local_python(
 
 
 @invoke.task
-def run_python(
+def run(
     context: invoke.Context,
     command: str,
     docker_params: str | None = None,
