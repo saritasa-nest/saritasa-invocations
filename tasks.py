@@ -1,6 +1,7 @@
 import invoke
 
 from saritasa_invocations import (
+    alembic,
     celery,
     django,
     docker,
@@ -14,6 +15,7 @@ from saritasa_invocations import (
 )
 
 ns = invoke.Collection(
+    alembic,
     celery,
     django,
     docker,

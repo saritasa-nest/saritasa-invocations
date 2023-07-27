@@ -1,4 +1,5 @@
 from saritasa_invocations import (
+    alembic,
     celery,
     django,
     docker,
