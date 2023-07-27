@@ -18,7 +18,7 @@ def run(context) -> None:
     params = config.get("fastapi_params", "--reload")
 
     command = f"{uvicorn_command} {app} --host {host} --port {port} {params}"
-    python.run_python(
+    python.run(
         context,
         docker_params=docker_params,
         command=command,
