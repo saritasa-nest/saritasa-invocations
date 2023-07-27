@@ -1,6 +1,7 @@
 from saritasa_invocations import (
     alembic,
     celery,
+    cruft,
     db,
     db_k8s,
     django,
@@ -18,6 +19,7 @@ from saritasa_invocations._config import (
     AlembicSettings,
     CelerySettings,
     Config,
+    CruftSettings,
     DBSettings,
     DjangoSettings,
     DockerSettings,

@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add cruft invocations
+
 ## 0.5.3
 
 - Fix `django.backup_remote_db`

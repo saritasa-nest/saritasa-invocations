@@ -80,6 +80,9 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
   * [db-k8s](#db-k8s)
     * [db-k8s.create-dump](#db-k8screate-dump)
     * [db-k8s.get-dump](#db-k8sget-dump)
+  * [cruft](#cruft)
+    * [cruft.check-for-cruft-files](#cruftcheck-for-cruft-files)
+    * [cruft.create_project](#cruftcreate_project)
 
 ## Installation
 
@@ -628,3 +631,17 @@ Settings:
 * `pod_selector` pod selector for db (**REQUIRED**)
 * `pod_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
 * `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
+
+### cruft
+
+[Cruft](https://cruft.github.io/cruft/) is a tool used to synchronize changes
+with cookiecutter based boilerplates.
+
+#### cruft.check-for-cruft-files
+
+Check that there are no cruft files (`*.rej`).
+
+### cruft.create_project
+
+**Not invocation**, but a shortcut for creating cruft projects for testing
+boilerplates
