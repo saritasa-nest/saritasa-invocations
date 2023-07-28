@@ -80,22 +80,16 @@ Configuration can be set in `tasks.py` file.
 Below is an example of config:
 
 ```python
-from invoke import Collection
+import invoke
 
-from saritasa_invocations import (
-    docker,
-    git,
-    github_actions,
-    pre_commit,
-    system,
-)
+import saritasa_invocations
 
-ns = Collection(
-    docker,
-    git,
-    github_actions,
-    pre_commit,
-    system,
+ns = invoke.Collection(
+    saritasa_invocations.docker,
+    saritasa_invocations.git,
+    saritasa_invocations.github_actions,
+    saritasa_invocations.pre_commit,
+    saritasa_invocations.system,
 )
 
 # Configurations for run command
@@ -105,22 +99,22 @@ ns.configure(
             pty=True,
             echo=True,
         ),
-        saritasa_invocations={
-            "pre_commit_hooks": (
+        saritasa_invocations=saritasa_invocations.Config(
+            pre_commit_hooks=(
                 "pre-commit",
                 "pre-push",
                 "commit-msg",
             ),
-            "merge_ff": "true",
-            "pull_ff": "only",
-            "docker_main_containers": (
+            merge_ff="true",
+            pull_ff="only",
+            docker_main_containers= (
                 "opensearch",
                 "redis",
             ),
-            "vs_code_settings_template": ".vscode/recommended_settings.json",
-            "settings_template": "config/.env.local",
-            "save_settings_from_template_to": "config/.env",
-        },
+            vs_code_settings_template=".vscode/recommended_settings.json",
+            settings_template="config/.env.local",
+            save_settings_from_template_to="config/.env",
+        ),
     ),
 )
 ```
@@ -327,7 +321,7 @@ Shortcut for manage.py shell command.
 
 Settings:
 
-* `shell_command` command to start python shell (Default: `shell_plus --ipython`)
+* `django_shell_command` command to start python shell (Default: `shell_plus --ipython`)
 
 #### django.dbshell
 

@@ -2,7 +2,7 @@ import typing
 
 import invoke
 
-from . import docker, printing, python, system
+from . import _config, docker, printing, python, system
 
 
 def wait_for_database(context: invoke.Context) -> None:
@@ -30,7 +30,7 @@ def manage(
     context: invoke.Context,
     command: str,
     docker_params: str | None = None,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: typing.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run `manage.py` command.
 
@@ -76,9 +76,11 @@ def check_new_migrations(context: invoke.Context) -> None:
 def migrate(context: invoke.Context) -> None:
     """Run `migrate` command."""
     printing.print_success("Django: Apply migrations")
-    config = context.config.get("saritasa_invocations", {})
-    command = config.get("django_migrate_command", "migrate")
-    manage(context, command=command)
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
+    manage(context, command=config.django_migrate_command)
 
 
 @invoke.task
@@ -118,22 +120,22 @@ def createsuperuser(
 ) -> None:
     """Create superuser."""
     printing.print_success("Django: Create superuser")
-    config = context.config.get("saritasa_invocations", {})
-    email = email or config.get("root_email", "root@localhost")
-    username = username or config.get("root_username", "root")
-    password = password or config.get("root_password", "root")
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     responder_email = invoke.FailingResponder(
         pattern=r"Email address: ",
-        response=email + "\n",
+        response=(email or config.default_superuser_email) + "\n",
         sentinel="That Email address is already taken.",
     )
     responder_user_name = invoke.Responder(
         pattern=r"Username: ",
-        response=username + "\n",
+        response=(username or config.default_superuser_username) + "\n",
     )
     responder_password = invoke.Responder(
         pattern=r"(Password: )|(Password \(again\): )",
-        response=password + "\n",
+        response=(password or config.default_superuser_password) + "\n",
     )
 
     try:
@@ -156,19 +158,19 @@ def createsuperuser(
 def run(context: invoke.Context) -> None:
     """Run development web-server."""
     printing.print_success("Running app")
-    config = context.config.get("saritasa_invocations", {})
-    docker_params = config.get(
-        "runserver_docker_params",
-        "--rm --service-ports",
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
     )
-    command = config.get("runserver_command", "runserver_plus")
-    host = config.get("runserver_host", "0.0.0.0")
-    port = config.get("runserver_port", "8000")
-    params = config.get("runserver_params", "")
     manage(
         context,
-        docker_params=docker_params,
-        command=f"{command} {host}:{port} {params}",
+        docker_params=config.runserver_docker_params,
+        command="{command} {host}:{port} {params}".format(
+            command=config.runserver_command,
+            host=config.runserver_host,
+            port=config.runserver_port,
+            params=config.runserver_params,
+        ),
     )
 
 
@@ -187,11 +189,13 @@ def shell(
 
     """
     printing.print_success("Entering Django Shell")
-    config = context.config.get("saritasa_invocations", {})
-    command = config.get("shell_command", "shell_plus --ipython")
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     manage(
         context,
-        command=f"{command} {params}",
+        command=f"{config.django_shell_command} {params}",
     )
 
 

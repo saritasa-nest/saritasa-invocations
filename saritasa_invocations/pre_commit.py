@@ -1,23 +1,17 @@
 import invoke
 
-from . import printing
+from . import _config, printing
 
 
 @invoke.task
 def install(context: invoke.Context) -> None:
     """Install git hooks via pre-commit."""
     printing.print_success("Setting up pre-commit")
-    hooks = " ".join(
-        f"--hook-type {hook}"
-        for hook in context.config.get("saritasa_invocations", {}).get(
-            "pre_commit_hooks",
-            (
-                "pre-commit",
-                "pre-push",
-                "commit-msg",
-            ),
-        )
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
     )
+    hooks = " ".join(f"--hook-type {hook}" for hook in config.pre_commit_hooks)
     context.run(f"pre-commit install {hooks}")
 
 

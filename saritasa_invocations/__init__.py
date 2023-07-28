@@ -11,6 +11,7 @@ from saritasa_invocations import (
     python,
     system,
 )
+from saritasa_invocations._config import Config
 from saritasa_invocations.printing import (
     print_error,
     print_panel,

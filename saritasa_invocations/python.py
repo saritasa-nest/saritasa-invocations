@@ -4,7 +4,7 @@ import typing
 
 import invoke
 
-from . import docker
+from . import _config, docker
 
 
 class StrEnum(str, enum.Enum):
@@ -40,14 +40,16 @@ def run_docker(
     watchers: typing.Iterable[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command in `python` container."""
-    config = context.config.get("saritasa_invocations", {})
-    python_docker_service = config.get("python_docker_service", "web")
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     if params is None:
-        params = config.get("python_docker_service_params", "--rm")
+        params = config.python_docker_service_params
     docker.docker_compose_run(
         context,
         params=params,
-        container=python_docker_service,
+        container=config.python_docker_service,
         command=command,
         watchers=watchers,
     )
@@ -60,12 +62,14 @@ def run_docker_python(
     watchers: typing.Iterable[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command using docker python interpreter."""
-    config = context.config.get("saritasa_invocations", {})
-    python_entry = config.get("python_entry", "python")
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     run_docker(
         context=context,
         params=params,
-        command=f"{python_entry} {command}",
+        command=f"{config.python_entry} {command}",
         watchers=watchers,
     )
 
@@ -76,10 +80,12 @@ def run_local_python(
     watchers: typing.Iterable[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command using local python interpreter."""
-    config = context.config.get("saritasa_invocations", {})
-    python_entry = config.get("python_entry", "python")
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     context.run(
-        command=f"{python_entry} {command}",
+        command=f"{config.python_entry} {command}",
         watchers=watchers,
     )
 

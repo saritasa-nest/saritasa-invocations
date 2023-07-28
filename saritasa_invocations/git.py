@@ -1,6 +1,6 @@
 import invoke
 
-from . import pre_commit, printing
+from . import _config, pre_commit, printing
 
 
 @invoke.task
@@ -9,11 +9,20 @@ def setup(context: invoke.Context) -> None:
     printing.print_success("Setting up git and pre-commit")
     pre_commit.install(context)
 
-    config = context.config.get("saritasa_invocations", {})
-    merge_ff = config.get("merge_ff", "false")
-    set_git_setting(context, setting="merge.ff", value=merge_ff)
-    pull_ff = config.get("pull_ff", "only")
-    set_git_setting(context, setting="pull.ff", value=pull_ff)
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
+    set_git_setting(
+        context,
+        setting="merge.ff",
+        value=config.merge_ff,
+    )
+    set_git_setting(
+        context,
+        setting="pull.ff",
+        value=config.pull_ff,
+    )
 
 
 def set_git_setting(

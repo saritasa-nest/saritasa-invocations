@@ -3,7 +3,7 @@ import typing
 
 import invoke
 
-from . import printing
+from . import _config, printing
 
 
 @invoke.task
@@ -22,31 +22,21 @@ def buildpack(
     tag: str = "",
 ) -> None:
     """Build app image using buildpacks."""
-    config = context.config.get("saritasa_invocations", {})
-    builder = builder or config.get(
-        "buildpack_builder",
-        "paketobuildpacks/builder:base",
-    )
-    runner = runner or config.get(
-        "buildpack_runner",
-        "paketobuildpacks/run:base",
-    )
-    tag = tag or config.get("build_image_tag") or config.get("project_name")
-    buildpack_requirements_path = config.get(
-        "buildpack_requirements_path",
-        "requirements",
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
     )
     # Builder needs requirements.txt
-    if buildpack_requirements_path and os.path.exists(
-        buildpack_requirements_path,
-    ):
+    if os.path.exists(config.buildpack_requirements_path):
         context.run(
-            f"cp {buildpack_requirements_path}/{env}.txt requirements.txt",
+            f"cp {config.buildpack_requirements_path}/{env}.txt "
+            "requirements.txt",
         )
+    builder = builder or config.buildpack_builder
+    runner = runner or config.buildpack_runner
+    tag = tag or config.build_image_tag
     context.run(f"pack build --builder={builder} --run-image={runner} {tag}")
-    if buildpack_requirements_path and os.path.exists(
-        buildpack_requirements_path,
-    ):
+    if os.path.exists(config.buildpack_requirements_path):
         context.run("rm requirements.txt")
 
 
@@ -159,16 +149,13 @@ def stop_containers(
 @invoke.task
 def up(context: invoke.Context) -> None:
     """Bring up main containers and start them."""
-    config = context.config.get("saritasa_invocations", {})
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     up_containers(
         context,
-        containers=config.get(
-            "docker_main_containers",
-            (
-                "postgres",
-                "redis",
-            ),
-        ),
+        containers=config.docker_main_containers,
         detach=True,
     )
 
@@ -176,16 +163,13 @@ def up(context: invoke.Context) -> None:
 @invoke.task
 def stop(context: invoke.Context) -> None:
     """Stop main containers."""
-    config = context.config.get("saritasa_invocations", {})
+    config: _config.Config = context.config.get(
+        "saritasa_invocations",
+        _config.Config(),
+    )
     stop_containers(
         context,
-        containers=config.get(
-            "docker_main_containers",
-            (
-                "postgres",
-                "redis",
-            ),
-        ),
+        containers=config.docker_main_containers,
     )
 
 
