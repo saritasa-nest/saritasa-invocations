@@ -7,11 +7,8 @@ from . import _config, printing
 def install(context: invoke.Context) -> None:
     """Install git hooks via pre-commit."""
     printing.print_success("Setting up pre-commit")
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
-    hooks = " ".join(f"--hook-type {hook}" for hook in config.pre_commit_hooks)
+    config = _config.Config.from_context(context)
+    hooks = " ".join(f"--hook-type {hook}" for hook in config.pre_commit.hooks)
     context.run(f"pre-commit install {hooks}")
 
 

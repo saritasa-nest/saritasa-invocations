@@ -9,19 +9,16 @@ def setup(context: invoke.Context) -> None:
     printing.print_success("Setting up git and pre-commit")
     pre_commit.install(context)
 
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     set_git_setting(
         context,
         setting="merge.ff",
-        value=config.merge_ff,
+        value=config.git.merge_ff,
     )
     set_git_setting(
         context,
         setting="pull.ff",
-        value=config.pull_ff,
+        value=config.git.pull_ff,
     )
 
 

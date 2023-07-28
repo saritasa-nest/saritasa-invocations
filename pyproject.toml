@@ -68,6 +68,9 @@ flake8-docstrings = "^1.7.0"
 # A flake8 plugin loading the configuration from pyproject.toml
 # https://github.com/john-hen/Flake8-pyproject
 flake8-pyproject = "^1.2.3"
+# flake8 plugin to validate type annotations accoring to modern practices.
+# https://github.com/plinss/flake8-modern-annotations
+flake8-modern-annotations = "^1.5.0"
 # McCabe complexity checker.
 # https://github.com/PyCQA/mccabe
 mccabe = "^0.7.0"

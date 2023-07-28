@@ -8,11 +8,8 @@ def set_up_hosts(context: invoke.Context) -> None:
     """Add hosts to /etc/hosts."""
     printing.print_success("Setting up hosts")
 
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
-    for host in config.github_action_hosts:
+    config = _config.Config.from_context(context)
+    for host in config.github_actions.hosts:
         set_up_host(context, host=host)
 
 

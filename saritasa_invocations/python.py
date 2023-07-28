@@ -1,6 +1,6 @@
+import collections.abc
 import enum
 import os
-import typing
 
 import invoke
 
@@ -37,19 +37,16 @@ def run_docker(
     context: invoke.Context,
     command: str,
     params: str | None = None,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command in `python` container."""
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     if params is None:
-        params = config.python_docker_service_params
+        params = config.python.docker_service_params
     docker.docker_compose_run(
         context,
         params=params,
-        container=config.python_docker_service,
+        container=config.python.docker_service,
         command=command,
         watchers=watchers,
     )
@@ -59,17 +56,14 @@ def run_docker_python(
     context: invoke.Context,
     command: str,
     params: str | None = None,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command using docker python interpreter."""
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     run_docker(
         context=context,
         params=params,
-        command=f"{config.python_entry} {command}",
+        command=f"{config.python.entry} {command}",
         watchers=watchers,
     )
 
@@ -77,15 +71,12 @@ def run_docker_python(
 def run_local_python(
     context: invoke.Context,
     command: str,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run command using local python interpreter."""
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     context.run(
-        command=f"{config.python_entry} {command}",
+        command=f"{config.python.entry} {command}",
         watchers=watchers,
     )
 
@@ -95,7 +86,7 @@ def run(
     context: invoke.Context,
     command: str,
     docker_params: str | None = None,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Execute python command."""
     match get_python_env():

@@ -25,10 +25,12 @@ ns.configure(
         ),
         saritasa_invocations=saritasa_invocations.Config(
             project_name="saritasa_invocations",
-            pre_commit_hooks=(
-                "pre-commit",
-                "pre-push",
-                "commit-msg",
+            pre_commit=saritasa_invocations.PreCommitSettings(
+                hooks=(
+                    "pre-commit",
+                    "pre-push",
+                    "commit-msg",
+                ),
             ),
         ),
     ),

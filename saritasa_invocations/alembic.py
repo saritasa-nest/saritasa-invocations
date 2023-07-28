@@ -8,13 +8,10 @@ from . import _config, printing, python
 @invoke.task
 def run(context: invoke.Context, command: str) -> None:
     """Execute alembic command."""
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     python.run(
         context,
-        command=f"{config.alembic_command} {command}",
+        command=f"{config.alembic.command} {command}",
     )
 
 
@@ -39,14 +36,11 @@ def autogenerate(
             ),
         )
     printing.print_success("Autogenerate migrations")
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
+    config = _config.Config.from_context(context)
+    migrations_files = tuple(
+        pathlib.Path(config.alembic.migrations_folder).glob("*.py"),
     )
-    rev_id = str(
-        len(tuple(pathlib.Path(config.alembic_migrations_folder).glob("*.py")))
-        + 1,
-    )
+    rev_id = str(len(migrations_files) + 1)
     rev_id = rev_id.rjust(4, "0")
     command = (
         f'revision --autogenerate --message "{message}" --rev-id={rev_id}'
@@ -106,24 +100,21 @@ def check_for_adjust_messages(
 ) -> None:
     """Check migration files for adjust messages."""
     printing.print_success("Checking migration files for adjust messages")
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     files_to_clean = []
-    for filepath in pathlib.Path(config.alembic_migrations_folder).glob(
+    for filepath in pathlib.Path(config.alembic.migrations_folder).glob(
         "*.py",
     ):
         with open(filepath) as migration_file:
             file_text = migration_file.read()
-            for adjust_message in config.alembic_adjust_messages:
+            for adjust_message in config.alembic.adjust_messages:
                 if adjust_message in file_text:
                     files_to_clean.append(str(filepath))
                     break
 
     if files_to_clean:
         log_files_msg = "\n\t".join(files_to_clean)
-        log_messages = "\n".join(config.alembic_adjust_messages)
+        log_messages = "\n".join(config.alembic.adjust_messages)
         printing.print_error(
             f"Adjust messages found in this migration files:\n"
             f"\t{log_files_msg}\n"

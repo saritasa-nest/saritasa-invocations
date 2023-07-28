@@ -16,14 +16,11 @@ def copy_local_settings(
         force_update: rewrite file if exists or not
 
     """
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     _rewrite_file(
         context=context,
-        from_path=config.settings_template,
-        to_path=config.save_settings_from_template_to,
+        from_path=config.system.settings_template,
+        to_path=config.system.save_settings_from_template_to,
         force_update=force_update,
     )
 
@@ -39,13 +36,10 @@ def copy_vscode_settings(
         force_update: rewrite file if exists or not
 
     """
-    config: _config.Config = context.config.get(
-        "saritasa_invocations",
-        _config.Config(),
-    )
+    config = _config.Config.from_context(context)
     _rewrite_file(
         context=context,
-        from_path=config.vs_code_settings_template,
+        from_path=config.system.vs_code_settings_template,
         to_path=".vscode/settings.json",
         force_update=force_update,
     )
