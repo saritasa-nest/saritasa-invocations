@@ -147,6 +147,8 @@ def stop_containers(
 def up(context: invoke.Context) -> None:
     """Bring up main containers and start them."""
     config = _config.Config.from_context(context)
+    if not config.docker.main_containers:
+        return
     up_containers(
         context,
         containers=config.docker.main_containers,
