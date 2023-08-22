@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.4.0
+
+- rework configuration
+
 ## 0.3.0
 
 - Improve readme
