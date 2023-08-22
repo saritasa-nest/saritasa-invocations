@@ -80,48 +80,50 @@ Configuration can be set in `tasks.py` file.
 Below is an example of config:
 
 ```python
-from invoke import Collection
+import invoke
 
-from saritasa_invocations import (
-    docker,
-    git,
-    github_actions,
-    pre_commit,
-    system,
-)
+import saritasa_invocations
 
-ns = Collection(
-    docker,
-    git,
-    github_actions,
-    pre_commit,
-    system,
+ns = invoke.Collection(
+    saritasa_invocations.docker,
+    saritasa_invocations.git,
+    saritasa_invocations.github_actions,
+    saritasa_invocations.pre_commit,
+    saritasa_invocations.system,
 )
 
 # Configurations for run command
 ns.configure(
-    dict(
-        run=dict(
-            pty=True,
-            echo=True,
-        ),
-        saritasa_invocations={
-            "pre_commit_hooks": (
-                "pre-commit",
-                "pre-push",
-                "commit-msg",
-            ),
-            "merge_ff": "true",
-            "pull_ff": "only",
-            "docker_main_containers": (
-                "opensearch",
-                "redis",
-            ),
-            "vs_code_settings_template": ".vscode/recommended_settings.json",
-            "settings_template": "config/.env.local",
-            "save_settings_from_template_to": "config/.env",
+    {
+        "run": {
+            "pty": True,
+            "echo": True,
         },
-    ),
+        "saritasa_invocations": saritasa_invocations.Config(
+            pre_commit=saritasa_invocations.PreCommitSettings(
+                hooks=(
+                    "pre-commit",
+                    "pre-push",
+                    "commit-msg",
+                )
+            ),
+            git=saritasa_invocations.GitSettings(
+                merge_ff="true",
+                pull_ff="only",
+            ),
+            docker=saritasa_invocations.DockerSettings(
+                main_containers=(
+                    "opensearch",
+                    "redis",
+                ),
+            ),
+            system=saritasa_invocations.SystemSettings(
+                vs_code_settings_template=".vscode/recommended_settings.json",
+                settings_template="config/.env.local",
+                save_settings_from_template_to="config/.env",
+            ),
+        ),
+    },
 )
 ```
 
@@ -184,7 +186,7 @@ Install git hooks via pre-commit.
 
 Settings:
 
-* `pre_commit_hooks` list of hooks to install (Default: `["pre-commit", "pre-push", "commit-msg"]`)
+* `hooks` list of hooks to install (Default: `["pre-commit", "pre-push", "commit-msg"]`)
 
 #### pre-commit.run-hooks
 
@@ -217,7 +219,7 @@ Bring up main containers and start them.
 
 Settings:
 
-* `docker_main_containers` image tag of builder (Default: `["postgres", "redis"]`)
+* `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
 #### docker.stop
 
@@ -225,7 +227,7 @@ Stop main containers.
 
 Settings:
 
-* `docker_main_containers` image tag of builder (Default: `["postgres", "redis"]`)
+* `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
 #### docker.clear
 
@@ -239,7 +241,7 @@ Add hosts to `/etc/hosts`.
 
 Settings:
 
-* `github_action_hosts` image tag of builder (Default: see `docker-main-containers`)
+* `hosts` image tag of builder (Default: see `docker-main-containers`)
 
 ### python
 
@@ -262,9 +264,9 @@ Run python command depending on `PYTHON_ENV` variable(`docker` or `local`).
 
 Settings:
 
-* `python_entry` python entry command (Default: `python`)
-* `python_docker_service` python service name (Default: `web`)
-* `python_docker_service_params` params for docker (Default: `--rm`)
+* `entry` python entry command (Default: `python`)
+* `docker_service` python service name (Default: `web`)
+* `docker_service_params` params for docker (Default: `--rm`)
 
 ### django
 
@@ -291,7 +293,7 @@ Run `migrate` command.
 
 Settings:
 
-* `django_migrate_command` migrate command (Default: `migrate`)
+* `migrate_command` migrate command (Default: `migrate`)
 
 #### django.resetdb
 
@@ -341,12 +343,12 @@ Run development web-server.
 
 Settings:
 
-* `fastapi_docker_params` params for docker (Default: `--rm --service-ports`)
-* `fastapi_uvicorn_command` uvicorn command (Default: `-m uvicorn`)
-* `fastapi_app` path to fastapi app (Default: `config:fastapi_app`)
-* `fastapi_host` host of server (Default: `0.0.0.0`)
-* `fastapi_port` port of server (Default: `8000`)
-* `fastapi_params` params for uvicorn (Default: `--reload`)
+* `docker_params` params for docker (Default: `--rm --service-ports`)
+* `uvicorn_command` uvicorn command (Default: `-m uvicorn`)
+* `app` path to fastapi app (Default: `config:fastapi_app`)
+* `host` host of server (Default: `0.0.0.0`)
+* `port` port of server (Default: `8000`)
+* `params` params for uvicorn (Default: `--reload`)
 
 ### alembic
 
@@ -356,7 +358,7 @@ Run alembic command
 
 Settings:
 
-* `alembic_command` alembic command (Default: `-m alembic`)
+* `command` alembic command (Default: `-m alembic`)
 
 #### alembic.autogenerate
 
@@ -364,7 +366,7 @@ Generate migrations
 
 Settings:
 
-* `alembic_migrations_folder` migrations files location (Default: `db/migrations/versions`)
+* `migrations_folder` migrations files location (Default: `db/migrations/versions`)
 
 #### alembic.upgrade
 
@@ -384,8 +386,8 @@ Check migration files for adjust messages
 
 Settings:
 
-* `alembic_migrations_folder` migrations files location (Default: `db/migrations/versions`)
-* `alembic_adjust_messages` list of alembic adjust messages (Default: `# ### commands auto generated by Alembic - please adjust! ###`, `# ### end Alembic commands ###`)
+* `migrations_folder` migrations files location (Default: `db/migrations/versions`)
+* `adjust_messages` list of alembic adjust messages (Default: `# ### commands auto generated by Alembic - please adjust! ###`, `# ### end Alembic commands ###`)
 
 ### celery
 
@@ -395,8 +397,8 @@ Start celery worker.
 
 Settings:
 
-* `celery_local_cmd` command for celery (Default: `celery --app config.celery:app worker --beat --scheduler=django --loglevel=info`)
-* `celery_service_name` name of celery service (Default: `celery`)
+* `local_cmd` command for celery (Default: `celery --app config.celery:app worker --beat --scheduler=django --loglevel=info`)
+* `service_name` name of celery service (Default: `celery`)
 
 ### open-api
 

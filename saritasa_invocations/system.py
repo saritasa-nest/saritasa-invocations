@@ -2,6 +2,8 @@ import os
 
 import invoke
 
+from . import _config
+
 
 @invoke.task
 def copy_local_settings(
@@ -14,17 +16,11 @@ def copy_local_settings(
         force_update: rewrite file if exists or not
 
     """
-    config = context.config.get("saritasa_invocations", {})
+    config = _config.Config.from_context(context)
     _rewrite_file(
         context=context,
-        from_path=config.get(
-            "settings_template",
-            "config/settings/local.template.py",
-        ),
-        to_path=config.get(
-            "save_settings_from_template_to",
-            "config/settings/local.py",
-        ),
+        from_path=config.system.settings_template,
+        to_path=config.system.save_settings_from_template_to,
         force_update=force_update,
     )
 
@@ -40,13 +36,10 @@ def copy_vscode_settings(
         force_update: rewrite file if exists or not
 
     """
-    config = context.config.get("saritasa_invocations", {})
+    config = _config.Config.from_context(context)
     _rewrite_file(
         context=context,
-        from_path=config.get(
-            "vs_code_settings_template",
-            ".vscode/recommended_settings.json",
-        ),
+        from_path=config.system.vs_code_settings_template,
         to_path=".vscode/settings.json",
         force_update=force_update,
     )

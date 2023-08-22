@@ -52,6 +52,9 @@ repos:
           # A flake8 plugin loading the configuration from pyproject.toml
           # https://github.com/john-hen/Flake8-pyproject
           flake8-pyproject,
+          # flake8 plugin to validate type annotations according to modern practices.
+          # https://github.com/plinss/flake8-modern-annotations
+          flake8-modern-annotations,
           # McCabe complexity checker.
           # https://github.com/PyCQA/mccabe
           mccabe,

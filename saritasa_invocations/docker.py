@@ -1,9 +1,9 @@
+import collections.abc
 import os
-import typing
 
 import invoke
 
-from . import printing
+from . import _config, printing
 
 
 @invoke.task
@@ -22,31 +22,18 @@ def buildpack(
     tag: str = "",
 ) -> None:
     """Build app image using buildpacks."""
-    config = context.config.get("saritasa_invocations", {})
-    builder = builder or config.get(
-        "buildpack_builder",
-        "paketobuildpacks/builder:base",
-    )
-    runner = runner or config.get(
-        "buildpack_runner",
-        "paketobuildpacks/run:base",
-    )
-    tag = tag or config.get("build_image_tag") or config.get("project_name")
-    buildpack_requirements_path = config.get(
-        "buildpack_requirements_path",
-        "requirements",
-    )
+    config = _config.Config.from_context(context)
     # Builder needs requirements.txt
-    if buildpack_requirements_path and os.path.exists(
-        buildpack_requirements_path,
-    ):
+    if os.path.exists(config.docker.buildpack_requirements_path):
         context.run(
-            f"cp {buildpack_requirements_path}/{env}.txt requirements.txt",
+            f"cp {config.docker.buildpack_requirements_path}/{env}.txt "
+            "requirements.txt",
         )
+    builder = builder or config.docker.buildpack_builder
+    runner = runner or config.docker.buildpack_runner
+    tag = tag or config.docker.build_image_tag
     context.run(f"pack build --builder={builder} --run-image={runner} {tag}")
-    if buildpack_requirements_path and os.path.exists(
-        buildpack_requirements_path,
-    ):
+    if os.path.exists(config.docker.buildpack_requirements_path):
         context.run("rm requirements.txt")
 
 
@@ -55,7 +42,7 @@ def docker_compose_run(
     params: str | None,
     container: str,
     command: str,
-    watchers: typing.Iterable[invoke.StreamWatcher] = (),
+    watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run ``command`` using docker-compose.
 
@@ -110,7 +97,7 @@ def stop_all_containers(context: invoke.Context) -> None:
 
 def up_containers(
     context: invoke.Context,
-    containers: typing.Iterable[str],
+    containers: collections.abc.Sequence[str],
     detach: bool = True,
     stop_others: bool = True,
     **kwargs,
@@ -149,7 +136,7 @@ def up_containers(
 
 def stop_containers(
     context: invoke.Context,
-    containers: typing.Iterable[str],
+    containers: collections.abc.Sequence[str],
 ) -> None:
     """Stop containers."""
     printing.print_success(f"Stopping {' '.join(containers)} containers")
@@ -159,16 +146,10 @@ def stop_containers(
 @invoke.task
 def up(context: invoke.Context) -> None:
     """Bring up main containers and start them."""
-    config = context.config.get("saritasa_invocations", {})
+    config = _config.Config.from_context(context)
     up_containers(
         context,
-        containers=config.get(
-            "docker_main_containers",
-            (
-                "postgres",
-                "redis",
-            ),
-        ),
+        containers=config.docker.main_containers,
         detach=True,
     )
 
@@ -176,16 +157,10 @@ def up(context: invoke.Context) -> None:
 @invoke.task
 def stop(context: invoke.Context) -> None:
     """Stop main containers."""
-    config = context.config.get("saritasa_invocations", {})
+    config = _config.Config.from_context(context)
     stop_containers(
         context,
-        containers=config.get(
-            "docker_main_containers",
-            (
-                "postgres",
-                "redis",
-            ),
-        ),
+        containers=config.docker.main_containers,
     )
 
 

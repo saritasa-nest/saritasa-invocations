@@ -1,6 +1,6 @@
 import invoke
 
-from . import printing
+from . import _config, printing
 
 
 @invoke.task
@@ -8,18 +8,8 @@ def set_up_hosts(context: invoke.Context) -> None:
     """Add hosts to /etc/hosts."""
     printing.print_success("Setting up hosts")
 
-    config = context.config.get("saritasa_invocations", {})
-    hosts = config.get(
-        "github_action_hosts",
-        config.get(
-            "docker_main_containers",
-            (
-                "postgres",
-                "redis",
-            ),
-        ),
-    )
-    for host in hosts:
+    config = _config.Config.from_context(context)
+    for host in config.github_actions.hosts:
         set_up_host(context, host=host)
 
 

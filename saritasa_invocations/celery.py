@@ -1,6 +1,6 @@
 import invoke
 
-from . import docker, python
+from . import _config, docker, python
 
 
 @invoke.task
@@ -9,24 +9,13 @@ def run(
     detach: bool = True,
 ) -> None:
     """Start celery worker."""
-    config = context.config.get("saritasa_invocations", {})
+    config = _config.Config.from_context(context)
     match python.get_python_env():
         case python.PythonEnv.LOCAL:
-            celery_local_cmd = config.get(
-                "celery_local_cmd",
-                (
-                    "celery --app config.celery:app "
-                    "worker --beat --scheduler=django --loglevel=info"
-                ),
-            )
-            context.run(celery_local_cmd)
+            context.run(config.celery.local_cmd)
         case python.PythonEnv.DOCKER:
-            celery_service_name = config.get(
-                "celery_service_name",
-                "celery",
-            )
             docker.up_containers(
                 context,
-                (celery_service_name,),
+                (config.celery.service_name,),
                 detach=detach,
             )
