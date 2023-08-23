@@ -17,6 +17,7 @@ from saritasa_invocations._config import (
     Config,
     DjangoSettings,
     DockerSettings,
+    FastAPISettings,
     GitHubActionsSettings,
     GitSettings,
     PreCommitSettings,
