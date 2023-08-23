@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "saritasa-invocations"
-version = "0.4.0"
+version = "0.4.1"
 description = "Collection of invoke commands used by Saritasa"
 authors = [
   "Saritasa <pypi@saritasa.com>",

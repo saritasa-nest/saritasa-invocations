@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.4.1
+
+- Add `FastAPISettings` to imports
+
 ## 0.4.0
 
 - rework configuration
