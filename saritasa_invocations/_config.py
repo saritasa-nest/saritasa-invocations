@@ -128,7 +128,7 @@ class AlembicSettings:
 class DBSettings:
     """Settings for db module."""
 
-    password_pattern: str = "Password: "
+    password_pattern: str = "Password.*"
     load_dump_command: str = (
         "psql "
         "{additional_params} "
@@ -139,7 +139,7 @@ class DBSettings:
         "--file={file}"
     )
     dump_filename: str = "local_db_dump.sql"
-    load_additional_params: str = "--quite"
+    load_additional_params: str = "--quiet"
     dump_command: str = (
         "pg_dump "
         "{additional_params} "
