@@ -76,6 +76,17 @@ class DjangoSettings:
     default_superuser_username: str = "root"
     default_superuser_password: str = "root"
     shell_command: str = "shell_plus --ipython"
+    path_to_remote_config_file: str = "/workspace/app/config/settings/.env"
+    settings_path: str = "config.settings.local"
+    remote_db_config_mapping: dict[str, str] = dataclasses.field(
+        default_factory=lambda: {
+            "dbname": "RDS_DB_NAME",
+            "host": "RDS_DB_HOST",
+            "port": "RDS_DB_PORT",
+            "username": "RDS_DB_USER",
+            "password": "RDS_DB_PASSWORD",
+        },
+    )
 
 
 @dataclasses.dataclass
@@ -113,11 +124,104 @@ class AlembicSettings:
     )
 
 
+@dataclasses.dataclass
+class DBSettings:
+    """Settings for db module."""
+
+    password_pattern: str = "Password: "
+    load_dump_command: str = (
+        "psql "
+        "{additional_params} "
+        "--dbname={dbname} "
+        "--host={host} "
+        "--port={port} "
+        "--username={username} "
+        "--file={file}.sql"
+    )
+    dump_filename: str = "local_db_dump.sql"
+    load_additional_params: str = "--quite"
+    dump_command: str = (
+        "pg_dump "
+        "{additional_params} "
+        "--dbname={dbname} "
+        "--host={host} "
+        "--port={port} "
+        "--username={username} "
+        "--file={file}.sql"
+    )
+    dump_additional_params: str = "--no-owner"
+
+
+# This mapping should not be filled manually. You just need create an instance
+# of `K8SSettings` and it will be auto added to this mapping
+_K8S_CONFIGS: dict[str, "K8SSettings"] = {}
+
+
+class K8SSettingsMeta(type):
+    """Meta class for K8SSettings."""
+
+    def __call__(cls, *args, **kwargs) -> "K8SSettings":
+        """Update mapping of environments."""
+        instance: K8SSettings = super().__call__(*args, **kwargs)
+        if instance.name in _K8S_CONFIGS:
+            raise ValueError(f"{instance.name} config is already defined")
+        _K8S_CONFIGS[instance.name] = instance
+        return instance
+
+
+@dataclasses.dataclass(frozen=True)
+class K8SDBSettings:
+    """Description of k8s db config."""
+
+    namespace: str
+    pod_selector: str
+    dump_filename: str = ""
+    password_pattern: str = "Password: "
+    pod_command: str = (
+        "kubectl get pods --namespace {db_pod_namespace} "
+        "--selector={db_pod_selector} "
+        "--output jsonpath='{{.items[*].metadata.name}}'"
+    )
+    exec_command: str = (
+        "kubectl exec -ti --namespace {db_pod_namespace} " "$({db_pod})"
+    )
+    dump_command: str = (
+        "pg_dump "
+        "{additional_params} "
+        "--dbname={dbname} "
+        "--host={host} "
+        "--port={port} "
+        "--username={username} "
+        "--file {file}.sql"
+    )
+    dump_additional_params: str = "--no-owner"
+
+
+@dataclasses.dataclass(frozen=True)
+class K8SSettings(metaclass=K8SSettingsMeta):
+    """Description of environment config."""
+
+    name: str
+    cluster: str
+    proxy: str
+    namespace: str
+    db_config: K8SDBSettings
+    port: str = "443"
+    auth: str = "github"
+    pod_label: str = "app.kubernetes.io/component"
+    default_component: str = "backend"
+    default_entry: str = "cnb/lifecycle/launcher bash"
+    python_shell: str = "shell_plus"
+    health_check: str = "health_check"
+    env_color: str = "cyan"
+
+
 @dataclasses.dataclass(frozen=True)
 class Config:
     """Settings for saritasa invocations."""
 
     project_name: str = ""
+    default_k8s_env: str = "dev"
 
     system: SystemSettings = dataclasses.field(
         default_factory=SystemSettings,
@@ -148,6 +252,12 @@ class Config:
     )
     alembic: AlembicSettings = dataclasses.field(
         default_factory=AlembicSettings,
+    )
+    db: DBSettings = dataclasses.field(
+        default_factory=DBSettings,
+    )
+    k8s_configs: dict[str, K8SSettings] = dataclasses.field(
+        default_factory=lambda: _K8S_CONFIGS,
     )
 
     def __post_init__(self) -> None:
