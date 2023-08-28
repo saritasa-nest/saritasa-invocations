@@ -232,11 +232,11 @@ def backup_local_db(
 def backup_remote_db(
     context: invoke.Context,
     file: str = "",
-) -> None:
+) -> str:
     """Make dump of remote db and download it."""
     settings = load_django_remote_env_db_settings(context)
     db_k8s.create_dump(context, file=file, **settings)
-    db_k8s.get_dump(context, file=file)
+    return db_k8s.get_dump(context, file=file)
 
 
 @invoke.task
