@@ -18,6 +18,7 @@ ns = invoke.Collection(
     saritasa_invocations.db,
     saritasa_invocations.k8s,
     saritasa_invocations.cruft,
+    saritasa_invocations.poetry,
 )
 
 # Configurations for run command

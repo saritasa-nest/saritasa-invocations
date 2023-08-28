@@ -5,6 +5,8 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Add cruft invocations
+- Add poetry invocations
+- Add update invocation to pre-commit
 
 ## 0.5.3
 
@@ -31,7 +33,7 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## 0.4.0
 
-- rework configuration
+- Rework configuration
 
 ## 0.3.0
 

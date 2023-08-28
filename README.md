@@ -28,6 +28,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
   * [pre-commit](#pre-commit)
     * [pre-commit.install](#pre-commitinstall)
     * [pre-commit.run-hooks](#pre-commitrun-hooks)
+    * [pre-commit.update](#pre-commitupdate)
   * [docker](#docker)
     * [docker.build-service](#dockerbuild-service)
     * [docker.buildpack](#dockerbuildpack)
@@ -83,6 +84,10 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
   * [cruft](#cruft)
     * [cruft.check-for-cruft-files](#cruftcheck-for-cruft-files)
     * [cruft.create_project](#cruftcreate_project)
+  * [poetry](#poetry)
+    * [poetry.install](#poetryinstall)
+    * [poetry.update](#poetryupdate)
+    * [poetry.update-to-latest](#poetryupdate-to-latest)
 
 ## Installation
 
@@ -245,7 +250,11 @@ Settings:
 
 #### pre-commit.run-hooks
 
-Run all hooks against all files
+Run all hooks against all files.
+
+#### pre-commit.update
+
+Update pre-commit dependencies.
 
 ### docker
 
@@ -645,3 +654,20 @@ Check that there are no cruft files (`*.rej`).
 
 **Not invocation**, but a shortcut for creating cruft projects for testing
 boilerplates
+
+### poetry
+
+#### poetry.install
+
+Install dependencies via poetry.
+
+#### poetry.update
+
+Update dependencies with respect to
+[version constraints](https://python-poetry.org/docs/dependency-specification/)
+using [poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).
+
+#### poetry.update-to-latest
+
+Update dependencies to latest versions using
+[poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).

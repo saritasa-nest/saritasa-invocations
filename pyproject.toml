@@ -51,19 +51,19 @@ env_settings = ["python-decouple"]
 [tool.poetry.group.dev.dependencies]
 # Improved REPL
 ipdb = "^0.13.13"
-ipython = "^8.13.2"
+ipython = "^8.14.0"
 # A framework for managing and maintaining multi-language pre-commit hooks.
 # https://pre-commit.com/
-pre-commit = "^3.3.1"
+pre-commit = "^3.3.3"
 
 [tool.poetry.group.linters.dependencies]
 # Flake dependencies are added so that VSCode extension for flake8
 # would work properly
 # https://marketplace.visualstudio.com/items?itemName=ms-python.flake8&ssr=false#overview
-flake8 = "^6.0.0"
+flake8 = "^6.1.0"
 # A plugin for Flake8 finding likely bugs and design problems in your program.
 # https://github.com/PyCQA/flake8-bugbear
-flake8-bugbear = "^23.5.9"
+flake8-bugbear = "^23.7.10"
 # Extension to enforce better comma placement.
 # https://github.com/PyCQA/flake8-commas
 flake8-commas = "^2.1.0"
