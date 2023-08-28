@@ -16,6 +16,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [Modules](#modules)
+  * [printing](#printing)
   * [system](#system)
     * [system.copy-local-settings](#systemcopy-local-settings)
     * [system.copy-vscode-settings](#systemcopy-vscode-settings)
@@ -170,6 +171,15 @@ ns.configure(
 ```
 
 ## Modules
+
+### printing
+
+While this module doesn't contain any invocations, it's used to print message
+via `rich.panel.Panel`. There are three types:
+
+* `print_success` - print message in green panel
+* `print_warning` - print message in yellow panel
+* `print_error` - print message in red panel
 
 ### system
 
