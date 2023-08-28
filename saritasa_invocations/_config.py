@@ -136,7 +136,7 @@ class DBSettings:
         "--host={host} "
         "--port={port} "
         "--username={username} "
-        "--file={file}.sql"
+        "--file={file}"
     )
     dump_filename: str = "local_db_dump.sql"
     load_additional_params: str = "--quite"
@@ -147,7 +147,7 @@ class DBSettings:
         "--host={host} "
         "--port={port} "
         "--username={username} "
-        "--file={file}.sql"
+        "--file={file}"
     )
     dump_additional_params: str = "--no-owner"
 
@@ -192,7 +192,7 @@ class K8SDBSettings:
         "--host={host} "
         "--port={port} "
         "--username={username} "
-        "--file {file}.sql"
+        "--file {file}"
     )
     dump_additional_params: str = "--no-owner"
 

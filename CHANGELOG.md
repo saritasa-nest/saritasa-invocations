@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Fix default db commands templates
+
 ## 0.5.0
 
 - Add db invocations
