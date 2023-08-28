@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.5.2
+
 - Fix typo in `load_additional_params`
 - Improve `password_pattern` for db setting
 
