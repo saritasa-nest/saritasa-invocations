@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.5.0
+
 - Add db invocations
 - Add k8s invocations
 - Add db_k8s invocations
