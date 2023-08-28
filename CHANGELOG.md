@@ -2,7 +2,7 @@
 
 We follow [Semantic Versions](https://semver.org/).
 
-## unreleased
+## 0.5.1
 
 - Fix default db commands templates
 
