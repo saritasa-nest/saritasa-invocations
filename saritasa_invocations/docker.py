@@ -7,10 +7,11 @@ from . import _config, printing
 
 
 @invoke.task
-def build_service(context: invoke.Context, service) -> None:
+def build_service(context: invoke.Context, service: str) -> None:
     """Build service image."""
     printing.print_success(f"Building {service}")
-    context.run(f"docker-compose build {service}")
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    context.run(f"{compose_cmd} build {service}")
 
 
 @invoke.task
@@ -46,7 +47,7 @@ def docker_compose_run(
 ) -> None:
     """Run ``command`` using docker-compose.
 
-    docker-compose run <params> <container> <command>
+    docker compose run <params> <container> <command>
     Start container and run command in it.
 
     Used function so lately it can be extended to use different docker-compose
@@ -60,8 +61,9 @@ def docker_compose_run(
         watchers: Automated responders to command
 
     """
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
     context.run(
-        command=f"docker-compose run {params or ''} {container} {command}",
+        command=f"{compose_cmd} run {params or ''} {container} {command}",
         watchers=watchers,
     )
 
@@ -73,7 +75,7 @@ def docker_compose_exec(
 ) -> None:
     """Run ``exec`` using docker-compose.
 
-    docker-compose exec <service> <command>
+    docker compose exec <service> <command>
     Run commands in already running container.
 
     Used function so lately it can be extended to use different docker-compose
@@ -85,7 +87,8 @@ def docker_compose_exec(
         command: Command to run in service container
 
     """
-    cmd = f"docker-compose exec {service} {command}"
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    cmd = f"{compose_cmd} exec {service} {command}"
     context.run(cmd)
 
 
@@ -100,7 +103,6 @@ def up_containers(
     containers: collections.abc.Sequence[str],
     detach: bool = True,
     stop_others: bool = True,
-    **kwargs,
 ) -> None:
     """Bring up containers and run them.
 
@@ -124,7 +126,8 @@ def up_containers(
         printing.print_success("Bring up all containers")
     containers_str = " ".join(containers)
     detach_str = "-d " if detach else ""
-    up_cmd = f"docker-compose up {detach_str} {containers_str}"
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    up_cmd = f"{compose_cmd} up {detach_str} {containers_str}"
     try:
         context.run(up_cmd)
     except invoke.UnexpectedExit as exception:
@@ -140,7 +143,8 @@ def stop_containers(
 ) -> None:
     """Stop containers."""
     printing.print_success(f"Stopping {' '.join(containers)} containers")
-    context.run(f"docker-compose stop {' '.join(containers)}")
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    context.run(f"{compose_cmd} stop {' '.join(containers)}")
 
 
 @invoke.task
@@ -174,5 +178,6 @@ def clear(context: invoke.Context) -> None:
 
     """
     printing.print_success("Clearing docker-compose")
-    context.run("docker-compose rm -f")
-    context.run("docker-compose down -v --rmi all --remove-orphans")
+    compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    context.run(f"{compose_cmd} rm -f")
+    context.run(f"{compose_cmd} -v --rmi all --remove-orphans")
