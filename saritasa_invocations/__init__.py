@@ -28,6 +28,7 @@ from saritasa_invocations._config import (
     GitHubActionsSettings,
     GitSettings,
     K8SDBSettings,
+    K8SDefaultSettings,
     K8SSettings,
     PreCommitSettings,
     PythonSettings,
