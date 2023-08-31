@@ -180,7 +180,7 @@ class K8SDBSettings:
     pod_command: str = (
         "kubectl get pods --namespace {db_pod_namespace} "
         "--selector={db_pod_selector} "
-        "--output jsonpath='{{.items[*].metadata.name}}'"
+        "--output jsonpath='{{.items[0].metadata.name}}'"
     )
     exec_command: str = (
         "kubectl exec -ti --namespace {db_pod_namespace} " "$({db_pod})"
