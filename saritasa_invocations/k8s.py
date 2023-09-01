@@ -75,7 +75,7 @@ def get_pod_cmd(
     return (
         "kubectl get pods"
         f" --selector {config.pod_label}={component}"
-        " --no-headers --output jsonpath='{.items[*].metadata.name}'"
+        " --no-headers --output jsonpath='{.items[0].metadata.name}'"
     )
 
 
