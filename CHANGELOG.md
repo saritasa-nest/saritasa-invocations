@@ -7,6 +7,8 @@ We follow [Semantic Versions](https://semver.org/).
 - Add cruft invocations
 - Add poetry invocations
 - Add update invocation to pre-commit
+- Make docker compose cmd customizable
+- Fix k8s errors for multiple app pods
 
 ## 0.5.3
 
