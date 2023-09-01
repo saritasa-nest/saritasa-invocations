@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.6.0
+
 - Add cruft invocations
 - Add poetry invocations
 - Add update invocation to pre-commit
