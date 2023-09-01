@@ -17,3 +17,10 @@ def run_hooks(context: invoke.Context) -> None:
     """Run all hooks against all files."""
     printing.print_success("Running git hooks")
     context.run("pre-commit run --hook-stage push --all-files")
+
+
+@invoke.task
+def update(context: invoke.Context) -> None:
+    """Update pre-commit dependencies."""
+    printing.print_success("Updating pre-commit")
+    context.run("pre-commit autoupdate")

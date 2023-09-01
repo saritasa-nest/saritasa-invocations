@@ -791,4 +791,4 @@ env-settings = ["python-decouple"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "2dd5d7039b6050c7b9cb907e25573b962411c69525431f93edf4b3e5694382e6"
+content-hash = "70f1c74a3e402bcc10d1113331b50fac9fe7f41a8e5bf2a0a0eb8829020544cf"

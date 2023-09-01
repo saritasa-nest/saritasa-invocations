@@ -11,6 +11,7 @@ from saritasa_invocations import (
     github_actions,
     k8s,
     open_api,
+    poetry,
     pre_commit,
     python,
     system,
