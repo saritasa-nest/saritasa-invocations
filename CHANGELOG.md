@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Fix default config init
+
 ## 0.6.1
 
 - Fix poetry file

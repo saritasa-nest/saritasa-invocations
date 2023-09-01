@@ -284,5 +284,5 @@ class Config:
         """Get config from invoke context."""
         return context.config.get(
             "saritasa_invocations",
-            cls,
+            cls(),
         )
