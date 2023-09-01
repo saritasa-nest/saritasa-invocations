@@ -45,6 +45,7 @@ class PythonSettings:
 class DockerSettings:
     """Settings for docker module."""
 
+    compose_cmd = "docker compose"
     main_containers: collections.abc.Sequence[str] = (
         "postgres",
         "redis",
