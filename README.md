@@ -650,7 +650,7 @@ with cookiecutter based boilerplates.
 
 Check that there are no cruft files (`*.rej`).
 
-### cruft.create_project
+#### cruft.create_project
 
 **Not invocation**, but a shortcut for creating cruft projects for testing
 boilerplates
