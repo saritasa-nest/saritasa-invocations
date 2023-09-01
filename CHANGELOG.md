@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.6.2
+
 - Fix default config init
 
 ## 0.6.1
