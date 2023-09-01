@@ -125,6 +125,13 @@ class AlembicSettings:
 
 
 @dataclasses.dataclass
+class CruftSettings:
+    """Settings for cruft module."""
+
+    project_tmp_folder: str = ".tmp"
+
+
+@dataclasses.dataclass
 class DBSettings:
     """Settings for db module."""
 
@@ -252,6 +259,9 @@ class Config:
     )
     alembic: AlembicSettings = dataclasses.field(
         default_factory=AlembicSettings,
+    )
+    cruft: CruftSettings = dataclasses.field(
+        default_factory=CruftSettings,
     )
     db: DBSettings = dataclasses.field(
         default_factory=DBSettings,
