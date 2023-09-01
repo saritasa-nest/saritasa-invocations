@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.6.1
+
+- Fix poetry file
+
 ## 0.6.0
 
 - Add cruft invocations
