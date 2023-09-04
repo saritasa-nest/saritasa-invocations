@@ -120,29 +120,6 @@ ns = invoke.Collection(
     saritasa_invocations.system,
 )
 
-# For K8S settings you just need to create a instances of K8SSettings for each
-# environnement. It'll be all collected automatically.
-saritasa_invocations.K8SSettings(
-    name="dev",
-    cluster="teleport.company.somewhere.com",
-    namespace="project_name",
-    proxy="teleport.company.com",
-    db_config=saritasa_invocations.K8SDBSettings(
-        namespace="db",
-        pod_selector="app=pod-selector-db",
-    ),
-)
-saritasa_invocations.K8SSettings(
-    name="prod",
-    cluster="teleport.client.somewhere.com",
-    namespace="project_name",
-    proxy="teleport.client.com",
-    db_config=saritasa_invocations.K8SDBSettings(
-        namespace="db",
-        pod_selector="app=pod-selector-db",
-    ),
-)
-
 # Configurations for run command
 ns.configure(
     {
@@ -173,8 +150,30 @@ ns.configure(
                 settings_template="config/.env.local",
                 save_settings_from_template_to="config/.env",
             ),
+            # Default K8S Settings shared between envs
+            k8s_defaults=saritasa_invocations.K8SDefaultSettings(
+                proxy="teleport.company.com",
+                db_config=saritasa_invocations.K8SDBSettings(
+                    namespace="db",
+                    pod_selector="app=pod-selector-db",
+                ),
+            )
         ),
     },
+)
+
+# For K8S settings you just need to create a instances of K8SSettings for each
+# environnement. It'll be all collected automatically.
+saritasa_invocations.K8SSettings(
+    name="dev",
+    cluster="teleport.company.somewhere.com",
+    namespace="project_name",
+)
+saritasa_invocations.K8SSettings(
+    name="prod",
+    cluster="teleport.client.somewhere.com",
+    namespace="project_name",
+    proxy="teleport.client.com",
 )
 ```
 

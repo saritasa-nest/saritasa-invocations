@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add default config feature for k8s
+
 ## 0.6.2
 
 - Fix default config init

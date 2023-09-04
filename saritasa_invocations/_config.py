@@ -211,9 +211,44 @@ class K8SSettings(metaclass=K8SSettingsMeta):
 
     name: str
     cluster: str
+    namespace: str
+    proxy: str | None = None
+    db_config: K8SDBSettings | None = None
+    port: str | None = None
+    auth: str | None = None
+    pod_label: str | None = None
+    default_component: str | None = None
+    default_entry: str | None = None
+    python_shell: str | None = None
+    health_check: str | None = None
+    env_color: str | None = None
+
+
+@dataclasses.dataclass(frozen=True)
+class K8SGeneratedSettings:
+    """Merge of defaults and environment config."""
+
+    name: str
+    cluster: str
     proxy: str
     namespace: str
     db_config: K8SDBSettings
+    port: str
+    auth: str
+    pod_label: str
+    default_component: str
+    default_entry: str
+    python_shell: str
+    health_check: str
+    env_color: str
+
+
+@dataclasses.dataclass(frozen=True)
+class K8SDefaultSettings:
+    """Default settings that could be shared among all env."""
+
+    proxy: str | None = None
+    db_config: K8SDBSettings | None = None
     port: str = "443"
     auth: str = "github"
     pod_label: str = "app.kubernetes.io/component"
@@ -266,6 +301,9 @@ class Config:
     )
     db: DBSettings = dataclasses.field(
         default_factory=DBSettings,
+    )
+    k8s_defaults: K8SDefaultSettings = dataclasses.field(
+        default_factory=K8SDefaultSettings,
     )
     k8s_configs: dict[str, K8SSettings] = dataclasses.field(
         default_factory=lambda: _K8S_CONFIGS,

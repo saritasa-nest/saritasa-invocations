@@ -1,3 +1,5 @@
+import dataclasses
+
 import invoke
 
 from . import _config, printing
@@ -5,7 +7,7 @@ from . import _config, printing
 
 def get_current_env_config_from_context(
     context: invoke.Context,
-) -> _config.K8SSettings:
+) -> _config.K8SGeneratedSettings:
     """Return current environment data class based on current cluster."""
     run_result = context.run(
         "kubectl config current-context",
@@ -31,19 +33,38 @@ def get_current_env_config_from_context(
         )
     current_namespace = run_result.stdout.splitlines()[0]
 
-    for env in _config._K8S_CONFIGS.values():
+    found_env: _config.K8SSettings | None = None
+    config = _config.Config.from_context(context)
+    for env in config.k8s_configs.values():
         if (
             env.cluster == current_cluster
             and current_namespace in env.namespace
         ):
-            return env
+            found_env = env
+            break
 
-    raise invoke.Exit(
-        code=1,
-        message=(
-            f"Environment data class for the cluster `{current_cluster}`"
-            f" and namespace `{current_namespace}` doesn't exits."
-        ),
+    if not found_env:
+        raise invoke.Exit(
+            code=1,
+            message=(
+                f"Environment data class for the cluster `{current_cluster}`"
+                f" and namespace `{current_namespace}` doesn't exits."
+            ),
+        )
+
+    generated_config = {}
+    for field in dataclasses.asdict(found_env):
+        generated_config[field] = getattr(
+            found_env,
+            field,
+            None,
+        ) or getattr(
+            config.k8s_defaults,
+            field,
+            None,
+        )
+    return _config.K8SGeneratedSettings(
+        **generated_config,
     )
 
 
@@ -212,12 +233,9 @@ def download_file(
 def success(
     context: invoke.Context,
     message: str,
-    env: _config.K8SSettings | None = None,
 ) -> None:
     """Display success message with mention of environment."""
-    if not env:
-        env = get_current_env_config_from_context(context)
-
+    env = get_current_env_config_from_context(context)
     printing.print_success(
         message,
         title=f"[{env.env_color} bold underline]{env.name.upper()}",
