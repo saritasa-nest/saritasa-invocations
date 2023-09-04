@@ -83,6 +83,10 @@ flake8-modern-annotations = "^1.5.0"
 # https://github.com/PyCQA/mccabe
 mccabe = "^0.7.0"
 
+# Mypy is a static type checker for Python.
+# https://mypy.readthedocs.io/en/stable/
+mypy = "^1.5.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -147,3 +151,12 @@ line-length = 79
 target-version = [
   "py311",
 ]
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+ignore_missing_imports = true
+strict = false
+warn_no_return = false
+check_untyped_defs = true
+disallow_any_generics = true
+exclude = "venv|/.venv"

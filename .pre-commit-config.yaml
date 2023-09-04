@@ -88,3 +88,11 @@ repos:
         pass_filenames: false
         types: [ file ]
         stages: [ push ]
+
+      - id: mypy
+        name: Run mypy
+        entry: inv mypy.run
+        language: system
+        pass_filenames: false
+        types: [ file ]
+        stages: [ push ]
