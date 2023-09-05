@@ -189,6 +189,25 @@ def dbshell(context: invoke.Context) -> None:
     manage(context, command="dbshell")
 
 
+@invoke.task
+def recompile_messages(context: invoke.Context) -> None:
+    """Generate and recompile translation messages.
+
+    https://docs.djangoproject.com/en/4.2/ref/django-admin/#makemessages
+
+    """
+    printing.print_success("Recompiling translation messages")
+    config = _config.Config.from_context(context)
+    manage(
+        context,
+        command=f"makemessages {config.django.makemessages_params}",
+    )
+    manage(
+        context,
+        command=f"compilemessages {config.django.compilemessages_params}",
+    )
+
+
 def set_default_site(context: invoke.Context) -> None:
     """Set default site to localhost.
 

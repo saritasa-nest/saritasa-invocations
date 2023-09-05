@@ -49,6 +49,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.run](#djangorun)
     * [django.shell](#djangoshell)
     * [django.dbshell](#djangodbshell)
+    * [django.django.recompile-messages](#djangorecompile-messages)
     * [django.load-db-dump](#djangoload-db-dump)
     * [django.backup-local-db](#djangobackup-local-db)
     * [django.backup-remote-db](#djangobackup-remote-db)
@@ -401,6 +402,17 @@ Settings:
 #### django.dbshell
 
 Open database shell with credentials from current django settings.
+
+#### django.recompile-messages
+
+Generate and recompile translation messages.
+
+Requires [gettext](https://www.gnu.org/software/gettext/)
+
+Settings:
+
+* `makemessages_params` params for makemessages command (Default: `--all --ignore venv`)
+* `compilemessages_params` params for compilemessages command (Default: `""`)
 
 #### django.load-db-dump
 

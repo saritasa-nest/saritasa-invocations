@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add `recompile-messages` command to django invocations
+
 ## 0.7.0
 
 - Add default config feature for k8s
