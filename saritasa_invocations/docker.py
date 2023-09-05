@@ -180,4 +180,4 @@ def clear(context: invoke.Context) -> None:
     printing.print_success("Clearing docker-compose")
     compose_cmd = _config.Config.from_context(context).docker.compose_cmd
     context.run(f"{compose_cmd} rm -f")
-    context.run(f"{compose_cmd} -v --rmi all --remove-orphans")
+    context.run(f"{compose_cmd} down -v --rmi all --remove-orphans")
