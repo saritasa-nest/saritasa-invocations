@@ -318,7 +318,7 @@ This was done to have ability to run code against environment close deployed one
 Example of usage
 
 ```bash
-PYTHON_ENV=docker inv python.run-python --command="--version"
+PYTHON_ENV=docker inv python.run --command="--version"
 ```
 
 #### python.run
