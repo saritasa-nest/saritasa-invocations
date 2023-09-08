@@ -73,6 +73,8 @@ class DjangoSettings:
     runserver_params: str = ""
     runserver_docker_params: str = "--rm --service-ports"
     migrate_command: str = "migrate"
+    makemessages_params: str = "--all --ignore venv"
+    compilemessages_params: str = ""
     default_superuser_email: str = "root@localhost"
     default_superuser_username: str = "root"
     default_superuser_password: str = "root"
