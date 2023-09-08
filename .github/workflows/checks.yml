@@ -47,9 +47,6 @@ jobs:
     - name: Install local dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction
-    - name: Activate env
-      run: |
-        source $VENV && echo PATH=$PATH >> $GITHUB_ENV
     - name: Run checks
       run: |
-        pre-commit run --hook-stage push --all-files
+        poetry run pre-commit run --hook-stage push --all-files
