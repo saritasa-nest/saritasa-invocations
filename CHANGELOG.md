@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Improve `django.createsuperuser` command with verbose name settings
+- Fix k8s.set-context when user is not logged in for first time
 
 ## 0.7.1
 
