@@ -5,6 +5,8 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Add `recompile-messages` command to django invocations
+- Fix docs for python invocations
+- Fix `docker.clear` command
 
 ## 0.7.0
 
