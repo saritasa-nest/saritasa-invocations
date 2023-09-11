@@ -230,6 +230,22 @@ class K8SSettings(metaclass=K8SSettingsMeta):
 
 
 @dataclasses.dataclass(frozen=True)
+class K8SDefaultSettings:
+    """Default settings that could be shared among all env."""
+
+    proxy: str | None = None
+    db_config: K8SDBSettings | None = None
+    port: str = "443"
+    auth: str = "github"
+    pod_label: str = "app.kubernetes.io/component"
+    default_component: str = "backend"
+    default_entry: str = "cnb/lifecycle/launcher bash"
+    python_shell: str = "shell_plus"
+    health_check: str = "health_check"
+    env_color: str = "cyan"
+
+
+@dataclasses.dataclass(frozen=True)
 class K8SGeneratedSettings:
     """Merge of defaults and environment config."""
 
@@ -247,21 +263,25 @@ class K8SGeneratedSettings:
     health_check: str
     env_color: str
 
-
-@dataclasses.dataclass(frozen=True)
-class K8SDefaultSettings:
-    """Default settings that could be shared among all env."""
-
-    proxy: str | None = None
-    db_config: K8SDBSettings | None = None
-    port: str = "443"
-    auth: str = "github"
-    pod_label: str = "app.kubernetes.io/component"
-    default_component: str = "backend"
-    default_entry: str = "cnb/lifecycle/launcher bash"
-    python_shell: str = "shell_plus"
-    health_check: str = "health_check"
-    env_color: str = "cyan"
+    @classmethod
+    def merge_settings(
+        cls,
+        default: K8SDefaultSettings,
+        env_settings: K8SSettings,
+    ) -> "K8SGeneratedSettings":
+        """Create settings from default and env settings."""
+        generated_config = {}
+        for field in dataclasses.asdict(env_settings):
+            generated_config[field] = getattr(
+                env_settings,
+                field,
+                None,
+            ) or getattr(
+                default,
+                field,
+                None,
+            )
+        return cls(**generated_config)
 
 
 @dataclasses.dataclass(frozen=True)
