@@ -378,6 +378,16 @@ Settings:
 * `default_superuser_email` default email of superuser (Default: `root@localhost`)
 * `default_superuser_username` default username of superuser (Default: `root`)
 * `default_superuser_password` default password of superuser (Default: `root`)
+* `verbose_email_name` verbose name for `email` field (Default: `Email address`)
+* `verbose_username_name` verbose name for `username` field (Default: `Username`)
+* `verbose_password_name` verbose name for `password` field (Default: `Password`)
+
+Note:
+
+* Values for `verbose_email_name`, `verbose_username_name`, `verbose_password_name`
+should match with verbose names of model that used
+[this setting](https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model)
+
 
 #### django.run
 

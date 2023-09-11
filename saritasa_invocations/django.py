@@ -114,16 +114,17 @@ def createsuperuser(
     printing.print_success("Django: Create superuser")
     config = _config.Config.from_context(context)
     responder_email = invoke.FailingResponder(
-        pattern=r"Email address: ",
+        pattern=rf"{config.django.verbose_email_name}.*: ",
         response=(email or config.django.default_superuser_email) + "\n",
         sentinel="That Email address is already taken.",
     )
     responder_user_name = invoke.Responder(
-        pattern=r"Username: ",
+        pattern=rf"{config.django.verbose_username_name}.*: ",
         response=(username or config.django.default_superuser_username) + "\n",
     )
+    password_pattern = config.django.verbose_password_name
     responder_password = invoke.Responder(
-        pattern=r"(Password: )|(Password \(again\): )",
+        pattern=rf"({password_pattern}: )|({password_pattern} \(again\): )",
         response=(password or config.django.default_superuser_password) + "\n",
     )
 
