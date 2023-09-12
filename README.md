@@ -92,6 +92,10 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
   * [pip](#pip)
     * [pip.install-dependencies](#pipinstall-dependencies)
     * [pip.compile](#pipcompile-dependencies)
+  * [mypy](#mypy)
+    * [mypy](#mypyrun)
+  * [pytest](#pytest)
+    * [pytest](#pytestrun)
 
 ## Installation
 
@@ -715,3 +719,23 @@ Settings:
 
 * `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
 * `in_files` sequence of `.in` files (Default: `"production.in"`, `"development.in"`)
+
+### mypy
+
+#### mypy.run
+
+Run mypy in `path` with `params`.
+
+Settings:
+
+* `mypy_entry` python entry command (Default: `-m mypy`)
+
+### pytest
+
+#### pytest.run
+
+Run pytest in `path` with `params`.
+
+Settings:
+
+* `pytest_entry` python entry command (Default: `-m pytest`)

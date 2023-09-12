@@ -23,7 +23,7 @@ def wait_for_database(context: invoke.Context) -> None:
         context,
         command="manage.py wait_for_database --stable 0",
     )
-    wait_for_database._called = True
+    wait_for_database._called = True  # type: ignore
 
 
 @invoke.task

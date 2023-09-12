@@ -20,6 +20,8 @@ ns = invoke.Collection(
     saritasa_invocations.cruft,
     saritasa_invocations.poetry,
     saritasa_invocations.pip,
+    saritasa_invocations.mypy,
+    saritasa_invocations.pytest,
 )
 
 # Configurations for run command

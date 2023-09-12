@@ -10,10 +10,12 @@ from saritasa_invocations import (
     git,
     github_actions,
     k8s,
+    mypy,
     open_api,
     pip,
     poetry,
     pre_commit,
+    pytest,
     python,
     system,
 )
