@@ -89,6 +89,9 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [poetry.install](#poetryinstall)
     * [poetry.update](#poetryupdate)
     * [poetry.update-to-latest](#poetryupdate-to-latest)
+  * [pip](#pip)
+    * [pip.install-dependencies](#pipinstall-dependencies)
+    * [pip.compile](#pipcompile-dependencies)
 
 ## Installation
 
@@ -692,3 +695,23 @@ using [poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).
 
 Update dependencies to latest versions using
 [poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).
+
+### pip
+
+#### pip.install-dependencies
+
+Install dependencies via pip.
+
+Settings:
+
+* `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
+
+#### pip.compile-dependencies
+
+Compile dependencies via
+[pip-compile](https://github.com/jazzband/pip-tools#requirements-from-requirementsin).
+
+Settings:
+
+* `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
+* `in_files` sequence of `.in` files (Default: `"production.in"`, `"development.in"`)
