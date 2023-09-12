@@ -285,6 +285,17 @@ class K8SGeneratedSettings:
 
 
 @dataclasses.dataclass(frozen=True)
+class PIPSettings:
+    """Settings for pip module."""
+
+    dependencies_folder: str = "requirements"
+    in_files: collections.abc.Sequence[str] = (
+        "production.in",
+        "development.in",
+    )
+
+
+@dataclasses.dataclass(frozen=True)
 class Config:
     """Settings for saritasa invocations."""
 
@@ -332,6 +343,9 @@ class Config:
     )
     k8s_configs: dict[str, K8SSettings] = dataclasses.field(
         default_factory=lambda: _K8S_CONFIGS,
+    )
+    pip: PIPSettings = dataclasses.field(
+        default_factory=PIPSettings,
     )
 
     def __post_init__(self) -> None:
