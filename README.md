@@ -495,6 +495,7 @@ Run alembic command
 Settings:
 
 * `command` alembic command (Default: `-m alembic`)
+* `connect_attempts` numbers of attempts to connect to database (Default: `10`)
 
 #### alembic.autogenerate
 

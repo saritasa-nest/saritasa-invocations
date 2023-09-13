@@ -4,6 +4,9 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add wait logic for alembic run invocations
+- Add ignore for `__init__.py` file in migrations folder for alembic invocations
+
 ## 0.8.0
 
 - Improve `django.createsuperuser` command with verbose name settings
