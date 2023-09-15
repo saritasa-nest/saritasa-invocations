@@ -209,7 +209,7 @@ class K8SDBSettings:
     pod_selector: str
     dump_filename: str = ""
     password_pattern: str = "Password: "
-    pod_command: str = (
+    get_pod_name_command: str = (
         "kubectl get pods --namespace {db_pod_namespace} "
         "--selector={db_pod_selector} "
         "--output jsonpath='{{.items[0].metadata.name}}'"
@@ -240,7 +240,8 @@ class K8SSettings(metaclass=K8SSettingsMeta):
     db_config: K8SDBSettings | None = None
     port: str | None = None
     auth: str | None = None
-    pod_label: str | None = None
+    component_selector: str | None = None
+    get_pod_name_command: str | None = None
     default_component: str | None = None
     default_entry: str | None = None
     python_shell: str | None = None
@@ -256,7 +257,12 @@ class K8SDefaultSettings:
     db_config: K8SDBSettings | None = None
     port: str = "443"
     auth: str = "github"
-    pod_label: str = "app.kubernetes.io/component"
+    component_selector: str = "app.kubernetes.io/component"
+    get_pod_name_command: str = (
+        "kubectl get pods "
+        "--selector {component_selector}={component} "
+        "--no-headers --output jsonpath='{{.items[0].metadata.name}}'"
+    )
     default_component: str = "backend"
     default_entry: str = "cnb/lifecycle/launcher bash"
     python_shell: str = "shell_plus"
@@ -275,7 +281,8 @@ class K8SGeneratedSettings:
     db_config: K8SDBSettings
     port: str
     auth: str
-    pod_label: str
+    component_selector: str
+    get_pod_name_command: str
     default_component: str
     default_entry: str
     python_shell: str
