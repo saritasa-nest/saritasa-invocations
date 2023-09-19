@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.8.1
+
 - Add wait logic for alembic run invocations
 - Add ignore for `__init__.py` file in migrations folder for alembic invocations
 - Add ability to customize pod command template for k8s invocations
