@@ -1,7 +1,23 @@
 import collections.abc
+import contextlib
 import dataclasses
+import typing
 
 import invoke
+
+
+@contextlib.contextmanager
+def context_override(
+    context: invoke.Context,
+    **config,
+) -> collections.abc.Generator[invoke.Context, typing.Any, None]:
+    """Temporary override context settings."""
+    old_context_config = {key: context.config[key] for key in config}
+    context.config.update(**config)
+    try:
+        yield context
+    finally:
+        context.config.update(**old_context_config)
 
 
 @dataclasses.dataclass
@@ -124,6 +140,7 @@ class FastAPISettings:
 class AlembicSettings:
     """Settings for alembic module."""
 
+    connect_attempts: int = 10
     command: str = "-m alembic"
     migrations_folder: str = "db/migrations/versions"
     adjust_messages: collections.abc.Sequence[str] = (

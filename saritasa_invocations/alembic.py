@@ -2,12 +2,48 @@ import pathlib
 
 import invoke
 
-from . import _config, printing, python
+from . import _config, docker, printing, python
+
+
+def wait_for_database(context: invoke.Context) -> None:
+    """Ensure that database is up and ready to accept connections.
+
+    Function called just once during subsequent calls of alembic commands.
+
+    """
+    if hasattr(wait_for_database, "_called"):
+        return
+    docker.up(context)
+    printing.print_success("Wait for database connection")
+    config = _config.Config.from_context(context)
+    with _config.context_override(
+        context,
+        echo=False,
+        hide="out",
+    ) as context:
+        for _ in range(config.alembic.connect_attempts):
+            try:
+                # Doing it manually to avoid loop
+                python.run(
+                    context,
+                    command=f"{config.alembic.command} current",
+                )
+                wait_for_database._called = True  # type: ignore
+                return
+            except invoke.UnexpectedExit:
+                continue
+
+    printing.print_error(
+        "Failed to connect to db, "
+        f"after {config.alembic.connect_attempts} attempts",
+    )
+    raise invoke.Exit(code=1)
 
 
 @invoke.task
 def run(context: invoke.Context, command: str) -> None:
     """Execute alembic command."""
+    wait_for_database(context)
     config = _config.Config.from_context(context)
     python.run(
         context,
@@ -37,10 +73,9 @@ def autogenerate(
         )
     printing.print_success("Autogenerate migrations")
     config = _config.Config.from_context(context)
-    migrations_files = tuple(
-        pathlib.Path(config.alembic.migrations_folder).glob("*.py"),
+    rev_id = str(
+        len(_get_migration_files_paths(config.alembic.migrations_folder)) + 1,
     )
-    rev_id = str(len(migrations_files) + 1)
     rev_id = rev_id.rjust(4, "0")
     command = (
         f'revision --autogenerate --message "{message}" --rev-id={rev_id}'
@@ -102,8 +137,8 @@ def check_for_adjust_messages(
     printing.print_success("Checking migration files for adjust messages")
     config = _config.Config.from_context(context)
     files_to_clean = []
-    for filepath in pathlib.Path(config.alembic.migrations_folder).glob(
-        "*.py",
+    for filepath in _get_migration_files_paths(
+        config.alembic.migrations_folder,
     ):
         with open(filepath) as migration_file:
             file_text = migration_file.read()
@@ -122,3 +157,14 @@ def check_for_adjust_messages(
             f"{log_messages}",
         )
         raise invoke.Exit(code=1)
+
+
+def _get_migration_files_paths(
+    migrations_folder: str,
+) -> tuple[pathlib.Path, ...]:
+    """Get paths of migration files."""
+    return tuple(
+        path
+        for path in pathlib.Path(migrations_folder).glob("*.py")
+        if path.name not in ("__init__.py",)
+    )
