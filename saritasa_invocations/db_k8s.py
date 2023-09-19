@@ -53,7 +53,7 @@ def get_dump(
     k8s.download_file_from_pod(
         context,
         pod_namespace=config.namespace,
-        pod_command=_generate_pod_command(context),
+        get_pod_name_command=_generate_get_pod_name_command(context),
         path_to_file_in_pod=f"tmp/{file}",
         path_to_where_save_file=f"{os.getcwd()}/{file}",
     )
@@ -62,10 +62,10 @@ def get_dump(
     return file
 
 
-def _generate_pod_command(context: invoke.Context) -> str:
+def _generate_get_pod_name_command(context: invoke.Context) -> str:
     """Generate pod command for db."""
     config = k8s.get_current_env_config_from_context(context).db_config
-    return config.pod_command.format(
+    return config.get_pod_name_command.format(
         db_pod_namespace=config.namespace,
         db_pod_selector=config.pod_selector,
     )
@@ -76,7 +76,7 @@ def _generate_exec_command(context: invoke.Context) -> str:
     config = k8s.get_current_env_config_from_context(context).db_config
     return config.exec_command.format(
         db_pod_namespace=config.namespace,
-        db_pod=_generate_pod_command(context),
+        db_pod=_generate_get_pod_name_command(context),
     )
 
 

@@ -653,7 +653,7 @@ Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `pod_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
 * `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
 * `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
 * `dump_additional_params` additional dump commands (Default: `--no-owner`)
@@ -666,7 +666,7 @@ Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `pod_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
 * `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
 
 ### cruft

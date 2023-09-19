@@ -83,10 +83,9 @@ def get_pod_cmd(
 ) -> str:
     """Get command for getting exact pod."""
     config = get_current_env_config_from_context(context)
-    return (
-        "kubectl get pods"
-        f" --selector {config.pod_label}={component}"
-        " --no-headers --output jsonpath='{.items[0].metadata.name}'"
+    return config.get_pod_name_command.format(
+        component_selector=config.component_selector,
+        component=component,
     )
 
 
@@ -199,7 +198,7 @@ def health_check(
 def download_file_from_pod(
     context: invoke.Context,
     pod_namespace: str,
-    pod_command: str,
+    get_pod_name_command: str,
     path_to_file_in_pod: str,
     path_to_where_save_file: str,
     retries: int = -1,
@@ -209,7 +208,7 @@ def download_file_from_pod(
         "kubectl cp"
         f" --namespace {pod_namespace}"
         f" --retries={retries}"
-        f" $({pod_command}):{path_to_file_in_pod}"
+        f" $({get_pod_name_command}):{path_to_file_in_pod}"
         f" {path_to_where_save_file}",
     )
 
@@ -226,7 +225,7 @@ def download_file(
     download_file_from_pod(
         context,
         pod_namespace=config.namespace,
-        pod_command=get_pod_cmd(
+        get_pod_name_command=get_pod_cmd(
             context,
             component or config.default_component,
         ),
