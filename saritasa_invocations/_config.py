@@ -12,7 +12,7 @@ def context_override(
     **config,
 ) -> collections.abc.Generator[invoke.Context, typing.Any, None]:
     """Temporary override context settings."""
-    old_context_config = {key: context.config[key] for key in config}
+    old_context_config = {key: context.config.get(key) for key in config}
     context.config.update(**config)
     try:
         yield context

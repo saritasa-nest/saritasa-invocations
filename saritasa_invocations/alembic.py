@@ -18,8 +18,10 @@ def wait_for_database(context: invoke.Context) -> None:
     config = _config.Config.from_context(context)
     with _config.context_override(
         context,
-        echo=False,
-        hide="out",
+        run={
+            "echo": False,
+            "hide": "out",
+        },
     ) as context:
         for _ in range(config.alembic.connect_attempts):
             try:

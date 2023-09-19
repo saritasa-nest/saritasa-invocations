@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.8.2
+
+- Hotfix context override
+
 ## 0.8.1
 
 - Add wait logic for alembic run invocations
