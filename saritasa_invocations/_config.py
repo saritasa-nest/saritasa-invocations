@@ -64,6 +64,7 @@ class DockerSettings:
     """Settings for docker module."""
 
     compose_cmd = "docker compose"
+    pull_params = "--quiet"
     main_containers: collections.abc.Sequence[str] = (
         "postgres",
         "redis",

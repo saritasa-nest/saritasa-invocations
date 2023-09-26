@@ -147,6 +147,37 @@ def stop_containers(
     context.run(f"{compose_cmd} stop {' '.join(containers)}")
 
 
+def pull_images(
+    context: invoke.Context,
+    services: collections.abc.Sequence[str],
+) -> None:
+    """Pull docker images to bring up containers."""
+    config = _config.Config.from_context(context)
+    if services:
+        printing.print_success(
+            f"Pulling images associated with services {', '.join(services)}",
+        )
+    else:
+        printing.print_success("Pulling all images")
+    services_str = " ".join(services)
+    compose_cmd = config.docker.compose_cmd
+    pull_params = config.docker.pull_params
+    pull_cmd = f"{compose_cmd} pull {pull_params} {services_str}"
+    context.run(pull_cmd)
+
+
+@invoke.task
+def pull(context: invoke.Context) -> None:
+    """Pull images associated with main containers."""
+    config = _config.Config.from_context(context)
+    if not config.docker.main_containers:
+        return
+    pull_images(
+        context,
+        services=config.docker.main_containers,
+    )
+
+
 @invoke.task
 def up(context: invoke.Context) -> None:
     """Bring up main containers and start them."""

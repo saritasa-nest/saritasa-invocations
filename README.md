@@ -284,6 +284,14 @@ Settings:
 
 Shortcut for stopping ALL running docker containers
 
+#### docker.pull
+
+Pull images associated with main containers.
+
+Settings:
+
+* `pull_params` params for docker pull command (Default: `--quiet`)
+
 #### docker.up
 
 Bring up main containers and start them.
