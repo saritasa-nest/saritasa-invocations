@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Make `context_override` public
+
 ## 0.8.2
 
 - Hotfix context override
