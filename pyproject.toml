@@ -9,7 +9,7 @@ maintainers = [
     "Stanislav Khlud <stanislav.khlud@saritasa.com>",
 ]
 homepage = "https://pypi.org/project/saritasa-invocations/"
-repository = "https://github.com/saritasa-nest/saritasa-python-invocations/"
+repository = "https://github.com/saritasa-nest/saritasa-invocations/"
 keywords = [
   "python",
   "invoke"

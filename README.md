@@ -1,6 +1,6 @@
 # saritasa-invocations
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-python-invocations/checks.yml)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-invocations/checks.yml)
 ![PyPI](https://img.shields.io/pypi/v/saritasa-invocations)
 ![PyPI - Status](https://img.shields.io/pypi/status/saritasa-invocations)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/saritasa-invocations)
