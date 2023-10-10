@@ -471,6 +471,16 @@ Settings:
 
 * `django_settings_path` default django settings (Default: `config.settings.local`)
 
+#### django.startapp
+
+Create django app from a template using cookiecutter.
+
+Settings:
+
+* `app_boilerplate_link` link to app template
+* `app_template_directory` path to app template in project template (Default: `.`)
+* `apps_path` path to apps folder in project (Default: `apps`)
+
 ### fastapi
 
 #### fastapi.run
