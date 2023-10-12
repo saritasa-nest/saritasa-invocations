@@ -74,6 +74,28 @@ def check_new_migrations(context: invoke.Context) -> None:
 
 
 @invoke.task
+def startapp(context: invoke.Context):
+    """Create new django app.
+
+    Requires cookiecutter:
+        https://cookiecutter.readthedocs.io/en/stable/
+
+    """
+    config = _config.Config.from_context(context)
+    if not config.django.app_boilerplate_link:
+        raise invoke.Exit(
+            code=1,
+            message="Please, provide link to your django app boilerplate!",
+        )
+    context.run(
+        "cookiecutter "
+        f"{config.django.app_boilerplate_link} "
+        f"--directory='{config.django.app_template_directory}' "
+        f"--output-dir='{config.django.apps_path}'",
+    )
+
+
+@invoke.task
 def migrate(context: invoke.Context) -> None:
     """Run `migrate` command."""
     printing.print_success("Django: Apply migrations")

@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add `django.startapp` invocation.
+
 ## 0.8.3
 
 - Make `context_override` public
