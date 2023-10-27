@@ -1,8 +1,9 @@
 import pathlib
+import time
 
 import invoke
 
-from . import _config, docker, printing, python
+from . import _config, db, db_k8s, docker, k8s, printing, python
 
 
 def wait_for_database(context: invoke.Context) -> None:
@@ -23,7 +24,7 @@ def wait_for_database(context: invoke.Context) -> None:
             "hide": "out",
         },
     ) as context:
-        for _ in range(config.alembic.connect_attempts):
+        for _ in range(config.alembic.connect_attempts - 1):
             try:
                 # Doing it manually to avoid loop
                 python.run(
@@ -33,13 +34,30 @@ def wait_for_database(context: invoke.Context) -> None:
                 wait_for_database._called = True  # type: ignore
                 return
             except invoke.UnexpectedExit:
+                time.sleep(1)
                 continue
 
-    printing.print_error(
-        "Failed to connect to db, "
-        f"after {config.alembic.connect_attempts} attempts",
-    )
-    raise invoke.Exit(code=1)
+    with _config.context_override(
+        context,
+        run={
+            "echo": True,
+            "hide": None,
+        },
+    ) as context:
+        try:
+            # Do it one more time but without hiding the terminal output
+            python.run(
+                context,
+                command=f"{config.alembic.command} current",
+            )
+            wait_for_database._called = True  # type: ignore
+            return
+        except invoke.UnexpectedExit:
+            printing.print_error(
+                "Failed to connect to db, "
+                f"after {config.alembic.connect_attempts} attempts",
+            )
+            raise invoke.Exit(code=1)
 
 
 @invoke.task
@@ -170,3 +188,101 @@ def _get_migration_files_paths(
         for path in pathlib.Path(migrations_folder).glob("*.py")
         if path.name not in ("__init__.py",)
     )
+
+
+@invoke.task
+def load_db_dump(
+    context: invoke.Context,
+    file: str = "",
+    env_file_path: str = ".env",
+    reset_db: bool = True,
+) -> None:
+    """Reset db and load db dump."""
+    if reset_db:
+        downgrade(context)
+    db.load_db_dump(
+        context,
+        file=file,
+        **_load_local_env_db_settings(context, file=env_file_path),
+    )
+
+
+@invoke.task
+def backup_local_db(
+    context: invoke.Context,
+    file: str = "",
+    env_file_path: str = ".env",
+) -> None:
+    """Back up local db."""
+    db.backup_local_db(
+        context,
+        file=file,
+        **_load_local_env_db_settings(context, file=env_file_path),
+    )
+
+
+@invoke.task
+def backup_remote_db(
+    context: invoke.Context,
+    file: str = "",
+) -> str:
+    """Make dump of remote db and download it."""
+    settings = _load_remote_env_db_settings(context)
+    db_k8s.create_dump(context, file=file, **settings)
+    return db_k8s.get_dump(context, file=file)
+
+
+@invoke.task
+def load_remote_db(
+    context: invoke.Context,
+    file: str = "",
+) -> None:
+    """Make dump of remote db, download it and apply it."""
+    file = backup_remote_db(context, file=file)
+    load_db_dump(context, file=file)
+
+
+def _load_local_env_db_settings(
+    context: invoke.Context,
+    file: str,
+) -> dict[str, str]:
+    """Load local db settings from .env file.
+
+    Requires python-decouple:
+        https://github.com/HBNetwork/python-decouple
+
+    """
+    # decouple could not be installed during project init
+    # so we import decouple this way to avoid import errors
+    # during project initialization
+    import decouple
+
+    secrets = decouple.Config(decouple.RepositoryEnv(file))
+    config = _config.Config.from_context(context)
+    return {
+        arg: str(secrets(env_var))
+        for arg, env_var in config.alembic.db_config_mapping.items()
+    }
+
+
+def _load_remote_env_db_settings(
+    context: invoke.Context,
+) -> dict[str, str]:
+    """Load remote db settings from .env file.
+
+    Requires python-decouple:
+        https://github.com/HBNetwork/python-decouple
+
+    """
+    # decouple could not be installed during project init
+    # so we import decouple this way to avoid import errors
+    # during project initialization
+    import decouple
+
+    with k8s.get_env_secrets(context) as file_path:
+        secrets = decouple.Config(decouple.RepositoryEnv(file_path))
+        config = _config.Config.from_context(context)
+        return {
+            arg: str(secrets(env_var))
+            for arg, env_var in config.alembic.db_config_mapping.items()
+        }

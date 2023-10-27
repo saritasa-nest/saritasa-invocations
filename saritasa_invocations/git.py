@@ -1,3 +1,5 @@
+import pathlib
+
 import invoke
 
 from . import _config, pre_commit, printing
@@ -29,3 +31,20 @@ def set_git_setting(
 ) -> None:
     """Set git setting in config."""
     context.run(f"git config --local --add {setting} {value}")
+
+
+@invoke.task
+def clone_repo(
+    context: invoke.Context,
+    repo_link: str,
+    repo_path: str | pathlib.Path,
+) -> None:
+    """Clone repo for work to folder."""
+    if not pathlib.Path(repo_path).exists():
+        printing.print_success(f"Cloning {repo_link} repository...")
+        context.run(f"git clone {repo_link} {repo_path}")
+        printing.print_success(f"Successfully cloned to '{repo_path}'!")
+    else:
+        printing.print_success(f"Pulling changes for {repo_link}...")
+        with context.cd(repo_path):
+            context.run("git pull")

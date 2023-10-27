@@ -22,6 +22,7 @@ ns = invoke.Collection(
     saritasa_invocations.pip,
     saritasa_invocations.mypy,
     saritasa_invocations.pytest,
+    saritasa_invocations.secrets,
 )
 
 # Configurations for run command
