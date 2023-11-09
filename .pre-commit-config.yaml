@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-yaml
       - id: check-toml
@@ -35,9 +35,6 @@ repos:
           # A plugin for Flake8 finding likely bugs and design problems in your program.
           # https://github.com/PyCQA/flake8-bugbear
           flake8-bugbear,
-          # Extension to enforce better comma placement.
-          # https://github.com/PyCQA/flake8-commas
-          flake8-commas,
           # A flake8 plugin checking common style issues or inconsistencies with pytest-based tests.
           # https://github.com/m-burst/flake8-pytest-style
           flake8-pytest-style,
@@ -58,8 +55,13 @@ repos:
           mccabe,
         ]
 
+  -   repo: https://github.com/asottile/add-trailing-comma
+      rev: v3.1.0
+      hooks:
+      -   id: add-trailing-comma
+
   - repo: https://github.com/psf/black
-    rev: 23.9.1
+    rev: 23.10.1
     hooks:
       - id: black
         language_version: python3
