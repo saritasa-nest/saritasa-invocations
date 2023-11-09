@@ -127,7 +127,7 @@ class CelerySettings:
     extra_params: tuple[str] = ("--beat",)
     local_cmd: str = (
         "celery --app {app} "
-        "worker --scheduler={scheduler} --loglevel={info} {extra_params}"
+        "worker --scheduler={scheduler} --loglevel={loglevel} {extra_params}"
     )
 
 

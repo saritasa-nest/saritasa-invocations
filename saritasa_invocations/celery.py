@@ -17,7 +17,7 @@ def run(
                     app=config.app,
                     scheduler=config.scheduler,
                     loglevel=config.loglevel,
-                    extra_params=" ".join(config.loglevel),
+                    extra_params=" ".join(config.extra_params),
                 ),
             )
         case python.PythonEnv.DOCKER:

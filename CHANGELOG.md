@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Fix celery configuration
+
 ## 0.9.0
 
 - Add `django.startapp` invocation.
