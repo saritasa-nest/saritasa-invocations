@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.9.0
+
 - Add `django.startapp` invocation.
 - Confirm support for python 3.12.
 - Add `secrets` invocations
