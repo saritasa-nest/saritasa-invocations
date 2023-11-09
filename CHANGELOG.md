@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.9.1
+
 - Fix celery configuration
 
 ## 0.9.0
