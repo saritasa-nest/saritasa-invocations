@@ -51,7 +51,7 @@ env_settings = ["python-decouple"]
 [tool.poetry.group.dev.dependencies]
 # Improved REPL
 ipdb = "^0.13.13"
-ipython = "^8.16.1"
+ipython = "^8.17.2"
 # A framework for managing and maintaining multi-language pre-commit hooks.
 # https://pre-commit.com/
 pre-commit = "^3.5.0"
