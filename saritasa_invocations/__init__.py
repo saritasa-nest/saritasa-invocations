@@ -17,6 +17,7 @@ from saritasa_invocations import (
     pre_commit,
     pytest,
     python,
+    secrets,
     system,
 )
 from saritasa_invocations._config import (

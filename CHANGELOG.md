@@ -6,6 +6,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 - Add `django.startapp` invocation.
 - Confirm support for python 3.12.
+- Add `secrets` invocations
+- Extend `alembic` invocations to be able to make db dumps
+- Improve logic of `wait_for_database` for `alembic`
+- Add invocation for `celery` to run task
 
 ## 0.8.3
 

@@ -327,8 +327,8 @@ def load_django_remote_env_db_settings(
     )
 
     # decouple could not be installed during project init
-    # so we import decouple this way because it may not be installed
-    # at the project initialization stage
+    # so we import decouple this way to avoid import errors
+    # during project initialization
 
     import decouple
 

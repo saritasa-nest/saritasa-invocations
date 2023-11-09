@@ -1,3 +1,8 @@
+import collections
+import collections.abc
+import contextlib
+import typing
+
 import invoke
 
 from . import _config, printing
@@ -232,6 +237,41 @@ def download_file(
         path_to_file_in_pod=path_to_file_in_pod,
         path_to_where_save_file=path_to_where_save_file,
     )
+
+
+@contextlib.contextmanager
+def download_file_and_remove_afterwards(
+    context: invoke.Context,
+    path_to_file_in_pod: str,
+    path_to_where_save_file: str,
+) -> collections.abc.Generator[str, typing.Any, None]:
+    """Download file from k8s and delete it after work is done."""
+    download_file(
+        context,
+        path_to_file_in_pod=path_to_file_in_pod,
+        path_to_where_save_file=path_to_where_save_file,
+    )
+    try:
+        yield path_to_where_save_file
+    finally:
+        printing.print_success(
+            f"Deleting file({path_to_where_save_file}) after use",
+        )
+        context.run(f"rm {path_to_where_save_file}")
+
+
+@contextlib.contextmanager
+def get_env_secrets(
+    context: invoke.Context,
+) -> collections.abc.Generator[str, typing.Any, None]:
+    """Get secrets from k8s and save it to file."""
+    config = get_current_env_config_from_context(context)
+    with download_file_and_remove_afterwards(
+        context,
+        path_to_file_in_pod=config.secret_file_path_in_pod,
+        path_to_where_save_file=config.temp_secret_file_path,
+    ) as file_path:
+        yield file_path
 
 
 def success(
