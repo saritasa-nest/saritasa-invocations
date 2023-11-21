@@ -13,10 +13,10 @@ def install(context: invoke.Context) -> None:
 
 
 @invoke.task
-def run_hooks(context: invoke.Context) -> None:
+def run_hooks(context: invoke.Context, params: str = "") -> None:
     """Run all hooks against all files."""
     printing.print_success("Running git hooks")
-    context.run("pre-commit run --hook-stage push --all-files")
+    context.run(f"pre-commit run --hook-stage push --all-files {params}")
 
 
 @invoke.task

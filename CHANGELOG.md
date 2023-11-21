@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Improve `pre-commit.run-hooks` command with `params`
+
 ## 0.9.1
 
 - Fix celery configuration
