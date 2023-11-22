@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add configuration for django `manage.py` file path
+
 ## 0.9.1
 
 - Fix celery configuration

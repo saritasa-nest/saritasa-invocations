@@ -101,6 +101,7 @@ class DjangoSettings:
     default_superuser_password: str = "root"
     shell_command: str = "shell_plus --ipython"
     path_to_remote_config_file: str = "/workspace/app/config/settings/.env"
+    manage_file_path: str = "./manage.py"
     settings_path: str = "config.settings.local"
     app_boilerplate_link: str | None = None
     app_template_directory: str = "."
