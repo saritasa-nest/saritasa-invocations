@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Add configuration for django `manage.py` file path
+- Improve `pre-commit.run-hooks` command with `params`
 
 ## 0.9.1
 
