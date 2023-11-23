@@ -362,6 +362,10 @@ be ready.
 
 Requires [django_probes](https://github.com/painless-software/django-probes#basic-usage)
 
+Settings:
+
+* `manage_file_path` path to `manage.py` file (Default: `./manage.py`)
+
 #### django.makemigrations
 
 Run `makemigrations` command and chown created migrations (only for docker env).
