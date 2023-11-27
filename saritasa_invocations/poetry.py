@@ -20,12 +20,21 @@ def update(
 
     https://python-poetry.org/docs/dependency-specification/
 
+    Fallbacks to `poetry update` in case of an error.
+
     Requires:
     https://github.com/MousaZeidBaker/poetry-plugin-up
 
     """
     printing.print_success("Update dependencies")
-    context.run(f"poetry up {params} {_parse_groups(groups)}")
+    try:
+        context.run(f"poetry up {params} {_parse_groups(groups)}")
+    except invoke.UnexpectedExit:
+        printing.print_warn(
+            "Can't update with respect to version constraints using poetry up,"
+            " trying with poetry update",
+        )
+        context.run(f"poetry update {_parse_groups(groups)}")
 
 
 @invoke.task
@@ -33,15 +42,27 @@ def update_to_latest(
     context: invoke.Context,
     groups: str = "",
     params: str = "",
+    fallback: bool = True,
 ):
     """Update dependencies to latest versions using poetry up plugin.
+
+    By default fallbacks to `update` task in case of an error.
 
     Requires:
     https://github.com/MousaZeidBaker/poetry-plugin-up
 
     """
     printing.print_success("Update dependencies to latest versions")
-    context.run(f"poetry up --latest {params} {_parse_groups(groups)}")
+    try:
+        context.run(f"poetry up --latest {params} {_parse_groups(groups)}")
+    except invoke.UnexpectedExit as error:
+        if not fallback:
+            raise error
+        printing.print_warn(
+            "Can't update to latest, try to update with respect to version"
+            " constraints.",
+        )
+        update(context, groups=groups, params=params)
 
 
 def _parse_groups(groups: str) -> str:

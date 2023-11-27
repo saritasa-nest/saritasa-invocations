@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Improve `pre-commit.run-hooks` command with `params`
+- Add fallback for `poetry.update` and `poetry.update_to_latest`
 
 ## 0.9.1
 
