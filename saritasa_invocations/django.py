@@ -15,13 +15,16 @@ def wait_for_database(context: invoke.Context) -> None:
         https://github.com/painless-software/django-probes#basic-usage
 
     """
+    config = _config.Config.from_context(context)
     if hasattr(wait_for_database, "_called"):
         return
     docker.up(context)
     # Not using manage to avoid infinite loop
     python.run(
         context,
-        command="manage.py wait_for_database --stable 0",
+        command=(
+            f"{config.django.manage_file_path} " "wait_for_database --stable 0"
+        ),
     )
     wait_for_database._called = True  # type: ignore
 
@@ -45,11 +48,12 @@ def manage(
         watchers: Automated responders to command
 
     """
+    config = _config.Config.from_context(context)
     wait_for_database(context)
     python.run(
         context,
         docker_params=docker_params,
-        command=f"manage.py {command}",
+        command=f"{config.django.manage_file_path} {command}",
         watchers=watchers,
     )
 
