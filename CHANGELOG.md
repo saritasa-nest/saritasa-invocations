@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Improve `pre-commit.run-hooks` command with `params`
+- Add `git.blame-copy` command
 
 ## 0.9.1
 
