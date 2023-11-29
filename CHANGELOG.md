@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.10.0
+
 - Add configuration for django `manage.py` file path
 - Improve `pre-commit.run-hooks` command with `params`
 - Add `git.blame-copy` command
