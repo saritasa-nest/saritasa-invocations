@@ -850,10 +850,15 @@ Update dependencies with respect to
 [version constraints](https://python-poetry.org/docs/dependency-specification/)
 using [poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).
 
+Fallbacks to `poetry update` in case of an error.
+
 #### poetry.update-to-latest
 
 Update dependencies to latest versions using
 [poetry up plugin](https://github.com/MousaZeidBaker/poetry-plugin-up).
+
+By default fallbacks to [`update`](#poetryupdate) task in case of an error.
+Use `--no-fallback` to stop on error.
 
 ### pip
 
