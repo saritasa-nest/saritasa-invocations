@@ -35,6 +35,17 @@ class GitSettings:
 
     merge_ff: str = "false"
     pull_ff: str = "only"
+    copy_commit_template: str = (
+        "[automated-commit]: {action}\n\n"
+        "copy: {original_path}\n"
+        "to:\n* {destination_paths}\n\n"
+        "{project_task}"
+    )
+    copy_init_message_template: str = (
+        "Copy {original_path} to:\n"
+        "* {destination_paths}\n\n"
+        "Count of created commits: {commits_count}"
+    )
 
 
 @dataclasses.dataclass

@@ -257,6 +257,65 @@ Settings:
 
 Clone repo or pull latest changes to specified repo
 
+#### git.blame-copy
+
+Command for creating copies of a file with git blame history saving.
+
+Original script written in bash:
+https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j
+
+Usage:
+```shell
+  inv git.blame-copy <path to original file> <path to copy>,<path to copy>...
+```
+
+If `<path to copy>` is file, then data will be copied in it.
+
+If `<path to copy>` is directory, then data will be copied in provided
+directory with original name.
+
+Algorithm:
+
+1) Remember current HEAD state
+2) For each copy path:
+    move file to copy path, restore file using `checkout`,
+    remember result commits
+3) Restore state of branch
+4) Move file to temp file
+5) Merge copy commits to branch
+6) Move file to it's original path from temp file
+
+Settings:
+
+* `copy_commit_template` template for commits created during command workflow
+* `copy_init_message_template` template for init message printed at command start
+
+Template variables:
+
+* `action` - The copy algorithm consists of several intermediate actions
+(creating temporary files, merging commits, etc.)
+The `action` variable stores the header of the intermediate action.
+* `original_path` - Contains value of first argument of the command
+(path of original file that will be copied)
+* `destination_paths` - Sequence of paths to which the original file will be copied
+* `project_task` - project task that will be parsed from current git branch.
+If no task found in branch, then will be empty
+
+Default values for templates:
+* `copy_commit_template`:
+```python
+  "[automated-commit]: {action}\n\n"
+  "copy: {original_path}\n"
+  "to:\n* {destination_paths}\n\n"
+  "{project_task}"
+```
+* `copy_init_message_template`:
+```python
+  "Copy {original_path} to:\n"
+  "* {destination_paths}\n\n"
+  "Count of created commits: {commits_count}"
+```
+
 ### pre-commit
 
 #### pre-commit.install
