@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 0.10.1
+
 - Add `__all__` to `__init__`.py.
 Without it in VS Code, `Pylance` will raise `reportPrivateImportUsage` when trying to import non-module names from package.
 
