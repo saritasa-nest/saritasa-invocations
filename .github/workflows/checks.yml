@@ -31,7 +31,7 @@ jobs:
         virtualenvs-create: true
         virtualenvs-in-project: true
         installer-parallel: true
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       with:
         path: ~/.cache/pre-commit
         key: ${{ runner.os }}-pre-commit-${{ matrix.python-version }}-${{ hashFiles('**/.pre-commit-config.yaml') }}
@@ -39,7 +39,7 @@ jobs:
           ${{ runner.os }}-pre-commit-
     - name: Cache poetry dependencies
       id: cached-poetry-dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: .venv
         key: ${{ runner.os }}-poetry-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
