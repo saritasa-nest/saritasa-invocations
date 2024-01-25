@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.0.0
+
+First stable release
+
 ## 0.10.1
 
 - Add `__all__` to `__init__`.py.

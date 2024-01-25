@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "saritasa-invocations"
-version = "0.10.1"
+version = "1.0.0"
 description = "Collection of invoke commands used by Saritasa"
 authors = [
   "Saritasa <pypi@saritasa.com>",
@@ -21,11 +21,12 @@ packages = [
 ]
 
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
   "License :: OSI Approved :: MIT License",
   "Natural Language :: English",
   "Intended Audience :: Developers",
   "Operating System :: OS Independent",
+  "Environment :: Console",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
