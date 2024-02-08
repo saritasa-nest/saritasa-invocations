@@ -196,7 +196,13 @@ def _merge_commits(
     message: str,
 ) -> None:
     """Merge passed commits."""
-    context.run(f"git merge {' '.join(commits)} -m '{message}'")
+    context.run(
+        f"git merge {' '.join(commits)} -m '{message}'",
+        warn=True,
+    )
+    context.run(
+        f"git commit --no-verify -a -n -m '{message}'",
+    )
 
 
 def _move_file(

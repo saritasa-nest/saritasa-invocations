@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+Fix `git.blame-copy` in case if merge conflict between files occurs.
+
 ## 1.0.0
 
 First stable release
