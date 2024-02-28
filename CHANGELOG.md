@@ -10,6 +10,7 @@ We follow [Semantic Versions](https://semver.org/).
   - `inv pip.compile-dependencies` -> `inv pip.compile`;
   - From now `pip.install-dependencies` and  `pip.compile-dependencies` are
     deprecated commands. They will be removed in next releases.
+- Add `branch`, `clone_params`, `pull_params`, `checkout_params` parameter to `git.clone-repo` invocation
 
 ## 1.0.0
 
