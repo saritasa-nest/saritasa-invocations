@@ -4,7 +4,12 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
-Fix `git.blame-copy` in case if merge conflict between files occurs.
+- Fix `git.blame-copy` in case if merge conflict between files occurs.
+- Made pip commands shorter:
+  - `inv pip.install-dependencies` -> `inv pip.install`;
+  - `inv pip.compile-dependencies` -> `inv pip.compile`;
+  - From now `pip.install-dependencies` and  `pip.compile-dependencies` are
+    deprecated commands. They will be removed in next releases.
 
 ## 1.0.0
 
