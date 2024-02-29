@@ -3,8 +3,8 @@ import invoke
 from . import _config, printing
 
 
-@invoke.task
-def install_dependencies(
+@invoke.task(aliases=["install-dependencies"])
+def install(
     context: invoke.Context,
     env: str = "development",
 ) -> None:
@@ -14,8 +14,20 @@ def install_dependencies(
     context.run(f"pip install -r {config.pip.dependencies_folder}/{env}.txt")
 
 
-@invoke.task
-def compile_dependencies(
+def install_dependencies(
+    context: invoke.Context,
+    env: str = "development",
+) -> None:
+    """Install dependencies via pip."""
+    printing.print_warn(
+        "It is deprecated command. It will be removed in next releases."
+        " Use the short version of this command `inv pip.install`.",
+    )
+    install(context, env)
+
+
+@invoke.task(aliases=["compile-dependencies"])
+def compile(
     context: invoke.Context,
     upgrade: bool = False,
 ) -> None:
@@ -34,3 +46,20 @@ def compile_dependencies(
         context.run(
             f"pip-compile -q {dependencies_folder}/{file} {upgrade_param}",
         )
+
+
+def compile_dependencies(
+    context: invoke.Context,
+    upgrade: bool = False,
+) -> None:
+    """Compile dependencies via pip-compile.
+
+    Requires:
+    https://github.com/jazzband/pip-tools
+
+    """
+    printing.print_warn(
+        "It is deprecated command. It will be removed in next releases."
+        " Use the short version of this command `inv pip.compile`.",
+    )
+    compile(context, upgrade)

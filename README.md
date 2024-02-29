@@ -40,7 +40,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
   * [github-actions](#github-actions)
     * [github-actions.set-up-hosts](#github-actionsset-up-hosts)
   * [python](#python)
-    * [run](#pythonrun)
+    * [python.run](#pythonrun)
   * [django](#django)
     * [django.manage](#djangomanage)
     * [django.makemigrations](#djangomakemigrations)
@@ -96,12 +96,12 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [poetry.update](#poetryupdate)
     * [poetry.update-to-latest](#poetryupdate-to-latest)
   * [pip](#pip)
-    * [pip.install-dependencies](#pipinstall-dependencies)
-    * [pip.compile](#pipcompile-dependencies)
+    * [pip.install](#pipinstall)
+    * [pip.compile](#pipcompile)
   * [mypy](#mypy)
-    * [mypy](#mypyrun)
+    * [mypy.run](#mypyrun)
   * [pytest](#pytest)
-    * [pytest](#pytestrun)
+    * [pytest.run](#pytestrun)
   * [secrets](#secrets)
     * [secrets.setup-env-credentials](#secretssetup-env-credentials)
 
@@ -921,7 +921,7 @@ Use `--no-fallback` to stop on error.
 
 ### pip
 
-#### pip.install-dependencies
+#### pip.install
 
 Install dependencies via pip.
 
@@ -929,7 +929,7 @@ Settings:
 
 * `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
 
-#### pip.compile-dependencies
+#### pip.compile
 
 Compile dependencies via
 [pip-compile](https://github.com/jazzband/pip-tools#requirements-from-requirementsin).
