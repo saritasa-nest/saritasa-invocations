@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.1.0
+
 - Fix `git.blame-copy` in case if merge conflict between files occurs.
 - Made pip commands shorter:
   - `inv pip.install-dependencies` -> `inv pip.install`;
