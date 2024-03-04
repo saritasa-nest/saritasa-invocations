@@ -40,16 +40,50 @@ def clone_repo(
     context: invoke.Context,
     repo_link: str,
     repo_path: str | pathlib.Path,
+    branch: str = "",
+    clone_params: str = "",
+    pull_params: str = "",
+    checkout_params: str = "",
 ) -> None:
     """Clone repo for work to folder."""
     if not pathlib.Path(repo_path).exists():
-        printing.print_success(f"Cloning {repo_link} repository...")
-        context.run(f"git clone {repo_link} {repo_path}")
-        printing.print_success(f"Successfully cloned to '{repo_path}'!")
+        printing.print_success(
+            f"Cloning `{repo_link}` repository to `{repo_path}`",
+        )
+        context.run(f"git clone {repo_link} {repo_path} {clone_params}")
+        checkout_to_branch(
+            context,
+            repo_path=repo_path,
+            branch=branch,
+            checkout_params=checkout_params,
+        )
+        printing.print_success(f"Successfully cloned to `{repo_path}`")
     else:
-        printing.print_success(f"Pulling changes for {repo_link}...")
+        printing.print_success(
+            f"Pulling changes for `{repo_link}` in `{repo_path}`",
+        )
+        checkout_to_branch(
+            context,
+            repo_path=repo_path,
+            branch=branch,
+            checkout_params=checkout_params,
+        )
         with context.cd(repo_path):
-            context.run("git pull")
+            context.run(f"git pull {pull_params}")
+
+
+def checkout_to_branch(
+    context: invoke.Context,
+    repo_path: str | pathlib.Path,
+    branch: str,
+    checkout_params: str = "",
+) -> None:
+    """Checkout to repo's branch."""
+    if not branch:
+        return
+    with context.cd(repo_path):
+        printing.print_success(f"Checkout to `{branch}` branch")
+        context.run(f"git checkout {branch} {checkout_params}")
 
 
 @invoke.task
