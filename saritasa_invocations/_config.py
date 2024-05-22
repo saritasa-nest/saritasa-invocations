@@ -294,7 +294,7 @@ class K8SDefaultSettings:
         "--no-headers --output jsonpath='{{.items[0].metadata.name}}'"
     )
     default_component: str = "backend"
-    default_entry: str = "cnb/lifecycle/launcher bash"
+    default_entry: str = "/cnb/lifecycle/launcher bash"
     python_shell: str = "shell_plus"
     health_check: str = "health_check"
     secret_file_path_in_pod: str | None = None

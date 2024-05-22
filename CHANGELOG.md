@@ -4,6 +4,9 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Make default for `default_entry` for `K8SDefaultSettings` use absolute path
+according to [specs](https://github.com/buildpacks/spec/blob/main/platform.md#launch)
+
 ## 1.1.0
 
 - Fix `git.blame-copy` in case if merge conflict between files occurs.
