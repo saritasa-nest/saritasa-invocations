@@ -52,10 +52,10 @@ env_settings = ["python-decouple"]
 [tool.poetry.group.dev.dependencies]
 # Improved REPL
 ipdb = "^0.13.13"
-ipython = "^8.22.1"
+ipython = "^8.24.0"
 # A framework for managing and maintaining multi-language pre-commit hooks.
 # https://pre-commit.com/
-pre-commit = "^3.6.2"
+pre-commit = "^3.7.1"
 
 [tool.poetry.group.linters.dependencies]
 # Flake dependencies are added so that VSCode extension for flake8
@@ -64,7 +64,7 @@ pre-commit = "^3.6.2"
 flake8 = "^7.0.0"
 # A plugin for Flake8 finding likely bugs and design problems in your program.
 # https://github.com/PyCQA/flake8-bugbear
-flake8-bugbear = "^24.2.6"
+flake8-bugbear = "^24.4.26"
 # A flake8 plugin that warn about backslashes usage.
 # https://github.com/wemake-services/flake8-broken-line
 flake8-broken-line = "^1.0.0"
@@ -83,7 +83,7 @@ mccabe = "^0.7.0"
 
 # Mypy is a static type checker for Python.
 # https://mypy.readthedocs.io/en/stable/
-mypy = "^1.8.0"
+mypy = "^1.10.0"
 
 [build-system]
 requires = ["poetry-core"]
