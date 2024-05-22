@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.1.1
+
 - Make default for `default_entry` for `K8SDefaultSettings` use absolute path
 according to [specs](https://github.com/buildpacks/spec/blob/main/platform.md#launch)
 
