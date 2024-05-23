@@ -52,12 +52,12 @@ def wait_for_database(context: invoke.Context) -> None:
             )
             wait_for_database._called = True  # type: ignore
             return
-        except invoke.UnexpectedExit:
+        except invoke.UnexpectedExit as error:
             printing.print_error(
                 "Failed to connect to db, "
                 f"after {config.alembic.connect_attempts} attempts",
             )
-            raise invoke.Exit(code=1)
+            raise invoke.Exit(code=1) from error
 
 
 @invoke.task
@@ -160,7 +160,7 @@ def check_for_adjust_messages(
     for filepath in _get_migration_files_paths(
         config.alembic.migrations_folder,
     ):
-        with open(filepath) as migration_file:
+        with pathlib.Path(filepath).open() as migration_file:
             file_text = migration_file.read()
             for adjust_message in config.alembic.adjust_messages:
                 if adjust_message in file_text:

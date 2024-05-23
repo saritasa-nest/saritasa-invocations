@@ -15,7 +15,7 @@ def update(
     context: invoke.Context,
     groups: str = "",
     params: str = "",
-):
+) -> None:
     """Update dependencies with respect to version constraints using poetry up.
 
     https://python-poetry.org/docs/dependency-specification/
@@ -43,7 +43,7 @@ def update_to_latest(
     groups: str = "",
     params: str = "",
     fallback: bool = True,
-):
+) -> None:
     """Update dependencies to latest versions using poetry up plugin.
 
     By default fallbacks to `update` task in case of an error.

@@ -1,5 +1,5 @@
 import collections.abc
-import os
+import pathlib
 
 import invoke
 
@@ -25,7 +25,7 @@ def buildpack(
     """Build app image using buildpacks."""
     config = _config.Config.from_context(context)
     # Builder needs requirements.txt
-    if os.path.exists(config.docker.buildpack_requirements_path):
+    if pathlib.Path(config.docker.buildpack_requirements_path).exists():
         context.run(
             f"cp {config.docker.buildpack_requirements_path}/{env}.txt "
             "requirements.txt",
@@ -34,7 +34,7 @@ def buildpack(
     runner = runner or config.docker.buildpack_runner
     tag = tag or config.docker.build_image_tag
     context.run(f"pack build --builder={builder} --run-image={runner} {tag}")
-    if os.path.exists(config.docker.buildpack_requirements_path):
+    if pathlib.Path(config.docker.buildpack_requirements_path).exists():
         context.run("rm requirements.txt")
 
 
@@ -54,6 +54,7 @@ def docker_compose_run(
     files.
 
     Args:
+    ----
         context: Invoke context
         params: Configuration params for docker compose
         container: Name of container to start
@@ -82,6 +83,7 @@ def docker_compose_exec(
     files.
 
     Args:
+    ----
         context: Invoke context
         service: Name of service to run command in
         command: Command to run in service container
@@ -109,6 +111,7 @@ def up_containers(
     Add `d` kwarg to run them in background.
 
     Args:
+    ----
         context: Invoke context
         containers: Name of containers to start
         detach: To run them in background
@@ -117,6 +120,7 @@ def up_containers(
             same ports, for example, Postgres and redis.
 
     Raises:
+    ------
         UnexpectedExit: when `up` command wasn't successful
 
     """

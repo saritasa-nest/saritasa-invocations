@@ -89,66 +89,115 @@ mypy = "^1.10.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.isort]
-profile = "black"
-line_length = 79
-multi_line_output = 3
-skip = [
-    "_tmp",
-    "src",
-    ".venv",
-]
-sections = [
-    "FUTURE",
-    "STDLIB",
-    "THIRDPARTY",
-    "FIRSTPARTY",
-    "LOCALFOLDER",
-]
-include_trailing_comma = true
-default_section = "THIRDPARTY"
-
-[tool.flake8]
-ignore = [
-    # https://www.flake8rules.com/rules/E126.html
-    "E126",
-    # https://www.flake8rules.com/rules/W503.html
-    "W503",
-    # https://www.flake8rules.com/rules/W504.html
-    "W504",
-    # https://github.com/m-burst/flake8-pytest-style/blob/master/docs/rules/PT004.md
-    "PT004",
-    # https://www.pydocstyle.org/en/latest/error_codes.html
-    # Missing docstring in public module
-    "D100",
-    # Missing docstring in public nested class
-    "D106",
-    # Missing docstring in __init__
-    "D107",
-    # Use r””” if any backslashes in a docstring
-    "D301",
-]
-statistics = true
-count = true
-max-complexity = 10
-pytest-fixture-no-parentheses = true
-pytest-parametrize-names-type = "list"
-pytest-parametrize-values-type = "list"
-pytest-parametrize-values-row-type = "list"
-inline-quotes = "double"
-docstring-quotes = "double"
-docstring-convention = "pep257"
-exclude = [
-    ".venv",
-    "__init__.py",
-    "docs",
-]
-
-[tool.black]
+[tool.ruff]
 line-length = 79
-target-version = [
-  "py311",
+indent-width = 4
+target-version = "py310"
+
+[tool.ruff.lint]
+extend-select = [
+  # https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+  "W",
+  "E",
+  # https://docs.astral.sh/ruff/rules/#mccabe-c90
+  "C90",
+  # https://docs.astral.sh/ruff/rules/#isort-i
+  "I",
+  # https://docs.astral.sh/ruff/rules/#pep8-naming-n
+  "N",
+  # https://docs.astral.sh/ruff/rules/#pydocstyle-d
+  "D",
+  # https://docs.astral.sh/ruff/rules/#pyupgrade-up
+  "UP",
+  # https://docs.astral.sh/ruff/rules/#flake8-annotations-ann
+  "ANN",
+  # https://docs.astral.sh/ruff/rules/#flake8-bandit-s
+  "S",
+  # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+  "B",
+  # https://docs.astral.sh/ruff/rules/#flake8-builtins-a
+  "A",
+  # https://docs.astral.sh/ruff/rules/#flake8-commas-com
+  "COM",
+  # https://docs.astral.sh/ruff/rules/#flake8-comprehensions-c4
+  "C4",
+  # https://docs.astral.sh/ruff/rules/#flake8-datetimez-dtz
+  "DTZ",
+  # https://docs.astral.sh/ruff/rules/#flake8-debugger-t10
+  "T10",
+  # https://docs.astral.sh/ruff/rules/#flake8-print-t20
+  "T20",
+  # https://docs.astral.sh/ruff/rules/#flake8-pytest-style-pt
+  "PT",
+  # https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+  "SIM",
+  # https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
+  "PTH",
+  # https://docs.astral.sh/ruff/rules/#flake8-todos-td
+  "TD",
+  # https://docs.astral.sh/ruff/rules/#eradicate-era
+  "ERA",
+  # https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf
+  "RUF"
 ]
+ignore = [
+  # https://docs.astral.sh/ruff/rules/ANN101
+  "ANN101",
+  # https://docs.astral.sh/ruff/rules/ANN102
+  "ANN102",
+  # https://docs.astral.sh/ruff/rules/ANN401
+  "ANN401",
+  # https://docs.astral.sh/ruff/rules/ANN003
+  "ANN003",
+  # https://docs.astral.sh/ruff/rules/D100
+  "D100",
+  # https://docs.astral.sh/ruff/rules/D104
+  "D104",
+  # https://docs.astral.sh/ruff/rules/D106
+  "D106",
+  # https://docs.astral.sh/ruff/rules/D107
+  "D107",
+]
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+  # https://docs.astral.sh/ruff/rules/F401
+  "F401",
+]
+"**/tests/*" = [
+  # https://docs.astral.sh/ruff/rules/S101
+  "S101",
+  # https://docs.astral.sh/ruff/rules/S106
+  "S106",
+  # https://docs.astral.sh/ruff/rules/S311
+  "S311",
+]
+"**/test_*" = [
+  # https://docs.astral.sh/ruff/rules/ANN201
+  "ANN201",
+]
+[tool.ruff.lint.isort]
+force-wrap-aliases = true
+split-on-trailing-comma = true
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+parametrize-names-type = "list"
+parametrize-values-type = "list"
+parametrize-values-row-type = "list"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports

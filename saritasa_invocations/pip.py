@@ -27,7 +27,7 @@ def install_dependencies(
 
 
 @invoke.task(aliases=["compile-dependencies"])
-def compile(
+def compile(  # noqa: A001
     context: invoke.Context,
     upgrade: bool = False,
 ) -> None:

@@ -245,7 +245,7 @@ def _move_file(
     from_path: str,
     to_path: str,
     message: str,
-    options: collections.abc.Sequence[str] = tuple(),
+    options: collections.abc.Sequence[str] = (),
 ) -> None:
     """Move `first_file `to `second_file` path using git."""
     context.run(f"git mv {' '.join(options)} {from_path} {to_path}")
@@ -316,7 +316,7 @@ def _get_project_task_from_current_branch(
     return task
 
 
-def _display_continue_prompt():
+def _display_continue_prompt() -> None:
     """Display continue message.
 
     If `n` entered, then exit script.

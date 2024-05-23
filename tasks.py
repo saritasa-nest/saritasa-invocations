@@ -27,12 +27,12 @@ ns = invoke.Collection(
 
 # Configurations for run command
 ns.configure(
-    dict(
-        run=dict(
-            pty=True,
-            echo=True,
-        ),
-        saritasa_invocations=saritasa_invocations.Config(
+    {
+        "run": {
+            "pty": True,
+            "echo": True,
+        },
+        "saritasa_invocations": saritasa_invocations.Config(
             project_name="saritasa_invocations",
             pre_commit=saritasa_invocations.PreCommitSettings(
                 hooks=(
@@ -42,5 +42,5 @@ ns.configure(
                 ),
             ),
         ),
-    ),
+    },
 )

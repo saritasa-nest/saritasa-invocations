@@ -42,6 +42,7 @@ def manage(
     be ready.
 
     Args:
+    ----
         context: Invoke context
         command: Manage command
         docker_params: Params for docker run
@@ -78,7 +79,7 @@ def check_new_migrations(context: invoke.Context) -> None:
 
 
 @invoke.task
-def startapp(context: invoke.Context):
+def startapp(context: invoke.Context) -> None:
     """Create new django app.
 
     Requires cookiecutter:
@@ -178,7 +179,7 @@ def run(context: invoke.Context) -> None:
     manage(
         context,
         docker_params=config.django.runserver_docker_params,
-        command="{command} {host}:{port} {params}".format(
+        command="{command} {host}:{port} {params}".format(  # noqa: UP032
             command=config.django.runserver_command,
             host=config.django.runserver_host,
             port=config.django.runserver_port,
@@ -300,7 +301,7 @@ def load_django_db_settings(context: invoke.Context) -> dict[str, str]:
     config = _config.Config.from_context(context)
     os.environ["DJANGO_SETTINGS_MODULE"] = config.django.settings_path
 
-    from django.conf import settings
+    from django.conf import settings  # type: ignore
 
     db_settings = settings.DATABASES["default"]
     return {

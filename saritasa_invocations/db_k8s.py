@@ -1,4 +1,4 @@
-import os
+import pathlib
 
 import invoke
 
@@ -55,7 +55,7 @@ def get_dump(
         pod_namespace=config.namespace,
         get_pod_name_command=_generate_get_pod_name_command(context),
         path_to_file_in_pod=f"tmp/{file}",
-        path_to_where_save_file=f"{os.getcwd()}/{file}",
+        path_to_where_save_file=f"{pathlib.Path.cwd()}/{file}",
     )
     k8s.success(context, f"Downloaded dump ({file}) from pod. Clean up")
     context.run(f"{_generate_exec_command(context)} -- rm tmp/{file}")
