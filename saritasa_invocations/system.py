@@ -1,4 +1,4 @@
-import os
+import pathlib
 
 import invoke
 
@@ -13,6 +13,8 @@ def copy_local_settings(
     """Copy local settings from template.
 
     Args:
+    ----
+        context: invoke's context
         force_update: rewrite file if exists or not
 
     """
@@ -28,11 +30,13 @@ def copy_local_settings(
 @invoke.task
 def copy_vscode_settings(
     context: invoke.Context,
-    force_update=False,
+    force_update: bool = False,
 ) -> None:
     """Copy vscode settings from template.
 
     Args:
+    ----
+        context: invoke's context
         force_update: rewrite file if exists or not
 
     """
@@ -49,10 +53,10 @@ def _rewrite_file(
     context: invoke.Context,
     from_path: str,
     to_path: str,
-    force_update=False,
+    force_update: bool = False,
 ) -> None:
     """Copy file to destination."""
-    if force_update or not os.path.isfile(to_path):
+    if force_update or not pathlib.Path(to_path).is_file():
         context.run(" ".join(("cp", from_path, to_path)))
 
 

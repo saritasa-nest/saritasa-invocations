@@ -154,7 +154,9 @@ def logs(
 
 
 @invoke.task
-def pods(context) -> None:
+def pods(
+    context: invoke.Context,
+) -> None:
     """Get pods from k8s."""
     success(context, "Getting pods")
     context.run("kubectl get pods")

@@ -89,7 +89,7 @@ class DockerSettings:
 class GitHubActionsSettings:
     """Settings for github actions module."""
 
-    hosts: collections.abc.Sequence[str] = tuple()
+    hosts: collections.abc.Sequence[str] = ()
 
 
 @dataclasses.dataclass
@@ -97,7 +97,7 @@ class DjangoSettings:
     """Settings for django module."""
 
     runserver_command: str = "runserver_plus"
-    runserver_host: str = "0.0.0.0"
+    runserver_host: str = "0.0.0.0"  # noqa: S104
     runserver_port: str = "8000"
     runserver_params: str = ""
     runserver_docker_params: str = "--rm --service-ports"
@@ -149,7 +149,7 @@ class FastAPISettings:
 
     uvicorn_command: str = "-m uvicorn"
     app: str = "config:fastapi_app"
-    host: str = "0.0.0.0"
+    host: str = "0.0.0.0"  # noqa: S104
     port: str = "8000"
     params: str = "--reload"
     docker_params: str = "--rm --service-ports"
@@ -220,7 +220,7 @@ _K8S_CONFIGS: dict[str, "K8SSettings"] = {}
 class K8SSettingsMeta(type):
     """Meta class for K8SSettings."""
 
-    def __call__(cls, *args, **kwargs) -> "K8SSettings":
+    def __call__(cls, *args, **kwargs) -> "K8SSettings":  # noqa: ANN002
         """Update mapping of environments."""
         instance: K8SSettings = super().__call__(*args, **kwargs)
         if instance.name in _K8S_CONFIGS:
@@ -243,7 +243,7 @@ class K8SDBSettings:
         "--output jsonpath='{{.items[0].metadata.name}}'"
     )
     exec_command: str = (
-        "kubectl exec -ti --namespace {db_pod_namespace} " "$({db_pod})"
+        "kubectl exec -ti --namespace {db_pod_namespace} $({db_pod})"
     )
     dump_command: str = (
         "pg_dump "

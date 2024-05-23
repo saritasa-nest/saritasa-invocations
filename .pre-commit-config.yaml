@@ -20,51 +20,12 @@ repos:
       - id: poetry-check
         args: ["--lock"]
 
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.7
     hooks:
-      - id: isort
-        name: isort (python)
-
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
-    hooks:
-      - id: flake8
-        exclude: .venv|__init__.py
-        additional_dependencies: [
-          # A plugin for Flake8 finding likely bugs and design problems in your program.
-          # https://github.com/PyCQA/flake8-bugbear
-          flake8-bugbear,
-          # A flake8 plugin checking common style issues or inconsistencies with pytest-based tests.
-          # https://github.com/m-burst/flake8-pytest-style
-          flake8-pytest-style,
-          # A flake8 plugin that warn about backslashes usage.
-          # https://github.com/wemake-services/flake8-broken-line
-          flake8-broken-line,
-          # A simple module that adds an extension for the fantastic pydocstyle tool to flake8.
-          # https://github.com/PyCQA/flake8-docstrings
-          flake8-docstrings,
-          # A flake8 plugin loading the configuration from pyproject.toml
-          # https://github.com/john-hen/Flake8-pyproject
-          flake8-pyproject,
-          # flake8 plugin to validate type annotations according to modern practices.
-          # https://github.com/plinss/flake8-modern-annotations
-          flake8-modern-annotations,
-          # McCabe complexity checker.
-          # https://github.com/PyCQA/mccabe
-          mccabe,
-        ]
-
-  -   repo: https://github.com/asottile/add-trailing-comma
-      rev: v3.1.0
-      hooks:
-      -   id: add-trailing-comma
-
-  - repo: https://github.com/psf/black
-    rev: 24.4.2
-    hooks:
-      - id: black
-        language_version: python3
+      - id: ruff
+        args: [ --fix ]
+      - id: ruff-format
 
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v3.1.0

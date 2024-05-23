@@ -12,7 +12,7 @@ def check_for_cruft_files(context: invoke.Context) -> None:
     found_files = tuple(
         filter(
             lambda filepath: not filepath.startswith(".venv"),
-            map(str, pathlib.Path(".").glob("**/*.rej")),
+            map(str, pathlib.Path().glob("**/*.rej")),
         ),
     )
     if not found_files:

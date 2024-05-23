@@ -1,5 +1,5 @@
-import collections
 import collections.abc
+import pathlib
 import re
 
 import invoke
@@ -36,9 +36,9 @@ def setup_env_credentials(
 
 def env_secret_replacer(env_file_path: str, **credentials) -> None:
     """Replace secret in env file."""
-    with open(env_file_path, mode="r") as env_file:
+    with pathlib.Path(env_file_path).open() as env_file:
         env_data = env_file.read()
-    with open(env_file_path, mode="w") as env_file:
+    with pathlib.Path(env_file_path).open(mode="w") as env_file:
         for cred, value in credentials.items():
             env_data = re.sub(
                 rf"{cred}=.*\n",
