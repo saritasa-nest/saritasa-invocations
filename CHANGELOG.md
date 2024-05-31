@@ -4,6 +4,9 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add call of `system.shown` in `cruft.create_project` to grant access for current user to remove
+temporary folder with test project.
+
 ## 1.1.1
 
 - Make default for `default_entry` for `K8SDefaultSettings` use absolute path

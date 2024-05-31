@@ -3,7 +3,7 @@ import pathlib
 
 import invoke
 
-from . import _config, printing
+from . import _config, printing, system
 
 
 @invoke.task
@@ -53,6 +53,7 @@ def create_project(
     config = _config.Config.from_context(context)
     tmp_folder = config.cruft.project_tmp_folder
     printing.print_success(f"Recreating tmp ({tmp_folder}) folder")
+    system.chown(context)
     context.run(f"rm -rf {tmp_folder}")
     context.run(f"mkdir -p {tmp_folder}")
     with context.cd(tmp_folder):
