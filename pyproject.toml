@@ -58,29 +58,6 @@ ipython = "^8.24.0"
 pre-commit = "^3.7.1"
 
 [tool.poetry.group.linters.dependencies]
-# Flake dependencies are added so that VSCode extension for flake8
-# would work properly
-# https://marketplace.visualstudio.com/items?itemName=ms-python.flake8&ssr=false#overview
-flake8 = "^7.0.0"
-# A plugin for Flake8 finding likely bugs and design problems in your program.
-# https://github.com/PyCQA/flake8-bugbear
-flake8-bugbear = "^24.4.26"
-# A flake8 plugin that warn about backslashes usage.
-# https://github.com/wemake-services/flake8-broken-line
-flake8-broken-line = "^1.0.0"
-# A simple module that adds an extension for the fantastic pydocstyle tool to flake8.
-# https://github.com/PyCQA/flake8-docstrings
-flake8-docstrings = "^1.7.0"
-# A flake8 plugin loading the configuration from pyproject.toml
-# https://github.com/john-hen/Flake8-pyproject
-flake8-pyproject = "^1.2.3"
-# flake8 plugin to validate type annotations accoring to modern practices.
-# https://github.com/plinss/flake8-modern-annotations
-flake8-modern-annotations = "^1.6.0"
-# McCabe complexity checker.
-# https://github.com/PyCQA/mccabe
-mccabe = "^0.7.0"
-
 # Mypy is a static type checker for Python.
 # https://mypy.readthedocs.io/en/stable/
 mypy = "^1.10.0"
