@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Replace usage of cmd commands with python
+
 ## 1.1.1
 
 - Make default for `default_entry` for `K8SDefaultSettings` use absolute path

@@ -1,5 +1,6 @@
 import json
 import pathlib
+import shutil
 
 import invoke
 
@@ -53,8 +54,8 @@ def create_project(
     config = _config.Config.from_context(context)
     tmp_folder = config.cruft.project_tmp_folder
     printing.print_success(f"Recreating tmp ({tmp_folder}) folder")
-    context.run(f"rm -rf {tmp_folder}")
-    context.run(f"mkdir -p {tmp_folder}")
+    shutil.rmtree(tmp_folder, ignore_errors=True)
+    pathlib.Path(tmp_folder).mkdir(parents=True, exist_ok=True)
     with context.cd(tmp_folder):
         context.run(
             "cruft create ../. --no-input --overwrite-if-exists "

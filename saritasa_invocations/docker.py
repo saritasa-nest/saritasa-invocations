@@ -1,5 +1,6 @@
 import collections.abc
 import pathlib
+import shutil
 
 import invoke
 
@@ -26,8 +27,8 @@ def buildpack(
     config = _config.Config.from_context(context)
     # Builder needs requirements.txt
     if pathlib.Path(config.docker.buildpack_requirements_path).exists():
-        context.run(
-            f"cp {config.docker.buildpack_requirements_path}/{env}.txt "
+        shutil.copy(
+            f"{config.docker.buildpack_requirements_path}/{env}.txt",
             "requirements.txt",
         )
     builder = builder or config.docker.buildpack_builder
@@ -35,7 +36,7 @@ def buildpack(
     tag = tag or config.docker.build_image_tag
     context.run(f"pack build --builder={builder} --run-image={runner} {tag}")
     if pathlib.Path(config.docker.buildpack_requirements_path).exists():
-        context.run("rm requirements.txt")
+        pathlib.Path("requirements.txt").unlink()
 
 
 def docker_compose_run(
