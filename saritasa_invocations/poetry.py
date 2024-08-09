@@ -55,9 +55,9 @@ def update_to_latest(
     printing.print_success("Update dependencies to latest versions")
     try:
         context.run(f"poetry up --latest {params} {_parse_groups(groups)}")
-    except invoke.UnexpectedExit as error:
+    except invoke.UnexpectedExit:
         if not fallback:
-            raise error
+            raise
         printing.print_warn(
             "Can't update to latest, try to update with respect to version"
             " constraints.",

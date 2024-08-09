@@ -57,7 +57,7 @@ def _rewrite_file(
 ) -> None:
     """Copy file to destination."""
     if force_update or not pathlib.Path(to_path).is_file():
-        context.run(" ".join(("cp", from_path, to_path)))
+        context.run(f"cp {from_path} {to_path}")
 
 
 @invoke.task

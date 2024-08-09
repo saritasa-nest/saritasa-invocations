@@ -1,0 +1,19 @@
+{
+  "ignorePaths": [
+    ".gitignore"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-related-words",
+      "path": "./project-related-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": [
+    "python",
+    "python-common",
+    "docker",
+    "project-related-words"
+  ],
+  "useGitignore": true
+}

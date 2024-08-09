@@ -134,9 +134,9 @@ def up_containers(
     up_cmd = f"{compose_cmd} up {detach_str} {containers_str}"
     try:
         context.run(up_cmd)
-    except invoke.UnexpectedExit as exception:
+    except invoke.UnexpectedExit:
         if not stop_others:
-            raise exception
+            raise
         stop_all_containers(context)
         context.run(up_cmd)
 

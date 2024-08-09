@@ -33,7 +33,7 @@ def wait_for_database(context: invoke.Context) -> None:
                 )
                 wait_for_database._called = True  # type: ignore
                 return
-            except invoke.UnexpectedExit:
+            except invoke.UnexpectedExit:  # noqa: PERF203
                 time.sleep(1)
                 continue
 
@@ -51,7 +51,6 @@ def wait_for_database(context: invoke.Context) -> None:
                 command=f"{config.alembic.command} current",
             )
             wait_for_database._called = True  # type: ignore
-            return
         except invoke.UnexpectedExit as error:
             printing.print_error(
                 "Failed to connect to db, "

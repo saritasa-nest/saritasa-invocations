@@ -114,42 +114,58 @@ extend-select = [
   "TD",
   # https://docs.astral.sh/ruff/rules/#eradicate-era
   "ERA",
+  # https://docs.astral.sh/ruff/rules/#tryceratops-try
+  "TRY",
+  # https://docs.astral.sh/ruff/rules/#flynt-fly
+  "FLY",
+  # https://docs.astral.sh/ruff/rules/#perflint-perf
+  "PERF",
+  # https://docs.astral.sh/ruff/rules/#refurb-furb
+  "FURB",
+  # https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+  "PIE",
+  # https://docs.astral.sh/ruff/rules/#flake8-async-async
+  "ASYNC",
   # https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf
-  "RUF"
+  "RUF",
 ]
 ignore = [
-  # https://docs.astral.sh/ruff/rules/ANN101
+  # https://docs.astral.sh/ruff/rules/missing-type-self
   "ANN101",
-  # https://docs.astral.sh/ruff/rules/ANN102
+  # https://docs.astral.sh/ruff/rules/missing-type-cls
   "ANN102",
-  # https://docs.astral.sh/ruff/rules/ANN401
+  # https://docs.astral.sh/ruff/rules/any-type
   "ANN401",
-  # https://docs.astral.sh/ruff/rules/ANN003
+  # https://docs.astral.sh/ruff/rules/missing-type-kwargs
   "ANN003",
-  # https://docs.astral.sh/ruff/rules/D100
+  # https://docs.astral.sh/ruff/rules/undocumented-public-module
   "D100",
-  # https://docs.astral.sh/ruff/rules/D104
+  # https://docs.astral.sh/ruff/rules/undocumented-public-package
   "D104",
-  # https://docs.astral.sh/ruff/rules/D106
+  # https://docs.astral.sh/ruff/rules/undocumented-public-nested-class
   "D106",
-  # https://docs.astral.sh/ruff/rules/D107
+  # https://docs.astral.sh/ruff/rules/undocumented-public-init
   "D107",
+  # https://docs.astral.sh/ruff/rules/raise-vanilla-args
+  "TRY003",
+  # https://docs.astral.sh/ruff/rules/try-consider-else
+  "TRY300",
 ]
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = [
-  # https://docs.astral.sh/ruff/rules/F401
+  # https://docs.astral.sh/ruff/rules/unused-import
   "F401",
 ]
 "**/tests/*" = [
-  # https://docs.astral.sh/ruff/rules/S101
+  # https://docs.astral.sh/ruff/rules/assert
   "S101",
-  # https://docs.astral.sh/ruff/rules/S106
+  # https://docs.astral.sh/ruff/rules/hardcoded-password-func-arg
   "S106",
-  # https://docs.astral.sh/ruff/rules/S311
+  # https://docs.astral.sh/ruff/rules/suspicious-non-cryptographic-random-usage
   "S311",
 ]
 "**/test_*" = [
-  # https://docs.astral.sh/ruff/rules/ANN201
+  # https://docs.astral.sh/ruff/rules/missing-return-type-undocumented-public-function
   "ANN201",
 ]
 [tool.ruff.lint.isort]
@@ -175,7 +191,6 @@ indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
 
-
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
 ignore_missing_imports = true
@@ -184,3 +199,10 @@ warn_no_return = false
 check_untyped_defs = true
 disallow_any_generics = true
 exclude = "venv|/.venv"
+
+# https://docformatter.readthedocs.io/en/latest/configuration.html#
+[tool.docformatter]
+wrap-descriptions=0
+in-place=true
+blank=true
+black=true

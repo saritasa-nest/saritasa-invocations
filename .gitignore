@@ -5,6 +5,8 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/project-related-words.txt
+!.vscode/cspell.json
 *.code-workspace
 
 # Local History for Visual Studio Code
