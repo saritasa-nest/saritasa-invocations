@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Make wait_for_database as task
+- Make `docker.up` check for compose file
+- Make `pytest.run`, `celery.run` use `docker.up`
+
 ## 1.1.1
 
 - Make default for `default_entry` for `K8SDefaultSettings` use absolute path

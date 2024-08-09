@@ -6,6 +6,7 @@ import invoke
 from . import _config, db, db_k8s, docker, k8s, printing, python
 
 
+@invoke.task
 def wait_for_database(context: invoke.Context) -> None:
     """Ensure that database is up and ready to accept connections.
 
