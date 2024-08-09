@@ -12,6 +12,7 @@ def run(
     config = _config.Config.from_context(context).celery
     match python.get_python_env():
         case python.PythonEnv.LOCAL:
+            docker.up(context)
             context.run(
                 config.local_cmd.format(
                     app=config.app,
