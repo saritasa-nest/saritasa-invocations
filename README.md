@@ -54,6 +54,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.backup-local-db](#djangobackup-local-db)
     * [django.backup-remote-db](#djangobackup-remote-db)
     * [django.load-remote-db](#djangoload-remote-db)
+    * [django.wait-for-database](#djangowait-for-database)
   * [fastapi](#fastapi)
     * [fastapi.run](#fastapirun)
   * [alembic](#alembic)
@@ -67,6 +68,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [alembic.backup-local-db](#alembicbackup-local-db)
     * [alembic.backup-remote-db](#alembicbackup-remote-db)
     * [alembic.load-remote-db](#alembicload-remote-db)
+    * [alembic.wait-for-database](#alembicwait-for-database)
   * [celery](#celery)
     * [celery.run](#celeryrun)
     * [celery.send-task](#celerysend-task)
@@ -260,10 +262,10 @@ Clone repo or pull latest changes to specified repo
 
 Command for creating copies of a file with git blame history saving.
 
-Original script written in bash:
-https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j
+Original script written in bash [here](https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j)
 
 Usage:
+
 ```shell
   inv git.blame-copy <path to original file> <path to copy>,<path to copy>...
 ```
@@ -301,14 +303,18 @@ The `action` variable stores the header of the intermediate action.
 If no task found in branch, then will be empty
 
 Default values for templates:
+
 * `copy_commit_template`:
+
 ```python
   "[automated-commit]: {action}\n\n"
   "copy: {original_path}\n"
   "to:\n* {destination_paths}\n\n"
   "{project_task}"
 ```
+
 * `copy_init_message_template`:
+
 ```python
   "Copy {original_path} to:\n"
   "* {destination_paths}\n\n"
@@ -567,6 +573,10 @@ Settings:
 * `app_template_directory` path to app template in project template (Default: `.`)
 * `apps_path` path to apps folder in project (Default: `apps`)
 
+#### django.wait-for-database
+
+Launch docker compose and wait for database connection.
+
 ### fastapi
 
 #### fastapi.run
@@ -726,6 +736,10 @@ Settings:
     "password": "rds_db_password",
   }
   ```
+
+#### alembic.wait-for-database
+
+Launch docker compose and wait for database connection.
 
 ### celery
 
