@@ -5,6 +5,10 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Replace usage of cmd commands with python
+- Make `django.wait_for_database` as task
+- Make `alembic.wait_for_database` as task
+- Make `docker.up` check for compose file
+- Make `pytest.run`, `celery.run` use `docker.up`
 
 ## 1.1.1
 
