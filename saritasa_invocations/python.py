@@ -38,6 +38,7 @@ def run_docker(
     command: str,
     params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
+    env: dict[str, str] | None = None,
 ) -> None:
     """Run command in `python` container."""
     config = _config.Config.from_context(context)
@@ -49,6 +50,7 @@ def run_docker(
         container=config.python.docker_service,
         command=command,
         watchers=watchers,
+        env=env,
     )
 
 
@@ -57,6 +59,7 @@ def run_docker_python(
     command: str,
     params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
+    env: dict[str, str] | None = None,
 ) -> None:
     """Run command using docker python interpreter."""
     config = _config.Config.from_context(context)
@@ -65,6 +68,7 @@ def run_docker_python(
         params=params,
         command=f"{config.python.entry} {command}",
         watchers=watchers,
+        env=env,
     )
 
 
@@ -72,12 +76,14 @@ def run_local_python(
     context: invoke.Context,
     command: str,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
+    env: dict[str, str] | None = None,
 ) -> None:
     """Run command using local python interpreter."""
     config = _config.Config.from_context(context)
     context.run(
         command=f"{config.python.entry} {command}",
         watchers=watchers,
+        env=env,
     )
 
 
@@ -87,6 +93,7 @@ def run(
     command: str,
     docker_params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
+    env: dict[str, str] | None = None,
 ) -> None:
     """Execute python command."""
     match get_python_env():
@@ -95,6 +102,7 @@ def run(
                 context=context,
                 command=command,
                 watchers=watchers,
+                env=env,
             )
         case PythonEnv.DOCKER:
             run_docker_python(
@@ -102,4 +110,5 @@ def run(
                 command=command,
                 params=docker_params,
                 watchers=watchers,
+                env=env,
             )

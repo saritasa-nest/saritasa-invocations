@@ -25,8 +25,11 @@ def wait_for_database(context: invoke.Context) -> None:
     python.run(
         context,
         command=(
-            f"{config.django.manage_file_path} " "wait_for_database --stable 0"
+            f"{config.django.manage_file_path} wait_for_database --stable 0"
         ),
+        env={
+            "DJANGO_SETTINGS_MODULE": config.django.settings_path,
+        },
     )
     wait_for_database._called = True  # type: ignore
 
@@ -35,7 +38,7 @@ def wait_for_database(context: invoke.Context) -> None:
 def manage(
     context: invoke.Context,
     command: str,
-    docker_params: str | None = None,
+    docker_params: str = "",
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
 ) -> None:
     """Run `manage.py` command.
@@ -58,6 +61,9 @@ def manage(
         docker_params=docker_params,
         command=f"{config.django.manage_file_path} {command}",
         watchers=watchers,
+        env={
+            "DJANGO_SETTINGS_MODULE": config.django.settings_path,
+        },
     )
 
 

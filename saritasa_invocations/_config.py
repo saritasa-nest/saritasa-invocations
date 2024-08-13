@@ -64,7 +64,7 @@ class PythonSettings:
     """Settings for python module."""
 
     entry: str = "python"
-    docker_service: str = "web"
+    docker_service: str = "app"
     docker_service_params: str = "--rm"
     mypy_entry: str = "-m mypy"
     pytest_entry: str = "-m pytest"
