@@ -1,4 +1,5 @@
 import pathlib
+import shutil
 
 import invoke
 
@@ -57,7 +58,7 @@ def _rewrite_file(
 ) -> None:
     """Copy file to destination."""
     if force_update or not pathlib.Path(to_path).is_file():
-        context.run(f"cp {from_path} {to_path}")
+        shutil.copy(from_path, to_path)
 
 
 @invoke.task
@@ -74,4 +75,4 @@ def chown(context: invoke.Context) -> None:
 @invoke.task
 def create_tmp_folder(context: invoke.Context) -> None:
     """Create folder for temporary files."""
-    context.run("mkdir -p .tmp")
+    pathlib.Path(".tmp").mkdir(parents=True, exist_ok=True)

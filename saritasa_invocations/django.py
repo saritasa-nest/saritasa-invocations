@@ -1,5 +1,6 @@
 import collections.abc
 import os
+import pathlib
 
 import invoke
 
@@ -338,7 +339,7 @@ def load_django_remote_env_db_settings(
     import decouple
 
     env_config = decouple.Config(decouple.RepositoryEnv(env_path))
-    context.run(f"rm {env_path}")
+    pathlib.Path(env_path).unlink()
     return {
         arg: str(env_config(env_var))
         for arg, env_var in config.django.remote_db_config_mapping.items()

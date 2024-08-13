@@ -1,6 +1,7 @@
 import collections
 import collections.abc
 import contextlib
+import pathlib
 import typing
 
 import invoke
@@ -259,7 +260,7 @@ def download_file_and_remove_afterwards(
         printing.print_success(
             f"Deleting file({path_to_where_save_file}) after use",
         )
-        context.run(f"rm {path_to_where_save_file}")
+        pathlib.Path(path_to_where_save_file).unlink()
 
 
 @contextlib.contextmanager
