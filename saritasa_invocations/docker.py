@@ -41,10 +41,11 @@ def buildpack(
 
 def docker_compose_run(
     context: invoke.Context,
-    params: str | None,
     container: str,
     command: str,
+    params: str = "",
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
+    env: dict[str, str] | None = None,
 ) -> None:
     """Run ``command`` using docker-compose.
 
@@ -61,11 +62,17 @@ def docker_compose_run(
         container: Name of container to start
         command: Command to run in started container
         watchers: Automated responders to command
+        env: environmental variables for run
 
     """
     compose_cmd = _config.Config.from_context(context).docker.compose_cmd
+    env_params = " ".join(
+        f"--env {env_key}={value}" for env_key, value in (env or {}).items()
+    )
     context.run(
-        command=f"{compose_cmd} run {params or ''} {container} {command}",
+        command=(
+            f"{compose_cmd} run {params} {env_params} {container} {command}"
+        ),
         watchers=watchers,
     )
 

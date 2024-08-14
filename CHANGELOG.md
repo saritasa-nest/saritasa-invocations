@@ -9,6 +9,7 @@ We follow [Semantic Versions](https://semver.org/).
 - Make `alembic.wait_for_database` as task
 - Make `docker.up` check for compose file
 - Make `pytest.run`, `celery.run` use `docker.up`
+- Make sure that `DJANGO_SETTINGS_MODULE` is set for manage invocations
 
 ## 1.1.1
 
