@@ -52,15 +52,15 @@ env_settings = ["python-decouple"]
 [tool.poetry.group.dev.dependencies]
 # Improved REPL
 ipdb = "^0.13.13"
-ipython = "^8.24.0"
+ipython = "^8.26.0"
 # A framework for managing and maintaining multi-language pre-commit hooks.
 # https://pre-commit.com/
-pre-commit = "^3.7.1"
+pre-commit = "^3.8.0"
 
 [tool.poetry.group.linters.dependencies]
 # Mypy is a static type checker for Python.
 # https://mypy.readthedocs.io/en/stable/
-mypy = "^1.10.0"
+mypy = "^1.11.1"
 
 [build-system]
 requires = ["poetry-core"]
