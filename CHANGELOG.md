@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.2.0
+
 - Replace usage of cmd commands with python
 - Make `django.wait_for_database` as task
 - Make `alembic.wait_for_database` as task
