@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Restore check for main containers in `docker.up`
+
 ## 1.2.0
 
 - Replace usage of cmd commands with python

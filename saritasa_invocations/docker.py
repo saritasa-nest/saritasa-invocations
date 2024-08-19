@@ -173,6 +173,8 @@ def up(context: invoke.Context) -> None:
         )
     ):
         return
+    if not config.docker.main_containers:
+        return
     up_containers(
         context,
         containers=config.docker.main_containers,
