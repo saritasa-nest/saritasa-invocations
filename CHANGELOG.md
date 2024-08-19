@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.2.1
+
 - Restore check for main containers in `docker.up`
 
 ## 1.2.0
