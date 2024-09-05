@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.2.2
+
 - Make `django.createsuperuser` try to grab username and email from git config
 
 ## 1.2.1
