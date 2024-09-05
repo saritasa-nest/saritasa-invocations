@@ -462,8 +462,10 @@ Create superuser.
 
 Settings:
 
-* `default_superuser_email` default email of superuser (Default: `root@localhost`)
-* `default_superuser_username` default username of superuser (Default: `root`)
+* `default_superuser_email` default email of superuser.
+if empty, will try to grab it from git config, before resorting to default (Default: `root@localhost`)
+* `default_superuser_username` default username of superuser
+if empty, will try to grab it from git config, before resorting to default (Default: `root`)
 * `default_superuser_password` default password of superuser (Default: `root`)
 * `verbose_email_name` verbose name for `email` field (Default: `Email address`)
 * `verbose_username_name` verbose name for `username` field (Default: `Username`)

@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Make `django.createsuperuser` try to grab username and email from git config
+
 ## 1.2.1
 
 - Restore check for main containers in `docker.up`
