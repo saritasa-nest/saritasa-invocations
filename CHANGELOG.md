@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.2.3
+
 - Fix `django.createsuperuser` behavior when git command fails
 
 ## 1.2.2
