@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Fix `django.createsuperuser` behavior when git command fails
+
 ## 1.2.2
 
 - Make `django.createsuperuser` try to grab username and email from git config

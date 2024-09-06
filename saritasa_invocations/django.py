@@ -159,9 +159,9 @@ def createsuperuser(
             )
             if output and (email := output.stdout.replace(" ", "").strip()):
                 email_source = "git"
-            else:
-                email = config.django.default_superuser_email
-                email_source = "config"
+        if not email:
+            email = config.django.default_superuser_email
+            email_source = "config"
     if not username:
         with contextlib.suppress(invoke.Failure):
             output = context.run(
@@ -171,16 +171,16 @@ def createsuperuser(
             )
             if output and (username := output.stdout.replace(" ", "").strip()):
                 username_source = "git"
-            else:
-                username = config.django.default_superuser_username
-                username_source = "config"
+        if not username:
+            username = config.django.default_superuser_username
+            username_source = "config"
     if not password:
         password = config.django.default_superuser_password
 
     printing.print_success(
         "Django: Creating superuser with the following ->\n"
         f"{email=} from {email_source}\n"
-        f"{username=} from {username_source}\n",
+        f"{username=} from {username_source}",
     )
 
     responder_email = invoke.FailingResponder(
