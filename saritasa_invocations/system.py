@@ -62,14 +62,18 @@ def _rewrite_file(
 
 
 @invoke.task
-def chown(context: invoke.Context) -> None:
-    """Change owner ship of project files to current user.
+def chown(
+    context: invoke.Context,
+    owner: str = "${USER}",
+    path: str = ".",
+) -> None:
+    """Change ownership of files to user.
 
-    Shortcut for owning apps dir by current user after some files were
+    Shortcut for owning apps dir by specified user after some files were
     generated using docker-compose (migrations, new app, etc).
 
     """
-    context.run("sudo chown -R ${USER}: .")
+    context.run(f"sudo chown -R {owner}: {path}")
 
 
 @invoke.task

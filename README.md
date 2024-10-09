@@ -226,9 +226,9 @@ Settings:
 
 #### system.chown
 
-Change owner ship of project files to current user.
+Change ownership of files to user(current user by default).
 
-Shortcut for owning apps dir by current user after some files were
+Shortcut for owning apps dir by specified user after some files were
 generated using docker-compose (migrations, new app, etc).
 
 #### system.create-tmp-folder
