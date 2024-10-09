@@ -297,6 +297,7 @@ def set_default_site(context: invoke.Context) -> None:
 def load_db_dump(context: invoke.Context, file: str = "") -> None:
     """Reset db and load db dump."""
     resetdb(context, apply_migrations=False)
+
     db.load_db_dump(
         context,
         file=file,

@@ -255,6 +255,8 @@ class K8SDBSettings:
         "--file {file}"
     )
     dump_additional_params: str = "--no-owner"
+    dump_compression: bool = False
+    dump_folder: str = "tmp"
 
 
 @dataclasses.dataclass(frozen=True)

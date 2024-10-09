@@ -51,4 +51,4 @@ Before submitting your code please do the following steps:
 1. Add any changes you want
 2. Edit documentation if you have changed something significant
 3. Update `CHANGELOG.md` with a quick summary of your changes
-5. Run `pre-commit` to ensure that style is correct
+4. Run `pre-commit` to ensure that style is correct
