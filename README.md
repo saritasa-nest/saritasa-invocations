@@ -885,6 +885,7 @@ Settings:
 * `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
 * `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
 * `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
+* `dump_dir` folder where to put dump file (Default: `tmp`)
 * `dump_additional_params` additional dump commands (Default: `--no-owner`)
 
 #### db-k8s.get-dump

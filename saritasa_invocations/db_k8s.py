@@ -50,15 +50,16 @@ def get_dump(
     file = _get_db_k8s_dump_filename(context, file)
 
     k8s.success(context, f"Downloading dump ({file}) from pod")
+    dump_path = f"{config.dump_dir}/{file}"
     k8s.download_file_from_pod(
         context,
         pod_namespace=config.namespace,
         get_pod_name_command=_generate_get_pod_name_command(context),
-        path_to_file_in_pod=f"tmp/{file}",
+        path_to_file_in_pod=dump_path,
         path_to_where_save_file=f"{pathlib.Path.cwd()}/{file}",
     )
     k8s.success(context, f"Downloaded dump ({file}) from pod. Clean up")
-    context.run(f"{_generate_exec_command(context)} -- rm tmp/{file}")
+    context.run(f"{_generate_exec_command(context)} -- rm {dump_path}")
     return file
 
 
@@ -96,7 +97,7 @@ def _generate_dump_command(
         host=host,
         port=port,
         username=username,
-        file=f"tmp/{_get_db_k8s_dump_filename(context, file)}",
+        file=f"{config.dump_dir}/{_get_db_k8s_dump_filename(context, file)}",
         additional_params=additional_params or config.dump_additional_params,
     )
 

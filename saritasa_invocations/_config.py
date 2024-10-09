@@ -245,6 +245,7 @@ class K8SDBSettings:
     exec_command: str = (
         "kubectl exec -ti --namespace {db_pod_namespace} $({db_pod})"
     )
+    dump_dir: str = "tmp"
     dump_command: str = (
         "pg_dump "
         "{additional_params} "
