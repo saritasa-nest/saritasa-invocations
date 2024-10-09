@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add ability to set `dump_dir` for `K8SDBSettings`
+
 ## 1.2.3
 
 - Fix `django.createsuperuser` behavior when git command fails
