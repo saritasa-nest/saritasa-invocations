@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## unreleased
 
 - Add params for `system.chown`(`owner` and `path`)
+- Add ability to set `dump_dir` for `K8SDBSettings`
 
 ## 1.2.3
 
