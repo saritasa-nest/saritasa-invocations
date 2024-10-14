@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Add params for `system.chown`(`owner` and `path`)
+
 ## 1.2.3
 
 - Fix `django.createsuperuser` behavior when git command fails
