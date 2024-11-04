@@ -55,7 +55,7 @@ ipdb = "^0.13.13"
 ipython = "^8.29.0"
 # A framework for managing and maintaining multi-language pre-commit hooks.
 # https://pre-commit.com/
-pre-commit = "^3.8.0"
+pre-commit = ">=3.8,<5.0"
 
 [tool.poetry.group.linters.dependencies]
 # Mypy is a static type checker for Python.
