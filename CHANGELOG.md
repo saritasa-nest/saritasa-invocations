@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+## 1.3.0
+
 - Add params for `system.chown`(`owner` and `path`)
 - Add ability to set `dump_dir` for `K8SDBSettings`
 - Confirm support for python 3.13
