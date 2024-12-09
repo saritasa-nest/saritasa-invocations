@@ -47,7 +47,7 @@ from saritasa_invocations.printing import (
     print_warn,
 )
 
-__all__ = (
+__all__ = (  # noqa: RUF022
     # invocations
     "alembic",
     "celery",

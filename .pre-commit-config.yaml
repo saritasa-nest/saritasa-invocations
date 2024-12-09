@@ -21,7 +21,7 @@ repos:
         args: ["--lock"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.1
+    rev: v0.8.2
     hooks:
       - id: ruff
         args: [ --fix ]
@@ -43,7 +43,7 @@ repos:
         ]
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.15.2
+    rev: v8.16.1
     hooks:
       - id: cspell
 

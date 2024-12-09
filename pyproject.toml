@@ -130,10 +130,6 @@ extend-select = [
   "RUF",
 ]
 ignore = [
-  # https://docs.astral.sh/ruff/rules/missing-type-self
-  "ANN101",
-  # https://docs.astral.sh/ruff/rules/missing-type-cls
-  "ANN102",
   # https://docs.astral.sh/ruff/rules/any-type
   "ANN401",
   # https://docs.astral.sh/ruff/rules/missing-type-kwargs
