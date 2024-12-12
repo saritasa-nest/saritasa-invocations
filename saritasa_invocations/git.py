@@ -237,6 +237,7 @@ def _merge_commits(
     # create commit in case if merge conflict occurs
     context.run(
         f"git commit --no-verify -a -n -m '{message}'",
+        warn=True,
     )
 
 

@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## unreleased
 
+- Fix `git.blame-copy` merging without conflicts
+
 ## 1.3.0
 
 - Add params for `system.chown`(`owner` and `path`)
