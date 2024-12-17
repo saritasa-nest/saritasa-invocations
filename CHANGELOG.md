@@ -2,7 +2,7 @@
 
 We follow [Semantic Versions](https://semver.org/).
 
-## unreleased
+## 1.3.1
 
 - Fix `git.blame-copy` merging without conflicts
 
