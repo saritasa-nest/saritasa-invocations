@@ -1,0 +1,15 @@
+repository:
+   description: Collection Of Invoke Commands Used By Saritasa
+   
+labels:
+  - name: automated-pr
+    color: 1316F2
+    description: An PR created by automation action
+
+autolinks:
+  - key_prefix: SA3P
+    url_template: https://saritasa.atlassian.net/browse/SA3P-<num>
+  - key_prefix: MISC
+    url_template: https://saritasa.atlassian.net/browse/MISC-<num>
+  - key_prefix: SELFEDU
+    url_template: https://saritasa.atlassian.net/browse/SELFEDU-<num>
