@@ -7,7 +7,7 @@ from . import printing
 def install(context: invoke.Context) -> None:
     """Install dependencies via poetry."""
     printing.print_success("Install dependencies with poetry")
-    context.run("poetry install --sync")
+    context.run("poetry sync")
 
 
 @invoke.task
