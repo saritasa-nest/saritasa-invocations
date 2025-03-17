@@ -2,6 +2,7 @@ aarch
 alembicbackup
 alembicload
 alembicwait
+autolinks
 autoupdate
 buildpack
 buildpacks
@@ -26,13 +27,13 @@ manylinux
 musllinux
 opensearch
 paketobuildpacks
-paketobuildpacks
 Pylance
 Renderable
 resetdb
 RUF
 runserver
 saritasa
+SELFEDU
 snok
 Stanislav
 startapp

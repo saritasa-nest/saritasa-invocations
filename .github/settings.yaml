@@ -1,6 +1,6 @@
 repository:
    description: Collection Of Invoke Commands Used By Saritasa
-   
+
 labels:
   - name: automated-pr
     color: 1316F2
