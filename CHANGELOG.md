@@ -2,6 +2,10 @@
 
 We follow [Semantic Versions](https://semver.org/).
 
+## Unreleased
+
+- Improve env config extraction for k8s
+
 ## 1.3.1
 
 - Fix `git.blame-copy` merging without conflicts
