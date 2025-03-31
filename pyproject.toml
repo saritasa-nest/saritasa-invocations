@@ -39,7 +39,7 @@ invoke = "^2"
 # Rich is a Python library for writing rich text (with color and style) to the terminal,
 # and for displaying advanced content such as tables, markdown, and syntax highlighted code.
 # https://rich.readthedocs.io/en/stable/introduction.html
-rich = "^13"
+rich = ">=13,<15"
 # Decouple helps you to organize your settings so that you can change
 # parameters without having to redeploy your app.
 # Used to get settings from .env files
