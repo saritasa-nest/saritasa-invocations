@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.4.0
+
 - Replace `poetry install --sync` to `poetry sync`
 - Improve env config extraction for k8s
 
