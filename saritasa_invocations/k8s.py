@@ -5,8 +5,34 @@ import pathlib
 import typing
 
 import invoke
+import rich.prompt
 
 from . import _config, printing
+
+
+def handle_error_on_getting_config(
+    context: invoke.Context,
+    run_result: invoke.runners.Result | None,
+) -> _config.K8SGeneratedSettings:
+    """Handle error when fetching config."""
+    error_message = ""
+    if run_result is None:
+        error_message = "Unexpected error!"
+    elif run_result.exited == 1:
+        error_message = f"Encountered error: {run_result.stdout.strip()}"
+    elif not run_result.stdout:
+        error_message = "Unable to fetch data from command!"
+    else:
+        error_message = "Unexpected error!"
+    printing.print_error(error_message)
+    config = _config.Config.from_context(context)
+    env = rich.prompt.Prompt.ask(
+        "Usually such errors fixed by setting context, which `env` to use?",
+        choices=list(config.k8s_configs),
+        default=config.default_k8s_env,
+    )
+    set_context(context, env=env)
+    return get_current_env_config_from_context(context)
 
 
 def get_current_env_config_from_context(
@@ -17,11 +43,12 @@ def get_current_env_config_from_context(
         "kubectl config current-context",
         echo=False,
         hide="out",
+        warn=True,
     )
-    if not run_result:
-        raise invoke.Exit(
-            code=1,
-            message="Unexpected error, make sure to run inv `k8s.set_context`",
+    if not run_result or not run_result.stdout:
+        return handle_error_on_getting_config(
+            context=context,
+            run_result=run_result,
         )
     current_cluster = run_result.stdout.splitlines()[0]
 
@@ -30,10 +57,10 @@ def get_current_env_config_from_context(
         echo=False,
         hide="out",
     )
-    if not run_result:
-        raise invoke.Exit(
-            code=1,
-            message="Unexpected error, make sure to run `inv k8s.set_context`",
+    if not run_result or not run_result.stdout:
+        return handle_error_on_getting_config(
+            context=context,
+            run_result=run_result,
         )
     current_namespace = run_result.stdout.splitlines()[0]
 
@@ -48,13 +75,17 @@ def get_current_env_config_from_context(
             break
 
     if not found_env:
-        raise invoke.Exit(
-            code=1,
-            message=(
+        picked_env = rich.prompt.Prompt.ask(
+            (
                 f"Environment data class for the cluster `{current_cluster}`"
-                f" and namespace `{current_namespace}` doesn't exits."
+                f" and namespace `{current_namespace}` doesn't exits. "
+                "Need to set context, which `env` to use?"
             ),
+            choices=list(config.k8s_configs),
+            default=config.default_k8s_env,
         )
+        set_context(context, env=picked_env)
+        return get_current_env_config_from_context(context)
     return _config.K8SGeneratedSettings.merge_settings(
         default=config.k8s_defaults,
         env_settings=found_env,
@@ -133,10 +164,7 @@ def login(
         proxy = config.proxy
         auth = config.auth
     context.run(
-        "tsh login"
-        f" --proxy={proxy}"
-        f" --auth={auth}"
-        f" --kube-cluster={proxy}",
+        f"tsh login --proxy={proxy} --auth={auth} --kube-cluster={proxy}",
     )
 
 
