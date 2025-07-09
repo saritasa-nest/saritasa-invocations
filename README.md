@@ -262,7 +262,7 @@ Clone repo or pull latest changes to specified repo
 
 Command for creating copies of a file with git blame history saving.
 
-Original script written in bash [here](https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j)
+Original [script](https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j) written in bash
 
 Usage:
 
@@ -838,7 +838,9 @@ Execute command inside k8s pod.
 Settings:
 
 * `default_component` default component (Default: `backend`)
-* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher bash`)
+* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher`)
+* `default_entry_command` default cmd entry for entry cmd (Default: `bash`)
+  only used for `default_entry`
 
 #### k8s.python-shell
 
