@@ -108,8 +108,8 @@ class DjangoSettings:
     default_superuser_email: str = "root@localhost"
     verbose_username_name: str = "Username"
     default_superuser_username: str = "root"
-    verbose_password_name: str = "Password"
-    default_superuser_password: str = "root"
+    verbose_password_name: str = "Password"  # noqa: S105
+    default_superuser_password: str = "root"  # noqa: S105
     shell_command: str = "shell_plus --ipython"
     path_to_remote_config_file: str = "/workspace/app/config/settings/.env"
     manage_file_path: str = "./manage.py"
@@ -188,7 +188,7 @@ class CruftSettings:
 class DBSettings:
     """Settings for db module."""
 
-    password_pattern: str = "Password.*"
+    password_pattern: str = "Password.*"  # noqa: S105
     load_dump_command: str = (
         "psql "
         "{additional_params} "
@@ -236,7 +236,7 @@ class K8SDBSettings:
     namespace: str
     pod_selector: str
     dump_filename: str = ""
-    password_pattern: str = "Password: "
+    password_pattern: str = "Password: "  # noqa: S105
     get_pod_name_command: str = (
         "kubectl get pods --namespace {db_pod_namespace} "
         "--selector={db_pod_selector} "
@@ -299,7 +299,7 @@ class K8SDefaultSettings:
     python_shell: str = "shell_plus"
     health_check: str = "health_check"
     secret_file_path_in_pod: str | None = None
-    temp_secret_file_path: str = ".env.to_delete"
+    temp_secret_file_path: str = ".env.to_delete"  # noqa: S105
     env_color: str = "cyan"
 
 
