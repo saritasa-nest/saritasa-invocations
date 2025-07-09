@@ -80,8 +80,8 @@ class DockerSettings:
         "redis",
     )
     build_image_tag: str = ""
-    buildpack_builder: str = "paketobuildpacks/builder:base"
-    buildpack_runner: str = "paketobuildpacks/run:base"
+    buildpack_builder: str = "paketobuildpacks/builder-jammy-base:latest"
+    buildpack_runner: str = "paketobuildpacks/run-jammy-base:latest"
     buildpack_requirements_path: str = "requirements"
 
 
@@ -273,6 +273,7 @@ class K8SSettings(metaclass=K8SSettingsMeta):
     get_pod_name_command: str | None = None
     default_component: str | None = None
     default_entry: str | None = None
+    default_command: str | None = None
     python_shell: str | None = None
     health_check: str | None = None
     secret_file_path_in_pod: str | None = None
@@ -295,7 +296,8 @@ class K8SDefaultSettings:
         "--no-headers --output jsonpath='{{.items[0].metadata.name}}'"
     )
     default_component: str = "backend"
-    default_entry: str = "/cnb/lifecycle/launcher bash"
+    default_entry: str = "/cnb/lifecycle/launcher"
+    default_command: str = "bash"
     python_shell: str = "shell_plus"
     health_check: str = "health_check"
     secret_file_path_in_pod: str | None = None
@@ -318,6 +320,7 @@ class K8SGeneratedSettings:
     get_pod_name_command: str
     default_component: str
     default_entry: str
+    default_command: str
     python_shell: str
     health_check: str
     secret_file_path_in_pod: str

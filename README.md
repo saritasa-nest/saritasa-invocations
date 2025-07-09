@@ -262,7 +262,7 @@ Clone repo or pull latest changes to specified repo
 
 Command for creating copies of a file with git blame history saving.
 
-Original script written in bash [here](https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j)
+Original [script](https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j) written in bash
 
 Usage:
 
@@ -835,10 +835,32 @@ Get pods from k8s.
 
 Execute command inside k8s pod.
 
+##### How to use env-params arg
+
+Say you have Procfile with this entry
+
+```text
+celery_start_task: celery --app config.celery:app call ${task}
+```
+
+So you can make this invocation
+
+```bash
+inv k8s.execute --entry="celery_start_task" --env-params="task=apps.project.tasks.do_the_thing"
+```
+
+Or create you own invocation which could lead to something like this
+
+```bash
+inv project.k8s_start_celery_task --task=apps.project.tasks.do_the_thing
+```
+
 Settings:
 
 * `default_component` default component (Default: `backend`)
-* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher bash`)
+* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher`)
+* `default_command` default cmd entry for entry cmd (Default: `bash`)
+  only used for `default_entry`
 
 #### k8s.python-shell
 

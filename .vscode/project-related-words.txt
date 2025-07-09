@@ -27,6 +27,7 @@ manylinux
 musllinux
 opensearch
 paketobuildpacks
+Procfile
 Pylance
 Renderable
 resetdb

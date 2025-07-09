@@ -4,6 +4,11 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Add ability to specify cmd and environment variables for `k8s.execute`
+- Improve generated name for k8s db dumps.
+Also add `--add-date-to-generated-filename` option to add timestamp for db
+dumps from k8s(including commands for django and alembic).
+
 ## 1.4.0
 
 - Replace `poetry install --sync` to `poetry sync`
