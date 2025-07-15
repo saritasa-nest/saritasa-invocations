@@ -225,11 +225,21 @@ def backup_local_db(
 def backup_remote_db(
     context: invoke.Context,
     file: str = "",
+    add_date_to_generated_filename: bool = False,
 ) -> str:
     """Make dump of remote db and download it."""
     settings = _load_remote_env_db_settings(context)
-    db_k8s.create_dump(context, file=file, **settings)
-    return db_k8s.get_dump(context, file=file)
+    db_k8s.create_dump(
+        context,
+        file=file,
+        add_date_to_generated_filename=add_date_to_generated_filename,
+        **settings,
+    )
+    return db_k8s.get_dump(
+        context,
+        file=file,
+        add_date_to_generated_filename=add_date_to_generated_filename,
+    )
 
 
 @invoke.task

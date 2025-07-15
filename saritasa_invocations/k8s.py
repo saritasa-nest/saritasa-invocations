@@ -195,6 +195,8 @@ def pods(
 def execute(
     context: invoke.Context,
     entry: str = "",
+    command: str = "",
+    env_params: str = "",
     component: str = "",
     pty: bool | None = None,
     hide: str | None = None,
@@ -202,10 +204,16 @@ def execute(
     """Execute command inside k8s pod."""
     config = get_current_env_config_from_context(context)
     component = component or config.default_component
-    entry = entry or config.default_entry
-    success(context, f"Entering into {component} with {entry}")
+    if not entry:
+        entry = config.default_entry
+        command = command or config.default_command
+    if env_params:
+        env_params = f"env {env_params}"
+    entry_cmd = " ".join(filter(None, (env_params, entry, command)))
+    success(context, f"Entering into {component} with {entry_cmd}")
+    pod_cmd = get_pod_cmd(context, component)
     return context.run(
-        f"kubectl exec -ti $({get_pod_cmd(context, component)}) -- {entry}",
+        f"kubectl exec -ti $({pod_cmd}) -- {entry_cmd}",
         pty=pty,
         hide=hide,
     )
