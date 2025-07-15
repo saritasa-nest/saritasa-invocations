@@ -8,6 +8,14 @@ We follow [Semantic Versions](https://semver.org/).
 - Improve generated name for k8s db dumps.
 Also add `--add-date-to-generated-filename` option to add timestamp for db
 dumps from k8s(including commands for django and alembic).
+- Add new options for `DBSettings` and `K8SDBSettings`
+  - `dump_additional_params` additional params for dump command (Default: ``)
+  - `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+  - `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
+  - `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
+  - `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
+  - `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
+
 
 ## 1.4.0
 

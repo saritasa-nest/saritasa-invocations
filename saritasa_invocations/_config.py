@@ -209,7 +209,12 @@ class DBSettings:
         "--username={username} "
         "--file={file}"
     )
-    dump_additional_params: str = "--no-owner"
+    dump_additional_params: str = ""
+    dump_no_owner: bool = True
+    dump_include_table: str = ""
+    dump_exclude_table: str = ""
+    dump_exclude_table_data: str = ""
+    dump_exclude_extension: str = ""
 
 
 # This mapping should not be filled manually. You just need create an instance
@@ -255,7 +260,12 @@ class K8SDBSettings:
         "--username={username} "
         "--file {file}"
     )
-    dump_additional_params: str = "--no-owner"
+    dump_additional_params: str = ""
+    dump_no_owner: bool = True
+    dump_include_table: str = ""
+    dump_exclude_table: str = ""
+    dump_exclude_table_data: str = ""
+    dump_exclude_extension: str = ""
 
 
 @dataclasses.dataclass(frozen=True)
