@@ -15,7 +15,7 @@ dumps from k8s(including commands for django and alembic).
   - `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
   - `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
   - `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
-
+- Add `builder-env` and `clear-cache` for `docker.buildpack`
 
 ## 1.4.0
 
