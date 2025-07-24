@@ -20,8 +20,10 @@ def buildpack(
     context: invoke.Context,
     env: str = "development",
     builder: str = "",
+    builder_env: str = "",
     runner: str = "",
     tag: str = "",
+    clear_cache: bool = False,
 ) -> None:
     """Build app image using buildpacks."""
     config = _config.Config.from_context(context)
@@ -34,7 +36,12 @@ def buildpack(
     builder = builder or config.docker.buildpack_builder
     runner = runner or config.docker.buildpack_runner
     tag = tag or config.docker.build_image_tag
-    context.run(f"pack build --builder={builder} --run-image={runner} {tag}")
+    cmd = f"pack build --builder={builder} --run-image={runner} {tag}"
+    if clear_cache:
+        cmd += " --clear-cache"
+    if builder_env:
+        cmd += f" --env={builder_env}"
+    context.run(cmd)
     if pathlib.Path(config.docker.buildpack_requirements_path).exists():
         pathlib.Path("requirements.txt").unlink()
 
