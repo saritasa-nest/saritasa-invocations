@@ -794,7 +794,12 @@ Settings:
 
 * `dump_command` template for dump command (Default located in `_config.pp > dbSettings`)
 * `dump_filename` filename for dump (Default: `local_db_dump`)
-* `dump_additional_params` additional params for dump command (Default: `--no-owner`)
+* `dump_additional_params` additional params for dump command (Default: ``)
+* `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+* `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
+* `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
+* `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
+* `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
 
 ### k8s
 
@@ -908,7 +913,12 @@ Settings:
 * `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
 * `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
 * `dump_dir` folder where to put dump file (Default: `tmp`)
-* `dump_additional_params` additional dump commands (Default: `--no-owner`)
+* `dump_additional_params` additional params for dump command (Default: ``)
+* `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+* `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
+* `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
+* `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
+* `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
 
 #### db-k8s.get-dump
 

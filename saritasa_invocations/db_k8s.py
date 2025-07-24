@@ -105,13 +105,37 @@ def _generate_dump_command(
         add_date_to_generated_filename=add_date_to_generated_filename,
         file=file,
     )
+    additional_params_list = [
+        config.dump_additional_params,
+    ]
+    if config.dump_no_owner:
+        additional_params_list.append(
+            "--no-owner",
+        )
+    if config.dump_include_table:
+        additional_params_list.append(
+            f"--table={config.dump_include_table}",
+        )
+    if config.dump_exclude_table:
+        additional_params_list.append(
+            f"--exclude-table={config.dump_exclude_table}",
+        )
+    if config.dump_exclude_table_data:
+        additional_params_list.append(
+            f"--exclude-table-data={config.dump_exclude_table_data}",
+        )
+    if config.dump_exclude_extension:
+        additional_params_list.append(
+            f"--exclude-extension={config.dump_exclude_extension}",
+        )
     return config.dump_command.format(
         dbname=dbname,
         host=host,
         port=port,
         username=username,
         file=f"{config.dump_dir}/{filename}",
-        additional_params=additional_params or config.dump_additional_params,
+        additional_params=additional_params
+        or " ".join(additional_params_list),
     )
 
 
