@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.5.0
+
 - Add ability to specify cmd and environment variables for `k8s.execute`
 - Improve generated name for k8s db dumps.
 Also add `--add-date-to-generated-filename` option to add timestamp for db
