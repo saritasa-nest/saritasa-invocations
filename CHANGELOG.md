@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Fix default `docker_service` for `PythonSettings`
+
 ## 1.5.0
 
 - Add ability to specify cmd and environment variables for `k8s.execute`
