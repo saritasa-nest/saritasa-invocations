@@ -813,16 +813,18 @@ Login into k8s via teleport.
 Settings:
 
 * `proxy` teleport proxy (**REQUIRED**)
+* `cluster` kube cluster (Default: Uses value from `proxy`)
 * `port` teleport port (Default: `443`)
 * `auth` teleport auth method (Default: `github`)
 
 #### k8s.set-context
 
-Set k8s context to current project
+Set k8s context to current project. By default uses `dev` environment.
 
 Settings:
 
 * `namespace` namespace for k8s (Default: Name of project from `project_name`)
+* `context` Name of context (**REQUIRED**)
 
 #### k8s.logs
 
