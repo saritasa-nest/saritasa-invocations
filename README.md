@@ -912,7 +912,7 @@ Settings:
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
 * `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
-* `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
+* `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
 * `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
 * `dump_dir` folder where to put dump file (Default: `tmp`)
 * `dump_additional_params` additional params for dump command (Default: ``)
@@ -931,7 +931,7 @@ Settings:
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
 * `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
-* `dump_filename` default dump filename (Default: Name of project from `project_name` plus `_db_dump`)
+* `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
 
 ### cruft
 

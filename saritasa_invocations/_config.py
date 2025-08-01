@@ -198,7 +198,7 @@ class DBSettings:
         "--username={username} "
         "--file={file}"
     )
-    dump_filename: str = "local_db_dump.sql"
+    dump_filename: str = "local-db-dump.sql"
     load_additional_params: str = "--quiet"
     dump_command: str = (
         "pg_dump "
@@ -240,7 +240,9 @@ class K8SDBSettings:
 
     namespace: str
     pod_selector: str
-    dump_filename: str = ""
+    dump_filename_template: str = (
+        "{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}"
+    )
     password_pattern: str = "Password: "  # noqa: S105
     get_pod_name_command: str = (
         "kubectl get pods --namespace {db_pod_namespace} "
