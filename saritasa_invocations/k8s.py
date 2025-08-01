@@ -50,8 +50,7 @@ def get_current_env_config_from_context(
             context=context,
             run_result=run_result,
         )
-    current_cluster = run_result.stdout.splitlines()[0]
-
+    current_context = run_result.stdout.splitlines()[0]
     run_result = context.run(
         "kubectl config view --minify | grep namespace | awk '{print $2}'",
         echo=False,
@@ -67,17 +66,16 @@ def get_current_env_config_from_context(
     found_env: _config.K8SSettings | None = None
     config = _config.Config.from_context(context)
     for env in config.k8s_configs.values():
-        if (
-            env.cluster == current_cluster
-            and current_namespace in env.namespace
-        ):
+        context_matches = (env.context or env.proxy) == current_context
+        is_known_namespace = current_namespace in env.namespace
+        if context_matches and is_known_namespace:
             found_env = env
             break
 
     if not found_env:
         picked_env = rich.prompt.Prompt.ask(
             (
-                f"Environment data class for the cluster `{current_cluster}`"
+                f"Environment data class for the context `{current_context}`"
                 f" and namespace `{current_namespace}` doesn't exits. "
                 "Need to set context, which `env` to use?"
             ),
@@ -134,14 +132,19 @@ def set_context(context: invoke.Context, env: str = "") -> None:
     env = env or config.default_k8s_env
     environment = get_environment(context, env)
     try:
-        context.run(f"kubectl config use-context {environment.cluster}")
+        context.run(f"kubectl config use-context {environment.context}")
     except invoke.UnexpectedExit:
         printing.print_warn(
             "User in not logged into environment, attempting to login",
         )
         # User needs to login for first time to be able to use env
-        login(context, proxy=environment.proxy, auth=environment.auth)
-        context.run(f"kubectl config use-context {environment.cluster}")
+        login(
+            context,
+            proxy=environment.proxy,
+            auth=environment.auth,
+            cluster=environment.cluster or environment.proxy,
+        )
+        context.run(f"kubectl config use-context {environment.context}")
     context.run(
         f"kubectl config set-context"
         f" --current --namespace={environment.namespace}",
@@ -156,15 +159,17 @@ def login(
     context: invoke.Context,
     proxy: str | None = None,
     auth: str | None = None,
+    cluster: str | None = None,
 ) -> None:
     """Login into k8s via teleport."""
     printing.print_success("Login into kubernetes CI")
-    if not proxy and not auth:
+    if not proxy and not auth and not cluster:
         config = get_current_env_config_from_context(context)
         proxy = config.proxy
         auth = config.auth
+        cluster = config.cluster or config.proxy
     context.run(
-        f"tsh login --proxy={proxy} --auth={auth} --kube-cluster={proxy}",
+        f"tsh login --proxy={proxy} --auth={auth} --kube-cluster={cluster}",
     )
 
 

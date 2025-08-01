@@ -6,6 +6,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 - Fix default `docker_service` for `PythonSettings`
 - Run celery docker container in foreground by default
+- Fix k8s login and adjust `K8SSettings`
+  - Now `cluster` is not required while `context` is required
 
 ## 1.5.0
 

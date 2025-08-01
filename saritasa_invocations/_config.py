@@ -273,9 +273,10 @@ class K8SSettings(metaclass=K8SSettingsMeta):
     """Description of environment config."""
 
     name: str
-    cluster: str
     namespace: str
+    context: str
     proxy: str | None = None
+    cluster: str | None = None
     db_config: K8SDBSettings | None = None
     port: str | None = None
     auth: str | None = None
@@ -322,6 +323,7 @@ class K8SGeneratedSettings:
     name: str
     cluster: str
     proxy: str
+    context: str
     namespace: str
     db_config: K8SDBSettings
     port: str
