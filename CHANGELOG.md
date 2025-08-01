@@ -8,6 +8,8 @@ We follow [Semantic Versions](https://semver.org/).
 - Run celery docker container in foreground by default
 - Fix k8s login and adjust `K8SSettings`
   - Now `cluster` is not required while `context` is required
+- Rework dump filename generation for `db_k8s`. Now we have `dump_filename_template`
+with which you can define template for name. Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`. `--add-date-to-generated-filename` option is removed.
 
 ## 1.5.0
 
