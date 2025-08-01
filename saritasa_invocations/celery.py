@@ -6,7 +6,7 @@ from . import _config, docker, python
 @invoke.task
 def run(
     context: invoke.Context,
-    detach: bool = True,
+    detach: bool = False,
 ) -> None:
     """Start celery worker."""
     config = _config.Config.from_context(context).celery

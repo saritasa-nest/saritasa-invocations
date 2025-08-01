@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Fix default `docker_service` for `PythonSettings`
+- Run celery docker container in foreground by default
 
 ## 1.5.0
 
