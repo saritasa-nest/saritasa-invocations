@@ -16,7 +16,6 @@ def create_dump(
     password: str,
     file: str = "",
     additional_params: str = "",
-    add_date_to_generated_filename: bool = False,
 ) -> None:
     """Execute dump command in db pod."""
     config = _config.Config.from_context(context)
@@ -28,7 +27,6 @@ def create_dump(
         port=port,
         username=username,
         additional_params=additional_params,
-        add_date_to_generated_filename=add_date_to_generated_filename,
     )
     k8s.success(context, f"Entering into db with {command}")
     db_exec_command = _generate_exec_command(context)
@@ -47,14 +45,10 @@ def create_dump(
 def get_dump(
     context: invoke.Context,
     file: str = "",
-    add_date_to_generated_filename: bool = False,
 ) -> str:
     """Download db data from db pod if it present."""
     config = k8s.get_current_env_config_from_context(context).db_config
-    file = _get_db_k8s_dump_filename(
-        context,
-        add_date_to_generated_filename=add_date_to_generated_filename,
-    )
+    file = _get_db_k8s_dump_filename(context)
 
     k8s.success(context, f"Downloading dump ({file}) from pod")
     dump_path = f"{config.dump_dir}/{file}"
@@ -94,7 +88,6 @@ def _generate_dump_command(
     host: str,
     port: str,
     username: str,
-    add_date_to_generated_filename: bool,
     file: str = "",
     additional_params: str = "",
 ) -> str:
@@ -102,7 +95,6 @@ def _generate_dump_command(
     config = k8s.get_current_env_config_from_context(context).db_config
     filename = _get_db_k8s_dump_filename(
         context,
-        add_date_to_generated_filename=add_date_to_generated_filename,
         file=file,
     )
     additional_params_list = [
@@ -141,17 +133,16 @@ def _generate_dump_command(
 
 def _get_db_k8s_dump_filename(
     context: invoke.Context,
-    add_date_to_generated_filename: bool,
     file: str = "",
 ) -> str:
     """Get filename for db dump."""
     config = _config.Config.from_context(context)
     k8s_config = k8s.get_current_env_config_from_context(context)
     k8s_db_config = k8s_config.db_config
-    generated_filename = f"{config.project_name}-{k8s_config.name}-db-dump.sql"
-    if add_date_to_generated_filename:
-        timestamp = datetime.datetime.now(tz=datetime.timezone.utc).date()
-        generated_filename = (
-            f"{config.project_name}-{timestamp}-{k8s_config.name}-db-dump.sql"
-        )
-    return file or k8s_db_config.dump_filename or generated_filename
+    generated_filename = k8s_db_config.dump_filename_template.format(
+        project_name=config.project_name,
+        env=k8s_config.name,
+        timestamp=datetime.datetime.now(tz=datetime.timezone.utc),
+        extension="sql",
+    )
+    return file or generated_filename
