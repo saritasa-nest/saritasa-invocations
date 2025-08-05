@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.6.0
+
 - Fix default `docker_service` for `PythonSettings`
 - Run celery docker container in foreground by default
 - Fix k8s login and adjust `K8SSettings`
