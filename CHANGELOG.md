@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Relax version constraint for python to allow 4.0 and newer
+
 ## 1.6.0
 
 - Fix default `docker_service` for `PythonSettings`
