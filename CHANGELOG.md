@@ -5,6 +5,8 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Relax version constraint for python to allow 4.0 and newer
+- Make settings pulling for django remote db dumps case insensitive
+- Add support for database urls in django remote db dumps invocations
 
 ## 1.6.0
 

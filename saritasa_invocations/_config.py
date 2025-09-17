@@ -117,6 +117,7 @@ class DjangoSettings:
     app_boilerplate_link: str | None = None
     app_template_directory: str = "."
     apps_path: str = "apps"
+    remote_db_url_config_name: str = "DATABASE_URL"
     remote_db_config_mapping: dict[str, str] = dataclasses.field(
         default_factory=lambda: {
             "dbname": "RDS_DB_NAME",
