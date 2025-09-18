@@ -49,6 +49,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.run](#djangorun)
     * [django.shell](#djangoshell)
     * [django.dbshell](#djangodbshell)
+    * [django.remote-dbshell](#djangoremote-dbshell)
     * [django.django.recompile-messages](#djangorecompile-messages)
     * [django.load-db-dump](#djangoload-db-dump)
     * [django.backup-local-db](#djangobackup-local-db)
@@ -87,6 +88,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [k8s.health-check](#k8shealth-check)
     * [k8s.download-file](#k8sdownload-file)
   * [db-k8s](#db-k8s)
+    * [db-k8s.shell](#db-k8sshell)
     * [db-k8s.create-dump](#db-k8screate-dump)
     * [db-k8s.get-dump](#db-k8sget-dump)
   * [cruft](#cruft)
@@ -501,6 +503,12 @@ Settings:
 
 Open database shell with credentials from current django settings.
 
+#### django.remote-dbshell
+
+Open database in remote shell with credentials from deployed django settings.
+
+Uses [shell](#db-k8sshell)
+
 #### django.recompile-messages
 
 Generate and recompile translation messages.
@@ -786,7 +794,7 @@ Load db dump to local db.
 
 Settings:
 
-* `load_dump_command` template for load command(Default located in `_config.pp > dbSettings`)
+* `load_dump_command` template for load command(Default located in `_config.py > dbSettings`)
 * `dump_filename` filename for dump (Default: `local_db_dump`)
 * `load_additional_params` additional params for load command (Default: `--quite`)
 
@@ -796,7 +804,7 @@ Back up local db.
 
 Settings:
 
-* `dump_command` template for dump command (Default located in `_config.pp > dbSettings`)
+* `dump_command` template for dump command (Default located in `_config.py > dbSettings`)
 * `dump_filename` filename for dump (Default: `local_db_dump`)
 * `dump_additional_params` additional params for dump command (Default: ``)
 * `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
@@ -907,6 +915,16 @@ Make sure to set up these configs:
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
 
+#### db-k8s.shell
+
+Open shell in db pod.
+
+* `pod_namespace` db namespace (**REQUIRED**)
+* `pod_selector` pod selector for db (**REQUIRED**)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SdbSettings`)
+* `shell_command` dump command template (Default located in `_config.py > K8SDBSettings`)
+* `shell_additional_params` additional params for shell command (Default: ``)
+
 #### db-k8s.create-dump
 
 Execute dump command in db pod.
@@ -915,9 +933,9 @@ Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SdbSettings`)
 * `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
-* `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
+* `dump_command` dump command template (Default located in `_config.py > K8SDBSettings`)
 * `dump_dir` folder where to put dump file (Default: `tmp`)
 * `dump_additional_params` additional params for dump command (Default: ``)
 * `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
@@ -934,7 +952,7 @@ Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
 * `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
 
 ### cruft

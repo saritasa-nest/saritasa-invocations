@@ -253,6 +253,14 @@ class K8SDBSettings:
     exec_command: str = (
         "kubectl exec -ti --namespace {db_pod_namespace} $({db_pod})"
     )
+    shell_command: str = (
+        "psql "
+        "--dbname={dbname} "
+        "--host={host} "
+        "--port={port} "
+        "--username={username} "
+    )
+    shell_additional_params: str = ""
     dump_dir: str = "tmp"
     dump_command: str = (
         "pg_dump "

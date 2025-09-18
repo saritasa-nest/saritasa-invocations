@@ -7,6 +7,39 @@ from . import _config, k8s
 
 
 @invoke.task
+def shell(
+    context: invoke.Context,
+    dbname: str,
+    host: str,
+    port: str,
+    username: str,
+    password: str,
+    additional_params: str = "",
+) -> None:
+    """Open shell in db pod."""
+    config = _config.Config.from_context(context)
+    command = _generate_shell_command(
+        context,
+        dbname=dbname,
+        host=host,
+        port=port,
+        username=username,
+        additional_params=additional_params,
+    )
+    k8s.success(context, f"Entering into db with {command}")
+    db_exec_command = _generate_exec_command(context)
+    context.run(
+        f"{db_exec_command} -- {command}",
+        watchers=(
+            invoke.Responder(
+                pattern=config.db.password_pattern,
+                response=f"{password}\n",
+            ),
+        ),
+    )
+
+
+@invoke.task
 def create_dump(
     context: invoke.Context,
     dbname: str,
@@ -128,6 +161,25 @@ def _generate_dump_command(
         file=f"{config.dump_dir}/{filename}",
         additional_params=additional_params
         or " ".join(additional_params_list),
+    )
+
+
+def _generate_shell_command(
+    context: invoke.Context,
+    dbname: str,
+    host: str,
+    port: str,
+    username: str,
+    additional_params: str = "",
+) -> str:
+    """Generate command for opening shell in db pod."""
+    config = k8s.get_current_env_config_from_context(context).db_config
+    return config.shell_command.format(
+        dbname=dbname,
+        host=host,
+        port=port,
+        username=username,
+        additional_params=additional_params or config.shell_additional_params,
     )
 
 

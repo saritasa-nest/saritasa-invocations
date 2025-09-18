@@ -261,6 +261,17 @@ def dbshell(context: invoke.Context) -> None:
 
 
 @invoke.task
+def remote_dbshell(context: invoke.Context) -> None:
+    """Open database shell in remote environment."""
+    printing.print_success("Entering remote DB shell")
+    settings = load_django_remote_env_db_settings(context)
+    db_k8s.shell(
+        context,
+        **settings,
+    )
+
+
+@invoke.task
 def recompile_messages(context: invoke.Context) -> None:
     """Generate and recompile translation messages.
 
