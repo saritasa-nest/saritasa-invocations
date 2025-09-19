@@ -538,9 +538,13 @@ Make dump of remote db and download it.
 
 Uses [create_dump](#db-k8screate-dump) and [get-dump](#db-k8sget-dump)
 
+It can use usual django config where every setting is stored in separate
+variable or single variable with full db url.
+
 Settings:
 
 * `settings_path` default django settings (Default: `config.settings.local`)
+* `remote_db_url_config_name` Name of config for db url (Default: `DATABASE_URL`)
 * `remote_db_config_mapping` Mapping of db config
   Default:
 

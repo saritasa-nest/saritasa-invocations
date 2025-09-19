@@ -2,6 +2,7 @@ import collections.abc
 import contextlib
 import os
 import pathlib
+import urllib.parse
 
 import invoke
 
@@ -373,6 +374,11 @@ def load_django_remote_env_db_settings(
 ) -> dict[str, str]:
     """Load remote django settings from .env file.
 
+    Support two sources:
+
+    - single env variable from config.django.remote_db_url_config_name
+    - multiple env vars from config.django.remote_db_config_mapping
+
     Requires python-decouple:
         https://github.com/HBNetwork/python-decouple
 
@@ -394,7 +400,24 @@ def load_django_remote_env_db_settings(
 
     env_config = decouple.Config(decouple.RepositoryEnv(env_path))
     pathlib.Path(env_path).unlink()
+    if database_url := str(
+        env_config(
+            config.django.remote_db_url_config_name,
+            env_config(
+                config.django.remote_db_url_config_name.lower(),
+                default="",
+            ),
+        ),
+    ):
+        parsed_url = urllib.parse.urlsplit(database_url)
+        return {
+            "dbname": parsed_url.path.lstrip("/"),
+            "host": parsed_url.hostname or "",
+            "port": str(parsed_url.port or ""),
+            "username": str(parsed_url.username or ""),
+            "password": str(parsed_url.password or ""),
+        }
     return {
-        arg: str(env_config(env_var))
+        arg: str(env_config(env_var, env_config(env_var.lower(), default="")))
         for arg, env_var in config.django.remote_db_config_mapping.items()
     }
