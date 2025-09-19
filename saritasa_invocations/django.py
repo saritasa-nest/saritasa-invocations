@@ -345,13 +345,19 @@ def load_remote_db(
     load_db_dump(context, file=file)
 
 
-def load_django_db_settings(context: invoke.Context) -> dict[str, str]:
+def load_django_settings(context: invoke.Context):  # noqa: ANN201
     """Load django settings from settings file (DJANGO_SETTINGS_MODULE)."""
     config = _config.Config.from_context(context)
     os.environ["DJANGO_SETTINGS_MODULE"] = config.django.settings_path
 
     from django.conf import settings  # type: ignore
 
+    return settings
+
+
+def load_django_db_settings(context: invoke.Context) -> dict[str, str]:
+    """Get database-related config from django settings."""
+    settings = load_django_settings(context)
     db_settings = settings.DATABASES["default"]
     return {
         "dbname": db_settings["NAME"],
