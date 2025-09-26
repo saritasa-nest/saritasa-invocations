@@ -96,6 +96,9 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [poetry.install](#poetryinstall)
     * [poetry.update](#poetryupdate)
     * [poetry.update-to-latest](#poetryupdate-to-latest)
+  * [uv](#uv)
+    * [uv.install](#uvinstall)
+    * [uv.update](#uvupdate)
   * [pip](#pip)
     * [pip.install](#pipinstall)
     * [pip.compile](#pipcompile)
@@ -972,6 +975,16 @@ Update dependencies to latest versions using
 
 By default fallbacks to [`update`](#poetryupdate) task in case of an error.
 Use `--no-fallback` to stop on error.
+
+### uv
+
+#### uv.install
+
+Install dependencies via uv.
+
+#### uv.update
+
+Update dependencies via uv.
 
 ### pip
 
