@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Add commands for `uv`;
+
 ## 1.7.0
 
 - Relax version constraint for python to allow 4.0 and newer
