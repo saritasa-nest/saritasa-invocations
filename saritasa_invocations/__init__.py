@@ -19,6 +19,7 @@ from saritasa_invocations import (
     python,
     secrets,
     system,
+    uv,
 )
 from saritasa_invocations._config import (
     AlembicSettings,
@@ -69,6 +70,7 @@ __all__ = (  # noqa: RUF022
     "python",
     "secrets",
     "system",
+    "uv",
     # Configs
     "AlembicSettings",
     "CelerySettings",
