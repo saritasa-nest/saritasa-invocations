@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Add commands for `uv`;
+- Confirm support for python 3.14
 
 ## 1.7.0
 
