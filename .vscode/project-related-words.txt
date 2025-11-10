@@ -29,6 +29,7 @@ opensearch
 paketobuildpacks
 Procfile
 Pylance
+pypa
 Renderable
 resetdb
 RUF
