@@ -45,7 +45,7 @@ repos:
         language: system
         pass_filenames: false
         types: [ file ]
-        stages: [ push ]
+        stages: [ pre-push ]
 
       - id: mypy
         name: Run mypy
@@ -53,4 +53,4 @@ repos:
         language: system
         pass_filenames: false
         types: [ file ]
-        stages: [ push ]
+        stages: [ pre-push ]

@@ -13,6 +13,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
 ## Table of contents
 
 * [Installation](#installation)
+  * [Global installation](#global-installation)
 * [Configuration](#configuration)
 * [Modules](#modules)
   * [printing](#printing)
@@ -119,6 +120,34 @@ or if you are using [poetry](https://python-poetry.org/)
 
 ```bash
 poetry add saritasa-invocations
+```
+
+or if you are using [uv](https://docs.astral.sh/uv/)
+
+```bash
+uv add saritasa-invocations
+```
+
+### Global installation
+
+You can use [uvx](https://docs.astral.sh/uvx/) to use packages globally without
+installing them or activating virtualenvs.
+
+```bash
+uvx saritasa-invocations pre-commit.run-hooks
+```
+
+Or if you need extras
+
+```bash
+uvx --from="saritasa-invocations[env_settings]" pre-commit.run-hooks
+```
+
+Or simply create alias for simple usage
+
+```bash
+alias saritasa-inv="uvx saritasa-invocations"
+saritasa-inv pre-commit.run-hooks
 ```
 
 ## Configuration
