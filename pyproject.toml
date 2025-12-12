@@ -30,6 +30,12 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[tool.poetry.scripts]
+# For testing locally
+# uvx --with=mypy . pre-commit.run-hooks
+saritasa-invocations = "invoke.main:program.run"
+saritasa-inv = "invoke.main:program.run"
+
 [tool.poetry.dependencies]
 python = ">=3.10"
 # Invoke is a Python (2.7 and 3.4+) task execution tool & library,
