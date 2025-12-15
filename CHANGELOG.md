@@ -4,7 +4,7 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
-- Move `django.startapp` command from `cookiecutter` to `copier`;
+- Move `django.startapp` command from `cookiecutter` to `copier`
 
 ## 1.8.0
 

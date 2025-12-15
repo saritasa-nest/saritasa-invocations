@@ -606,6 +606,8 @@ Settings:
 
 Create django app from a template using copier.
 
+Requires uv: [installation docs](https://docs.astral.sh/uv/getting-started/installation/)
+
 Settings:
 
 * `app_boilerplate_link` link to app template
