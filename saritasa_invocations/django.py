@@ -90,10 +90,10 @@ def check_new_migrations(context: invoke.Context) -> None:
 
 @invoke.task
 def startapp(context: invoke.Context) -> None:
-    """Create new django app.
+    """Create new django app using copier.
 
-    Requires cookiecutter:
-        https://cookiecutter.readthedocs.io/en/stable/
+    Requires uv:
+        https://docs.astral.sh/uv/getting-started/installation/
 
     """
     config = _config.Config.from_context(context)
@@ -103,10 +103,10 @@ def startapp(context: invoke.Context) -> None:
             message="Please, provide link to your django app boilerplate!",
         )
     context.run(
-        "cookiecutter "
-        f"{config.django.app_boilerplate_link} "
-        f"--directory='{config.django.app_template_directory}' "
-        f"--output-dir='{config.django.apps_path}'",
+        "uvx copier copy "
+        f"'{config.django.app_boilerplate_link}' "
+        f"'{config.django.apps_path}' "
+        f"--trust --vcs-ref=HEAD",
     )
 
 
