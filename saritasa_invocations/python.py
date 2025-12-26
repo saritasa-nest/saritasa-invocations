@@ -39,18 +39,20 @@ def run_docker(
     params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Run command in `python` container."""
     config = _config.Config.from_context(context)
     if params is None:
         params = config.python.docker_service_params
-    docker.docker_compose_run(
+    return docker.docker_compose_run(
         context,
         params=params,
         container=config.python.docker_service,
         command=command,
         watchers=watchers,
         env=env,
+        **kwargs,
     )
 
 
@@ -60,15 +62,17 @@ def run_docker_python(
     params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Run command using docker python interpreter."""
     config = _config.Config.from_context(context)
-    run_docker(
+    return run_docker(
         context=context,
         params=params,
         command=f"{config.python.entry} {command}",
         watchers=watchers,
         env=env,
+        **kwargs,
     )
 
 
@@ -77,13 +81,15 @@ def run_local_python(
     command: str,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Run command using local python interpreter."""
     config = _config.Config.from_context(context)
-    context.run(
+    return context.run(
         command=f"{config.python.entry} {command}",
         watchers=watchers,
         env=env,
+        **kwargs,
     )
 
 
@@ -94,21 +100,24 @@ def run(
     docker_params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Execute python command."""
     match get_python_env():
         case PythonEnv.LOCAL:
-            run_local_python(
+            return run_local_python(
                 context=context,
                 command=command,
                 watchers=watchers,
                 env=env,
+                **kwargs,
             )
         case PythonEnv.DOCKER:
-            run_docker_python(
+            return run_docker_python(
                 context=context,
                 command=command,
                 params=docker_params,
                 watchers=watchers,
                 env=env,
+                **kwargs,
             )
