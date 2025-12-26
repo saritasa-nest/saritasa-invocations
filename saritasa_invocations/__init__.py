@@ -36,7 +36,6 @@ from saritasa_invocations._config import (
     K8SDefaultSettings,
     K8SSettings,
     PIPSettings,
-    PreCommitSettings,
     PythonSettings,
     SystemSettings,
     context_override,
@@ -86,7 +85,6 @@ __all__ = (  # noqa: RUF022
     "K8SDefaultSettings",
     "K8SSettings",
     "PIPSettings",
-    "PreCommitSettings",
     "PythonSettings",
     "SystemSettings",
     # printing

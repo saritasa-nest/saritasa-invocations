@@ -1,6 +1,17 @@
+default_stages: [
+  pre-commit,
+  pre-push,
+]
+default_install_hook_types: [
+  pre-commit,
+  pre-push,
+  post-checkout,
+  post-merge,
+  post-rewrite,
+]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-yaml
       - id: check-toml
@@ -15,25 +26,35 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 2.1.3
+    rev: 2.2.1
     hooks:
       - id: poetry-check
         args: ["--lock"]
+      - id: poetry-install
+        entry: poetry sync
+        # It's required to use `system` language because otherwise
+        # dependencies will be installed into pre-commit's venv
+        language: system
+        stages: [
+          post-checkout,
+          post-merge,
+          post-rewrite,
+        ]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.2
+    rev: v0.14.10
     hooks:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v3.2.0
+    rev: v4.0.0
     hooks:
       - id: add-trailing-comma
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v9.1.0
+    rev: v9.4.0
     hooks:
       - id: cspell
 
