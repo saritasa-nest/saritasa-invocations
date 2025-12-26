@@ -51,6 +51,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.shell](#djangoshell)
     * [django.dbshell](#djangodbshell)
     * [django.django.recompile-messages](#djangorecompile-messages)
+    * [django.show-urls](#djangoshow-urls)
     * [django.load-db-dump](#djangoload-db-dump)
     * [django.backup-local-db](#djangobackup-local-db)
     * [django.backup-remote-db](#djangobackup-remote-db)
@@ -544,6 +545,10 @@ Settings:
 
 * `makemessages_params` params for makemessages command (Default: `--all --ignore venv`)
 * `compilemessages_params` params for compilemessages command (Default: `""`)
+
+#### django.show-urls
+
+Show urls of project which can be filtered via search parameter.
 
 #### django.load-db-dump
 

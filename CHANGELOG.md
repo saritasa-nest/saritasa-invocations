@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Move `django.startapp` command from `cookiecutter` to `copier`
+- Add `django.show-urls` command to show urls in project
 
 ## 1.8.0
 
