@@ -55,6 +55,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.backup-local-db](#djangobackup-local-db)
     * [django.backup-remote-db](#djangobackup-remote-db)
     * [django.load-remote-db](#djangoload-remote-db)
+    * [django.startapp](#djangostartapp)
     * [django.wait-for-database](#djangowait-for-database)
   * [fastapi](#fastapi)
     * [fastapi.run](#fastapirun)
@@ -603,12 +604,13 @@ Settings:
 
 #### django.startapp
 
-Create django app from a template using cookiecutter.
+Create django app from a template using copier.
+
+Requires uv: [installation docs](https://docs.astral.sh/uv/getting-started/installation/)
 
 Settings:
 
 * `app_boilerplate_link` link to app template
-* `app_template_directory` path to app template in project template (Default: `.`)
 * `apps_path` path to apps folder in project (Default: `apps`)
 
 #### django.wait-for-database
