@@ -49,17 +49,6 @@ class GitSettings:
 
 
 @dataclasses.dataclass
-class PreCommitSettings:
-    """Settings for pre-commit module."""
-
-    hooks: collections.abc.Sequence[str] = (
-        "pre-commit",
-        "pre-push",
-        "commit-msg",
-    )
-
-
-@dataclasses.dataclass
 class PythonSettings:
     """Settings for python module."""
 
@@ -385,9 +374,6 @@ class Config:
     )
     git: GitSettings = dataclasses.field(
         default_factory=GitSettings,
-    )
-    pre_commit: PreCommitSettings = dataclasses.field(
-        default_factory=PreCommitSettings,
     )
     docker: DockerSettings = dataclasses.field(
         default_factory=DockerSettings,

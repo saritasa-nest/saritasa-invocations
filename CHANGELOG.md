@@ -5,6 +5,11 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Move `django.startapp` command from `cookiecutter` to `copier`
+- Extend pre-commit invocations:
+  - Add `pre-commit.uninstall` command to uninstall git hooks
+  - Extend `pre-commit.run-hooks` command with `hook_stage` and `skip` parameters
+- Remove `PreCommitSettings` from package, as it is no longer needed since
+  pre-commit configuration is done via `.pre-commit-config.yaml` file.
 
 ## 1.8.0
 

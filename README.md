@@ -360,9 +360,9 @@ Default values for templates:
 
 Install git hooks via pre-commit.
 
-Settings:
+#### pre-commit.uninstall
 
-* `hooks` list of hooks to install (Default: `["pre-commit", "pre-push", "commit-msg"]`)
+Uninstall git hooks via pre-commit.
 
 #### pre-commit.run-hooks
 

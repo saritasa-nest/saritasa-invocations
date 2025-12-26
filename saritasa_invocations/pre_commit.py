@@ -1,22 +1,49 @@
 import invoke
 
-from . import _config, printing
+from . import printing
 
 
 @invoke.task
-def install(context: invoke.Context) -> None:
+def install(
+    context: invoke.Context,
+    hooks: list[str] | None = None,
+) -> None:
     """Install git hooks via pre-commit."""
-    printing.print_success("Setting up pre-commit")
-    config = _config.Config.from_context(context)
-    hooks = " ".join(f"--hook-type {hook}" for hook in config.pre_commit.hooks)
-    context.run(f"pre-commit install {hooks}")
+    printing.print_success("Installing pre-commit hooks")
+    hooks_str = (
+        " ".join(f"--hook-type {hook}" for hook in hooks) if hooks else ""
+    )
+    context.run(f"pre-commit install {hooks_str}")
 
 
 @invoke.task
-def run_hooks(context: invoke.Context, params: str = "") -> None:
+def uninstall(
+    context: invoke.Context,
+    hooks: list[str] | None = None,
+) -> None:
+    """Uninstall git hooks via pre-commit."""
+    printing.print_success("Uninstalling pre-commit hooks")
+    hooks_str = (
+        " ".join(f"--hook-type {hook}" for hook in hooks) if hooks else ""
+    )
+    context.run(f"pre-commit uninstall {hooks_str}")
+
+
+@invoke.task
+def run_hooks(
+    context: invoke.Context,
+    hook_stage: str = "push",
+    params: str = "",
+    skip: str = "",
+) -> None:
     """Run all hooks against all files."""
-    printing.print_success("Running git hooks")
-    context.run(f"pre-commit run --hook-stage push --all-files {params}")
+    printing.print_success("Running pre-commit hooks")
+    context.run(
+        f"pre-commit run --hook-stage {hook_stage} --all-files {params}",
+        env={
+            "SKIP": skip,
+        },
+    )
 
 
 @invoke.task
