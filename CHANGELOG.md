@@ -10,6 +10,7 @@ We follow [Semantic Versions](https://semver.org/).
   - Extend `pre-commit.run-hooks` command with `hook_stage` and `skip` parameters
 - Remove `PreCommitSettings` from package, as it is no longer needed since
   pre-commit configuration is done via `.pre-commit-config.yaml` file.
+- Add `django.show-urls` command to show urls in project
 
 ## 1.8.0
 

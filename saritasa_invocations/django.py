@@ -2,9 +2,12 @@ import collections.abc
 import contextlib
 import os
 import pathlib
+import re
 import urllib.parse
 
 import invoke
+import rich.console
+import rich.text
 
 from . import _config, db, db_k8s, docker, k8s, printing, python, system
 
@@ -42,7 +45,8 @@ def manage(
     command: str,
     docker_params: str = "",
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Run `manage.py` command.
 
     This command also handle starting of required services and waiting DB to
@@ -54,11 +58,12 @@ def manage(
         command: Manage command
         docker_params: Params for docker run
         watchers: Automated responders to command
+        kwargs: additional arguments for python.run
 
     """
     config = _config.Config.from_context(context)
     wait_for_database(context)
-    python.run(
+    return python.run(
         context,
         docker_params=docker_params,
         command=f"{config.django.manage_file_path} {command}",
@@ -66,6 +71,7 @@ def manage(
         env={
             "DJANGO_SETTINGS_MODULE": config.django.settings_path,
         },
+        **kwargs,
     )
 
 
@@ -277,6 +283,38 @@ def recompile_messages(context: invoke.Context) -> None:
         context,
         command=f"compilemessages {config.django.compilemessages_params}",
     )
+
+
+@invoke.task
+def show_urls(
+    context: invoke.Context,
+    search: str = "",
+) -> None:
+    """Show urls of project.
+
+    Use search param to filter urls by regex.
+
+    Not using grep to make cross-platform and also keep color output.
+
+    """
+    console = rich.console.Console()
+    for url_info in manage(
+        context,
+        command="show_urls",
+        hide=True,
+    ).stdout.splitlines():
+        if search and not re.search(search, url_info):
+            continue
+        url_parts = url_info.split()
+        console.print(
+            rich.text.Text.assemble(
+                url_parts[0],
+                " ",
+                url_parts[1],
+                " ",
+                url_parts[2],
+            ),
+        )
 
 
 def set_default_site(context: invoke.Context) -> None:

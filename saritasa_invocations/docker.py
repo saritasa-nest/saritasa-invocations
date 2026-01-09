@@ -53,7 +53,8 @@ def docker_compose_run(
     params: str = "",
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-) -> None:
+    **kwargs,
+) -> invoke.runners.Result | None:
     """Run ``command`` using docker-compose.
 
     docker compose run <params> <container> <command>
@@ -70,17 +71,19 @@ def docker_compose_run(
         command: Command to run in started container
         watchers: Automated responders to command
         env: environmental variables for run
+        kwargs: additional arguments for context.run
 
     """
     compose_cmd = _config.Config.from_context(context).docker.compose_cmd
     env_params = " ".join(
         f"--env {env_key}={value}" for env_key, value in (env or {}).items()
     )
-    context.run(
+    return context.run(
         command=(
             f"{compose_cmd} run {params} {env_params} {container} {command}"
         ),
         watchers=watchers,
+        **kwargs,
     )
 
 
