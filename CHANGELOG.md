@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.9.0
+
 - Move `django.startapp` command from `cookiecutter` to `copier`
 - Extend pre-commit invocations:
   - Add `pre-commit.uninstall` command to uninstall git hooks
