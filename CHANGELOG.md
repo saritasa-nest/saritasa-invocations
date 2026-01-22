@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.9.1
+
 - Fix handling of `SKIP` environment variable in `pre-commit.run-hooks` command
 
 ## 1.9.0
