@@ -1,3 +1,5 @@
+import os
+
 import invoke
 
 from . import printing
@@ -41,7 +43,7 @@ def run_hooks(
     context.run(
         f"pre-commit run --hook-stage {hook_stage} --all-files {params}",
         env={
-            "SKIP": skip,
+            "SKIP": skip or os.environ.get("SKIP", ""),
         },
     )
 

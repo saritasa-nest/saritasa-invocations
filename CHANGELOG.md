@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Fix handling of `SKIP` environment variable in `pre-commit.run-hooks` command
+
 ## 1.9.0
 
 - Move `django.startapp` command from `cookiecutter` to `copier`
