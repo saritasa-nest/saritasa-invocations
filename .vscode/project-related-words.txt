@@ -28,6 +28,7 @@ musllinux
 opensearch
 paketobuildpacks
 Procfile
+prek
 Pylance
 pypa
 Renderable

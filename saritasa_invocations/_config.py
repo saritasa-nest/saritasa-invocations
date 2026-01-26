@@ -363,6 +363,19 @@ class PIPSettings:
 
 
 @dataclasses.dataclass(frozen=True)
+class PreCommitSettings:
+    """Settings to run pre-commit hooks.
+
+    By default, run by pre-commit https://github.com/pre-commit/pre-commit
+    But can be changed to prek https://github.com/j178/prek
+
+    """
+
+    entry: typing.Literal["pre-commit", "prek"] = "pre-commit"
+    default_hook_stage: str = "push"
+
+
+@dataclasses.dataclass(frozen=True)
 class Config:
     """Settings for saritasa invocations."""
 
@@ -410,6 +423,9 @@ class Config:
     )
     pip: PIPSettings = dataclasses.field(
         default_factory=PIPSettings,
+    )
+    pre_commit: PreCommitSettings = dataclasses.field(
+        default_factory=PreCommitSettings,
     )
 
     def __post_init__(self) -> None:

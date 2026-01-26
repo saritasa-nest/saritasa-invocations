@@ -36,6 +36,7 @@ from saritasa_invocations._config import (
     K8SDefaultSettings,
     K8SSettings,
     PIPSettings,
+    PreCommitSettings,
     PythonSettings,
     SystemSettings,
     context_override,

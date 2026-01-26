@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Add settings for `pre-commit`. Now `pre-commit` can be changed to [prek](https://github.com/j178/prek) for example;
+
 ## 1.9.1
 
 - Fix handling of `SKIP` environment variable in `pre-commit.run-hooks` command

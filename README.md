@@ -357,6 +357,11 @@ Default values for templates:
 
 ### pre-commit
 
+Settings to run `.pre-commit-config.yaml`
+
+* `entry` - command used to run `pre-commit` or alternatives (Default: `"pre-commit"`)
+* `default_hook_stage` - default hook stage to run hooks (Default: `"push"`)
+
 #### pre-commit.install
 
 Install git hooks via pre-commit.
