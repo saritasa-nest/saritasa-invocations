@@ -54,4 +54,4 @@ jobs:
       run: poetry sync --all-extras --no-interaction
     - name: Run checks
       run: |
-        poetry run pre-commit run --hook-stage push --all-files
+        poetry run prek run --hook-stage pre-push --all-files
