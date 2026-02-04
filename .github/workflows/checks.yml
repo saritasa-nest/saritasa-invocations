@@ -13,7 +13,7 @@ concurrency:
 
 env:
   # Disable PTY for Invoke to avoid issues in CI environments
-  INVOKE_PTY: false
+  INVOKE_PTY: true
 
 jobs:
   cr:
