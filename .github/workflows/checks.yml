@@ -59,4 +59,4 @@ jobs:
       run: poetry sync --all-extras --no-interaction
     - name: Run checks
       run: |
-        poetry run prek run --hook-stage pre-push --all-files
+        poetry run inv pre-commit.run-hooks
