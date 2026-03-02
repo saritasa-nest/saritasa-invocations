@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.10.0
+
 - Add settings for `pre-commit`. Now `pre-commit` can be changed to [prek](https://github.com/j178/prek) for example;
 
 ## 1.9.1
