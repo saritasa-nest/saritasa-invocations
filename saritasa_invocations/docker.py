@@ -60,7 +60,7 @@ def docker_compose_run(
     docker compose run <params> <container> <command>
     Start container and run command in it.
 
-    Used function so lately it can be extended to use different docker-compose
+    Used function so later it can be extended to use different docker-compose
     files.
 
     Args:
@@ -97,7 +97,7 @@ def docker_compose_exec(
     docker compose exec <service> <command>
     Run commands in already running container.
 
-    Used function so lately it can be extended to use different docker-compose
+    Used function so later it can be extended to use different docker-compose
     files.
 
     Args:

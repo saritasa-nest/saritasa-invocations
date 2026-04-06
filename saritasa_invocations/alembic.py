@@ -171,9 +171,9 @@ def check_for_adjust_messages(
         log_files_msg = "\n\t".join(files_to_clean)
         log_messages = "\n".join(config.alembic.adjust_messages)
         printing.print_error(
-            f"Adjust messages found in this migration files:\n"
+            f"Adjust messages found in these migration files:\n"
             f"\t{log_files_msg}\n"
-            "Ensure that these files does not contain following:\n"
+            "Ensure that these files do not contain the following:\n"
             f"{log_messages}",
         )
         raise invoke.Exit(code=1)

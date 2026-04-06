@@ -76,7 +76,7 @@ def get_current_env_config_from_context(
         picked_env = rich.prompt.Prompt.ask(
             (
                 f"Environment data class for the context `{current_context}`"
-                f" and namespace `{current_namespace}` doesn't exits. "
+                f" and namespace `{current_namespace}` doesn't exist. "
                 "Need to set context, which `env` to use?"
             ),
             choices=list(config.k8s_configs),
@@ -135,7 +135,7 @@ def set_context(context: invoke.Context, env: str = "") -> None:
         context.run(f"kubectl config use-context {environment.context}")
     except invoke.UnexpectedExit:
         printing.print_warn(
-            "User in not logged into environment, attempting to login",
+            "User is not logged into the environment, attempting to login",
         )
         # User needs to login for first time to be able to use env
         login(

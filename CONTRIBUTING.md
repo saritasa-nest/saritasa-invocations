@@ -29,7 +29,7 @@ plugin.
 
 We use [trunk based](https://trunkbaseddevelopment.com/) development.
 
-What the point of this method?
+What's the point of this method?
 
 1. We use protected `main` branch,
    so the only way to push your code is via pull request
