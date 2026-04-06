@@ -123,6 +123,9 @@ def up_containers(
     containers: collections.abc.Sequence[str],
     detach: bool = True,
     stop_others: bool = True,
+    quite_pull: bool = False,
+    quite_build: bool = False,
+    remove_orphans: bool = True,
 ) -> None:
     """Bring up containers and run them.
 
@@ -136,6 +139,10 @@ def up_containers(
         stop_others: Stop ALL other containers in case of errors during `up`.
             Usually this happens when containers from other project uses the
             same ports, for example, Postgres and redis.
+        quite_pull: Suppress the build output
+        quite_build: Pull without printing progress information
+        remove_orphans: Remove containers for services that are not in the
+            Compose file
 
     Raises:
     ------
@@ -147,9 +154,25 @@ def up_containers(
     else:
         printing.print_success("Bring up all containers")
     containers_str = " ".join(containers)
-    detach_str = "-d " if detach else ""
+    detach_str = "--detach" if detach else ""
+    quite_pull_str = "--quiet-pull" if quite_pull else ""
+    quite_build_str = "--quiet-build" if quite_build else ""
+    remove_orphans_str = "--remove-orphans" if remove_orphans else ""
     compose_cmd = _config.Config.from_context(context).docker.compose_cmd
-    up_cmd = f"{compose_cmd} up {detach_str} {containers_str}"
+    up_cmd = " ".join(
+        filter(
+            None,
+            (
+                compose_cmd,
+                "up",
+                quite_pull_str,
+                quite_build_str,
+                remove_orphans_str,
+                detach_str,
+                containers_str,
+            ),
+        ),
+    )
     try:
         context.run(up_cmd)
     except invoke.UnexpectedExit:
@@ -170,7 +193,12 @@ def stop_containers(
 
 
 @invoke.task
-def up(context: invoke.Context) -> None:
+def up(
+    context: invoke.Context,
+    quite_pull: bool = False,
+    quite_build: bool = False,
+    remove_orphans: bool = True,
+) -> None:
     """Bring up main containers and start them."""
     config = _config.Config.from_context(context)
     if not any(
@@ -189,6 +217,9 @@ def up(context: invoke.Context) -> None:
         context,
         containers=config.docker.main_containers,
         detach=True,
+        quite_pull=quite_pull,
+        quite_build=quite_build,
+        remove_orphans=remove_orphans,
     )
 
 

@@ -4,6 +4,11 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Add new cli parameters for `docker.up`
+  - `--quite-pull`: Pull without printing progress information
+  - `--quite-build`: Suppress the build output
+  - `--remove-orphans`: Remove containers for services that are not in the Compose file
+
 ## 1.10.0
 
 - Add settings for `pre-commit`. Now `pre-commit` can be changed to [prek](https://github.com/j178/prek) for example;
