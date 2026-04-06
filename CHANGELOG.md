@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.11.0
+
 - Add new cli parameters for `docker.up`
   - `--quite-pull`: Pull without printing progress information
   - `--quite-build`: Suppress the build output
