@@ -50,7 +50,7 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
     * [django.run](#djangorun)
     * [django.shell](#djangoshell)
     * [django.dbshell](#djangodbshell)
-    * [django.django.recompile-messages](#djangorecompile-messages)
+    * [django.recompile-messages](#djangorecompile-messages)
     * [django.show-urls](#djangoshow-urls)
     * [django.load-db-dump](#djangoload-db-dump)
     * [django.backup-local-db](#djangobackup-local-db)
@@ -214,7 +214,7 @@ ns.configure(
 )
 
 # For K8S settings you just need to create a instances of K8SSettings for each
-# environnement. It'll be all collected automatically.
+# environment. It'll be all collected automatically.
 saritasa_invocations.K8SSettings(
     name="dev",
     cluster="teleport.company.somewhere.com",
@@ -236,7 +236,7 @@ While this module doesn't contain any invocations, it's used to print message
 via `rich.panel.Panel`. There are three types:
 
 * `print_success` - print message in green panel
-* `print_warning` - print message in yellow panel
+* `print_warn` - print message in yellow panel
 * `print_error` - print message in red panel
 
 ### system
@@ -277,7 +277,7 @@ Set git setting in config
 
 #### git.setup
 
-Preform setup of git:
+Perform setup of git:
 
 * Install pre-commit hooks
 * Set merge.ff
@@ -830,9 +830,9 @@ Load db dump to local db.
 
 Settings:
 
-* `load_dump_command` template for load command(Default located in `_config.pp > dbSettings`)
-* `dump_filename` filename for dump (Default: `local_db_dump`)
-* `load_additional_params` additional params for load command (Default: `--quite`)
+* `load_dump_command` template for load command(Default located in `_config.py > DBSettings`)
+* `dump_filename` filename for dump (Default: `local-db-dump.sql`)
+* `load_additional_params` additional params for load command (Default: `--quiet`)
 
 #### db.backup-local-db
 
@@ -840,7 +840,7 @@ Back up local db.
 
 Settings:
 
-* `dump_command` template for dump command (Default located in `_config.pp > dbSettings`)
+* `dump_command` template for dump command (Default located in `_config.py > DBSettings`)
 * `dump_filename` filename for dump (Default: `local_db_dump`)
 * `dump_additional_params` additional params for dump command (Default: ``)
 * `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
@@ -851,8 +851,8 @@ Settings:
 
 ### k8s
 
-For K8S settings you just need to create a instances of `K8SSettings` for each
-environnement. It'll be all collected automatically.
+For K8S settings you just need to create instances of `K8SSettings` for each
+environment. It'll be all collected automatically.
 
 #### k8s.login
 
@@ -904,7 +904,7 @@ So you can make this invocation
 inv k8s.execute --entry="celery_start_task" --env-params="task=apps.project.tasks.do_the_thing"
 ```
 
-Or create you own invocation which could lead to something like this
+Or create your own invocation which could lead to something like this
 
 ```bash
 inv project.k8s_start_celery_task --task=apps.project.tasks.do_the_thing
@@ -959,9 +959,9 @@ Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SdbSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
 * `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
-* `dump_command` dump command template (Default located in `_config.pp > K8SDBSettings`)
+* `dump_command` dump command template (Default located in `_config.py > K8SDBSettings`)
 * `dump_dir` folder where to put dump file (Default: `tmp`)
 * `dump_additional_params` additional params for dump command (Default: ``)
 * `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
@@ -972,13 +972,13 @@ Settings:
 
 #### db-k8s.get-dump
 
-Download db data from db pod if it present
+Download db data from db pod if present
 
 Settings:
 
 * `pod_namespace` db namespace (**REQUIRED**)
 * `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.pp > K8SDBSettings`)
+* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
 * `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
 
 ### cruft
@@ -992,7 +992,7 @@ Check that there are no cruft files (`*.rej`).
 
 #### cruft.create_project
 
-**Not invocation**, but a shortcut for creating cruft projects for testing
+**Not an invocation**, but a shortcut for creating cruft projects for testing
 boilerplates
 
 ### poetry

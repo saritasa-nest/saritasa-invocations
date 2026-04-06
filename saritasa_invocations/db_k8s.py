@@ -91,7 +91,7 @@ def _generate_dump_command(
     file: str = "",
     additional_params: str = "",
 ) -> str:
-    """Generate for preforming remote dump."""
+    """Generate command for performing remote dump."""
     config = k8s.get_current_env_config_from_context(context).db_config
     filename = _get_db_k8s_dump_filename(
         context,
