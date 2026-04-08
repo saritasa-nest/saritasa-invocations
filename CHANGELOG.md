@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Confirm support for invoke 3
+
 ## 1.11.0
 
 - Add new cli parameters for `docker.up`
