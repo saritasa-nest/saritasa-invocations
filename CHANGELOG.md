@@ -5,6 +5,7 @@ We follow [Semantic Versions](https://semver.org/).
 ## Unreleased
 
 - Confirm support for invoke 3
+- Confirm support for rich 15
 
 ## 1.11.0
 
