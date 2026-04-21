@@ -6,6 +6,7 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/project-related-words.txt
+!.vscode/boilerplate-words.txt
 !.vscode/cspell.json
 *.code-workspace
 
@@ -76,10 +77,6 @@ pytest.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-# Local settings
-local.py
-# Media folder
-media/
 
 # PyBuilder
 .pybuilder/
@@ -115,9 +112,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.env
 .venv
-config/settings/.env
-config/settings/.env.tmp
 env/
 venv/
 ENV/
@@ -151,23 +147,7 @@ cython_debug/
 # Ignore idea folder
 .idea
 
-# Ignore tmp folder
 .tmp/
 
-# Requirements file for image building
-requirements.txt
-
-# DB Dumps
-*db_dump*.sql
-
-# Local invoke config
-.invoke
-
-# pyenv's file for specifying local Python version
-.python-version
-
-# ignore folder where we store uploaded files
-files
-
-# Ignore generated .env
-config/.env
+# File in MacOS that stores custom attributes of its containing folder
+.DS_Store

@@ -186,7 +186,7 @@ def _get_migration_files_paths(
     return tuple(
         path
         for path in pathlib.Path(migrations_folder).glob("*.py")
-        if path.name not in ("__init__.py",)
+        if path.name != "__init__.py"
     )
 
 

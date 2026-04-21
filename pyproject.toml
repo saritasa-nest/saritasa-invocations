@@ -1,81 +1,118 @@
-[tool.poetry]
+[project]
 name = "saritasa-invocations"
-version = "1.11.0"
+dynamic = [
+  "version",
+]
 description = "Collection of invoke commands used by Saritasa"
 authors = [
-  "Saritasa <pypi@saritasa.com>",
+    {name = "Saritasa", email = "pypi@saritasa.com"}
 ]
 maintainers = [
-    "Stanislav Khlud <stanislav.khlud@saritasa.com>",
+    {name = "Stanislav Khlud", email = "stanislav.khlud@saritasa.com"}
 ]
-homepage = "https://pypi.org/project/saritasa-invocations/"
-repository = "https://github.com/saritasa-nest/saritasa-invocations/"
 keywords = [
   "python",
-  "invoke"
 ]
 license = "MIT"
 readme = "README.md"
-packages = [
-  { include = "saritasa_invocations" }
-]
-
 classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "License :: OSI Approved :: MIT License",
-  "Natural Language :: English",
-  "Intended Audience :: Developers",
-  "Operating System :: OS Independent",
-  "Environment :: Console",
-  "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+requires-python = ">=3.10"
+dependencies = [
+    # Invoke is a Python (2.7 and 3.4+) task execution tool & library,
+    # drawing inspiration from various sources to arrive at a powerful & clean feature set.
+    # http://www.pyinvoke.org/
+    "invoke>=2,<4",
+    # Rich is a Python library for writing rich text (with color and style) to the terminal,
+    # and for displaying advanced content such as tables, markdown, and syntax highlighted code.
+    # https://rich.readthedocs.io/en/stable/introduction.html
+    "rich>=13,<16",
 ]
 
-[tool.poetry.scripts]
+[project.optional-dependencies]
+env-settings = [
+    # Decouple helps you to organize your settings so that you can change
+    # parameters without having to redeploy your app.
+    # Used to get settings from .env files
+    # https://github.com/HBNetwork/python-decouple
+    "python-decouple>=3",
+]
+
+[dependency-groups]
+local = [
+    "ipython>0",
+    # Exports functions to access the IPython debugger, which features tab completion, syntax highlighting, better tracebacks
+    # https://github.com/gotcha/ipdb
+    "ipdb>0",
+    # A framework for managing and maintaining multi-language pre-commit hooks.
+    # https://pre-commit.com/
+    "pre-commit>0",
+    # A library and CLI app for rendering project templates.
+    # https://copier.readthedocs.io/en/latest/
+    "copier>0",
+]
+linters = [
+    # Mypy is a static type checker for Python.
+    # https://mypy.readthedocs.io/en/stable/
+    "mypy>0",
+]
+docs = [
+  # Project documentation with Markdown.
+  # https://www.mkdocs.org/
+  "mkdocs>0",
+  # A powerful documentation framework on top of MkDocs
+  # https://squidfunk.github.io/mkdocs-material/
+  "mkdocs-material>0",
+  # Automatic documentation from sources, for MkDocs
+  # https://mkdocstrings.github.io/
+  "mkdocstrings[python]>0",
+  # Manage multiple versions of your MkDocs-powered documentation
+  # https://github.com/jimporter/mike
+  "mike>0",
+]
+
+[project.scripts]
 # For testing locally
 # uvx --with=mypy . pre-commit.run-hooks
 saritasa-invocations = "invoke.main:program.run"
 saritasa-inv = "invoke.main:program.run"
 
-[tool.poetry.dependencies]
-python = ">=3.10"
-# Invoke is a Python (2.7 and 3.4+) task execution tool & library,
-# drawing inspiration from various sources to arrive at a powerful & clean feature set.
-# http://www.pyinvoke.org/
-invoke = ">=2,<4"
-# Rich is a Python library for writing rich text (with color and style) to the terminal,
-# and for displaying advanced content such as tables, markdown, and syntax highlighted code.
-# https://rich.readthedocs.io/en/stable/introduction.html
-rich = ">=13,<16"
-# Decouple helps you to organize your settings so that you can change
-# parameters without having to redeploy your app.
-# Used to get settings from .env files
-# https://github.com/HBNetwork/python-decouple
-python-decouple = {version= "^3", optional = true}
-
-[tool.poetry.extras]
-env_settings = ["python-decouple"]
-
-[tool.poetry.group.dev.dependencies]
-# Improved REPL
-ipdb = "^0.13.13"
-ipython = "^8.29.0"
-# A framework for managing and maintaining multi-language pre-commit hooks.
-# https://github.com/j178/prek
-prek = ">=0.2.30,<1.0"
-
-[tool.poetry.group.linters.dependencies]
-# Mypy is a static type checker for Python.
-# https://mypy.readthedocs.io/en/stable/
-mypy = "1.20.1"
+[project.urls]
+Documentation = "https://saritasa-nest.github.io/saritasa-invocations/latest/"
+Repository = "https://github.com/saritasa-nest/saritasa-invocations"
+Changelog = "https://saritasa-nest.github.io/saritasa-invocations/changelog/"
+Releases = "https://github.com/saritasa-nest/saritasa-invocations/releases/"
+"Bug Tracker" = "https://github.com/saritasa-nest/saritasa-invocations/issues/"
+Contributing ="https://saritasa-nest.github.io/saritasa-invocations/contributing/"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.version]
+# https://regex101.com/r/b6WRcJ/1
+pattern = "(?<=^## )(?P<version>(\\d{1,2}\\.\\d{1,2}\\.\\d{1,3})).*$"
+path = "CHANGELOG.md"
+[tool.hatch.build.targets.wheel]
+packages = [
+  "saritasa_invocations"
+]
 
 [tool.ruff]
 line-length = 79
 indent-width = 4
-target-version = "py310"
 
 [tool.ruff.lint]
 extend-select = [
@@ -201,10 +238,3 @@ warn_no_return = false
 check_untyped_defs = true
 disallow_any_generics = true
 exclude = "venv|/.venv"
-
-# https://docformatter.readthedocs.io/en/latest/configuration.html#
-[tool.docformatter]
-wrap-descriptions=0
-in-place=true
-blank=true
-black=true

@@ -1,18 +1,86 @@
 # How to contribute
 
-## Dependencies
+Contributions are welcome, and they are greatly appreciated! Every
+little bit helps, and credit will always be given.
 
-We use [poetry](https://github.com/python-poetry/poetry) to manage the dependencies.
+You can contribute in many ways:
 
-To install them you would need to run `install` command:
+## Types of Contributions
+
+### Report Bugs
+
+Report bugs at
+<https://github.com/saritasa-nest/saritasa-invocations/issues>.
+
+If you are reporting a bug, please include:
+
+- Any details about your local setup that might be helpful in
+    troubleshooting.
+- Detailed steps to reproduce the bug.
+
+### Fix Bugs
+
+Look through the GitHub issues for bugs. Anything tagged with `bug`
+and `help wanted` is open to whoever wants to implement it.
+
+### Implement Features
+
+Look through the GitHub issues for features. Anything tagged with
+`enhancement` and `help wanted` is open to whoever wants to
+implement it.
+
+### Write Documentation
+
+`saritasa-invocations` could always use more documentation,
+whether as part of the official `saritasa-invocations` docs,
+in docstrings, or even on the web in blog posts, articles, and such.
+
+The best way to send feedback is to file an issue at
+<https://github.com/saritasa-nest/saritasa-invocations/issues>.
+
+If you are proposing a feature:
+
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to
+  implement.
+- Remember that this is a volunteer-driven project, and that
+  contributions are welcome :)
+
+## Get Started
+
+Ready to contribute? Here's how to set up `saritasa-invocations`
+for local development.
+
+Fork the [saritasa-invocations](https://github.com/saritasa-nest/saritasa-invocations) repo on GitHub.
+And then clone your fork locally:
 
 ```bash
-poetry install
+git clone git@github.com:your_name_here/saritasa-invocations.git
 ```
 
-To activate your `virtualenv` run `eval $(poetry env activate)`.
+Then, navigate to the project directory:
 
-## Style checks
+```bash
+cd saritasa-invocations
+```
+
+### Setup virtual environment
+
+We use [uv](https://docs.astral.sh/uv/) to manage the dependencies.
+
+To set up venv you would need to run `sync` command:
+
+```bash
+uv sync --all-packages --all-groups --all-extras
+```
+
+To activate your `virtualenv`
+
+```bash
+source .venv/bin/activate
+```
+
+### Check code
 
 We use `pre-commit` for quality control.
 
@@ -22,33 +90,13 @@ To run checks:
 inv pre-commit.run-hooks
 ```
 
-Note: we also have flake8 dependencies for proper support of flake8 vscode
-plugin.
+## Pull Request Guidelines
 
-## Submitting your code
+Before you submit a pull request, check that it meets these guidelines:
 
-We use [trunk based](https://trunkbaseddevelopment.com/) development.
-
-What's the point of this method?
-
-1. We use protected `main` branch,
-   so the only way to push your code is via pull request
-2. We use issue branches: to implement a new feature or to fix a bug
-   create a new branch named `issue-$TASKNUMBER`
-3. Then create a pull request to `main` branch
-4. We use `git tag`s to make releases, so we can track what has changed
-   since the latest release
-
-So, this way we achieve an easy and scalable development process
-which frees us from merging hell and long-living branches.
-
-In this method, the latest version of the app is always in the `main` branch.
-
-### Before submitting
-
-Before submitting your code please do the following steps:
-
-1. Add any changes you want
-2. Edit documentation if you have changed something significant
-3. Update `CHANGELOG.md` with a quick summary of your changes
-4. Run `pre-commit` to ensure that style is correct
+1. The pull request should include tests.
+2. If the pull request adds functionality, the docs should be updated.
+   Put your new functionality into a function with a docstring, and add
+   the feature to the list in README.md.
+3. The pull request should work for each supported Python version.
+   Check github actions status, verify that all checks have been passed.

@@ -4,9 +4,20 @@
     "**/.pytest_cache": true,
     "**/.mypy_cache": true,
     "**/.ruff_cache": true,
-    "**/localstack_volume": true,
-    "**/htmlcov": true,
   },
+
+  "files.associations": {
+    "**/.vscode/*.json": "jsonc"
+  },
+
+  "json.schemas": [
+    {
+      "fileMatch": ["**/.vscode/*.json"],
+      "schema": {
+        "allowTrailingCommas": true
+      }
+    }
+  ],
 
   "editor.rulers": [79],
 
@@ -16,15 +27,13 @@
   "python.analysis.diagnosticSeverityOverrides": {
     "reportPrivateImportUsage": "none"
   },
-
   "python.analysis.inlayHints.functionReturnTypes": true,
-  "mypy.enabled": false,
 
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
 
   "[python]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "charliermarsh.ruff"
-  }
+  },
 }
