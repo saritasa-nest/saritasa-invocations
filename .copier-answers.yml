@@ -1,9 +1,9 @@
 # Answers what were given during boilerplate initialization
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
 # https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
-_commit: 9da2f24
+_commit: 9e5c4fc
 _src_path: https://github.com/saritasa-nest/saritasa-python-boilerplate-open-source.git
 folder_name: saritasa_invocations
-min_python_version: 3.10
+min_python_version: 3.1
 package_description: Collection of invoke commands used by Saritasa
 package_name: saritasa-invocations

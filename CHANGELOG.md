@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.12.0
+
 - Confirm support for invoke 3
 - Confirm support for rich 15
 - Set up docs generation with `mkdocs`

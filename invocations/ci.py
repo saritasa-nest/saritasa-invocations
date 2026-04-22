@@ -7,7 +7,6 @@ import saritasa_invocations
 def prepare(context: invoke.Context) -> None:
     """Prepare ci environment for check."""
     saritasa_invocations.print_success("Preparing CI")
-    saritasa_invocations.uv.sync(context)
 
 
 @invoke.task
