@@ -1,0 +1,4654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Collection of invoke commands used by Saritasa">
+      
+      
+      
+        <link rel="canonical" href="https://saritasa-nest.github.io/saritasa-invocations/1.12.0/">
+      
+      
+      
+        <link rel="next" href="changelog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="_static/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>saritasa-invocations</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="_static/custom_color.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#saritasa-invocations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="saritasa-invocations" class="md-header__button md-logo" aria-label="saritasa-invocations" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            saritasa-invocations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/saritasa-nest/saritasa-invocations/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saritasa-invocations
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="saritasa-invocations" class="md-nav__button md-logo" aria-label="saritasa-invocations" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    saritasa-invocations
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/saritasa-nest/saritasa-invocations/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    saritasa-invocations
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#printing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        printing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemcopy-local-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.copy-local-settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemcopy-vscode-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.copy-vscode-settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemchown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.chown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemcreate-tmp-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.create-tmp-folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitset-git-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.set-git-setting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitsetup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitclone-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.clone-repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitblame-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.blame-copy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pre-commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commituninstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.uninstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitrun-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.run-hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerbuild-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.build-service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerbuildpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.buildpack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerstop-all-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.stop-all-containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerstop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerclear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        github-actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="github-actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actionsset-up-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        github-actions.set-up-hosts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pythonrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="django">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djangomanage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.manage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangomakemigrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.makemigrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangocheck_new_migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.check_new_migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangomigrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.migrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoresetdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.resetdb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangocreatesuperuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.createsuperuser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangorun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangodbshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.dbshell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangorecompile-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.recompile-messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoshow-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.show-urls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangobackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangobackup-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.backup-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoload-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.load-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangostartapp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.startapp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangowait-for-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.wait-for-database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fastapi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapirun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alembic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alembicrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicautogenerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.autogenerate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicupgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicdowngrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.downgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembiccheck-for-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.check-for-migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembiccheck-for-adjust-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.check-for-adjust-messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicbackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicbackup-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.backup-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicload-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.load-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicwait-for-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.wait-for-database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="celery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#celeryrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celerysend-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery.send-task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open-api
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="open-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-apivalidate-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open-api.validate-swagger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="db">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbbackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="k8s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k8slogin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sset-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.set-context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8slogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8spods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.pods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sexecute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.execute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="k8s.execute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-env-params-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use env-params arg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8spython-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.python-shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8shealth-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.health-check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sdownload-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.download-file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="db-k8s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db-k8screate-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s.create-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-k8sget-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s.get-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cruft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cruft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cruftcheck-for-cruft-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft.check-for-cruft-files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cruftcreate_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft.create_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poetryinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetryupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetryupdate-to-latest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.update-to-latest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="uv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uvinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipcompile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip.compile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mypy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mypy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mypyrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mypy.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pytest
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pytest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytestrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pytest.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        secrets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="secrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secretssetup-env-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        secrets.setup-env-credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/alembic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    alembic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/celery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    celery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/cruft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cruft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/db_k8s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db_k8s
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/django/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    django
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/fastapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fastapi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/github_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    github_actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/k8s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    k8s
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/mypy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mypy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/open_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open_api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/pip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/poetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    poetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/pre_commit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pre_commit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/printing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    printing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#printing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        printing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemcopy-local-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.copy-local-settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemcopy-vscode-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.copy-vscode-settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemchown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.chown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemcreate-tmp-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        system.create-tmp-folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitset-git-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.set-git-setting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitsetup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitclone-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.clone-repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitblame-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git.blame-copy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pre-commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commituninstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.uninstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitrun-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.run-hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commitupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pre-commit.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerbuild-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.build-service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerbuildpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.buildpack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerstop-all-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.stop-all-containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerstop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerclear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker.clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        github-actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="github-actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actionsset-up-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        github-actions.set-up-hosts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pythonrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="django">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djangomanage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.manage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangomakemigrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.makemigrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangocheck_new_migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.check_new_migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangomigrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.migrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoresetdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.resetdb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangocreatesuperuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.createsuperuser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangorun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangodbshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.dbshell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangorecompile-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.recompile-messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoshow-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.show-urls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangobackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangobackup-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.backup-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangoload-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.load-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangostartapp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.startapp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djangowait-for-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django.wait-for-database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fastapi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapirun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alembic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alembicrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicautogenerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.autogenerate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicupgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicdowngrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.downgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembiccheck-for-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.check-for-migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembiccheck-for-adjust-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.check-for-adjust-messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicbackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicbackup-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.backup-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicload-remote-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.load-remote-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alembicwait-for-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alembic.wait-for-database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="celery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#celeryrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celerysend-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        celery.send-task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open-api
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="open-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-apivalidate-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open-api.validate-swagger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="db">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbload-db-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db.load-db-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbbackup-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db.backup-local-db
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="k8s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k8slogin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sset-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.set-context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8slogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8spods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.pods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sexecute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.execute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="k8s.execute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-env-params-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to use env-params arg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8spython-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.python-shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8shealth-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.health-check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k8sdownload-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        k8s.download-file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="db-k8s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db-k8screate-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s.create-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db-k8sget-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        db-k8s.get-dump
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cruft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cruft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cruftcheck-for-cruft-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft.check-for-cruft-files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cruftcreate_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cruft.create_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poetryinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetryupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetryupdate-to-latest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        poetry.update-to-latest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="uv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uvinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uv.update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip.install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipcompile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip.compile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mypy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mypy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mypyrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mypy.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pytest
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pytest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytestrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pytest.run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        secrets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="secrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secretssetup-env-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        secrets.setup-env-credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="saritasa-invocations">saritasa-invocations<a class="headerlink" href="#saritasa-invocations" title="Permanent link">&para;</a></h1>
+<p><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/saritasa-nest/saritasa-invocations" />
+<img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-invocations/run_pre_commit.yaml" />
+<img alt="PyPI" src="https://img.shields.io/pypi/v/saritasa-invocations" />
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/saritasa-invocations" />
+<img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/saritasa-invocations" />
+<img alt="PyPI - License" src="https://img.shields.io/pypi/l/saritasa-invocations" />
+<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/saritasa-invocations" />
+<a href="https://github.com/astral-sh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" /></a></p>
+<p>Collection of <a href="https://www.pyinvoke.org/">invoke</a> commands used by Saritasa</p>
+<h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#global-installation">Global installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#printing">printing</a></li>
+<li><a href="#system">system</a><ul>
+<li><a href="#systemcopy-local-settings">system.copy-local-settings</a></li>
+<li><a href="#systemcopy-vscode-settings">system.copy-vscode-settings</a></li>
+<li><a href="#systemchown">system.chown</a></li>
+<li><a href="#systemcreate-tmp-folder">system.create-tmp-folder</a></li>
+</ul>
+</li>
+<li><a href="#git">git</a><ul>
+<li><a href="#gitset-git-setting">git.set-git-setting</a></li>
+<li><a href="#gitsetup">git.setup</a></li>
+<li><a href="#gitclone-repo">git.clone-repo</a></li>
+</ul>
+</li>
+<li><a href="#pre-commit">pre-commit</a><ul>
+<li><a href="#pre-commitinstall">pre-commit.install</a></li>
+<li><a href="#pre-commitrun-hooks">pre-commit.run-hooks</a></li>
+<li><a href="#pre-commitupdate">pre-commit.update</a></li>
+</ul>
+</li>
+<li><a href="#docker">docker</a><ul>
+<li><a href="#dockerbuild-service">docker.build-service</a></li>
+<li><a href="#dockerbuildpack">docker.buildpack</a></li>
+<li><a href="#dockerstop-all-containers">docker.stop-all-containers</a></li>
+<li><a href="#dockerup">docker.up</a></li>
+<li><a href="#dockerstop">docker.stop</a></li>
+<li><a href="#dockerclear">docker.clear</a></li>
+</ul>
+</li>
+<li><a href="#github-actions">github-actions</a><ul>
+<li><a href="#github-actionsset-up-hosts">github-actions.set-up-hosts</a></li>
+</ul>
+</li>
+<li><a href="#python">python</a><ul>
+<li><a href="#pythonrun">python.run</a></li>
+</ul>
+</li>
+<li><a href="#django">django</a><ul>
+<li><a href="#djangomanage">django.manage</a></li>
+<li><a href="#djangomakemigrations">django.makemigrations</a></li>
+<li><a href="#djangomigrate">django.migrate</a></li>
+<li><a href="#djangoresetdb">django.resetdb</a></li>
+<li><a href="#djangocreatesuperuser">django.createsuperuser</a></li>
+<li><a href="#djangorun">django.run</a></li>
+<li><a href="#djangoshell">django.shell</a></li>
+<li><a href="#djangodbshell">django.dbshell</a></li>
+<li><a href="#djangorecompile-messages">django.recompile-messages</a></li>
+<li><a href="#djangoshow-urls">django.show-urls</a></li>
+<li><a href="#djangoload-db-dump">django.load-db-dump</a></li>
+<li><a href="#djangobackup-local-db">django.backup-local-db</a></li>
+<li><a href="#djangobackup-remote-db">django.backup-remote-db</a></li>
+<li><a href="#djangoload-remote-db">django.load-remote-db</a></li>
+<li><a href="#djangostartapp">django.startapp</a></li>
+<li><a href="#djangowait-for-database">django.wait-for-database</a></li>
+</ul>
+</li>
+<li><a href="#fastapi">fastapi</a><ul>
+<li><a href="#fastapirun">fastapi.run</a></li>
+</ul>
+</li>
+<li><a href="#alembic">alembic</a><ul>
+<li><a href="#alembicrun">alembic.run</a></li>
+<li><a href="#alembicautogenerate">alembic.autogenerate</a></li>
+<li><a href="#alembicupgrade">alembic.upgrade</a></li>
+<li><a href="#alembicdowngrade">alembic.downgrade</a></li>
+<li><a href="#alembiccheck-for-migrations">alembic.check-for-migrations</a></li>
+<li><a href="#alembiccheck-for-adjust-messages">alembic.check-for-adjust-messages</a></li>
+<li><a href="#alembicload-db-dump">alembic.load-db-dump</a></li>
+<li><a href="#alembicbackup-local-db">alembic.backup-local-db</a></li>
+<li><a href="#alembicbackup-remote-db">alembic.backup-remote-db</a></li>
+<li><a href="#alembicload-remote-db">alembic.load-remote-db</a></li>
+<li><a href="#alembicwait-for-database">alembic.wait-for-database</a></li>
+</ul>
+</li>
+<li><a href="#celery">celery</a><ul>
+<li><a href="#celeryrun">celery.run</a></li>
+<li><a href="#celerysend-task">celery.send-task</a></li>
+</ul>
+</li>
+<li><a href="#open-api">open-api</a><ul>
+<li><a href="#open-apivalidate-swagger">open-api.validate-swagger</a></li>
+</ul>
+</li>
+<li><a href="#db">db</a><ul>
+<li><a href="#dbload-db-dump">db.load-db-dump</a></li>
+<li><a href="#dbbackup-local-db">db.backup-local-db</a></li>
+</ul>
+</li>
+<li><a href="#k8s">k8s</a><ul>
+<li><a href="#k8slogin">k8s.login</a></li>
+<li><a href="#k8sset-context">k8s.set-context</a></li>
+<li><a href="#k8slogs">k8s.logs</a></li>
+<li><a href="#k8spods">k8s.pods</a></li>
+<li><a href="#k8sexecute">k8s.execute</a></li>
+<li><a href="#k8spython-shell">k8s.python-shell</a></li>
+<li><a href="#k8shealth-check">k8s.health-check</a></li>
+<li><a href="#k8sdownload-file">k8s.download-file</a></li>
+</ul>
+</li>
+<li><a href="#db-k8s">db-k8s</a><ul>
+<li><a href="#db-k8screate-dump">db-k8s.create-dump</a></li>
+<li><a href="#db-k8sget-dump">db-k8s.get-dump</a></li>
+</ul>
+</li>
+<li><a href="#cruft">cruft</a><ul>
+<li><a href="#cruftcheck-for-cruft-files">cruft.check-for-cruft-files</a></li>
+<li><a href="#cruftcreate_project">cruft.create_project</a></li>
+</ul>
+</li>
+<li><a href="#poetry">poetry</a><ul>
+<li><a href="#poetryinstall">poetry.install</a></li>
+<li><a href="#poetryupdate">poetry.update</a></li>
+<li><a href="#poetryupdate-to-latest">poetry.update-to-latest</a></li>
+</ul>
+</li>
+<li><a href="#uv">uv</a><ul>
+<li><a href="#uvinstall">uv.install</a></li>
+<li><a href="#uvupdate">uv.update</a></li>
+</ul>
+</li>
+<li><a href="#pip">pip</a><ul>
+<li><a href="#pipinstall">pip.install</a></li>
+<li><a href="#pipcompile">pip.compile</a></li>
+</ul>
+</li>
+<li><a href="#mypy">mypy</a><ul>
+<li><a href="#mypyrun">mypy.run</a></li>
+</ul>
+</li>
+<li><a href="#pytest">pytest</a><ul>
+<li><a href="#pytestrun">pytest.run</a></li>
+</ul>
+</li>
+<li><a href="#secrets">secrets</a><ul>
+<li><a href="#secretssetup-env-credentials">secrets.setup-env-credentials</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>saritasa-invocations
+</code></pre></div>
+<p>or if you are using <a href="https://python-poetry.org/">poetry</a></p>
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>saritasa-invocations
+</code></pre></div>
+<p>or if you are using <a href="https://docs.astral.sh/uv/">uv</a></p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>add<span class="w"> </span>saritasa-invocations
+</code></pre></div>
+<h3 id="global-installation">Global installation<a class="headerlink" href="#global-installation" title="Permanent link">&para;</a></h3>
+<p>You can use <a href="https://docs.astral.sh/uvx/">uvx</a> to use packages globally without
+installing them or activating virtualenvs.</p>
+<div class="highlight"><pre><span></span><code>uvx<span class="w"> </span>saritasa-invocations<span class="w"> </span>pre-commit.run-hooks
+</code></pre></div>
+<p>Or if you need extras</p>
+<div class="highlight"><pre><span></span><code>uvx<span class="w"> </span>--from<span class="o">=</span><span class="s2">&quot;saritasa-invocations[env_settings]&quot;</span><span class="w"> </span>pre-commit.run-hooks
+</code></pre></div>
+<p>Or simply create alias for simple usage</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>saritasa-inv<span class="o">=</span><span class="s2">&quot;uvx saritasa-invocations&quot;</span>
+saritasa-inv<span class="w"> </span>pre-commit.run-hooks
+</code></pre></div>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Configuration can be set in <code>tasks.py</code> file.</p>
+<p>Below is an example of config:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">invoke</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">saritasa_invocations</span>
+
+<span class="n">ns</span> <span class="o">=</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Collection</span><span class="p">(</span>
+    <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">docker</span><span class="p">,</span>
+    <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">git</span><span class="p">,</span>
+    <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">github_actions</span><span class="p">,</span>
+    <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">pre_commit</span><span class="p">,</span>
+    <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">system</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Configurations for run command</span>
+<span class="n">ns</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;run&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;pty&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;echo&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;saritasa_invocations&quot;</span><span class="p">:</span> <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">Config</span><span class="p">(</span>
+            <span class="n">pre_commit</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">PreCommitSettings</span><span class="p">(</span>
+                <span class="n">hooks</span><span class="o">=</span><span class="p">(</span>
+                    <span class="s2">&quot;pre-commit&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pre-push&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;commit-msg&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">git</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">GitSettings</span><span class="p">(</span>
+                <span class="n">merge_ff</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+                <span class="n">pull_ff</span><span class="o">=</span><span class="s2">&quot;only&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">docker</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">DockerSettings</span><span class="p">(</span>
+                <span class="n">main_containers</span><span class="o">=</span><span class="p">(</span>
+                    <span class="s2">&quot;opensearch&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;redis&quot;</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">system</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">SystemSettings</span><span class="p">(</span>
+                <span class="n">vs_code_settings_template</span><span class="o">=</span><span class="s2">&quot;.vscode/recommended_settings.json&quot;</span><span class="p">,</span>
+                <span class="n">settings_template</span><span class="o">=</span><span class="s2">&quot;config/.env.local&quot;</span><span class="p">,</span>
+                <span class="n">save_settings_from_template_to</span><span class="o">=</span><span class="s2">&quot;config/.env&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="c1"># Default K8S Settings shared between envs</span>
+            <span class="n">k8s_defaults</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SDefaultSettings</span><span class="p">(</span>
+                <span class="n">proxy</span><span class="o">=</span><span class="s2">&quot;teleport.company.com&quot;</span><span class="p">,</span>
+                <span class="n">db_config</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SDBSettings</span><span class="p">(</span>
+                    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                    <span class="n">pod_selector</span><span class="o">=</span><span class="s2">&quot;app=pod-selector-db&quot;</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+<span class="c1"># For K8S settings you just need to create a instances of K8SSettings for each</span>
+<span class="c1"># environment. It&#39;ll be all collected automatically.</span>
+<span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SSettings</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+    <span class="n">cluster</span><span class="o">=</span><span class="s2">&quot;teleport.company.somewhere.com&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;project_name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SSettings</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">,</span>
+    <span class="n">cluster</span><span class="o">=</span><span class="s2">&quot;teleport.client.somewhere.com&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;project_name&quot;</span><span class="p">,</span>
+    <span class="n">proxy</span><span class="o">=</span><span class="s2">&quot;teleport.client.com&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
+<h3 id="printing">printing<a class="headerlink" href="#printing" title="Permanent link">&para;</a></h3>
+<p>While this module doesn't contain any invocations, it's used to print message
+via <code>rich.panel.Panel</code>. There are three types:</p>
+<ul>
+<li><code>print_success</code> - print message in green panel</li>
+<li><code>print_warn</code> - print message in yellow panel</li>
+<li><code>print_error</code> - print message in red panel</li>
+</ul>
+<h3 id="system">system<a class="headerlink" href="#system" title="Permanent link">&para;</a></h3>
+<h4 id="systemcopy-local-settings">system.copy-local-settings<a class="headerlink" href="#systemcopy-local-settings" title="Permanent link">&para;</a></h4>
+<p>Copies local template for settings into specified file</p>
+<p>Settings:</p>
+<ul>
+<li><code>settings_template</code> path to settings template (Default: <code>config/settings/local.template.py</code>)</li>
+<li><code>save_settings_from_template_to</code> path to where save settings (Default: <code>config/settings/local.py</code>)</li>
+</ul>
+<h4 id="systemcopy-vscode-settings">system.copy-vscode-settings<a class="headerlink" href="#systemcopy-vscode-settings" title="Permanent link">&para;</a></h4>
+<p>Copies local template for vscode settings into <code>.vscode</code> folder</p>
+<p>Settings:</p>
+<ul>
+<li><code>vs_code_settings_template</code> path to settings template (Default: <code>.vscode/recommended_settings.json</code>)</li>
+</ul>
+<h4 id="systemchown">system.chown<a class="headerlink" href="#systemchown" title="Permanent link">&para;</a></h4>
+<p>Change ownership of files to user(current user by default).</p>
+<p>Shortcut for owning apps dir by specified user after some files were
+generated using docker-compose (migrations, new app, etc).</p>
+<h4 id="systemcreate-tmp-folder">system.create-tmp-folder<a class="headerlink" href="#systemcreate-tmp-folder" title="Permanent link">&para;</a></h4>
+<p>Create folder for temporary files(<code>.tmp</code>).</p>
+<h3 id="git">git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<h4 id="gitset-git-setting">git.set-git-setting<a class="headerlink" href="#gitset-git-setting" title="Permanent link">&para;</a></h4>
+<p>Set git setting in config</p>
+<h4 id="gitsetup">git.setup<a class="headerlink" href="#gitsetup" title="Permanent link">&para;</a></h4>
+<p>Perform setup of git:</p>
+<ul>
+<li>Install pre-commit hooks</li>
+<li>Set merge.ff</li>
+<li>Set pull.ff</li>
+</ul>
+<p>Settings:</p>
+<ul>
+<li><code>merge_ff</code> setting value for <code>merge.ff</code> (Default: <code>false</code>)</li>
+<li><code>pull_ff</code> setting value for <code>pull.ff</code> (Default: <code>only</code>)</li>
+</ul>
+<h4 id="gitclone-repo">git.clone-repo<a class="headerlink" href="#gitclone-repo" title="Permanent link">&para;</a></h4>
+<p>Clone repo or pull latest changes to specified repo</p>
+<h4 id="gitblame-copy">git.blame-copy<a class="headerlink" href="#gitblame-copy" title="Permanent link">&para;</a></h4>
+<p>Command for creating copies of a file with git blame history saving.</p>
+<p>Original <a href="https://dev.to/deckstar/how-to-git-copy-copying-files-while-keeping-git-history-1c9j">script</a> written in bash</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>inv<span class="w"> </span>git.blame-copy<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>original<span class="w"> </span>file&gt;<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>copy&gt;,&lt;path<span class="w"> </span>to<span class="w"> </span>copy&gt;...
+</code></pre></div>
+<p>If <code>&lt;path to copy&gt;</code> is file, then data will be copied in it.</p>
+<p>If <code>&lt;path to copy&gt;</code> is directory, then data will be copied in provided
+directory with original name.</p>
+<p>Algorithm:</p>
+<p>1) Remember current HEAD state
+2) For each copy path:
+    move file to copy path, restore file using <code>checkout</code>,
+    remember result commits
+3) Restore state of branch
+4) Move file to temp file
+5) Merge copy commits to branch
+6) Move file to it's original path from temp file</p>
+<p>Settings:</p>
+<ul>
+<li><code>copy_commit_template</code> template for commits created during command workflow</li>
+<li><code>copy_init_message_template</code> template for init message printed at command start</li>
+</ul>
+<p>Template variables:</p>
+<ul>
+<li><code>action</code> - The copy algorithm consists of several intermediate actions
+(creating temporary files, merging commits, etc.)
+The <code>action</code> variable stores the header of the intermediate action.</li>
+<li><code>original_path</code> - Contains value of first argument of the command
+(path of original file that will be copied)</li>
+<li><code>destination_paths</code> - Sequence of paths to which the original file will be copied</li>
+<li><code>project_task</code> - project task that will be parsed from current git branch.
+If no task found in branch, then will be empty</li>
+</ul>
+<p>Default values for templates:</p>
+<ul>
+<li><code>copy_commit_template</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  <span class="s2">&quot;[automated-commit]: </span><span class="si">{action}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+  <span class="s2">&quot;copy: </span><span class="si">{original_path}</span><span class="se">\n</span><span class="s2">&quot;</span>
+  <span class="s2">&quot;to:</span><span class="se">\n</span><span class="s2">* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+  <span class="s2">&quot;</span><span class="si">{project_task}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<ul>
+<li><code>copy_init_message_template</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  <span class="s2">&quot;Copy </span><span class="si">{original_path}</span><span class="s2"> to:</span><span class="se">\n</span><span class="s2">&quot;</span>
+  <span class="s2">&quot;* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+  <span class="s2">&quot;Count of created commits: </span><span class="si">{commits_count}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="pre-commit">pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
+<p>Settings to run <code>.pre-commit-config.yaml</code></p>
+<ul>
+<li><code>entry</code> - command used to run <code>pre-commit</code> or alternatives (Default: <code>"pre-commit"</code>)</li>
+<li><code>default_hook_stage</code> - default hook stage to run hooks (Default: <code>"push"</code>)</li>
+</ul>
+<h4 id="pre-commitinstall">pre-commit.install<a class="headerlink" href="#pre-commitinstall" title="Permanent link">&para;</a></h4>
+<p>Install git hooks via pre-commit.</p>
+<h4 id="pre-commituninstall">pre-commit.uninstall<a class="headerlink" href="#pre-commituninstall" title="Permanent link">&para;</a></h4>
+<p>Uninstall git hooks via pre-commit.</p>
+<h4 id="pre-commitrun-hooks">pre-commit.run-hooks<a class="headerlink" href="#pre-commitrun-hooks" title="Permanent link">&para;</a></h4>
+<p>Run all hooks against all files.</p>
+<h4 id="pre-commitupdate">pre-commit.update<a class="headerlink" href="#pre-commitupdate" title="Permanent link">&para;</a></h4>
+<p>Update pre-commit dependencies.</p>
+<h3 id="docker">docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<h4 id="dockerbuild-service">docker.build-service<a class="headerlink" href="#dockerbuild-service" title="Permanent link">&para;</a></h4>
+<p>Build service image from docker compose</p>
+<h4 id="dockerbuildpack">docker.buildpack<a class="headerlink" href="#dockerbuildpack" title="Permanent link">&para;</a></h4>
+<p>Build project via <a href="https://buildpacks.io/docs/tools/pack/">pack-cli</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>buildpack_builder</code> image tag of builder (Default: <code>paketobuildpacks/builder:base</code>)</li>
+<li><code>buildpack_runner</code> image tag of runner (Default: <code>paketobuildpacks/run:base</code>)</li>
+<li><code>build_image_tag</code> image tag of builder (Default: Name of project from <code>project_name</code>)</li>
+<li><code>buildpack_requirements_path</code> path to folder with requirements (Default: <code>requirements</code>)</li>
+</ul>
+<h4 id="dockerstop-all-containers">docker.stop-all-containers<a class="headerlink" href="#dockerstop-all-containers" title="Permanent link">&para;</a></h4>
+<p>Shortcut for stopping ALL running docker containers</p>
+<h4 id="dockerup">docker.up<a class="headerlink" href="#dockerup" title="Permanent link">&para;</a></h4>
+<p>Bring up main containers and start them.</p>
+<p>Settings:</p>
+<ul>
+<li><code>main_containers</code> image tag of builder (Default: <code>["postgres", "redis"]</code>)</li>
+</ul>
+<h4 id="dockerstop">docker.stop<a class="headerlink" href="#dockerstop" title="Permanent link">&para;</a></h4>
+<p>Stop main containers.</p>
+<p>Settings:</p>
+<ul>
+<li><code>main_containers</code> image tag of builder (Default: <code>["postgres", "redis"]</code>)</li>
+</ul>
+<h4 id="dockerclear">docker.clear<a class="headerlink" href="#dockerclear" title="Permanent link">&para;</a></h4>
+<p>Stop and remove all containers defined in docker-compose. Also remove images.</p>
+<h3 id="github-actions">github-actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
+<h4 id="github-actionsset-up-hosts">github-actions.set-up-hosts<a class="headerlink" href="#github-actionsset-up-hosts" title="Permanent link">&para;</a></h4>
+<p>Add hosts to <code>/etc/hosts</code>.</p>
+<p>Settings:</p>
+<ul>
+<li><code>hosts</code> image tag of builder (Default: see <code>docker-main-containers</code>)</li>
+</ul>
+<h3 id="python">python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<p>As of now we support two environments for python <code>local</code> and <code>docker</code>.</p>
+<ul>
+<li><code>local</code> is a python that is located in your current virtualenv</li>
+<li><code>docker</code> is python that is located inside your docker image of service (<code>python_docker_service</code>).</li>
+</ul>
+<p>This was done to have ability to run code against environment close deployed one or simply test it out.</p>
+<p>Example of usage</p>
+<div class="highlight"><pre><span></span><code><span class="nv">PYTHON_ENV</span><span class="o">=</span>docker<span class="w"> </span>inv<span class="w"> </span>python.run<span class="w"> </span>--command<span class="o">=</span><span class="s2">&quot;--version&quot;</span>
+</code></pre></div>
+<h4 id="pythonrun">python.run<a class="headerlink" href="#pythonrun" title="Permanent link">&para;</a></h4>
+<p>Run python command depending on <code>PYTHON_ENV</code> variable(<code>docker</code> or <code>local</code>).</p>
+<p>Settings:</p>
+<ul>
+<li><code>entry</code> python entry command (Default: <code>python</code>)</li>
+<li><code>docker_service</code> python service name (Default: <code>web</code>)</li>
+<li><code>docker_service_params</code> params for docker (Default: <code>--rm</code>)</li>
+</ul>
+<h3 id="django">django<a class="headerlink" href="#django" title="Permanent link">&para;</a></h3>
+<h4 id="djangomanage">django.manage<a class="headerlink" href="#djangomanage" title="Permanent link">&para;</a></h4>
+<p>Run <code>manage.py</code> with specified command.</p>
+<p>This command also handle starting of required services and waiting DB to
+be ready.</p>
+<p>Requires <a href="https://github.com/painless-software/django-probes#basic-usage">django_probes</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>manage_file_path</code> path to <code>manage.py</code> file (Default: <code>./manage.py</code>)</li>
+</ul>
+<h4 id="djangomakemigrations">django.makemigrations<a class="headerlink" href="#djangomakemigrations" title="Permanent link">&para;</a></h4>
+<p>Run <code>makemigrations</code> command and chown created migrations (only for docker env).</p>
+<h4 id="djangocheck_new_migrations">django.check_new_migrations<a class="headerlink" href="#djangocheck_new_migrations" title="Permanent link">&para;</a></h4>
+<p>Check if there is new migrations or not. Result should be check via exit code.</p>
+<h4 id="djangomigrate">django.migrate<a class="headerlink" href="#djangomigrate" title="Permanent link">&para;</a></h4>
+<p>Run <code>migrate</code> command.</p>
+<p>Settings:</p>
+<ul>
+<li><code>migrate_command</code> migrate command (Default: <code>migrate</code>)</li>
+</ul>
+<h4 id="djangoresetdb">django.resetdb<a class="headerlink" href="#djangoresetdb" title="Permanent link">&para;</a></h4>
+<p>Reset database to initial state (including test DB).</p>
+<p>Requires <a href="https://django-extensions.readthedocs.io/en/latest/installation_instructions.html">django-extensions</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>settings_path</code> default django settings (Default: <code>config.settings.local</code>)</li>
+</ul>
+<h4 id="djangocreatesuperuser">django.createsuperuser<a class="headerlink" href="#djangocreatesuperuser" title="Permanent link">&para;</a></h4>
+<p>Create superuser.</p>
+<p>Settings:</p>
+<ul>
+<li><code>default_superuser_email</code> default email of superuser.
+if empty, will try to grab it from git config, before resorting to default (Default: <code>root@localhost</code>)</li>
+<li><code>default_superuser_username</code> default username of superuser
+if empty, will try to grab it from git config, before resorting to default (Default: <code>root</code>)</li>
+<li><code>default_superuser_password</code> default password of superuser (Default: <code>root</code>)</li>
+<li><code>verbose_email_name</code> verbose name for <code>email</code> field (Default: <code>Email address</code>)</li>
+<li><code>verbose_username_name</code> verbose name for <code>username</code> field (Default: <code>Username</code>)</li>
+<li><code>verbose_password_name</code> verbose name for <code>password</code> field (Default: <code>Password</code>)</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li>Values for <code>verbose_email_name</code>, <code>verbose_username_name</code>, <code>verbose_password_name</code>
+should match with verbose names of model that used
+<a href="https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model">this setting</a></li>
+</ul>
+<h4 id="djangorun">django.run<a class="headerlink" href="#djangorun" title="Permanent link">&para;</a></h4>
+<p>Run development web-server.</p>
+<p>Settings:</p>
+<ul>
+<li><code>runserver_docker_params</code> params for docker (Default: <code>--rm --service-ports</code>)</li>
+<li><code>runserver_command</code> runserver command (Default: <code>runserver_plus</code>)</li>
+<li><code>runserver_host</code> host of server (Default: <code>0.0.0.0</code>)</li>
+<li><code>runserver_port</code> port of server (Default: <code>8000</code>)</li>
+<li><code>runserver_params</code> params for runserver command (Default: <code>""</code>)</li>
+</ul>
+<h4 id="djangoshell">django.shell<a class="headerlink" href="#djangoshell" title="Permanent link">&para;</a></h4>
+<p>Shortcut for manage.py shell command.</p>
+<p>Settings:</p>
+<ul>
+<li><code>shell_command</code> command to start python shell (Default: <code>shell_plus --ipython</code>)</li>
+</ul>
+<h4 id="djangodbshell">django.dbshell<a class="headerlink" href="#djangodbshell" title="Permanent link">&para;</a></h4>
+<p>Open database shell with credentials from current django settings.</p>
+<h4 id="djangorecompile-messages">django.recompile-messages<a class="headerlink" href="#djangorecompile-messages" title="Permanent link">&para;</a></h4>
+<p>Generate and recompile translation messages.</p>
+<p>Requires <a href="https://www.gnu.org/software/gettext/">gettext</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>makemessages_params</code> params for makemessages command (Default: <code>--all --ignore venv</code>)</li>
+<li><code>compilemessages_params</code> params for compilemessages command (Default: <code>""</code>)</li>
+</ul>
+<h4 id="djangoshow-urls">django.show-urls<a class="headerlink" href="#djangoshow-urls" title="Permanent link">&para;</a></h4>
+<p>Show urls of project which can be filtered via search parameter.</p>
+<h4 id="djangoload-db-dump">django.load-db-dump<a class="headerlink" href="#djangoload-db-dump" title="Permanent link">&para;</a></h4>
+<p>Reset db and load db dump.</p>
+<p>Uses <a href="#djangoresetdb">resetdb</a> and <a href="#dbload-db-dump">load-db-dump</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>django_settings_path</code> default django settings (Default: <code>config.settings.local</code>)</li>
+</ul>
+<h4 id="djangobackup-local-db">django.backup-local-db<a class="headerlink" href="#djangobackup-local-db" title="Permanent link">&para;</a></h4>
+<p>Back up local db.</p>
+<p>Uses <a href="#dbbackup-local-db">backup_local_db</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>settings_path</code> default django settings (Default: <code>config.settings.local</code>)</li>
+</ul>
+<h4 id="djangobackup-remote-db">django.backup-remote-db<a class="headerlink" href="#djangobackup-remote-db" title="Permanent link">&para;</a></h4>
+<p>Make dump of remote db and download it.</p>
+<p>Uses <a href="#db-k8screate-dump">create_dump</a> and <a href="#db-k8sget-dump">get-dump</a></p>
+<p>It can use usual django config where every setting is stored in separate
+variable or single variable with full db url.</p>
+<p>Settings:</p>
+<ul>
+<li><code>settings_path</code> default django settings (Default: <code>config.settings.local</code>)</li>
+<li><code>remote_db_url_config_name</code> Name of config for db url (Default: <code>DATABASE_URL</code>)</li>
+<li><code>remote_db_config_mapping</code> Mapping of db config
+  Default:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_NAME&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_HOST&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_PORT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_USER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_PASSWORD&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="djangoload-remote-db">django.load-remote-db<a class="headerlink" href="#djangoload-remote-db" title="Permanent link">&para;</a></h4>
+<p>Make dump of remote db and download it and apply to local db.</p>
+<p>Uses <a href="#db-k8screate-dump">create_dump</a> and <a href="#db-k8sget-dump">get-dump</a> and
+<a href="#djangoload-db-dump">load-db-dump</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>settings_path</code> default django settings (Default: <code>config.settings.local</code>)</li>
+</ul>
+<h4 id="djangostartapp">django.startapp<a class="headerlink" href="#djangostartapp" title="Permanent link">&para;</a></h4>
+<p>Create django app from a template using copier.</p>
+<p>Requires uv: <a href="https://docs.astral.sh/uv/getting-started/installation/">installation docs</a></p>
+<p>Settings:</p>
+<ul>
+<li><code>app_boilerplate_link</code> link to app template</li>
+<li><code>apps_path</code> path to apps folder in project (Default: <code>apps</code>)</li>
+</ul>
+<h4 id="djangowait-for-database">django.wait-for-database<a class="headerlink" href="#djangowait-for-database" title="Permanent link">&para;</a></h4>
+<p>Launch docker compose and wait for database connection.</p>
+<h3 id="fastapi">fastapi<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+<h4 id="fastapirun">fastapi.run<a class="headerlink" href="#fastapirun" title="Permanent link">&para;</a></h4>
+<p>Run development web-server.</p>
+<p>Settings:</p>
+<ul>
+<li><code>docker_params</code> params for docker (Default: <code>--rm --service-ports</code>)</li>
+<li><code>uvicorn_command</code> uvicorn command (Default: <code>-m uvicorn</code>)</li>
+<li><code>app</code> path to fastapi app (Default: <code>config:fastapi_app</code>)</li>
+<li><code>host</code> host of server (Default: <code>0.0.0.0</code>)</li>
+<li><code>port</code> port of server (Default: <code>8000</code>)</li>
+<li><code>params</code> params for uvicorn (Default: <code>--reload</code>)</li>
+</ul>
+<h3 id="alembic">alembic<a class="headerlink" href="#alembic" title="Permanent link">&para;</a></h3>
+<h4 id="alembicrun">alembic.run<a class="headerlink" href="#alembicrun" title="Permanent link">&para;</a></h4>
+<p>Run alembic command</p>
+<p>Settings:</p>
+<ul>
+<li><code>command</code> alembic command (Default: <code>-m alembic</code>)</li>
+<li><code>connect_attempts</code> numbers of attempts to connect to database (Default: <code>10</code>)</li>
+</ul>
+<h4 id="alembicautogenerate">alembic.autogenerate<a class="headerlink" href="#alembicautogenerate" title="Permanent link">&para;</a></h4>
+<p>Generate migrations</p>
+<p>Settings:</p>
+<ul>
+<li><code>migrations_folder</code> migrations files location (Default: <code>db/migrations/versions</code>)</li>
+</ul>
+<h4 id="alembicupgrade">alembic.upgrade<a class="headerlink" href="#alembicupgrade" title="Permanent link">&para;</a></h4>
+<p>Upgrade database</p>
+<h4 id="alembicdowngrade">alembic.downgrade<a class="headerlink" href="#alembicdowngrade" title="Permanent link">&para;</a></h4>
+<p>Downgrade database</p>
+<h4 id="alembiccheck-for-migrations">alembic.check-for-migrations<a class="headerlink" href="#alembiccheck-for-migrations" title="Permanent link">&para;</a></h4>
+<p>Check if there any missing migrations to be generated</p>
+<h4 id="alembiccheck-for-adjust-messages">alembic.check-for-adjust-messages<a class="headerlink" href="#alembiccheck-for-adjust-messages" title="Permanent link">&para;</a></h4>
+<p>Check migration files for adjust messages</p>
+<p>Settings:</p>
+<ul>
+<li><code>migrations_folder</code> migrations files location (Default: <code>db/migrations/versions</code>)</li>
+<li><code>adjust_messages</code> list of alembic adjust messages
+(Default: <code># ### commands auto generated by Alembic - please adjust! ###</code>, <code># ### end Alembic commands ###</code>)</li>
+</ul>
+<h4 id="alembicload-db-dump">alembic.load-db-dump<a class="headerlink" href="#alembicload-db-dump" title="Permanent link">&para;</a></h4>
+<p>Reset db and load db dump.</p>
+<p>Uses <a href="#alembicdowngrade">downgrade</a> and <a href="#dbload-db-dump">load-db-dump</a></p>
+<p>Requires <a href="https://github.com/HBNetwork/python-decouple">python-decouple</a></p>
+<p>Installed with <code>[env_settings]</code></p>
+<p>Settings:</p>
+<ul>
+<li><code>db_config_mapping</code> Mapping of db config</li>
+</ul>
+<p>Default:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="alembicbackup-local-db">alembic.backup-local-db<a class="headerlink" href="#alembicbackup-local-db" title="Permanent link">&para;</a></h4>
+<p>Back up local db.</p>
+<p>Uses <a href="#dbbackup-local-db">backup_local_db</a></p>
+<p>Requires <a href="https://github.com/HBNetwork/python-decouple">python-decouple</a></p>
+<p>Installed with <code>[env_settings]</code></p>
+<p>Settings:</p>
+<ul>
+<li><code>db_config_mapping</code> Mapping of db config</li>
+</ul>
+<p>Default:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="alembicbackup-remote-db">alembic.backup-remote-db<a class="headerlink" href="#alembicbackup-remote-db" title="Permanent link">&para;</a></h4>
+<p>Make dump of remote db and download it.</p>
+<p>Uses <a href="#db-k8screate-dump">create_dump</a> and <a href="#db-k8sget-dump">get-dump</a></p>
+<p>Requires <a href="https://github.com/HBNetwork/python-decouple">python-decouple</a></p>
+<p>Installed with <code>[env_settings]</code></p>
+<p>Settings:</p>
+<ul>
+<li><code>db_config_mapping</code> Mapping of db config</li>
+</ul>
+<p>Default:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="alembicload-remote-db">alembic.load-remote-db<a class="headerlink" href="#alembicload-remote-db" title="Permanent link">&para;</a></h4>
+<p>Make dump of remote db and download it and apply to local db.</p>
+<p>Uses <a href="#db-k8screate-dump">create-dump</a> and <a href="#db-k8sget-dump">get-dump</a> and
+<a href="#alembicload-db-dump">load-db-dump</a></p>
+<p>Requires <a href="https://github.com/HBNetwork/python-decouple">python-decouple</a></p>
+<p>Installed with <code>[env_settings]</code></p>
+<p>Settings:</p>
+<ul>
+<li><code>db_config_mapping</code> Mapping of db config</li>
+</ul>
+<p>Default:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="alembicwait-for-database">alembic.wait-for-database<a class="headerlink" href="#alembicwait-for-database" title="Permanent link">&para;</a></h4>
+<p>Launch docker compose and wait for database connection.</p>
+<h3 id="celery">celery<a class="headerlink" href="#celery" title="Permanent link">&para;</a></h3>
+<h4 id="celeryrun">celery.run<a class="headerlink" href="#celeryrun" title="Permanent link">&para;</a></h4>
+<p>Start celery worker.</p>
+<p>Settings:</p>
+<ul>
+<li><code>app</code> path to app  (Default: <code>config.celery.app</code>)</li>
+<li><code>scheduler</code> scheduler (Default: <code>django</code>)</li>
+<li><code>loglevel</code> log level for celery (Default: <code>info</code>)</li>
+<li><code>extra_params</code> extra params for worker (Default: <code>("--beat",)</code>)</li>
+<li><code>local_cmd</code> command for celery (Default: <code>celery --app {app} worker --scheduler={scheduler} --loglevel={info} {extra_params}</code>)</li>
+<li><code>service_name</code> name of celery service (Default: <code>celery</code>)</li>
+</ul>
+<h4 id="celerysend-task">celery.send-task<a class="headerlink" href="#celerysend-task" title="Permanent link">&para;</a></h4>
+<p>Send task to celery worker.</p>
+<p>Settings:</p>
+<ul>
+<li><code>app</code> path to app  (Default: <code>config.celery.app</code>)</li>
+</ul>
+<h3 id="open-api">open-api<a class="headerlink" href="#open-api" title="Permanent link">&para;</a></h3>
+<h4 id="open-apivalidate-swagger">open-api.validate-swagger<a class="headerlink" href="#open-apivalidate-swagger" title="Permanent link">&para;</a></h4>
+<p>Check that generated open_api spec is valid. This command uses
+<a href="https://github.com/tfranzel/drf-spectacular">drf-spectacular</a> and
+it's default validator. It creates spec file in ./tmp folder and then validates it.</p>
+<h3 id="db">db<a class="headerlink" href="#db" title="Permanent link">&para;</a></h3>
+<h4 id="dbload-db-dump">db.load-db-dump<a class="headerlink" href="#dbload-db-dump" title="Permanent link">&para;</a></h4>
+<p>Load db dump to local db.</p>
+<p>Settings:</p>
+<ul>
+<li><code>load_dump_command</code> template for load command(Default located in <code>_config.py &gt; DBSettings</code>)</li>
+<li><code>dump_filename</code> filename for dump (Default: <code>local-db-dump.sql</code>)</li>
+<li><code>load_additional_params</code> additional params for load command (Default: <code>--quiet</code>)</li>
+</ul>
+<h4 id="dbbackup-local-db">db.backup-local-db<a class="headerlink" href="#dbbackup-local-db" title="Permanent link">&para;</a></h4>
+<p>Back up local db.</p>
+<p>Settings:</p>
+<ul>
+<li><code>dump_command</code> template for dump command (Default located in <code>_config.py &gt; DBSettings</code>)</li>
+<li><code>dump_filename</code> filename for dump (Default: <code>local_db_dump</code>)</li>
+<li><code>dump_additional_params</code> additional params for dump command (Default: ``)</li>
+<li><code>dump_no_owner</code> add <code>--no-owner</code> to dump command (Default: <code>True</code>)</li>
+<li><code>dump_include_table</code> add <code>--table={dump_include_table}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_table</code> add <code>--exclude-table={dump_exclude_table}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_table_data</code> add <code>--exclude-table-data={dump_exclude_table_data}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_extension</code> add <code>--exclude-extension={dump_exclude_extension}</code> to dump command (Default: ``)</li>
+</ul>
+<h3 id="k8s">k8s<a class="headerlink" href="#k8s" title="Permanent link">&para;</a></h3>
+<p>For K8S settings you just need to create instances of <code>K8SSettings</code> for each
+environment. It'll be all collected automatically.</p>
+<h4 id="k8slogin">k8s.login<a class="headerlink" href="#k8slogin" title="Permanent link">&para;</a></h4>
+<p>Login into k8s via teleport.</p>
+<p>Settings:</p>
+<ul>
+<li><code>proxy</code> teleport proxy (<strong>REQUIRED</strong>)</li>
+<li><code>cluster</code> kube cluster (Default: Uses value from <code>proxy</code>)</li>
+<li><code>port</code> teleport port (Default: <code>443</code>)</li>
+<li><code>auth</code> teleport auth method (Default: <code>github</code>)</li>
+</ul>
+<h4 id="k8sset-context">k8s.set-context<a class="headerlink" href="#k8sset-context" title="Permanent link">&para;</a></h4>
+<p>Set k8s context to current project. By default uses <code>dev</code> environment.</p>
+<p>Settings:</p>
+<ul>
+<li><code>namespace</code> namespace for k8s (Default: Name of project from <code>project_name</code>)</li>
+<li><code>context</code> Name of context (<strong>REQUIRED</strong>)</li>
+</ul>
+<h4 id="k8slogs">k8s.logs<a class="headerlink" href="#k8slogs" title="Permanent link">&para;</a></h4>
+<p>Get logs for k8s pod</p>
+<p>Settings:</p>
+<ul>
+<li><code>default_component</code> default component (Default: <code>backend</code>)</li>
+</ul>
+<h4 id="k8spods">k8s.pods<a class="headerlink" href="#k8spods" title="Permanent link">&para;</a></h4>
+<p>Get pods from k8s.</p>
+<h4 id="k8sexecute">k8s.execute<a class="headerlink" href="#k8sexecute" title="Permanent link">&para;</a></h4>
+<p>Execute command inside k8s pod.</p>
+<h5 id="how-to-use-env-params-arg">How to use env-params arg<a class="headerlink" href="#how-to-use-env-params-arg" title="Permanent link">&para;</a></h5>
+<p>Say you have Procfile with this entry</p>
+<div class="highlight"><pre><span></span><code>celery_start_task: celery --app config.celery:app call ${task}
+</code></pre></div>
+<p>So you can make this invocation</p>
+<div class="highlight"><pre><span></span><code>inv<span class="w"> </span>k8s.execute<span class="w"> </span>--entry<span class="o">=</span><span class="s2">&quot;celery_start_task&quot;</span><span class="w"> </span>--env-params<span class="o">=</span><span class="s2">&quot;task=apps.project.tasks.do_the_thing&quot;</span>
+</code></pre></div>
+<p>Or create your own invocation which could lead to something like this</p>
+<div class="highlight"><pre><span></span><code>inv<span class="w"> </span>project.k8s_start_celery_task<span class="w"> </span>--task<span class="o">=</span>apps.project.tasks.do_the_thing
+</code></pre></div>
+<p>Settings:</p>
+<ul>
+<li><code>default_component</code> default component (Default: <code>backend</code>)</li>
+<li><code>default_entry</code> default entry cmd (Default: <code>/cnb/lifecycle/launcher</code>)</li>
+<li><code>default_command</code> default cmd entry for entry cmd (Default: <code>bash</code>)
+  only used for <code>default_entry</code></li>
+</ul>
+<h4 id="k8spython-shell">k8s.python-shell<a class="headerlink" href="#k8spython-shell" title="Permanent link">&para;</a></h4>
+<p>Enter python shell inside k8s pod.</p>
+<p>Settings:</p>
+<ul>
+<li><code>default_component</code> default component (Default: <code>backend</code>)</li>
+<li><code>python_shell</code> shell cmd (Default: <code>shell_plus</code>)</li>
+</ul>
+<h4 id="k8shealth-check">k8s.health-check<a class="headerlink" href="#k8shealth-check" title="Permanent link">&para;</a></h4>
+<p>Check health of component.</p>
+<p>Settings:</p>
+<ul>
+<li><code>default_component</code> default component (Default: <code>backend</code>)</li>
+<li><code>health_check</code> health check cmd (Default: <code>health_check</code>)</li>
+</ul>
+<h4 id="k8sdownload-file">k8s.download-file<a class="headerlink" href="#k8sdownload-file" title="Permanent link">&para;</a></h4>
+<p>Download file from pod.</p>
+<ul>
+<li><code>default_component</code> default component (Default: <code>backend</code>)</li>
+</ul>
+<h3 id="db-k8s">db-k8s<a class="headerlink" href="#db-k8s" title="Permanent link">&para;</a></h3>
+<p>While you probably won't use this module directly some other modules
+commands are use it(getting remote db dump)</p>
+<p>Make sure to set up these configs:</p>
+<ul>
+<li><code>pod_namespace</code> db namespace (<strong>REQUIRED</strong>)</li>
+<li><code>pod_selector</code> pod selector for db (<strong>REQUIRED</strong>)</li>
+</ul>
+<h4 id="db-k8screate-dump">db-k8s.create-dump<a class="headerlink" href="#db-k8screate-dump" title="Permanent link">&para;</a></h4>
+<p>Execute dump command in db pod.</p>
+<p>Settings:</p>
+<ul>
+<li><code>pod_namespace</code> db namespace (<strong>REQUIRED</strong>)</li>
+<li><code>pod_selector</code> pod selector for db (<strong>REQUIRED</strong>)</li>
+<li><code>get_pod_name_command</code> template for fetching db pod (Default located in <code>_config.py &gt; K8SDBSettings</code>)</li>
+<li><code>dump_filename_template</code> template for dump filename (Default: <code>{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}</code>)</li>
+<li><code>dump_command</code> dump command template (Default located in <code>_config.py &gt; K8SDBSettings</code>)</li>
+<li><code>dump_dir</code> folder where to put dump file (Default: <code>tmp</code>)</li>
+<li><code>dump_additional_params</code> additional params for dump command (Default: ``)</li>
+<li><code>dump_no_owner</code> add <code>--no-owner</code> to dump command (Default: <code>True</code>)</li>
+<li><code>dump_include_table</code> add <code>--table={dump_include_table}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_table</code> add <code>--exclude-table={dump_exclude_table}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_table_data</code> add <code>--exclude-table-data={dump_exclude_table_data}</code> to dump command (Default: ``)</li>
+<li><code>dump_exclude_extension</code> add <code>--exclude-extension={dump_exclude_extension}</code> to dump command (Default: ``)</li>
+</ul>
+<h4 id="db-k8sget-dump">db-k8s.get-dump<a class="headerlink" href="#db-k8sget-dump" title="Permanent link">&para;</a></h4>
+<p>Download db data from db pod if present</p>
+<p>Settings:</p>
+<ul>
+<li><code>pod_namespace</code> db namespace (<strong>REQUIRED</strong>)</li>
+<li><code>pod_selector</code> pod selector for db (<strong>REQUIRED</strong>)</li>
+<li><code>get_pod_name_command</code> template for fetching db pod (Default located in <code>_config.py &gt; K8SDBSettings</code>)</li>
+<li><code>dump_filename_template</code> template for dump filename (Default: <code>{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}</code>)</li>
+</ul>
+<h3 id="cruft">cruft<a class="headerlink" href="#cruft" title="Permanent link">&para;</a></h3>
+<p><a href="https://cruft.github.io/cruft/">Cruft</a> is a tool used to synchronize changes
+with cookiecutter based boilerplates.</p>
+<h4 id="cruftcheck-for-cruft-files">cruft.check-for-cruft-files<a class="headerlink" href="#cruftcheck-for-cruft-files" title="Permanent link">&para;</a></h4>
+<p>Check that there are no cruft files (<code>*.rej</code>).</p>
+<h4 id="cruftcreate_project">cruft.create_project<a class="headerlink" href="#cruftcreate_project" title="Permanent link">&para;</a></h4>
+<p><strong>Not an invocation</strong>, but a shortcut for creating cruft projects for testing
+boilerplates</p>
+<h3 id="poetry">poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
+<h4 id="poetryinstall">poetry.install<a class="headerlink" href="#poetryinstall" title="Permanent link">&para;</a></h4>
+<p>Install dependencies via poetry.</p>
+<h4 id="poetryupdate">poetry.update<a class="headerlink" href="#poetryupdate" title="Permanent link">&para;</a></h4>
+<p>Update dependencies with respect to
+<a href="https://python-poetry.org/docs/dependency-specification/">version constraints</a>
+using <a href="https://github.com/MousaZeidBaker/poetry-plugin-up">poetry up plugin</a>.</p>
+<p>Fallbacks to <code>poetry update</code> in case of an error.</p>
+<h4 id="poetryupdate-to-latest">poetry.update-to-latest<a class="headerlink" href="#poetryupdate-to-latest" title="Permanent link">&para;</a></h4>
+<p>Update dependencies to latest versions using
+<a href="https://github.com/MousaZeidBaker/poetry-plugin-up">poetry up plugin</a>.</p>
+<p>By default fallbacks to <a href="#poetryupdate"><code>update</code></a> task in case of an error.
+Use <code>--no-fallback</code> to stop on error.</p>
+<h3 id="uv">uv<a class="headerlink" href="#uv" title="Permanent link">&para;</a></h3>
+<h4 id="uvinstall">uv.install<a class="headerlink" href="#uvinstall" title="Permanent link">&para;</a></h4>
+<p>Install dependencies via uv.</p>
+<h4 id="uvupdate">uv.update<a class="headerlink" href="#uvupdate" title="Permanent link">&para;</a></h4>
+<p>Update dependencies via uv.</p>
+<h3 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<h4 id="pipinstall">pip.install<a class="headerlink" href="#pipinstall" title="Permanent link">&para;</a></h4>
+<p>Install dependencies via pip.</p>
+<p>Settings:</p>
+<ul>
+<li><code>dependencies_folder</code> path to folder with dependencies files (Default: <code>requirements</code>)</li>
+</ul>
+<h4 id="pipcompile">pip.compile<a class="headerlink" href="#pipcompile" title="Permanent link">&para;</a></h4>
+<p>Compile dependencies via
+<a href="https://github.com/jazzband/pip-tools#requirements-from-requirementsin">pip-compile</a>.</p>
+<p>Settings:</p>
+<ul>
+<li><code>dependencies_folder</code> path to folder with dependencies files (Default: <code>requirements</code>)</li>
+<li><code>in_files</code> sequence of <code>.in</code> files (Default: <code>"production.in"</code>, <code>"development.in"</code>)</li>
+</ul>
+<h3 id="mypy">mypy<a class="headerlink" href="#mypy" title="Permanent link">&para;</a></h3>
+<h4 id="mypyrun">mypy.run<a class="headerlink" href="#mypyrun" title="Permanent link">&para;</a></h4>
+<p>Run mypy in <code>path</code> with <code>params</code>.</p>
+<p>Settings:</p>
+<ul>
+<li><code>mypy_entry</code> python entry command (Default: <code>-m mypy</code>)</li>
+</ul>
+<h3 id="pytest">pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h3>
+<h4 id="pytestrun">pytest.run<a class="headerlink" href="#pytestrun" title="Permanent link">&para;</a></h4>
+<p>Run pytest in <code>path</code> with <code>params</code>.</p>
+<p>Settings:</p>
+<ul>
+<li><code>pytest_entry</code> python entry command (Default: <code>-m pytest</code>)</li>
+</ul>
+<h3 id="secrets">secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
+<h4 id="secretssetup-env-credentials">secrets.setup-env-credentials<a class="headerlink" href="#secretssetup-env-credentials" title="Permanent link">&para;</a></h4>
+<p>Fill specified credentials in your file from k8s.
+This invocations downloads <code>.env</code> file from pod in k8s.
+It will replace specified credentials(<code>--credentials</code>) in
+specified file <code>.env</code> file (<code>--env_file_path</code> or <code>.env</code> as default)</p>
+<p>Requires <a href="https://github.com/HBNetwork/python-decouple">python-decouple</a></p>
+<p>Settings for k8s:</p>
+<ul>
+<li><code>secret_file_path_in_pod</code> path to secret in pod (<strong>REQUIRED</strong>)</li>
+<li><code>temp_secret_file_path</code> path for temporary file (Default: <code>.env.to_delete</code>)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "search.share", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.path", "content.code.annotate", "content.code.copy", "content.tooltips"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
