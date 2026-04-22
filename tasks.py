@@ -2,9 +2,13 @@ import os
 
 import invoke
 
+import invocations
 import saritasa_invocations
 
 ns = invoke.Collection(
+    invocations.ci,
+    invocations.docs,
+    invocations.project,
     saritasa_invocations.alembic,
     saritasa_invocations.celery,
     saritasa_invocations.django,
@@ -35,11 +39,7 @@ ns.configure(
             "echo": True,
         },
         "saritasa_invocations": saritasa_invocations.Config(
-            project_name="saritasa_invocations",
-            pre_commit=saritasa_invocations.PreCommitSettings(
-                entry="prek",
-                default_hook_stage="pre-push",
-            ),
+            project_name="saritasa-invocations",
         ),
     },
 )

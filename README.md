@@ -1,6 +1,7 @@
 # saritasa-invocations
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-invocations/checks.yml)
+![GitHub last commit](https://img.shields.io/github/last-commit/saritasa-nest/saritasa-invocations)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/saritasa-nest/saritasa-invocations/run_pre_commit.yaml)
 ![PyPI](https://img.shields.io/pypi/v/saritasa-invocations)
 ![PyPI - Status](https://img.shields.io/pypi/status/saritasa-invocations)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/saritasa-invocations)
@@ -12,105 +13,105 @@ Collection of [invoke](https://www.pyinvoke.org/) commands used by Saritasa
 
 ## Table of contents
 
-* [Installation](#installation)
-  * [Global installation](#global-installation)
-* [Configuration](#configuration)
-* [Modules](#modules)
-  * [printing](#printing)
-  * [system](#system)
-    * [system.copy-local-settings](#systemcopy-local-settings)
-    * [system.copy-vscode-settings](#systemcopy-vscode-settings)
-    * [system.chown](#systemchown)
-    * [system.create-tmp-folder](#systemcreate-tmp-folder)
-  * [git](#git)
-    * [git.set-git-setting](#gitset-git-setting)
-    * [git.setup](#gitsetup)
-    * [git.clone-repo](#gitclone-repo)
-  * [pre-commit](#pre-commit)
-    * [pre-commit.install](#pre-commitinstall)
-    * [pre-commit.run-hooks](#pre-commitrun-hooks)
-    * [pre-commit.update](#pre-commitupdate)
-  * [docker](#docker)
-    * [docker.build-service](#dockerbuild-service)
-    * [docker.buildpack](#dockerbuildpack)
-    * [docker.stop-all-containers](#dockerstop-all-containers)
-    * [docker.up](#dockerup)
-    * [docker.stop](#dockerstop)
-    * [docker.clear](#dockerclear)
-  * [github-actions](#github-actions)
-    * [github-actions.set-up-hosts](#github-actionsset-up-hosts)
-  * [python](#python)
-    * [python.run](#pythonrun)
-  * [django](#django)
-    * [django.manage](#djangomanage)
-    * [django.makemigrations](#djangomakemigrations)
-    * [django.migrate](#djangomigrate)
-    * [django.resetdb](#djangoresetdb)
-    * [django.createsuperuser](#djangocreatesuperuser)
-    * [django.run](#djangorun)
-    * [django.shell](#djangoshell)
-    * [django.dbshell](#djangodbshell)
-    * [django.recompile-messages](#djangorecompile-messages)
-    * [django.show-urls](#djangoshow-urls)
-    * [django.load-db-dump](#djangoload-db-dump)
-    * [django.backup-local-db](#djangobackup-local-db)
-    * [django.backup-remote-db](#djangobackup-remote-db)
-    * [django.load-remote-db](#djangoload-remote-db)
-    * [django.startapp](#djangostartapp)
-    * [django.wait-for-database](#djangowait-for-database)
-  * [fastapi](#fastapi)
-    * [fastapi.run](#fastapirun)
-  * [alembic](#alembic)
-    * [alembic.run](#alembicrun)
-    * [alembic.autogenerate](#alembicautogenerate)
-    * [alembic.upgrade](#alembicupgrade)
-    * [alembic.downgrade](#alembicdowngrade)
-    * [alembic.check-for-migrations](#alembiccheck-for-migrations)
-    * [alembic.check-for-adjust-messages](#alembiccheck-for-adjust-messages)
-    * [alembic.load-db-dump](#alembicload-db-dump)
-    * [alembic.backup-local-db](#alembicbackup-local-db)
-    * [alembic.backup-remote-db](#alembicbackup-remote-db)
-    * [alembic.load-remote-db](#alembicload-remote-db)
-    * [alembic.wait-for-database](#alembicwait-for-database)
-  * [celery](#celery)
-    * [celery.run](#celeryrun)
-    * [celery.send-task](#celerysend-task)
-  * [open-api](#open-api)
-    * [open-api.validate-swagger](#open-apivalidate-swagger)
-  * [db](#db)
-    * [db.load-db-dump](#dbload-db-dump)
-    * [db.backup-local-db](#dbbackup-local-db)
-  * [k8s](#k8s)
-    * [k8s.login](#k8slogin)
-    * [k8s.set-context](#k8sset-context)
-    * [k8s.logs](#k8slogs)
-    * [k8s.pods](#k8spods)
-    * [k8s.execute](#k8sexecute)
-    * [k8s.python-shell](#k8spython-shell)
-    * [k8s.health-check](#k8shealth-check)
-    * [k8s.download-file](#k8sdownload-file)
-  * [db-k8s](#db-k8s)
-    * [db-k8s.create-dump](#db-k8screate-dump)
-    * [db-k8s.get-dump](#db-k8sget-dump)
-  * [cruft](#cruft)
-    * [cruft.check-for-cruft-files](#cruftcheck-for-cruft-files)
-    * [cruft.create_project](#cruftcreate_project)
-  * [poetry](#poetry)
-    * [poetry.install](#poetryinstall)
-    * [poetry.update](#poetryupdate)
-    * [poetry.update-to-latest](#poetryupdate-to-latest)
-  * [uv](#uv)
-    * [uv.install](#uvinstall)
-    * [uv.update](#uvupdate)
-  * [pip](#pip)
-    * [pip.install](#pipinstall)
-    * [pip.compile](#pipcompile)
-  * [mypy](#mypy)
-    * [mypy.run](#mypyrun)
-  * [pytest](#pytest)
-    * [pytest.run](#pytestrun)
-  * [secrets](#secrets)
-    * [secrets.setup-env-credentials](#secretssetup-env-credentials)
+- [Installation](#installation)
+  - [Global installation](#global-installation)
+- [Configuration](#configuration)
+- [Modules](#modules)
+  - [printing](#printing)
+  - [system](#system)
+    - [system.copy-local-settings](#systemcopy-local-settings)
+    - [system.copy-vscode-settings](#systemcopy-vscode-settings)
+    - [system.chown](#systemchown)
+    - [system.create-tmp-folder](#systemcreate-tmp-folder)
+  - [git](#git)
+    - [git.set-git-setting](#gitset-git-setting)
+    - [git.setup](#gitsetup)
+    - [git.clone-repo](#gitclone-repo)
+  - [pre-commit](#pre-commit)
+    - [pre-commit.install](#pre-commitinstall)
+    - [pre-commit.run-hooks](#pre-commitrun-hooks)
+    - [pre-commit.update](#pre-commitupdate)
+  - [docker](#docker)
+    - [docker.build-service](#dockerbuild-service)
+    - [docker.buildpack](#dockerbuildpack)
+    - [docker.stop-all-containers](#dockerstop-all-containers)
+    - [docker.up](#dockerup)
+    - [docker.stop](#dockerstop)
+    - [docker.clear](#dockerclear)
+  - [github-actions](#github-actions)
+    - [github-actions.set-up-hosts](#github-actionsset-up-hosts)
+  - [python](#python)
+    - [python.run](#pythonrun)
+  - [django](#django)
+    - [django.manage](#djangomanage)
+    - [django.makemigrations](#djangomakemigrations)
+    - [django.migrate](#djangomigrate)
+    - [django.resetdb](#djangoresetdb)
+    - [django.createsuperuser](#djangocreatesuperuser)
+    - [django.run](#djangorun)
+    - [django.shell](#djangoshell)
+    - [django.dbshell](#djangodbshell)
+    - [django.recompile-messages](#djangorecompile-messages)
+    - [django.show-urls](#djangoshow-urls)
+    - [django.load-db-dump](#djangoload-db-dump)
+    - [django.backup-local-db](#djangobackup-local-db)
+    - [django.backup-remote-db](#djangobackup-remote-db)
+    - [django.load-remote-db](#djangoload-remote-db)
+    - [django.startapp](#djangostartapp)
+    - [django.wait-for-database](#djangowait-for-database)
+  - [fastapi](#fastapi)
+    - [fastapi.run](#fastapirun)
+  - [alembic](#alembic)
+    - [alembic.run](#alembicrun)
+    - [alembic.autogenerate](#alembicautogenerate)
+    - [alembic.upgrade](#alembicupgrade)
+    - [alembic.downgrade](#alembicdowngrade)
+    - [alembic.check-for-migrations](#alembiccheck-for-migrations)
+    - [alembic.check-for-adjust-messages](#alembiccheck-for-adjust-messages)
+    - [alembic.load-db-dump](#alembicload-db-dump)
+    - [alembic.backup-local-db](#alembicbackup-local-db)
+    - [alembic.backup-remote-db](#alembicbackup-remote-db)
+    - [alembic.load-remote-db](#alembicload-remote-db)
+    - [alembic.wait-for-database](#alembicwait-for-database)
+  - [celery](#celery)
+    - [celery.run](#celeryrun)
+    - [celery.send-task](#celerysend-task)
+  - [open-api](#open-api)
+    - [open-api.validate-swagger](#open-apivalidate-swagger)
+  - [db](#db)
+    - [db.load-db-dump](#dbload-db-dump)
+    - [db.backup-local-db](#dbbackup-local-db)
+  - [k8s](#k8s)
+    - [k8s.login](#k8slogin)
+    - [k8s.set-context](#k8sset-context)
+    - [k8s.logs](#k8slogs)
+    - [k8s.pods](#k8spods)
+    - [k8s.execute](#k8sexecute)
+    - [k8s.python-shell](#k8spython-shell)
+    - [k8s.health-check](#k8shealth-check)
+    - [k8s.download-file](#k8sdownload-file)
+  - [db-k8s](#db-k8s)
+    - [db-k8s.create-dump](#db-k8screate-dump)
+    - [db-k8s.get-dump](#db-k8sget-dump)
+  - [cruft](#cruft)
+    - [cruft.check-for-cruft-files](#cruftcheck-for-cruft-files)
+    - [cruft.create_project](#cruftcreate_project)
+  - [poetry](#poetry)
+    - [poetry.install](#poetryinstall)
+    - [poetry.update](#poetryupdate)
+    - [poetry.update-to-latest](#poetryupdate-to-latest)
+  - [uv](#uv)
+    - [uv.install](#uvinstall)
+    - [uv.update](#uvupdate)
+  - [pip](#pip)
+    - [pip.install](#pipinstall)
+    - [pip.compile](#pipcompile)
+  - [mypy](#mypy)
+    - [mypy.run](#mypyrun)
+  - [pytest](#pytest)
+    - [pytest.run](#pytestrun)
+  - [secrets](#secrets)
+    - [secrets.setup-env-credentials](#secretssetup-env-credentials)
 
 ## Installation
 
@@ -235,9 +236,9 @@ saritasa_invocations.K8SSettings(
 While this module doesn't contain any invocations, it's used to print message
 via `rich.panel.Panel`. There are three types:
 
-* `print_success` - print message in green panel
-* `print_warn` - print message in yellow panel
-* `print_error` - print message in red panel
+- `print_success` - print message in green panel
+- `print_warn` - print message in yellow panel
+- `print_error` - print message in red panel
 
 ### system
 
@@ -247,8 +248,8 @@ Copies local template for settings into specified file
 
 Settings:
 
-* `settings_template` path to settings template (Default: `config/settings/local.template.py`)
-* `save_settings_from_template_to` path to where save settings (Default: `config/settings/local.py`)
+- `settings_template` path to settings template (Default: `config/settings/local.template.py`)
+- `save_settings_from_template_to` path to where save settings (Default: `config/settings/local.py`)
 
 #### system.copy-vscode-settings
 
@@ -256,7 +257,7 @@ Copies local template for vscode settings into `.vscode` folder
 
 Settings:
 
-* `vs_code_settings_template` path to settings template (Default: `.vscode/recommended_settings.json`)
+- `vs_code_settings_template` path to settings template (Default: `.vscode/recommended_settings.json`)
 
 #### system.chown
 
@@ -279,14 +280,14 @@ Set git setting in config
 
 Perform setup of git:
 
-* Install pre-commit hooks
-* Set merge.ff
-* Set pull.ff
+- Install pre-commit hooks
+- Set merge.ff
+- Set pull.ff
 
 Settings:
 
-* `merge_ff` setting value for `merge.ff` (Default: `false`)
-* `pull_ff` setting value for `pull.ff` (Default: `only`)
+- `merge_ff` setting value for `merge.ff` (Default: `false`)
+- `pull_ff` setting value for `pull.ff` (Default: `only`)
 
 #### git.clone-repo
 
@@ -322,23 +323,23 @@ Algorithm:
 
 Settings:
 
-* `copy_commit_template` template for commits created during command workflow
-* `copy_init_message_template` template for init message printed at command start
+- `copy_commit_template` template for commits created during command workflow
+- `copy_init_message_template` template for init message printed at command start
 
 Template variables:
 
-* `action` - The copy algorithm consists of several intermediate actions
+- `action` - The copy algorithm consists of several intermediate actions
 (creating temporary files, merging commits, etc.)
 The `action` variable stores the header of the intermediate action.
-* `original_path` - Contains value of first argument of the command
+- `original_path` - Contains value of first argument of the command
 (path of original file that will be copied)
-* `destination_paths` - Sequence of paths to which the original file will be copied
-* `project_task` - project task that will be parsed from current git branch.
+- `destination_paths` - Sequence of paths to which the original file will be copied
+- `project_task` - project task that will be parsed from current git branch.
 If no task found in branch, then will be empty
 
 Default values for templates:
 
-* `copy_commit_template`:
+- `copy_commit_template`:
 
 ```python
   "[automated-commit]: {action}\n\n"
@@ -347,7 +348,7 @@ Default values for templates:
   "{project_task}"
 ```
 
-* `copy_init_message_template`:
+- `copy_init_message_template`:
 
 ```python
   "Copy {original_path} to:\n"
@@ -359,8 +360,8 @@ Default values for templates:
 
 Settings to run `.pre-commit-config.yaml`
 
-* `entry` - command used to run `pre-commit` or alternatives (Default: `"pre-commit"`)
-* `default_hook_stage` - default hook stage to run hooks (Default: `"push"`)
+- `entry` - command used to run `pre-commit` or alternatives (Default: `"pre-commit"`)
+- `default_hook_stage` - default hook stage to run hooks (Default: `"push"`)
 
 #### pre-commit.install
 
@@ -390,10 +391,10 @@ Build project via [pack-cli](https://buildpacks.io/docs/tools/pack/)
 
 Settings:
 
-* `buildpack_builder` image tag of builder (Default: `paketobuildpacks/builder:base`)
-* `buildpack_runner` image tag of runner (Default: `paketobuildpacks/run:base`)
-* `build_image_tag` image tag of builder (Default: Name of project from `project_name`)
-* `buildpack_requirements_path` path to folder with requirements (Default: `requirements`)
+- `buildpack_builder` image tag of builder (Default: `paketobuildpacks/builder:base`)
+- `buildpack_runner` image tag of runner (Default: `paketobuildpacks/run:base`)
+- `build_image_tag` image tag of builder (Default: Name of project from `project_name`)
+- `buildpack_requirements_path` path to folder with requirements (Default: `requirements`)
 
 #### docker.stop-all-containers
 
@@ -405,7 +406,7 @@ Bring up main containers and start them.
 
 Settings:
 
-* `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
+- `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
 #### docker.stop
 
@@ -413,7 +414,7 @@ Stop main containers.
 
 Settings:
 
-* `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
+- `main_containers` image tag of builder (Default: `["postgres", "redis"]`)
 
 #### docker.clear
 
@@ -427,14 +428,14 @@ Add hosts to `/etc/hosts`.
 
 Settings:
 
-* `hosts` image tag of builder (Default: see `docker-main-containers`)
+- `hosts` image tag of builder (Default: see `docker-main-containers`)
 
 ### python
 
 As of now we support two environments for python `local` and `docker`.
 
-* `local` is a python that is located in your current virtualenv
-* `docker` is python that is located inside your docker image of service (`python_docker_service`).
+- `local` is a python that is located in your current virtualenv
+- `docker` is python that is located inside your docker image of service (`python_docker_service`).
 
 This was done to have ability to run code against environment close deployed one or simply test it out.
 
@@ -450,9 +451,9 @@ Run python command depending on `PYTHON_ENV` variable(`docker` or `local`).
 
 Settings:
 
-* `entry` python entry command (Default: `python`)
-* `docker_service` python service name (Default: `web`)
-* `docker_service_params` params for docker (Default: `--rm`)
+- `entry` python entry command (Default: `python`)
+- `docker_service` python service name (Default: `web`)
+- `docker_service_params` params for docker (Default: `--rm`)
 
 ### django
 
@@ -467,7 +468,7 @@ Requires [django_probes](https://github.com/painless-software/django-probes#basi
 
 Settings:
 
-* `manage_file_path` path to `manage.py` file (Default: `./manage.py`)
+- `manage_file_path` path to `manage.py` file (Default: `./manage.py`)
 
 #### django.makemigrations
 
@@ -483,7 +484,7 @@ Run `migrate` command.
 
 Settings:
 
-* `migrate_command` migrate command (Default: `migrate`)
+- `migrate_command` migrate command (Default: `migrate`)
 
 #### django.resetdb
 
@@ -493,7 +494,7 @@ Requires [django-extensions](https://django-extensions.readthedocs.io/en/latest/
 
 Settings:
 
-* `settings_path` default django settings (Default: `config.settings.local`)
+- `settings_path` default django settings (Default: `config.settings.local`)
 
 #### django.createsuperuser
 
@@ -501,18 +502,18 @@ Create superuser.
 
 Settings:
 
-* `default_superuser_email` default email of superuser.
+- `default_superuser_email` default email of superuser.
 if empty, will try to grab it from git config, before resorting to default (Default: `root@localhost`)
-* `default_superuser_username` default username of superuser
+- `default_superuser_username` default username of superuser
 if empty, will try to grab it from git config, before resorting to default (Default: `root`)
-* `default_superuser_password` default password of superuser (Default: `root`)
-* `verbose_email_name` verbose name for `email` field (Default: `Email address`)
-* `verbose_username_name` verbose name for `username` field (Default: `Username`)
-* `verbose_password_name` verbose name for `password` field (Default: `Password`)
+- `default_superuser_password` default password of superuser (Default: `root`)
+- `verbose_email_name` verbose name for `email` field (Default: `Email address`)
+- `verbose_username_name` verbose name for `username` field (Default: `Username`)
+- `verbose_password_name` verbose name for `password` field (Default: `Password`)
 
 Note:
 
-* Values for `verbose_email_name`, `verbose_username_name`, `verbose_password_name`
+- Values for `verbose_email_name`, `verbose_username_name`, `verbose_password_name`
 should match with verbose names of model that used
 [this setting](https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model)
 
@@ -522,11 +523,11 @@ Run development web-server.
 
 Settings:
 
-* `runserver_docker_params` params for docker (Default: `--rm --service-ports`)
-* `runserver_command` runserver command (Default: `runserver_plus`)
-* `runserver_host` host of server (Default: `0.0.0.0`)
-* `runserver_port` port of server (Default: `8000`)
-* `runserver_params` params for runserver command (Default: `""`)
+- `runserver_docker_params` params for docker (Default: `--rm --service-ports`)
+- `runserver_command` runserver command (Default: `runserver_plus`)
+- `runserver_host` host of server (Default: `0.0.0.0`)
+- `runserver_port` port of server (Default: `8000`)
+- `runserver_params` params for runserver command (Default: `""`)
 
 #### django.shell
 
@@ -534,7 +535,7 @@ Shortcut for manage.py shell command.
 
 Settings:
 
-* `shell_command` command to start python shell (Default: `shell_plus --ipython`)
+- `shell_command` command to start python shell (Default: `shell_plus --ipython`)
 
 #### django.dbshell
 
@@ -548,8 +549,8 @@ Requires [gettext](https://www.gnu.org/software/gettext/)
 
 Settings:
 
-* `makemessages_params` params for makemessages command (Default: `--all --ignore venv`)
-* `compilemessages_params` params for compilemessages command (Default: `""`)
+- `makemessages_params` params for makemessages command (Default: `--all --ignore venv`)
+- `compilemessages_params` params for compilemessages command (Default: `""`)
 
 #### django.show-urls
 
@@ -563,7 +564,7 @@ Uses [resetdb](#djangoresetdb) and [load-db-dump](#dbload-db-dump)
 
 Settings:
 
-* `django_settings_path` default django settings (Default: `config.settings.local`)
+- `django_settings_path` default django settings (Default: `config.settings.local`)
 
 #### django.backup-local-db
 
@@ -573,7 +574,7 @@ Uses [backup_local_db](#dbbackup-local-db)
 
 Settings:
 
-* `settings_path` default django settings (Default: `config.settings.local`)
+- `settings_path` default django settings (Default: `config.settings.local`)
 
 #### django.backup-remote-db
 
@@ -586,9 +587,9 @@ variable or single variable with full db url.
 
 Settings:
 
-* `settings_path` default django settings (Default: `config.settings.local`)
-* `remote_db_url_config_name` Name of config for db url (Default: `DATABASE_URL`)
-* `remote_db_config_mapping` Mapping of db config
+- `settings_path` default django settings (Default: `config.settings.local`)
+- `remote_db_url_config_name` Name of config for db url (Default: `DATABASE_URL`)
+- `remote_db_config_mapping` Mapping of db config
   Default:
 
   ```python
@@ -610,7 +611,7 @@ Uses [create_dump](#db-k8screate-dump) and [get-dump](#db-k8sget-dump) and
 
 Settings:
 
-* `settings_path` default django settings (Default: `config.settings.local`)
+- `settings_path` default django settings (Default: `config.settings.local`)
 
 #### django.startapp
 
@@ -620,8 +621,8 @@ Requires uv: [installation docs](https://docs.astral.sh/uv/getting-started/insta
 
 Settings:
 
-* `app_boilerplate_link` link to app template
-* `apps_path` path to apps folder in project (Default: `apps`)
+- `app_boilerplate_link` link to app template
+- `apps_path` path to apps folder in project (Default: `apps`)
 
 #### django.wait-for-database
 
@@ -635,12 +636,12 @@ Run development web-server.
 
 Settings:
 
-* `docker_params` params for docker (Default: `--rm --service-ports`)
-* `uvicorn_command` uvicorn command (Default: `-m uvicorn`)
-* `app` path to fastapi app (Default: `config:fastapi_app`)
-* `host` host of server (Default: `0.0.0.0`)
-* `port` port of server (Default: `8000`)
-* `params` params for uvicorn (Default: `--reload`)
+- `docker_params` params for docker (Default: `--rm --service-ports`)
+- `uvicorn_command` uvicorn command (Default: `-m uvicorn`)
+- `app` path to fastapi app (Default: `config:fastapi_app`)
+- `host` host of server (Default: `0.0.0.0`)
+- `port` port of server (Default: `8000`)
+- `params` params for uvicorn (Default: `--reload`)
 
 ### alembic
 
@@ -650,8 +651,8 @@ Run alembic command
 
 Settings:
 
-* `command` alembic command (Default: `-m alembic`)
-* `connect_attempts` numbers of attempts to connect to database (Default: `10`)
+- `command` alembic command (Default: `-m alembic`)
+- `connect_attempts` numbers of attempts to connect to database (Default: `10`)
 
 #### alembic.autogenerate
 
@@ -659,7 +660,7 @@ Generate migrations
 
 Settings:
 
-* `migrations_folder` migrations files location (Default: `db/migrations/versions`)
+- `migrations_folder` migrations files location (Default: `db/migrations/versions`)
 
 #### alembic.upgrade
 
@@ -679,8 +680,9 @@ Check migration files for adjust messages
 
 Settings:
 
-* `migrations_folder` migrations files location (Default: `db/migrations/versions`)
-* `adjust_messages` list of alembic adjust messages (Default: `# ### commands auto generated by Alembic - please adjust! ###`, `# ### end Alembic commands ###`)
+- `migrations_folder` migrations files location (Default: `db/migrations/versions`)
+- `adjust_messages` list of alembic adjust messages
+(Default: `# ### commands auto generated by Alembic - please adjust! ###`, `# ### end Alembic commands ###`)
 
 #### alembic.load-db-dump
 
@@ -694,7 +696,7 @@ Installed with `[env_settings]`
 
 Settings:
 
-* `db_config_mapping` Mapping of db config
+- `db_config_mapping` Mapping of db config
 
   Default:
 
@@ -720,7 +722,7 @@ Installed with `[env_settings]`
 
 Settings:
 
-* `db_config_mapping` Mapping of db config
+- `db_config_mapping` Mapping of db config
 
   Default:
 
@@ -746,7 +748,7 @@ Installed with `[env_settings]`
 
 Settings:
 
-* `db_config_mapping` Mapping of db config
+- `db_config_mapping` Mapping of db config
 
   Default:
 
@@ -773,7 +775,7 @@ Installed with `[env_settings]`
 
 Settings:
 
-* `db_config_mapping` Mapping of db config
+- `db_config_mapping` Mapping of db config
 
   Default:
 
@@ -799,12 +801,12 @@ Start celery worker.
 
 Settings:
 
-* `app` path to app  (Default: `config.celery.app`)
-* `scheduler` scheduler (Default: `django`)
-* `loglevel` log level for celery (Default: `info`)
-* `extra_params` extra params for worker (Default: `("--beat",)`)
-* `local_cmd` command for celery (Default: `celery --app {app} worker --scheduler={scheduler} --loglevel={info} {extra_params}`)
-* `service_name` name of celery service (Default: `celery`)
+- `app` path to app  (Default: `config.celery.app`)
+- `scheduler` scheduler (Default: `django`)
+- `loglevel` log level for celery (Default: `info`)
+- `extra_params` extra params for worker (Default: `("--beat",)`)
+- `local_cmd` command for celery (Default: `celery --app {app} worker --scheduler={scheduler} --loglevel={info} {extra_params}`)
+- `service_name` name of celery service (Default: `celery`)
 
 #### celery.send-task
 
@@ -812,7 +814,7 @@ Send task to celery worker.
 
 Settings:
 
-* `app` path to app  (Default: `config.celery.app`)
+- `app` path to app  (Default: `config.celery.app`)
 
 ### open-api
 
@@ -830,9 +832,9 @@ Load db dump to local db.
 
 Settings:
 
-* `load_dump_command` template for load command(Default located in `_config.py > DBSettings`)
-* `dump_filename` filename for dump (Default: `local-db-dump.sql`)
-* `load_additional_params` additional params for load command (Default: `--quiet`)
+- `load_dump_command` template for load command(Default located in `_config.py > DBSettings`)
+- `dump_filename` filename for dump (Default: `local-db-dump.sql`)
+- `load_additional_params` additional params for load command (Default: `--quiet`)
 
 #### db.backup-local-db
 
@@ -840,14 +842,14 @@ Back up local db.
 
 Settings:
 
-* `dump_command` template for dump command (Default located in `_config.py > DBSettings`)
-* `dump_filename` filename for dump (Default: `local_db_dump`)
-* `dump_additional_params` additional params for dump command (Default: ``)
-* `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
-* `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
-* `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
-* `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
-* `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
+- `dump_command` template for dump command (Default located in `_config.py > DBSettings`)
+- `dump_filename` filename for dump (Default: `local_db_dump`)
+- `dump_additional_params` additional params for dump command (Default: ``)
+- `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+- `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
+- `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
+- `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
+- `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
 
 ### k8s
 
@@ -860,10 +862,10 @@ Login into k8s via teleport.
 
 Settings:
 
-* `proxy` teleport proxy (**REQUIRED**)
-* `cluster` kube cluster (Default: Uses value from `proxy`)
-* `port` teleport port (Default: `443`)
-* `auth` teleport auth method (Default: `github`)
+- `proxy` teleport proxy (**REQUIRED**)
+- `cluster` kube cluster (Default: Uses value from `proxy`)
+- `port` teleport port (Default: `443`)
+- `auth` teleport auth method (Default: `github`)
 
 #### k8s.set-context
 
@@ -871,8 +873,8 @@ Set k8s context to current project. By default uses `dev` environment.
 
 Settings:
 
-* `namespace` namespace for k8s (Default: Name of project from `project_name`)
-* `context` Name of context (**REQUIRED**)
+- `namespace` namespace for k8s (Default: Name of project from `project_name`)
+- `context` Name of context (**REQUIRED**)
 
 #### k8s.logs
 
@@ -880,7 +882,7 @@ Get logs for k8s pod
 
 Settings:
 
-* `default_component` default component (Default: `backend`)
+- `default_component` default component (Default: `backend`)
 
 #### k8s.pods
 
@@ -912,9 +914,9 @@ inv project.k8s_start_celery_task --task=apps.project.tasks.do_the_thing
 
 Settings:
 
-* `default_component` default component (Default: `backend`)
-* `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher`)
-* `default_command` default cmd entry for entry cmd (Default: `bash`)
+- `default_component` default component (Default: `backend`)
+- `default_entry` default entry cmd (Default: `/cnb/lifecycle/launcher`)
+- `default_command` default cmd entry for entry cmd (Default: `bash`)
   only used for `default_entry`
 
 #### k8s.python-shell
@@ -923,8 +925,8 @@ Enter python shell inside k8s pod.
 
 Settings:
 
-* `default_component` default component (Default: `backend`)
-* `python_shell` shell cmd (Default: `shell_plus`)
+- `default_component` default component (Default: `backend`)
+- `python_shell` shell cmd (Default: `shell_plus`)
 
 #### k8s.health-check
 
@@ -932,14 +934,14 @@ Check health of component.
 
 Settings:
 
-* `default_component` default component (Default: `backend`)
-* `health_check` health check cmd (Default: `health_check`)
+- `default_component` default component (Default: `backend`)
+- `health_check` health check cmd (Default: `health_check`)
 
 #### k8s.download-file
 
 Download file from pod.
 
-* `default_component` default component (Default: `backend`)
+- `default_component` default component (Default: `backend`)
 
 ### db-k8s
 
@@ -948,8 +950,8 @@ commands are use it(getting remote db dump)
 
 Make sure to set up these configs:
 
-* `pod_namespace` db namespace (**REQUIRED**)
-* `pod_selector` pod selector for db (**REQUIRED**)
+- `pod_namespace` db namespace (**REQUIRED**)
+- `pod_selector` pod selector for db (**REQUIRED**)
 
 #### db-k8s.create-dump
 
@@ -957,18 +959,18 @@ Execute dump command in db pod.
 
 Settings:
 
-* `pod_namespace` db namespace (**REQUIRED**)
-* `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
-* `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
-* `dump_command` dump command template (Default located in `_config.py > K8SDBSettings`)
-* `dump_dir` folder where to put dump file (Default: `tmp`)
-* `dump_additional_params` additional params for dump command (Default: ``)
-* `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
-* `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
-* `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
-* `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
-* `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
+- `pod_namespace` db namespace (**REQUIRED**)
+- `pod_selector` pod selector for db (**REQUIRED**)
+- `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
+- `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
+- `dump_command` dump command template (Default located in `_config.py > K8SDBSettings`)
+- `dump_dir` folder where to put dump file (Default: `tmp`)
+- `dump_additional_params` additional params for dump command (Default: ``)
+- `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+- `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
+- `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
+- `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
+- `dump_exclude_extension` add `--exclude-extension={dump_exclude_extension}` to dump command (Default: ``)
 
 #### db-k8s.get-dump
 
@@ -976,10 +978,10 @@ Download db data from db pod if present
 
 Settings:
 
-* `pod_namespace` db namespace (**REQUIRED**)
-* `pod_selector` pod selector for db (**REQUIRED**)
-* `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
-* `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
+- `pod_namespace` db namespace (**REQUIRED**)
+- `pod_selector` pod selector for db (**REQUIRED**)
+- `get_pod_name_command` template for fetching db pod (Default located in `_config.py > K8SDBSettings`)
+- `dump_filename_template` template for dump filename (Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`)
 
 ### cruft
 
@@ -1035,7 +1037,7 @@ Install dependencies via pip.
 
 Settings:
 
-* `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
+- `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
 
 #### pip.compile
 
@@ -1044,8 +1046,8 @@ Compile dependencies via
 
 Settings:
 
-* `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
-* `in_files` sequence of `.in` files (Default: `"production.in"`, `"development.in"`)
+- `dependencies_folder` path to folder with dependencies files (Default: `requirements`)
+- `in_files` sequence of `.in` files (Default: `"production.in"`, `"development.in"`)
 
 ### mypy
 
@@ -1055,7 +1057,7 @@ Run mypy in `path` with `params`.
 
 Settings:
 
-* `mypy_entry` python entry command (Default: `-m mypy`)
+- `mypy_entry` python entry command (Default: `-m mypy`)
 
 ### pytest
 
@@ -1065,7 +1067,7 @@ Run pytest in `path` with `params`.
 
 Settings:
 
-* `pytest_entry` python entry command (Default: `-m pytest`)
+- `pytest_entry` python entry command (Default: `-m pytest`)
 
 ### secrets
 
@@ -1080,5 +1082,5 @@ Requires [python-decouple](https://github.com/HBNetwork/python-decouple)
 
 Settings for k8s:
 
-* `secret_file_path_in_pod` path to secret in pod (**REQUIRED**)
-* `temp_secret_file_path` path for temporary file (Default: `.env.to_delete`)
+- `secret_file_path_in_pod` path to secret in pod (**REQUIRED**)
+- `temp_secret_file_path` path for temporary file (Default: `.env.to_delete`)

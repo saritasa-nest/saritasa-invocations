@@ -6,6 +6,7 @@ We follow [Semantic Versions](https://semver.org/).
 
 - Confirm support for invoke 3
 - Confirm support for rich 15
+- Set up docs generation with `mkdocs`
 
 ## 1.11.0
 
@@ -51,7 +52,8 @@ We follow [Semantic Versions](https://semver.org/).
 - Fix k8s login and adjust `K8SSettings`
   - Now `cluster` is not required while `context` is required
 - Rework dump filename generation for `db_k8s`. Now we have `dump_filename_template`
-with which you can define template for name. Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`. `--add-date-to-generated-filename` option is removed.
+with which you can define template for name.
+Default: `{project_name}-{env}-{timestamp:%Y-%m-%d}-db-dump.{extension}`. `--add-date-to-generated-filename` option is removed.
 
 ## 1.5.0
 
@@ -239,3 +241,7 @@ Without it in VS Code, `Pylance` will raise `reportPrivateImportUsage` when tryi
 ## 0.1.0
 
 - Beta release
+
+## 0.0.0
+
+- Start of package development
