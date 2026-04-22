@@ -12,6 +12,7 @@ maintainers = [
 ]
 keywords = [
   "python",
+  "invoke"
 ]
 license = "MIT"
 readme = "README.md"
