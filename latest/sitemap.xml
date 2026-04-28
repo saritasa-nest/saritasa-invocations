@@ -2,106 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/changelog/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/contributing/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/alembic/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/celery/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/config/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/cruft/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/db/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/db_k8s/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/django/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/docker/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/fastapi/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/git/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/github_actions/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/k8s/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/mypy/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/open_api/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/pip/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/poetry/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/pre_commit/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/printing/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/pytest/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/python/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/secrets/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/system/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
     <url>
          <loc>https://saritasa-nest.github.io/saritasa-invocations/latest/reference/uv/</loc>
-         <lastmod>2026-04-27</lastmod>
+         <lastmod>2026-04-28</lastmod>
     </url>
 </urlset>
