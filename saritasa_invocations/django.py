@@ -45,7 +45,6 @@ def manage(
     command: str,
     docker_params: str = "",
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
-    **kwargs,
 ) -> invoke.runners.Result | None:
     """Run `manage.py` command.
 
@@ -71,7 +70,6 @@ def manage(
         env={
             "DJANGO_SETTINGS_MODULE": config.django.settings_path,
         },
-        **kwargs,
     )
 
 

@@ -100,7 +100,6 @@ def run(
     docker_params: str | None = None,
     watchers: collections.abc.Sequence[invoke.StreamWatcher] = (),
     env: dict[str, str] | None = None,
-    **kwargs,
 ) -> invoke.runners.Result | None:
     """Execute python command."""
     match get_python_env():
@@ -110,7 +109,6 @@ def run(
                 command=command,
                 watchers=watchers,
                 env=env,
-                **kwargs,
             )
         case PythonEnv.DOCKER:
             return run_docker_python(
@@ -119,5 +117,4 @@ def run(
                 params=docker_params,
                 watchers=watchers,
                 env=env,
-                **kwargs,
             )
