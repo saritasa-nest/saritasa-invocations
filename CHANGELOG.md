@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.12.1
+
 - Remove `kwargs` from invocations in favor of explicit parameters. `kwargs` not
 working well, see [issue](https://github.com/saritasa-nest/saritasa-invocations/issues/205)
 
