@@ -5,7 +5,7 @@ dynamic = [
 ]
 description = "Collection of invoke commands used by Saritasa"
 authors = [
-    {name = "Saritasa", email = "pypi@saritasa.com"}
+  {name = "Saritasa", email = "pypi@saritasa.com"}
 ]
 maintainers = [
     {name = "Stanislav Khlud", email = "stanislav.khlud@saritasa.com"}
@@ -17,58 +17,58 @@ keywords = [
 license = "MIT"
 readme = "README.md"
 classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Natural Language :: English",
-    "Intended Audience :: Developers",
-    "Operating System :: OS Independent",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Development Status :: 5 - Production/Stable",
-    "Environment :: Console",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
 ]
 requires-python = ">=3.10"
 dependencies = [
-    # Invoke is a Python (2.7 and 3.4+) task execution tool & library,
-    # drawing inspiration from various sources to arrive at a powerful & clean feature set.
-    # http://www.pyinvoke.org/
-    "invoke>=2,<4",
-    # Rich is a Python library for writing rich text (with color and style) to the terminal,
-    # and for displaying advanced content such as tables, markdown, and syntax highlighted code.
-    # https://rich.readthedocs.io/en/stable/introduction.html
-    "rich>=13,<16",
+  # Invoke is a Python (2.7 and 3.4+) task execution tool & library,
+  # drawing inspiration from various sources to arrive at a powerful & clean feature set.
+  # http://www.pyinvoke.org/
+  "invoke>=2,<4",
+  # Rich is a Python library for writing rich text (with color and style) to the terminal,
+  # and for displaying advanced content such as tables, markdown, and syntax highlighted code.
+  # https://rich.readthedocs.io/en/stable/introduction.html
+  "rich>=13,<16",
 ]
 
 [project.optional-dependencies]
 env-settings = [
-    # Decouple helps you to organize your settings so that you can change
-    # parameters without having to redeploy your app.
-    # Used to get settings from .env files
-    # https://github.com/HBNetwork/python-decouple
-    "python-decouple>=3",
+  # Decouple helps you to organize your settings so that you can change
+  # parameters without having to redeploy your app.
+  # Used to get settings from .env files
+  # https://github.com/HBNetwork/python-decouple
+  "python-decouple>=3",
 ]
 
 [dependency-groups]
 local = [
-    "ipython>0",
-    # Exports functions to access the IPython debugger, which features tab completion, syntax highlighting, better tracebacks
-    # https://github.com/gotcha/ipdb
-    "ipdb>0",
-    # A framework for managing and maintaining multi-language pre-commit hooks.
-    # https://pre-commit.com/
-    "pre-commit>0",
-    # A library and CLI app for rendering project templates.
-    # https://copier.readthedocs.io/en/latest/
-    "copier>0",
+  "ipython>0",
+  # Exports functions to access the IPython debugger, which features tab completion, syntax highlighting, better tracebacks
+  # https://github.com/gotcha/ipdb
+  "ipdb>0",
+  # A framework for managing and maintaining multi-language pre-commit hooks.
+  # https://pre-commit.com/
+  "pre-commit>0",
+  # A library and CLI app for rendering project templates.
+  # https://copier.readthedocs.io/en/latest/
+  "copier>0",
 ]
 linters = [
-    # Mypy is a static type checker for Python.
-    # https://mypy.readthedocs.io/en/stable/
-    "mypy>0",
+  # Mypy is a static type checker for Python.
+  # https://mypy.readthedocs.io/en/stable/
+  "mypy>0",
 ]
 docs = [
   # Project documentation with Markdown.
@@ -94,10 +94,10 @@ saritasa-inv = "invoke.main:program.run"
 [project.urls]
 Documentation = "https://saritasa-nest.github.io/saritasa-invocations/latest/"
 Repository = "https://github.com/saritasa-nest/saritasa-invocations"
-Changelog = "https://saritasa-nest.github.io/saritasa-invocations/changelog/"
+Changelog = "https://saritasa-nest.github.io/saritasa-invocations/latest/changelog/"
 Releases = "https://github.com/saritasa-nest/saritasa-invocations/releases/"
 "Bug Tracker" = "https://github.com/saritasa-nest/saritasa-invocations/issues/"
-Contributing ="https://saritasa-nest.github.io/saritasa-invocations/contributing/"
+Contributing ="https://saritasa-nest.github.io/saritasa-invocations/latest/contributing/"
 
 [build-system]
 requires = ["hatchling"]
@@ -212,11 +212,11 @@ ignore = [
 force-wrap-aliases = true
 split-on-trailing-comma = true
 section-order = [
-    "future",
-    "standard-library",
-    "third-party",
-    "first-party",
-    "local-folder",
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
 ]
 
 [tool.ruff.lint.flake8-pytest-style]
