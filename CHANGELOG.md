@@ -4,6 +4,10 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Fix typo in `docker.up` and `docker.up_containers` parameters:
+  - `quite_pull` -> `quiet_pull`
+  - `quite_build` -> `quiet_build`
+
 ## 1.12.1
 
 - Remove `kwargs` from invocations in favor of explicit parameters. `kwargs` not
@@ -18,8 +22,8 @@ working well, see [issue](https://github.com/saritasa-nest/saritasa-invocations/
 ## 1.11.0
 
 - Add new cli parameters for `docker.up`
-  - `--quiet-pull`: Pull without printing progress information
-  - `--quiet-build`: Suppress the build output
+  - `--quite-pull`: Pull without printing progress information
+  - `--quite-build`: Suppress the build output
   - `--remove-orphans`: Remove containers for services that are not in the Compose file
 
 ## 1.10.0
