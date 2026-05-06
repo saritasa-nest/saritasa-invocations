@@ -18,8 +18,8 @@ working well, see [issue](https://github.com/saritasa-nest/saritasa-invocations/
 ## 1.11.0
 
 - Add new cli parameters for `docker.up`
-  - `--quite-pull`: Pull without printing progress information
-  - `--quite-build`: Suppress the build output
+  - `--quiet-pull`: Pull without printing progress information
+  - `--quiet-build`: Suppress the build output
   - `--remove-orphans`: Remove containers for services that are not in the Compose file
 
 ## 1.10.0

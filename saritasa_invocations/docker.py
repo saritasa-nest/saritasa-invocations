@@ -123,8 +123,8 @@ def up_containers(
     containers: collections.abc.Sequence[str],
     detach: bool = True,
     stop_others: bool = True,
-    quite_pull: bool = False,
-    quite_build: bool = False,
+    quiet_pull: bool = False,
+    quiet_build: bool = False,
     remove_orphans: bool = True,
 ) -> None:
     """Bring up containers and run them.
@@ -139,8 +139,8 @@ def up_containers(
         stop_others: Stop ALL other containers in case of errors during `up`.
             Usually this happens when containers from other project uses the
             same ports, for example, Postgres and redis.
-        quite_pull: Suppress the build output
-        quite_build: Pull without printing progress information
+        quiet_pull: Suppress the build output
+        quiet_build: Pull without printing progress information
         remove_orphans: Remove containers for services that are not in the
             Compose file
 
@@ -155,8 +155,8 @@ def up_containers(
         printing.print_success("Bring up all containers")
     containers_str = " ".join(containers)
     detach_str = "--detach" if detach else ""
-    quite_pull_str = "--quiet-pull" if quite_pull else ""
-    quite_build_str = "--quiet-build" if quite_build else ""
+    quiet_pull_str = "--quiet-pull" if quiet_pull else ""
+    quiet_build_str = "--quiet-build" if quiet_build else ""
     remove_orphans_str = "--remove-orphans" if remove_orphans else ""
     compose_cmd = _config.Config.from_context(context).docker.compose_cmd
     up_cmd = " ".join(
@@ -165,8 +165,8 @@ def up_containers(
             (
                 compose_cmd,
                 "up",
-                quite_pull_str,
-                quite_build_str,
+                quiet_pull_str,
+                quiet_build_str,
                 remove_orphans_str,
                 detach_str,
                 containers_str,
@@ -195,8 +195,8 @@ def stop_containers(
 @invoke.task
 def up(
     context: invoke.Context,
-    quite_pull: bool = False,
-    quite_build: bool = False,
+    quiet_pull: bool = False,
+    quiet_build: bool = False,
     remove_orphans: bool = True,
 ) -> None:
     """Bring up main containers and start them."""
@@ -217,8 +217,8 @@ def up(
         context,
         containers=config.docker.main_containers,
         detach=True,
-        quite_pull=quite_pull,
-        quite_build=quite_build,
+        quiet_pull=quiet_pull,
+        quiet_build=quiet_build,
         remove_orphans=remove_orphans,
     )
 
