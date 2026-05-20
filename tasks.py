@@ -40,6 +40,10 @@ ns.configure(
         },
         "saritasa_invocations": saritasa_invocations.Config(
             project_name="saritasa-invocations",
+            pre_commit=saritasa_invocations.PreCommitSettings(
+                entry="prek",
+                default_hook_stage="pre-push",
+            ),
         ),
     },
 )
