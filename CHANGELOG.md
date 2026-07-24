@@ -7,6 +7,7 @@ We follow [Semantic Versions](https://semver.org/).
 - Fix typo in `docker.up` and `docker.up_containers` parameters:
   - `quite_pull` -> `quiet_pull`
   - `quite_build` -> `quiet_build`
+- Add support for compressed db dumps in `db` and `db_k8s` invocations
 
 ## 1.12.1
 

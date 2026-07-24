@@ -120,6 +120,13 @@ def _generate_dump_command(
         additional_params_list.append(
             f"--exclude-extension={config.dump_exclude_extension}",
         )
+    if config.dump_compression_level:
+        additional_params_list.append(
+            f"--compress={config.dump_compression_level}",
+        )
+        additional_params_list.append(
+            "--format=custom",
+        )
     return config.dump_command.format(
         dbname=dbname,
         host=host,
@@ -143,6 +150,8 @@ def _get_db_k8s_dump_filename(
         project_name=config.project_name,
         env=k8s_config.name,
         timestamp=datetime.datetime.now(tz=datetime.timezone.utc),
-        extension="sql",
+        extension=(
+            "dump" if k8s_config.db_config.dump_compression_level else "sql"
+        ),
     )
     return file or generated_filename
