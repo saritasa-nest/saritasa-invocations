@@ -1349,9 +1349,9 @@ local = [
 
 [package.metadata]
 requires-dist = [
-    { name = "invoke", specifier = ">=2,<4" },
+    { name = "invoke", specifier = ">=2" },
     { name = "python-decouple", marker = "extra == 'env-settings'", specifier = ">=3" },
-    { name = "rich", specifier = ">=13,<16" },
+    { name = "rich", specifier = ">=13" },
 ]
 provides-extras = ["env-settings"]
 
