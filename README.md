@@ -836,8 +836,10 @@ Load db dump to local db.
 Settings:
 
 - `load_dump_command` template for load command(Default located in `_config.py > DBSettings`)
+- `load_compressed_dump_command` template for load compressed command (Default located in `_config.py > DBSettings`)
 - `dump_filename` filename for dump (Default: `local-db-dump.sql`)
 - `load_additional_params` additional params for load command (Default: `--quiet`)
+- `load_compressed_additional_params` additional params for load compressed command (Default: `--no-owner`)
 
 #### db.backup-local-db
 
@@ -849,6 +851,7 @@ Settings:
 - `dump_filename` filename for dump (Default: `local_db_dump`)
 - `dump_additional_params` additional params for dump command (Default: ``)
 - `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
+- `dump_compression_level` compression level for dump command (Default: `0`)
 - `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
 - `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)
 - `dump_exclude_table_data` add `--exclude-table-data={dump_exclude_table_data}` to dump command (Default: ``)
@@ -969,6 +972,7 @@ Settings:
 - `dump_command` dump command template (Default located in `_config.py > K8SDBSettings`)
 - `dump_dir` folder where to put dump file (Default: `tmp`)
 - `dump_additional_params` additional params for dump command (Default: ``)
+- `dump_compression_level` compression level for dump command (Default: `0`)
 - `dump_no_owner` add `--no-owner` to dump command (Default: `True`)
 - `dump_include_table` add `--table={dump_include_table}` to dump command (Default: ``)
 - `dump_exclude_table` add `--exclude-table={dump_exclude_table}` to dump command (Default: ``)

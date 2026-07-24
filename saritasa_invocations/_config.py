@@ -187,8 +187,18 @@ class DBSettings:
         "--username={username} "
         "--file={file}"
     )
+    load_compressed_dump_command: str = (
+        "pg_restore "
+        "{additional_params} "
+        "--dbname={dbname} "
+        "--host={host} "
+        "--port={port} "
+        "--username={username} "
+        "{file}"
+    )
     dump_filename: str = "local-db-dump.sql"
     load_additional_params: str = "--quiet"
+    load_compressed_additional_params: str = "--no-owner"
     dump_command: str = (
         "pg_dump "
         "{additional_params} "
@@ -200,6 +210,7 @@ class DBSettings:
     )
     dump_additional_params: str = ""
     dump_no_owner: bool = True
+    dump_compression_level: int = 0
     dump_include_table: str = ""
     dump_exclude_table: str = ""
     dump_exclude_table_data: str = ""
@@ -253,6 +264,7 @@ class K8SDBSettings:
     )
     dump_additional_params: str = ""
     dump_no_owner: bool = True
+    dump_compression_level: int = 0
     dump_include_table: str = ""
     dump_exclude_table: str = ""
     dump_exclude_table_data: str = ""
