@@ -4413,8 +4413,10 @@ it's default validator. It creates spec file in ./tmp folder and then validates 
 <p>Settings:</p>
 <ul>
 <li><code>load_dump_command</code> template for load command(Default located in <code>_config.py &gt; DBSettings</code>)</li>
+<li><code>load_compressed_dump_command</code> template for load compressed command (Default located in <code>_config.py &gt; DBSettings</code>)</li>
 <li><code>dump_filename</code> filename for dump (Default: <code>local-db-dump.sql</code>)</li>
 <li><code>load_additional_params</code> additional params for load command (Default: <code>--quiet</code>)</li>
+<li><code>load_compressed_additional_params</code> additional params for load compressed command (Default: <code>--no-owner</code>)</li>
 </ul>
 <h4 id="dbbackup-local-db">db.backup-local-db<a class="headerlink" href="#dbbackup-local-db" title="Permanent link">&para;</a></h4>
 <p>Back up local db.</p>
@@ -4424,6 +4426,7 @@ it's default validator. It creates spec file in ./tmp folder and then validates 
 <li><code>dump_filename</code> filename for dump (Default: <code>local_db_dump</code>)</li>
 <li><code>dump_additional_params</code> additional params for dump command (Default: ``)</li>
 <li><code>dump_no_owner</code> add <code>--no-owner</code> to dump command (Default: <code>True</code>)</li>
+<li><code>dump_compression_level</code> compression level for dump command (Default: <code>6</code>)</li>
 <li><code>dump_include_table</code> add <code>--table={dump_include_table}</code> to dump command (Default: ``)</li>
 <li><code>dump_exclude_table</code> add <code>--exclude-table={dump_exclude_table}</code> to dump command (Default: ``)</li>
 <li><code>dump_exclude_table_data</code> add <code>--exclude-table-data={dump_exclude_table_data}</code> to dump command (Default: ``)</li>
@@ -4513,6 +4516,7 @@ commands are use it(getting remote db dump)</p>
 <li><code>dump_command</code> dump command template (Default located in <code>_config.py &gt; K8SDBSettings</code>)</li>
 <li><code>dump_dir</code> folder where to put dump file (Default: <code>tmp</code>)</li>
 <li><code>dump_additional_params</code> additional params for dump command (Default: ``)</li>
+<li><code>dump_compression_level</code> compression level for dump command (Default: <code>6</code>)</li>
 <li><code>dump_no_owner</code> add <code>--no-owner</code> to dump command (Default: <code>True</code>)</li>
 <li><code>dump_include_table</code> add <code>--table={dump_include_table}</code> to dump command (Default: ``)</li>
 <li><code>dump_exclude_table</code> add <code>--exclude-table={dump_exclude_table}</code> to dump command (Default: ``)</li>

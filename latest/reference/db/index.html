@@ -1312,60 +1312,69 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>saritasa_invocations/db.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">backup_local_db</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">dbname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1382,6 +1391,7 @@
     <span class="n">additional_params_list</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_additional_params</span><span class="p">,</span>
     <span class="p">]</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_no_owner</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="s2">&quot;--no-owner&quot;</span><span class="p">,</span>
@@ -1402,6 +1412,14 @@
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;--exclude-extension=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_extension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
         <span class="p">)</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_compression_level</span><span class="p">:</span>
+        <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;--compress=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_compression_level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;--format=custom&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.dump&quot;</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span>
@@ -1441,9 +1459,7 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>saritasa_invocations/db.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
@@ -1471,7 +1487,20 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_db_dump</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">dbname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1484,15 +1513,26 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load db dump to local db.&quot;&quot;&quot;</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span>
+    <span class="c1"># Extracting a standard extension</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">match</span> <span class="n">file_path</span><span class="o">.</span><span class="n">suffix</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;.sql&quot;</span><span class="p">:</span>
+            <span class="n">load_dump_command</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_dump_command</span>
+            <span class="n">load_additional_params</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_additional_params</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="n">load_dump_command</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_compressed_dump_command</span>
+            <span class="n">load_additional_params</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_compressed_additional_params</span>
+            <span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_dump_command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">command</span><span class="o">=</span><span class="n">load_dump_command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span>
             <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
             <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
             <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
-            <span class="n">file</span><span class="o">=</span><span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span><span class="p">,</span>
-            <span class="n">additional_params</span><span class="o">=</span><span class="n">additional_params</span>
-            <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_additional_params</span><span class="p">,</span>
+            <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span>
+            <span class="n">additional_params</span><span class="o">=</span><span class="n">additional_params</span> <span class="ow">or</span> <span class="n">load_additional_params</span><span class="p">,</span>
         <span class="p">),</span>
         <span class="n">watchers</span><span class="o">=</span><span class="p">(</span>
             <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
