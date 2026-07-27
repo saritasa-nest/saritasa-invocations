@@ -1,3 +1,5 @@
+import pathlib
+
 import invoke
 
 from . import _config, printing
@@ -16,15 +18,26 @@ def load_db_dump(
 ) -> None:
     """Load db dump to local db."""
     config = _config.Config.from_context(context)
+    file = file or config.db.dump_filename
+    # Extracting a standard extension
+    file_path = pathlib.Path(file)
+    match file_path.suffix:
+        case ".sql":
+            load_dump_command = config.db.load_dump_command
+            load_additional_params = config.db.load_additional_params
+        case _:
+            load_dump_command = config.db.load_compressed_dump_command
+            load_additional_params = (
+                config.db.load_compressed_additional_params
+            )
     context.run(
-        config.db.load_dump_command.format(
+        command=load_dump_command.format(
             dbname=dbname,
             host=host,
             port=port,
             username=username,
-            file=file or config.db.dump_filename,
-            additional_params=additional_params
-            or config.db.load_additional_params,
+            file=file,
+            additional_params=additional_params or load_additional_params,
         ),
         watchers=(
             invoke.Responder(
@@ -53,6 +66,7 @@ def backup_local_db(
     additional_params_list = [
         config.db.dump_additional_params,
     ]
+    file = file or config.db.dump_filename
     if config.db.dump_no_owner:
         additional_params_list.append(
             "--no-owner",
@@ -73,6 +87,14 @@ def backup_local_db(
         additional_params_list.append(
             f"--exclude-extension={config.db.dump_exclude_extension}",
         )
+    if config.db.dump_compression_level:
+        additional_params_list.append(
+            f"--compress={config.db.dump_compression_level}",
+        )
+        additional_params_list.append(
+            "--format=custom",
+        )
+        file = file.split(".")[0] + ".dump"
     context.run(
         config.db.dump_command.format(
             dbname=dbname,
