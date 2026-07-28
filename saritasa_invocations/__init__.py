@@ -86,6 +86,7 @@ __all__ = (  # noqa: RUF022
     "K8SDefaultSettings",
     "K8SSettings",
     "PIPSettings",
+    "PreCommitSettings",
     "PythonSettings",
     "SystemSettings",
     # printing
