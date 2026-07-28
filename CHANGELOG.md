@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.13.0
+
 - Fix typo in `docker.up` and `docker.up_containers` parameters:
   - `quite_pull` -> `quiet_pull`
   - `quite_build` -> `quiet_build`
