@@ -241,14 +241,14 @@ wheels = [
 
 [[package]]
 name = "dunamai"
-version = "1.26.1"
+version = "1.26.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "packaging" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9f/67/d5611975faaa5e4a920f4b19e4caccd5df0facb925687850f1e45f5876f2/dunamai-1.26.1.tar.gz", hash = "sha256:3b46007bd65b00b4824ead0a1aee365fd22d0ec2b9c219497d4fd48f52860c8b", size = 45567, upload-time = "2026-04-04T14:07:11.17Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/12/18/020d3b27a10450ddb11429f637404e8ea67ecf4d9fd999d4f1d553f25506/dunamai-1.26.2.tar.gz", hash = "sha256:84ea45eddf9bb4b40df7610b1b22a03137365e6257dbf9d7b72128fdccca564c", size = 46536, upload-time = "2026-08-02T03:32:50.276Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/bc/8b8ec5a4bfc5b9cf3ce27a118339e994f88410be5677c96493e0ea28e76d/dunamai-1.26.1-py3-none-any.whl", hash = "sha256:2727d939c5b4257cb01ea404372803b477f5176e5a347c43beaf89cd5072e853", size = 27332, upload-time = "2026-04-04T14:07:10.079Z" },
+    { url = "https://files.pythonhosted.org/packages/f0/31/2aaabe7d03f395c7b6d955f09a4d1440a2c49920abea42fde88cacc2ef97/dunamai-1.26.2-py3-none-any.whl", hash = "sha256:4234be3a90c3ec13ecf75d94a2248068e5a3018e8112892fcd9f3a1f287c9c32", size = 27478, upload-time = "2026-08-02T03:32:49.348Z" },
 ]
 
 [[package]]
@@ -327,7 +327,7 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "decorator" },
     { name = "ipython", version = "8.39.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "ipython", version = "9.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "ipython", version = "9.16.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/3d/1b/7e07e7b752017f7693a0f4d41c13e5ca29ce8cbcfdcc1fd6c4ad8c0a27a0/ipdb-0.13.13.tar.gz", hash = "sha256:e3ac6018ef05126d442af680aad863006ec19d02290561ac88b8b1c0b0cfc726", size = 17042, upload-time = "2023-03-09T15:40:57.487Z" }
@@ -362,7 +362,7 @@ wheels = [
 
 [[package]]
 name = "ipython"
-version = "9.15.0"
+version = "9.16.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.15'",
@@ -370,7 +370,6 @@ resolution-markers = [
 ]
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
-    { name = "decorator" },
     { name = "ipython-pygments-lexers" },
     { name = "jedi" },
     { name = "matplotlib-inline" },
@@ -382,9 +381,9 @@ dependencies = [
     { name = "traitlets" },
     { name = "typing-extensions", marker = "python_full_version < '3.12'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/53/59/165d3b4d75cc34add3122c4417ecb229085140ac573103c223cd01dde96f/ipython-9.15.0.tar.gz", hash = "sha256:da2819ce2aa83135257df830660b1176d986c3d2876db24df01974fa955b2756", size = 4442580, upload-time = "2026-06-26T11:03:35.913Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/52/49/04360f83b4d110195751b4171b75dc1cd7b97ba122b18da34b5828172d59/ipython-9.16.0.tar.gz", hash = "sha256:d2f92587b1ef51d84f934dffe05fabb9255f0038ed0a21426f2ea761e39ad09a", size = 4515375, upload-time = "2026-07-31T08:02:51.977Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/40/3a/948263ca3b9d65bb2b1b0c521b3a49fad5d59ada58724bd87d2bd5ff3f36/ipython-9.15.0-py3-none-any.whl", hash = "sha256:515ad9c3cdf0c932a5a9f6245419e8aba706b7bd03c3e1d3a1c83d9351d6aa6e", size = 630895, upload-time = "2026-06-26T11:03:33.809Z" },
+    { url = "https://files.pythonhosted.org/packages/d1/82/d30656b9eb33b8ed4e421ca55c13c7fff412086f0405bbe53c39a7ee4a3b/ipython-9.16.0-py3-none-any.whl", hash = "sha256:3d02b96de2a59074d153b1ac1c3865de738df114e430e879e6e5ef100a4d470c", size = 625973, upload-time = "2026-07-31T08:02:50.114Z" },
 ]
 
 [[package]]
@@ -525,11 +524,11 @@ wheels = [
 
 [[package]]
 name = "markdown"
-version = "3.10.2"
+version = "3.10.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz", hash = "sha256:994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950", size = 368805, upload-time = "2026-02-09T14:57:26.942Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/29/6f/da4c6aea59b3001f2e8c0ec7497475aadaf3b021c10cab5b2858f0f32b26/markdown-3.10.3.tar.gz", hash = "sha256:3589362618f743188b4d955b874402bc814f4f83f544dc207719f4baa7d9c45f", size = 372596, upload-time = "2026-07-30T19:05:29.005Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/de/1f/77fa3081e4f66ca3576c896ae5d31c3002ac6607f9747d2e3aa49227e464/markdown-3.10.2-py3-none-any.whl", hash = "sha256:e91464b71ae3ee7afd3017d9f358ef0baf158fd9a298db92f1d4761133824c36", size = 108180, upload-time = "2026-02-09T14:57:25.787Z" },
+    { url = "https://files.pythonhosted.org/packages/64/69/4a5af2bc115a9a33fefe51709749de8262be3f9ba063d1753a837cdbc49c/markdown-3.10.3-py3-none-any.whl", hash = "sha256:fa6c92a00a4a3c98b22728c64a935ae1928250ae65058a6ded814d2cc29a4cea", size = 110757, upload-time = "2026-07-30T19:05:27.883Z" },
 ]
 
 [[package]]
@@ -1342,7 +1341,7 @@ local = [
     { name = "copier" },
     { name = "ipdb" },
     { name = "ipython", version = "8.39.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "ipython", version = "9.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "ipython", version = "9.16.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "prek" },
     { name = "saritasa-invocations", extra = ["env-settings"] },
 ]
@@ -1450,11 +1449,11 @@ wheels = [
 
 [[package]]
 name = "traitlets"
-version = "5.15.1"
+version = "5.16.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/57/a9/a2584b8313b89f94869ddb3c4074617a691de1812a614d2d50e32ca5a7a6/traitlets-5.15.1.tar.gz", hash = "sha256:7b1c07854fe25acb39e009bae49f11b79ff6cbb2f27999104e9110e7a6b53722", size = 163344, upload-time = "2026-06-03T12:26:06.181Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/61/a1/d7e7d9f461575d8bb77e3c3bd78a6cdfdd2bb4a06bfbbb8a0e1f51ab7bc2/traitlets-5.16.0.tar.gz", hash = "sha256:7de0a3fabaf5971ff15c8905545f9febfa850309fb8e86e1b42bdb5b46b293ed", size = 165946, upload-time = "2026-07-31T12:23:49.785Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/96/8d/1080ee4c231f361b6ce4470d556c8c435b67c7e0753aaa641497ee92f88b/traitlets-5.15.1-py3-none-any.whl", hash = "sha256:770a53705f84b81ac107e83a1b3328ff2dae16094d8fc3cfc004e4b22dfd8e92", size = 85858, upload-time = "2026-06-03T12:26:04.395Z" },
+    { url = "https://files.pythonhosted.org/packages/01/bd/f8607e908605262e4926cbfd2560094bc5d04ef7f8aff1340e7fff503016/traitlets-5.16.0-py3-none-any.whl", hash = "sha256:94a9967ba45e89e837cf9934029c8d019bea9149cfffa115ed8c1900f679beba", size = 86093, upload-time = "2026-07-31T12:23:47.533Z" },
 ]
 
 [[package]]
