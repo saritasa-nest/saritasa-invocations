@@ -24,12 +24,12 @@ def wait_for_database(context: invoke.Context) -> None:
             "echo": False,
             "hide": "out",
         },
-    ) as context:
+    ) as context_override:
         for _ in range(config.alembic.connect_attempts - 1):
             try:
                 # Doing it manually to avoid loop
                 python.run(
-                    context,
+                    context_override,
                     command=f"{config.alembic.command} current",
                 )
                 wait_for_database._called = True  # type: ignore
@@ -44,11 +44,11 @@ def wait_for_database(context: invoke.Context) -> None:
             "echo": True,
             "hide": None,
         },
-    ) as context:
+    ) as context_override:
         try:
             # Do it one more time but without hiding the terminal output
             python.run(
-                context,
+                context_override,
                 command=f"{config.alembic.command} current",
             )
             wait_for_database._called = True  # type: ignore
