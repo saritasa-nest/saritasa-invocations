@@ -9,7 +9,6 @@ default_install_hook_types: [
   post-merge,
   post-rewrite,
 ]
-fail_fast: true
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -96,7 +95,11 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
+<<<<<<< before updating
     rev: 44.7.0
+=======
+    rev: 44.9.2
+>>>>>>> after updating
     hooks:
       - id: renovate-config-validator
         language: bun
@@ -109,14 +112,14 @@ repos:
     hooks:
       - id: mypy
         name: Run mypy
-        entry: inv mypy.run
+        entry: uv run inv mypy.run
         language: system
         pass_filenames: false
         types: [ file ]
         stages: [ pre-push ]
       - id: doc-build-verify
         name: Verify that docs could be build
-        entry: inv docs.build
+        entry: uv run inv docs.build
         language: system
         pass_filenames: false
         types: [ file ]
