@@ -3961,7 +3961,7 @@ saritasa-inv<span class="w"> </span>pre-commit.run-hooks
                     <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">,</span>
                     <span class="n">pod_selector</span><span class="o">=</span><span class="s2">&quot;app=pod-selector-db&quot;</span><span class="p">,</span>
                 <span class="p">),</span>
-            <span class="p">)</span>
+            <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">},</span>
 <span class="p">)</span>
@@ -4064,17 +4064,19 @@ If no task found in branch, then will be empty</li>
 <ul>
 <li><code>copy_commit_template</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>  <span class="s2">&quot;[automated-commit]: </span><span class="si">{action}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-  <span class="s2">&quot;copy: </span><span class="si">{original_path}</span><span class="se">\n</span><span class="s2">&quot;</span>
-  <span class="s2">&quot;to:</span><span class="se">\n</span><span class="s2">* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-  <span class="s2">&quot;</span><span class="si">{project_task}</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;[automated-commit]: </span><span class="si">{action}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+
+<span class="s2">&quot;copy: </span><span class="si">{original_path}</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;to:</span><span class="se">\n</span><span class="s2">* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;</span><span class="si">{project_task}</span><span class="s2">&quot;</span>
 </code></pre></div>
 <ul>
 <li><code>copy_init_message_template</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>  <span class="s2">&quot;Copy </span><span class="si">{original_path}</span><span class="s2"> to:</span><span class="se">\n</span><span class="s2">&quot;</span>
-  <span class="s2">&quot;* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-  <span class="s2">&quot;Count of created commits: </span><span class="si">{commits_count}</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Copy </span><span class="si">{original_path}</span><span class="s2"> to:</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="s2">&quot;* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;Count of created commits: </span><span class="si">{commits_count}</span><span class="s2">&quot;</span>
 </code></pre></div>
 <h3 id="pre-commit">pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
 <p>Settings to run <code>.pre-commit-config.yaml</code></p>
@@ -4320,11 +4322,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicbackup-local-db">alembic.backup-local-db<a class="headerlink" href="#alembicbackup-local-db" title="Permanent link">&para;</a></h4>
@@ -4338,11 +4340,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicbackup-remote-db">alembic.backup-remote-db<a class="headerlink" href="#alembicbackup-remote-db" title="Permanent link">&para;</a></h4>
@@ -4356,11 +4358,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicload-remote-db">alembic.load-remote-db<a class="headerlink" href="#alembicload-remote-db" title="Permanent link">&para;</a></h4>
@@ -4375,11 +4377,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicwait-for-database">alembic.wait-for-database<a class="headerlink" href="#alembicwait-for-database" title="Permanent link">&para;</a></h4>
