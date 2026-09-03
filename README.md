@@ -212,7 +212,7 @@ ns.configure(
                     namespace="db",
                     pod_selector="app=pod-selector-db",
                 ),
-            )
+            ),
         ),
     },
 )
@@ -345,18 +345,20 @@ Default values for templates:
 - `copy_commit_template`:
 
 ```python
-  "[automated-commit]: {action}\n\n"
-  "copy: {original_path}\n"
-  "to:\n* {destination_paths}\n\n"
-  "{project_task}"
+"[automated-commit]: {action}\n\n"
+
+"copy: {original_path}\n"
+"to:\n* {destination_paths}\n\n"
+"{project_task}"
 ```
 
 - `copy_init_message_template`:
 
 ```python
-  "Copy {original_path} to:\n"
-  "* {destination_paths}\n\n"
-  "Count of created commits: {commits_count}"
+"Copy {original_path} to:\n"
+
+"* {destination_paths}\n\n"
+"Count of created commits: {commits_count}"
 ```
 
 ### pre-commit
@@ -705,11 +707,11 @@ Settings:
 
   ```python
   {
-    "dbname": "rds_db_name",
-    "host": "rds_db_host",
-    "port": "rds_db_port",
-    "username": "rds_db_user",
-    "password": "rds_db_password",
+      "dbname": "rds_db_name",
+      "host": "rds_db_host",
+      "port": "rds_db_port",
+      "username": "rds_db_user",
+      "password": "rds_db_password",
   }
   ```
 
@@ -731,11 +733,11 @@ Settings:
 
   ```python
   {
-    "dbname": "rds_db_name",
-    "host": "rds_db_host",
-    "port": "rds_db_port",
-    "username": "rds_db_user",
-    "password": "rds_db_password",
+      "dbname": "rds_db_name",
+      "host": "rds_db_host",
+      "port": "rds_db_port",
+      "username": "rds_db_user",
+      "password": "rds_db_password",
   }
   ```
 
@@ -757,11 +759,11 @@ Settings:
 
   ```python
   {
-    "dbname": "rds_db_name",
-    "host": "rds_db_host",
-    "port": "rds_db_port",
-    "username": "rds_db_user",
-    "password": "rds_db_password",
+      "dbname": "rds_db_name",
+      "host": "rds_db_host",
+      "port": "rds_db_port",
+      "username": "rds_db_user",
+      "password": "rds_db_password",
   }
   ```
 
@@ -784,11 +786,11 @@ Settings:
 
   ```python
   {
-    "dbname": "rds_db_name",
-    "host": "rds_db_host",
-    "port": "rds_db_port",
-    "username": "rds_db_user",
-    "password": "rds_db_password",
+      "dbname": "rds_db_name",
+      "host": "rds_db_host",
+      "port": "rds_db_port",
+      "username": "rds_db_user",
+      "password": "rds_db_password",
   }
   ```
 
