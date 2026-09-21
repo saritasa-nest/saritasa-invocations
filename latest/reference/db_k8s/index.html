@@ -1300,7 +1300,7 @@
 
 
 <h2 id="saritasa_invocations.db_k8s.create_dump" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">create_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">create_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.db_k8s.create_dump" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1352,10 +1352,10 @@
     <span class="n">port</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute dump command in db pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Execute dump command in db pod."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">command</span> <span class="o">=</span> <span class="n">_generate_dump_command</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -1366,14 +1366,14 @@
         <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
         <span class="n">additional_params</span><span class="o">=</span><span class="n">additional_params</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Entering into db with </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Entering into db with </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">db_exec_command</span> <span class="o">=</span> <span class="n">_generate_exec_command</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">db_exec_command</span><span class="si">}</span><span class="s2"> -- </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">db_exec_command</span><span class="si">}</span><span class="s2"> -- </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">watchers</span><span class="o">=</span><span class="p">(</span>
             <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
                 <span class="n">pattern</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">password_pattern</span><span class="p">,</span>
-                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">)</span>
@@ -1387,7 +1387,7 @@
 
 
 <h2 id="saritasa_invocations.db_k8s.get_dump" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">get_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.db_k8s.get_dump" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1422,23 +1422,23 @@
 <span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_dump</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download db data from db pod if it present.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Download db data from db pod if it present."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">k8s</span><span class="o">.</span><span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">db_config</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">_get_db_k8s_dump_filename</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
-    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Downloading dump (</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">) from pod&quot;</span><span class="p">)</span>
-    <span class="n">dump_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">dump_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Downloading dump (</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">) from pod"</span><span class="p">)</span>
+    <span class="n">dump_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">dump_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span>
     <span class="n">k8s</span><span class="o">.</span><span class="n">download_file_from_pod</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">pod_namespace</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">namespace</span><span class="p">,</span>
         <span class="n">get_pod_name_command</span><span class="o">=</span><span class="n">_generate_get_pod_name_command</span><span class="p">(</span><span class="n">context</span><span class="p">),</span>
         <span class="n">path_to_file_in_pod</span><span class="o">=</span><span class="n">dump_path</span><span class="p">,</span>
-        <span class="n">path_to_where_save_file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">path_to_where_save_file</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Downloaded dump (</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">) from pod. Clean up&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_generate_exec_command</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="si">}</span><span class="s2"> -- rm </span><span class="si">{</span><span class="n">dump_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">k8s</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Downloaded dump (</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">) from pod. Clean up"</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_generate_exec_command</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="si">}</span><span class="s2"> -- rm </span><span class="si">{</span><span class="n">dump_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">file</span>
 </code></pre></div></td></tr></table></div>
             </details>

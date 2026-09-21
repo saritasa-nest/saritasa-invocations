@@ -1495,10 +1495,10 @@
 <span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">build_service</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build service image.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Building </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Build service image."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Building </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> build </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> build </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1509,7 +1509,7 @@
 
 
 <h2 id="saritasa_invocations.docker.buildpack" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">buildpack</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="s1">&#39;development&#39;</span><span class="p">,</span> <span class="n">builder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">builder_env</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">clear_cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">buildpack</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="s1">'development'</span><span class="p">,</span> <span class="n">builder</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">builder_env</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">clear_cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.docker.buildpack" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1552,32 +1552,32 @@
 <span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">buildpack</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;development&quot;</span><span class="p">,</span>
-    <span class="n">builder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">builder_env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">runner</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"development"</span><span class="p">,</span>
+    <span class="n">builder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">builder_env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">runner</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">clear_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build app image using buildpacks.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Build app image using buildpacks."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="c1"># Builder needs requirements.txt</span>
     <span class="k">if</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_requirements_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_requirements_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">env</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_requirements_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">env</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">,</span>
+            <span class="s2">"requirements.txt"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_builder</span>
     <span class="n">runner</span> <span class="o">=</span> <span class="n">runner</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_runner</span>
     <span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">build_image_tag</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pack build --builder=</span><span class="si">{</span><span class="n">builder</span><span class="si">}</span><span class="s2"> --run-image=</span><span class="si">{</span><span class="n">runner</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"pack build --builder=</span><span class="si">{</span><span class="n">builder</span><span class="si">}</span><span class="s2"> --run-image=</span><span class="si">{</span><span class="n">runner</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span>
     <span class="k">if</span> <span class="n">clear_cache</span><span class="p">:</span>
-        <span class="n">cmd</span> <span class="o">+=</span> <span class="s2">&quot; --clear-cache&quot;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="s2">" --clear-cache"</span>
     <span class="k">if</span> <span class="n">builder_env</span><span class="p">:</span>
-        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; --env=</span><span class="si">{</span><span class="n">builder_env</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">cmd</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">" --env=</span><span class="si">{</span><span class="n">builder_env</span><span class="si">}</span><span class="s2">"</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">buildpack_requirements_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+        <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"requirements.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1613,15 +1613,15 @@
 <span class="normal">245</span>
 <span class="normal">246</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stop and remove all containers defined in docker-compose.</span>
+<span class="w">    </span><span class="sd">"""Stop and remove all containers defined in docker-compose.</span>
 
 <span class="sd">    Also remove images.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Clearing docker-compose&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Clearing docker-compose"</span><span class="p">)</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> rm -f&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> down -v --rmi all --remove-orphans&quot;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> rm -f"</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> down -v --rmi all --remove-orphans"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1680,7 +1680,7 @@ command: Command to run in service container
     <span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">command</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run ``exec`` using docker-compose.</span>
+<span class="w">    </span><span class="sd">"""Run ``exec`` using docker-compose.</span>
 
 <span class="sd">    docker compose exec &lt;service&gt; &lt;command&gt;</span>
 <span class="sd">    Run commands in already running container.</span>
@@ -1694,9 +1694,9 @@ command: Command to run in service container
 <span class="sd">        service: Name of service to run command in</span>
 <span class="sd">        command: Command to run in service container</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> exec </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> exec </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">"</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -1708,7 +1708,7 @@ command: Command to run in service container
 
 
 <h2 id="saritasa_invocations.docker.docker_compose_run" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">docker_compose_run</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">watchers</span><span class="o">=</span><span class="p">(),</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">docker_compose_run</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">watchers</span><span class="o">=</span><span class="p">(),</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.docker.docker_compose_run" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1775,12 +1775,12 @@ kwargs: additional arguments for context.run
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">container</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">command</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">watchers</span><span class="p">:</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">invoke</span><span class="o">.</span><span class="n">StreamWatcher</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
     <span class="n">env</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">invoke</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">Result</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run ``command`` using docker-compose.</span>
+<span class="w">    </span><span class="sd">"""Run ``command`` using docker-compose.</span>
 
 <span class="sd">    docker compose run &lt;params&gt; &lt;container&gt; &lt;command&gt;</span>
 <span class="sd">    Start container and run command in it.</span>
@@ -1798,14 +1798,14 @@ kwargs: additional arguments for context.run
 <span class="sd">        env: environmental variables for run</span>
 <span class="sd">        kwargs: additional arguments for context.run</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">env_params</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;--env </span><span class="si">{</span><span class="n">env_key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">env_key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="n">env</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="n">env_params</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"--env </span><span class="si">{</span><span class="n">env_key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">env_key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="n">env</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">command</span><span class="o">=</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> run </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">env_params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">container</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> run </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">env_params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">container</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">),</span>
         <span class="n">watchers</span><span class="o">=</span><span class="n">watchers</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -1841,7 +1841,7 @@ kwargs: additional arguments for context.run
 <span class="normal">232</span>
 <span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stop main containers.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Stop main containers."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">stop_containers</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -1874,8 +1874,8 @@ kwargs: additional arguments for context.run
 <span class="normal">117</span>
 <span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">stop_all_containers</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shortcut for stopping ALL running docker containers.&quot;&quot;&quot;</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;docker stop $(docker ps -q)&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Shortcut for stopping ALL running docker containers."""</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"docker stop $(docker ps -q)"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1909,10 +1909,10 @@ kwargs: additional arguments for context.run
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">containers</span><span class="p">:</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stop containers.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stopping </span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2"> containers&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Stop containers."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stopping </span><span class="si">{</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2"> containers"</span><span class="p">)</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> stop </span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">compose_cmd</span><span class="si">}</span><span class="s2"> stop </span><span class="si">{</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1970,15 +1970,15 @@ kwargs: additional arguments for context.run
     <span class="n">quiet_build</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">remove_orphans</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bring up main containers and start them.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Bring up main containers and start them."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span>
         <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">compose_file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">compose_file</span> <span class="ow">in</span> <span class="p">(</span>
-            <span class="s2">&quot;compose.yaml&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;compose.yml&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;docker-compose.yaml&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;docker-compose.yml&quot;</span><span class="p">,</span>
+            <span class="s2">"compose.yaml"</span><span class="p">,</span>
+            <span class="s2">"compose.yml"</span><span class="p">,</span>
+            <span class="s2">"docker-compose.yaml"</span><span class="p">,</span>
+            <span class="s2">"docker-compose.yml"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="p">):</span>
         <span class="k">return</span>
@@ -2024,7 +2024,7 @@ remove_orphans: Remove containers for services that are not in the
     Compose file
 </code></pre></div>
         <hr />
-<div class="highlight"><pre><span></span><code>UnexpectedExit: when `up` command wasn&#39;t successful
+<div class="highlight"><pre><span></span><code>UnexpectedExit: when `up` command wasn't successful
 </code></pre></div>
 
 
@@ -2100,7 +2100,7 @@ remove_orphans: Remove containers for services that are not in the
     <span class="n">quiet_build</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">remove_orphans</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bring up containers and run them.</span>
+<span class="w">    </span><span class="sd">"""Bring up containers and run them.</span>
 
 <span class="sd">    Add `d` kwarg to run them in background.</span>
 
@@ -2119,25 +2119,25 @@ remove_orphans: Remove containers for services that are not in the
 
 <span class="sd">    Raises:</span>
 <span class="sd">    ------</span>
-<span class="sd">        UnexpectedExit: when `up` command wasn&#39;t successful</span>
+<span class="sd">        UnexpectedExit: when `up` command wasn't successful</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">containers</span><span class="p">:</span>
-        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bring up </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2"> containers&quot;</span><span class="p">)</span>
+        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bring up </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="si">}</span><span class="s2"> containers"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Bring up all containers&quot;</span><span class="p">)</span>
-    <span class="n">containers_str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span>
-    <span class="n">detach_str</span> <span class="o">=</span> <span class="s2">&quot;--detach&quot;</span> <span class="k">if</span> <span class="n">detach</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-    <span class="n">quiet_pull_str</span> <span class="o">=</span> <span class="s2">&quot;--quiet-pull&quot;</span> <span class="k">if</span> <span class="n">quiet_pull</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-    <span class="n">quiet_build_str</span> <span class="o">=</span> <span class="s2">&quot;--quiet-build&quot;</span> <span class="k">if</span> <span class="n">quiet_build</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-    <span class="n">remove_orphans_str</span> <span class="o">=</span> <span class="s2">&quot;--remove-orphans&quot;</span> <span class="k">if</span> <span class="n">remove_orphans</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Bring up all containers"</span><span class="p">)</span>
+    <span class="n">containers_str</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span>
+    <span class="n">detach_str</span> <span class="o">=</span> <span class="s2">"--detach"</span> <span class="k">if</span> <span class="n">detach</span> <span class="k">else</span> <span class="s2">""</span>
+    <span class="n">quiet_pull_str</span> <span class="o">=</span> <span class="s2">"--quiet-pull"</span> <span class="k">if</span> <span class="n">quiet_pull</span> <span class="k">else</span> <span class="s2">""</span>
+    <span class="n">quiet_build_str</span> <span class="o">=</span> <span class="s2">"--quiet-build"</span> <span class="k">if</span> <span class="n">quiet_build</span> <span class="k">else</span> <span class="s2">""</span>
+    <span class="n">remove_orphans_str</span> <span class="o">=</span> <span class="s2">"--remove-orphans"</span> <span class="k">if</span> <span class="n">remove_orphans</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="n">compose_cmd</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">compose_cmd</span>
-    <span class="n">up_cmd</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">up_cmd</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
         <span class="nb">filter</span><span class="p">(</span>
             <span class="kc">None</span><span class="p">,</span>
             <span class="p">(</span>
                 <span class="n">compose_cmd</span><span class="p">,</span>
-                <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+                <span class="s2">"up"</span><span class="p">,</span>
                 <span class="n">quiet_pull_str</span><span class="p">,</span>
                 <span class="n">quiet_build_str</span><span class="p">,</span>
                 <span class="n">remove_orphans_str</span><span class="p">,</span>

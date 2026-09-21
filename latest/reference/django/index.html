@@ -1718,7 +1718,7 @@
 
 
 <h2 id="saritasa_invocations.django.backup_local_db" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">backup_local_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">backup_local_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.backup_local_db" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1743,9 +1743,9 @@
 <span class="normal">354</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">backup_local_db</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Back up local db.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Back up local db."""</span>
     <span class="n">db</span><span class="o">.</span><span class="n">backup_local_db</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">,</span>
@@ -1761,7 +1761,7 @@
 
 
 <h2 id="saritasa_invocations.django.backup_remote_db" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">backup_remote_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">backup_remote_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.backup_remote_db" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1791,9 +1791,9 @@
 <span class="normal">372</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">backup_remote_db</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make dump of remote db and download it.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Make dump of remote db and download it."""</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">load_django_remote_env_db_settings</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">db_k8s</span><span class="o">.</span><span class="n">create_dump</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -1835,11 +1835,11 @@
 <span class="normal">91</span>
 <span class="normal">92</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">check_new_migrations</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if there is new migrations or not.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Django: Checking migrations&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Check if there is new migrations or not."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Django: Checking migrations"</span><span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="s2">&quot;makemigrations --check --dry-run&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="s2">"makemigrations --check --dry-run"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -1851,7 +1851,7 @@
 
 
 <h2 id="saritasa_invocations.django.createsuperuser" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">createsuperuser</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">createsuperuser</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.createsuperuser" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1937,65 +1937,65 @@
 <span class="normal">218</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">createsuperuser</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create superuser.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Create superuser."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">email_source</span> <span class="o">=</span> <span class="s2">&quot;cmd&quot;</span>
-    <span class="n">username_source</span> <span class="o">=</span> <span class="s2">&quot;cmd&quot;</span>
+    <span class="n">email_source</span> <span class="o">=</span> <span class="s2">"cmd"</span>
+    <span class="n">username_source</span> <span class="o">=</span> <span class="s2">"cmd"</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="n">invoke</span><span class="o">.</span><span class="n">Failure</span><span class="p">):</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-                <span class="s2">&quot;git config user.email&quot;</span><span class="p">,</span>
+                <span class="s2">"git config user.email"</span><span class="p">,</span>
                 <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="n">hide</span><span class="o">=</span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
+                <span class="n">hide</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span>
             <span class="p">)</span>
-            <span class="k">if</span> <span class="n">output</span> <span class="ow">and</span> <span class="p">(</span><span class="n">email</span> <span class="o">:=</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
-                <span class="n">email_source</span> <span class="o">=</span> <span class="s2">&quot;git&quot;</span>
+            <span class="k">if</span> <span class="n">output</span> <span class="ow">and</span> <span class="p">(</span><span class="n">email</span> <span class="o">:=</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
+                <span class="n">email_source</span> <span class="o">=</span> <span class="s2">"git"</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
             <span class="n">email</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">default_superuser_email</span>
-            <span class="n">email_source</span> <span class="o">=</span> <span class="s2">&quot;config&quot;</span>
+            <span class="n">email_source</span> <span class="o">=</span> <span class="s2">"config"</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="n">invoke</span><span class="o">.</span><span class="n">Failure</span><span class="p">):</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-                <span class="s2">&quot;git config user.name&quot;</span><span class="p">,</span>
+                <span class="s2">"git config user.name"</span><span class="p">,</span>
                 <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="n">hide</span><span class="o">=</span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
+                <span class="n">hide</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span>
             <span class="p">)</span>
-            <span class="k">if</span> <span class="n">output</span> <span class="ow">and</span> <span class="p">(</span><span class="n">username</span> <span class="o">:=</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
-                <span class="n">username_source</span> <span class="o">=</span> <span class="s2">&quot;git&quot;</span>
+            <span class="k">if</span> <span class="n">output</span> <span class="ow">and</span> <span class="p">(</span><span class="n">username</span> <span class="o">:=</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
+                <span class="n">username_source</span> <span class="o">=</span> <span class="s2">"git"</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
             <span class="n">username</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">default_superuser_username</span>
-            <span class="n">username_source</span> <span class="o">=</span> <span class="s2">&quot;config&quot;</span>
+            <span class="n">username_source</span> <span class="o">=</span> <span class="s2">"config"</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">default_superuser_password</span>
 
     <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
-        <span class="s2">&quot;Django: Creating superuser with the following -&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">email</span><span class="si">=}</span><span class="s2"> from </span><span class="si">{</span><span class="n">email_source</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">=}</span><span class="s2"> from </span><span class="si">{</span><span class="n">username_source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">"Django: Creating superuser with the following -&gt;</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">email</span><span class="si">=}</span><span class="s2"> from </span><span class="si">{</span><span class="n">email_source</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">username</span><span class="si">=}</span><span class="s2"> from </span><span class="si">{</span><span class="n">username_source</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">responder_email</span> <span class="o">=</span> <span class="n">invoke</span><span class="o">.</span><span class="n">FailingResponder</span><span class="p">(</span>
-        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">verbose_email_name</span><span class="si">}</span><span class="s2">.*: &quot;</span><span class="p">,</span>
-        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="n">sentinel</span><span class="o">=</span><span class="s2">&quot;That Email address is already taken.&quot;</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">verbose_email_name</span><span class="si">}</span><span class="s2">.*: "</span><span class="p">,</span>
+        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+        <span class="nb">sentinel</span><span class="o">=</span><span class="s2">"That Email address is already taken."</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">responder_user_name</span> <span class="o">=</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
-        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">verbose_username_name</span><span class="si">}</span><span class="s2">.*: &quot;</span><span class="p">,</span>
-        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">verbose_username_name</span><span class="si">}</span><span class="s2">.*: "</span><span class="p">,</span>
+        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">password_pattern</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">verbose_password_name</span>
     <span class="n">responder_password</span> <span class="o">=</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
-        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">password_pattern</span><span class="si">}</span><span class="s2">: )|(</span><span class="si">{</span><span class="n">password_pattern</span><span class="si">}</span><span class="s2"> \(again\): )&quot;</span><span class="p">,</span>
-        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="sa">rf</span><span class="s2">"(</span><span class="si">{</span><span class="n">password_pattern</span><span class="si">}</span><span class="s2">: )|(</span><span class="si">{</span><span class="n">password_pattern</span><span class="si">}</span><span class="s2"> \(again\): )"</span><span class="p">,</span>
+        <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">manage</span><span class="p">(</span>
             <span class="n">context</span><span class="p">,</span>
-            <span class="n">command</span><span class="o">=</span><span class="s2">&quot;createsuperuser&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="s2">"createsuperuser"</span><span class="p">,</span>
             <span class="n">watchers</span><span class="o">=</span><span class="p">(</span>
                 <span class="n">responder_email</span><span class="p">,</span>
                 <span class="n">responder_user_name</span><span class="p">,</span>
@@ -2004,7 +2004,7 @@
         <span class="p">)</span>
     <span class="k">except</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Failure</span><span class="p">:</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_warn</span><span class="p">(</span>
-            <span class="s2">&quot;Superuser with that email already exists. Skipped.&quot;</span><span class="p">,</span>
+            <span class="s2">"Superuser with that email already exists. Skipped."</span><span class="p">,</span>
         <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2034,9 +2034,9 @@
 <span class="normal">263</span>
 <span class="normal">264</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">dbshell</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Open database shell with credentials from either local or dev env.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Entering DB shell&quot;</span><span class="p">)</span>
-    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">&quot;dbshell&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Open database shell with credentials from either local or dev env."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Entering DB shell"</span><span class="p">)</span>
+    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">"dbshell"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2047,7 +2047,7 @@
 
 
 <h2 id="saritasa_invocations.django.load_db_dump" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.load_db_dump" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2068,8 +2068,8 @@
 <span class="normal">339</span>
 <span class="normal">340</span>
 <span class="normal">341</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset db and load db dump.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Reset db and load db dump."""</span>
     <span class="n">resetdb</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">apply_migrations</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">load_db_dump</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -2109,15 +2109,15 @@
 <span class="normal">403</span>
 <span class="normal">404</span>
 <span class="normal">405</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_django_db_settings</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get database-related config from django settings.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get database-related config from django settings."""</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">load_django_settings</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">db_settings</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DATABASES</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+    <span class="n">db_settings</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DATABASES</span><span class="p">[</span><span class="s2">"default"</span><span class="p">]</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">&quot;HOST&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">&quot;PORT&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">db_settings</span><span class="p">[</span><span class="s2">&quot;USER&quot;</span><span class="p">]),</span>
-        <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">&quot;PASSWORD&quot;</span><span class="p">],</span>
+        <span class="s2">"dbname"</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">"NAME"</span><span class="p">],</span>
+        <span class="s2">"host"</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">"HOST"</span><span class="p">],</span>
+        <span class="s2">"port"</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">"PORT"</span><span class="p">],</span>
+        <span class="s2">"username"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">db_settings</span><span class="p">[</span><span class="s2">"USER"</span><span class="p">]),</span>
+        <span class="s2">"password"</span><span class="p">:</span> <span class="n">db_settings</span><span class="p">[</span><span class="s2">"PASSWORD"</span><span class="p">],</span>
     <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2205,7 +2205,7 @@
 <span class="normal">459</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_django_remote_env_db_settings</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load remote django settings from .env file.</span>
+<span class="w">    </span><span class="sd">"""Load remote django settings from .env file.</span>
 
 <span class="sd">    Support two sources:</span>
 
@@ -2215,9 +2215,9 @@
 <span class="sd">    Requires python-decouple:</span>
 <span class="sd">        https://github.com/HBNetwork/python-decouple</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">system</span><span class="o">.</span><span class="n">create_tmp_folder</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">env_path</span> <span class="o">=</span> <span class="s2">&quot;.tmp/.env.tmp&quot;</span>
+    <span class="n">env_path</span> <span class="o">=</span> <span class="s2">".tmp/.env.tmp"</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">k8s</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -2238,20 +2238,20 @@
             <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">remote_db_url_config_name</span><span class="p">,</span>
             <span class="n">env_config</span><span class="p">(</span>
                 <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">remote_db_url_config_name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
-                <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="n">default</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">):</span>
         <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlsplit</span><span class="p">(</span><span class="n">database_url</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">hostname</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">username</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">password</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="s2">"dbname"</span><span class="p">:</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">),</span>
+            <span class="s2">"host"</span><span class="p">:</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">hostname</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"port"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">),</span>
+            <span class="s2">"username"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">username</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">),</span>
+            <span class="s2">"password"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">password</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">),</span>
         <span class="p">}</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="n">arg</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">env_config</span><span class="p">(</span><span class="n">env_var</span><span class="p">,</span> <span class="n">env_config</span><span class="p">(</span><span class="n">env_var</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)))</span>
+        <span class="n">arg</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">env_config</span><span class="p">(</span><span class="n">env_var</span><span class="p">,</span> <span class="n">env_config</span><span class="p">(</span><span class="n">env_var</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">default</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
         <span class="k">for</span> <span class="n">arg</span><span class="p">,</span> <span class="n">env_var</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">remote_db_config_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
     <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -2284,9 +2284,9 @@
 <span class="normal">390</span>
 <span class="normal">391</span>
 <span class="normal">392</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_django_settings</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">):</span>  <span class="c1"># noqa: ANN201</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load django settings from settings file (DJANGO_SETTINGS_MODULE).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Load django settings from settings file (DJANGO_SETTINGS_MODULE)."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DJANGO_SETTINGS_MODULE"</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span>
 
     <span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>  <span class="c1"># type: ignore</span>
 
@@ -2301,7 +2301,7 @@
 
 
 <h2 id="saritasa_invocations.django.load_remote_db" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">load_remote_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">load_remote_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.load_remote_db" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2323,9 +2323,9 @@
 <span class="normal">382</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_remote_db</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make dump of remote db, download it and apply it.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Make dump of remote db, download it and apply it."""</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">backup_remote_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
     <span class="n">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2358,9 +2358,9 @@
 <span class="normal">81</span>
 <span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">makemigrations</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run makemigrations command and chown created migrations.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Django: Make migrations&quot;</span><span class="p">)</span>
-    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">&quot;makemigrations&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Run makemigrations command and chown created migrations."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Django: Make migrations"</span><span class="p">)</span>
+    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">"makemigrations"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">python</span><span class="o">.</span><span class="n">get_python_env</span><span class="p">()</span> <span class="o">==</span> <span class="n">python</span><span class="o">.</span><span class="n">PythonEnv</span><span class="o">.</span><span class="n">DOCKER</span><span class="p">:</span>
         <span class="n">system</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2373,7 +2373,7 @@
 
 
 <h2 id="saritasa_invocations.django.manage" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">docker_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">watchers</span><span class="o">=</span><span class="p">())</span></code>
+            <code class="highlight language-python"><span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">docker_params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">watchers</span><span class="o">=</span><span class="p">())</span></code>
 
 <a href="#saritasa_invocations.django.manage" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2429,10 +2429,10 @@ kwargs: additional arguments for python.run
 <span class="k">def</span><span class="w"> </span><span class="nf">manage</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">command</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">docker_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">docker_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">watchers</span><span class="p">:</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">invoke</span><span class="o">.</span><span class="n">StreamWatcher</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">invoke</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">Result</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run `manage.py` command.</span>
+<span class="w">    </span><span class="sd">"""Run `manage.py` command.</span>
 
 <span class="sd">    This command also handle starting of required services and waiting DB to</span>
 <span class="sd">    be ready.</span>
@@ -2445,16 +2445,16 @@ kwargs: additional arguments for python.run
 <span class="sd">        watchers: Automated responders to command</span>
 <span class="sd">        kwargs: additional arguments for python.run</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">wait_for_database</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">python</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">docker_params</span><span class="o">=</span><span class="n">docker_params</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">manage_file_path</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">manage_file_path</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">watchers</span><span class="o">=</span><span class="n">watchers</span><span class="p">,</span>
         <span class="n">env</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span><span class="p">,</span>
+            <span class="s2">"DJANGO_SETTINGS_MODULE"</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2486,8 +2486,8 @@ kwargs: additional arguments for python.run
 <span class="normal">121</span>
 <span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run `migrate` command.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Django: Apply migrations&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Run `migrate` command."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Django: Apply migrations"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">migrate_command</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2531,20 +2531,20 @@ kwargs: additional arguments for python.run
 <span class="normal">282</span>
 <span class="normal">283</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">recompile_messages</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate and recompile translation messages.</span>
+<span class="w">    </span><span class="sd">"""Generate and recompile translation messages.</span>
 
 <span class="sd">    https://docs.djangoproject.com/en/4.2/ref/django-admin/#makemessages</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Recompiling translation messages&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Recompiling translation messages"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;makemessages </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">makemessages_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"makemessages </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">makemessages_params</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;compilemessages </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">compilemessages_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"compilemessages </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">compilemessages_params</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2597,15 +2597,15 @@ kwargs: additional arguments for python.run
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">apply_migrations</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset database to initial state (including test DB).</span>
+<span class="w">    </span><span class="sd">"""Reset database to initial state (including test DB).</span>
 
 <span class="sd">    Requires django-extensions:</span>
 <span class="sd">        https://django-extensions.readthedocs.io/en/latest/installation_instructions.html</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Reset database to its initial state&quot;</span><span class="p">)</span>
-    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">&quot;drop_test_database --noinput&quot;</span><span class="p">)</span>
-    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">&quot;reset_db -c --noinput&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Reset database to its initial state"</span><span class="p">)</span>
+    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">"drop_test_database --noinput"</span><span class="p">)</span>
+    <span class="n">manage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s2">"reset_db -c --noinput"</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">apply_migrations</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="n">makemigrations</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
@@ -2650,13 +2650,13 @@ kwargs: additional arguments for python.run
 <span class="normal">234</span>
 <span class="normal">235</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run development web-server.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Running app&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Run development web-server."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Running app"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">docker_params</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">runserver_docker_params</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{command}</span><span class="s2"> </span><span class="si">{host}</span><span class="s2">:</span><span class="si">{port}</span><span class="s2"> </span><span class="si">{params}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>  <span class="c1"># noqa: UP032</span>
+        <span class="n">command</span><span class="o">=</span><span class="s2">"</span><span class="si">{command}</span><span class="s2"> </span><span class="si">{host}</span><span class="s2">:</span><span class="si">{port}</span><span class="s2"> </span><span class="si">{params}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>  <span class="c1"># noqa: UP032</span>
             <span class="n">command</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">runserver_command</span><span class="p">,</span>
             <span class="n">host</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">runserver_host</span><span class="p">,</span>
             <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">runserver_port</span><span class="p">,</span>
@@ -2700,16 +2700,16 @@ correctly in local environment</p>
 <span class="normal">328</span>
 <span class="normal">329</span>
 <span class="normal">330</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">set_default_site</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set default site to localhost.</span>
+<span class="w">    </span><span class="sd">"""Set default site to localhost.</span>
 
 <span class="sd">    Set default site domain to `localhost:8000` so `get_absolute_url` works</span>
 <span class="sd">    correctly in local environment</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">command</span><span class="o">=</span><span class="p">(</span>
-            <span class="s2">&quot;set_default_site --name localhost:8000 --domain localhost:8000&quot;</span>
+            <span class="s2">"set_default_site --name localhost:8000 --domain localhost:8000"</span>
         <span class="p">),</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2722,7 +2722,7 @@ correctly in local environment</p>
 
 
 <h2 id="saritasa_invocations.django.shell" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">shell</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">shell</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.shell" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2766,9 +2766,9 @@ correctly in local environment</p>
 <span class="normal">257</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">shell</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shortcut for manage.py shell command.</span>
+<span class="w">    </span><span class="sd">"""Shortcut for manage.py shell command.</span>
 
 <span class="sd">    Requires django-extensions:</span>
 <span class="sd">        https://django-extensions.readthedocs.io/en/latest/installation_instructions.html</span>
@@ -2776,12 +2776,12 @@ correctly in local environment</p>
 <span class="sd">    Additional params available here:</span>
 <span class="sd">        https://django-extensions.readthedocs.io/en/latest/shell_plus.html</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Entering Django Shell&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Entering Django Shell"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">shell_command</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">shell_command</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2793,7 +2793,7 @@ correctly in local environment</p>
 
 
 <h2 id="saritasa_invocations.django.show_urls" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">show_urls</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">show_urls</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.django.show_urls" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2839,19 +2839,19 @@ correctly in local environment</p>
 <span class="normal">315</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">show_urls</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">search</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">search</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Show urls of project.</span>
+<span class="w">    </span><span class="sd">"""Show urls of project.</span>
 
 <span class="sd">    Use search param to filter urls by regex.</span>
 
 <span class="sd">    Not using grep to make cross-platform and also keep color output.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">console</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">Console</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">url_info</span> <span class="ow">in</span> <span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="s2">&quot;show_urls&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="s2">"show_urls"</span><span class="p">,</span>
         <span class="n">hide</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">search</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="n">url_info</span><span class="p">):</span>
@@ -2860,9 +2860,9 @@ correctly in local environment</p>
         <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span>
             <span class="n">rich</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span>
                 <span class="n">url_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                <span class="s2">" "</span><span class="p">,</span>
                 <span class="n">url_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                <span class="s2">" "</span><span class="p">,</span>
                 <span class="n">url_parts</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
             <span class="p">),</span>
         <span class="p">)</span>
@@ -2914,23 +2914,23 @@ correctly in local environment</p>
 <span class="normal">113</span>
 <span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">startapp</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create new django app using copier.</span>
+<span class="w">    </span><span class="sd">"""Create new django app using copier.</span>
 
 <span class="sd">    Requires uv:</span>
 <span class="sd">        https://docs.astral.sh/uv/getting-started/installation/</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">app_boilerplate_link</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Exit</span><span class="p">(</span>
             <span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Please, provide link to your django app boilerplate!&quot;</span><span class="p">,</span>
+            <span class="n">message</span><span class="o">=</span><span class="s2">"Please, provide link to your django app boilerplate!"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="s2">&quot;uvx copier copy &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">app_boilerplate_link</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">apps_path</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;--trust --vcs-ref=HEAD&quot;</span><span class="p">,</span>
+        <span class="s2">"uvx copier copy "</span>
+        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">app_boilerplate_link</span><span class="si">}</span><span class="s2">' "</span>
+        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">apps_path</span><span class="si">}</span><span class="s2">' "</span>
+        <span class="sa">f</span><span class="s2">"--trust --vcs-ref=HEAD"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2986,26 +2986,26 @@ correctly in local environment</p>
 <span class="normal">38</span>
 <span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">wait_for_database</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure that database is up and ready to accept connections.</span>
+<span class="w">    </span><span class="sd">"""Ensure that database is up and ready to accept connections.</span>
 
 <span class="sd">    Function called just once during subsequent calls of management commands.</span>
 
 <span class="sd">    Requires django_probes:</span>
 <span class="sd">        https://github.com/painless-software/django-probes#basic-usage</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">wait_for_database</span><span class="p">,</span> <span class="s2">&quot;_called&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">wait_for_database</span><span class="p">,</span> <span class="s2">"_called"</span><span class="p">):</span>
         <span class="k">return</span>
     <span class="n">docker</span><span class="o">.</span><span class="n">up</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="c1"># Not using manage to avoid infinite loop</span>
     <span class="n">python</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">command</span><span class="o">=</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">manage_file_path</span><span class="si">}</span><span class="s2"> wait_for_database --stable 0&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">manage_file_path</span><span class="si">}</span><span class="s2"> wait_for_database --stable 0"</span>
         <span class="p">),</span>
         <span class="n">env</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span><span class="p">,</span>
+            <span class="s2">"DJANGO_SETTINGS_MODULE"</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">django</span><span class="o">.</span><span class="n">settings_path</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">)</span>
     <span class="n">wait_for_database</span><span class="o">.</span><span class="n">_called</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># type: ignore</span>

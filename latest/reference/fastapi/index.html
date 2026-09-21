@@ -1311,12 +1311,12 @@
 <span class="normal">24</span>
 <span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run development web-server via FastAPI.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Run development web-server via FastAPI."""</span>
     <span class="n">docker</span><span class="o">.</span><span class="n">up</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Running web app&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Running web app"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">command_template</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;</span><span class="si">{uvicorn_command}</span><span class="s2"> </span><span class="si">{app}</span><span class="s2"> --host </span><span class="si">{host}</span><span class="s2"> --port </span><span class="si">{port}</span><span class="s2"> </span><span class="si">{params}</span><span class="s2">&quot;</span>
+        <span class="s2">"</span><span class="si">{uvicorn_command}</span><span class="s2"> </span><span class="si">{app}</span><span class="s2"> --host </span><span class="si">{host}</span><span class="s2"> --port </span><span class="si">{port}</span><span class="s2"> </span><span class="si">{params}</span><span class="s2">"</span>
     <span class="p">)</span>
     <span class="n">python</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>

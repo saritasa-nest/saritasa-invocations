@@ -1393,12 +1393,12 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">hooks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Install git hooks via pre-commit.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Installing pre-commit hooks&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Install git hooks via pre-commit."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Installing pre-commit hooks"</span><span class="p">)</span>
     <span class="n">hooks_str</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--hook-type </span><span class="si">{</span><span class="n">hook</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="n">hooks</span><span class="p">)</span> <span class="k">if</span> <span class="n">hooks</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"--hook-type </span><span class="si">{</span><span class="n">hook</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="n">hooks</span><span class="p">)</span> <span class="k">if</span> <span class="n">hooks</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="p">)</span>
-    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;install </span><span class="si">{</span><span class="n">hooks_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">"install </span><span class="si">{</span><span class="n">hooks_str</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1409,7 +1409,7 @@
 
 
 <h2 id="saritasa_invocations.pre_commit.run_hooks" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">run_hooks</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">hook_stage</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">run_hooks</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">hook_stage</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.pre_commit.run_hooks" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1444,12 +1444,12 @@
 <span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">run_hooks</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">hook_stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">skip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">hook_stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">skip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run all hooks against all files.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Running pre-commit hooks&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Run all hooks against all files."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Running pre-commit hooks"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">hook_stage</span><span class="p">:</span>
@@ -1457,9 +1457,9 @@
 
     <span class="n">run_pre_commit_cmd</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
-        <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;run --hook-stage </span><span class="si">{</span><span class="n">hook_stage</span><span class="si">}</span><span class="s2"> --all-files </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">"run --hook-stage </span><span class="si">{</span><span class="n">hook_stage</span><span class="si">}</span><span class="s2"> --all-files </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">env</span><span class="o">=</span><span class="p">{</span>
-            <span class="s2">&quot;SKIP&quot;</span><span class="p">:</span> <span class="n">skip</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SKIP&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="s2">"SKIP"</span><span class="p">:</span> <span class="n">skip</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"SKIP"</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span>
         <span class="p">},</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1488,9 +1488,9 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a pre-commit command.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Run a pre-commit command."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">pre_commit</span><span class="o">.</span><span class="n">entry</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">pre_commit</span><span class="o">.</span><span class="n">entry</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1528,12 +1528,12 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">hooks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Uninstall git hooks via pre-commit.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Uninstalling pre-commit hooks&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Uninstall git hooks via pre-commit."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Uninstalling pre-commit hooks"</span><span class="p">)</span>
     <span class="n">hooks_str</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--hook-type </span><span class="si">{</span><span class="n">hook</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="n">hooks</span><span class="p">)</span> <span class="k">if</span> <span class="n">hooks</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"--hook-type </span><span class="si">{</span><span class="n">hook</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">hook</span> <span class="ow">in</span> <span class="n">hooks</span><span class="p">)</span> <span class="k">if</span> <span class="n">hooks</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="p">)</span>
-    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;uninstall </span><span class="si">{</span><span class="n">hooks_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="sa">f</span><span class="s2">"uninstall </span><span class="si">{</span><span class="n">hooks_str</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1562,9 +1562,9 @@
 <span class="normal">66</span>
 <span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update pre-commit dependencies.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Updating pre-commit&quot;</span><span class="p">)</span>
-    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="s2">&quot;autoupdate&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Update pre-commit dependencies."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Updating pre-commit"</span><span class="p">)</span>
+    <span class="n">run_pre_commit_cmd</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="s2">"autoupdate"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

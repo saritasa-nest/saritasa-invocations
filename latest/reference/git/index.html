@@ -1505,7 +1505,7 @@ Count of created commits:
     <span class="n">original_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">destination_paths</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Copy file from original path to destination paths with saving blame.</span>
+<span class="w">    </span><span class="sd">"""Copy file from original path to destination paths with saving blame.</span>
 
 <span class="sd">    If destination path is file, then data will be copied in it.</span>
 <span class="sd">    If destination path is directory, then data will be copied in provided</span>
@@ -1518,51 +1518,51 @@ Count of created commits:
 <span class="sd">        3) Restore state of branch</span>
 <span class="sd">        4) Move file to temp file</span>
 <span class="sd">        5) Merge copy commits to branch</span>
-<span class="sd">        6) Move file to it&#39;s original path from temp file</span>
+<span class="sd">        6) Move file to it's original path from temp file</span>
 <span class="sd">    Count of created commits:</span>
 <span class="sd">        N + 3, where N - is count of copies,</span>
 <span class="sd">        3 - 1 commit to put original file to temp file</span>
 <span class="sd">        1 commit to merge commits with creation of copy files</span>
 <span class="sd">        1 commit to put data from temp file to original file back.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">destination_paths_list</span> <span class="o">=</span> <span class="n">_split_destination_paths</span><span class="p">(</span><span class="n">destination_paths</span><span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Validating provided paths&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Validating provided paths"</span><span class="p">)</span>
     <span class="n">_validate_paths</span><span class="p">(</span><span class="n">original_path</span><span class="p">,</span> <span class="n">destination_paths_list</span><span class="p">)</span>
     <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
         <span class="n">config</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">copy_init_message_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">original_path</span><span class="o">=</span><span class="n">original_path</span><span class="p">,</span>
-            <span class="n">destination_paths</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">* &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_paths_list</span><span class="p">),</span>
+            <span class="n">destination_paths</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_paths_list</span><span class="p">),</span>
             <span class="n">commits_count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">destination_paths_list</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">)</span>
     <span class="n">_display_continue_prompt</span><span class="p">()</span>
     <span class="c1"># formatted commit template with only space for action</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Build formatted commit&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Build formatted commit"</span><span class="p">)</span>
     <span class="n">formatted_commit_template</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">copy_commit_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{action}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">"</span><span class="si">{action}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">original_path</span><span class="o">=</span><span class="n">original_path</span><span class="p">,</span>
-        <span class="n">destination_paths</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">* &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_paths_list</span><span class="p">),</span>
+        <span class="n">destination_paths</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">* "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_paths_list</span><span class="p">),</span>
         <span class="n">project_task</span><span class="o">=</span><span class="n">_build_task_string</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="c1"># temp file to save original file</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Create temp file&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Create temp file"</span><span class="p">)</span>
     <span class="n">temp_file</span> <span class="o">=</span> <span class="n">_get_command_output</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mktemp ./</span><span class="si">{</span><span class="n">destination_paths_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.XXXXXX&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="sa">f</span><span class="s2">"mktemp ./</span><span class="si">{</span><span class="n">destination_paths_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.XXXXXX"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># current HEAD state</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Get current HEAD sha&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Get current HEAD sha"</span><span class="p">)</span>
     <span class="n">root_commit</span> <span class="o">=</span> <span class="n">_get_command_output</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
-        <span class="n">command</span><span class="o">=</span><span class="s2">&quot;git rev-parse HEAD&quot;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="s2">"git rev-parse HEAD"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># create copies with blame of original</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Create copies with blame of original file&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Create copies with blame of original file"</span><span class="p">)</span>
     <span class="n">copy_commits</span> <span class="o">=</span> <span class="n">_copy_files</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
         <span class="n">original_path</span><span class="o">=</span><span class="n">original_path</span><span class="p">,</span>
@@ -1572,38 +1572,38 @@ Count of created commits:
     <span class="p">)</span>
 
     <span class="c1"># put original file to temp copy</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Restore branch to original state&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;git reset --hard HEAD^&quot;</span><span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Move </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2"> to temp file&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Restore branch to original state"</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"git reset --hard HEAD^"</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Move </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2"> to temp file"</span><span class="p">)</span>
     <span class="n">_move_file</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
         <span class="n">from_path</span><span class="o">=</span><span class="n">original_path</span><span class="p">,</span>
         <span class="n">to_path</span><span class="o">=</span><span class="n">temp_file</span><span class="p">,</span>
-        <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-f&quot;</span><span class="p">],</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">"-f"</span><span class="p">],</span>
         <span class="n">message</span><span class="o">=</span><span class="n">formatted_commit_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;put </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2"> to temp file&quot;</span><span class="p">,</span>
+            <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">"put </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2"> to temp file"</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">)</span>
 
     <span class="c1"># merge copy commits</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Merge copy commits&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Merge copy commits"</span><span class="p">)</span>
     <span class="n">_merge_commits</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
         <span class="n">commits</span><span class="o">=</span><span class="n">copy_commits</span><span class="p">,</span>
-        <span class="n">message</span><span class="o">=</span><span class="n">formatted_commit_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;merge&quot;</span><span class="p">),</span>
+        <span class="n">message</span><span class="o">=</span><span class="n">formatted_commit_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"merge"</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="c1"># move original file back</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Move data from temp file to </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Move data from temp file to </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">_move_file</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
         <span class="n">from_path</span><span class="o">=</span><span class="n">temp_file</span><span class="p">,</span>
         <span class="n">to_path</span><span class="o">=</span><span class="n">original_path</span><span class="p">,</span>
         <span class="n">message</span><span class="o">=</span><span class="n">formatted_commit_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;put temp file data to </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">action</span><span class="o">=</span><span class="sa">f</span><span class="s2">"put temp file data to </span><span class="si">{</span><span class="n">original_path</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Success"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1614,7 +1614,7 @@ Count of created commits:
 
 
 <h2 id="saritasa_invocations.git.checkout_to_branch" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">checkout_to_branch</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">repo_path</span><span class="p">,</span> <span class="n">branch</span><span class="p">,</span> <span class="n">checkout_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">checkout_to_branch</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">repo_path</span><span class="p">,</span> <span class="n">branch</span><span class="p">,</span> <span class="n">checkout_params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.git.checkout_to_branch" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1641,14 +1641,14 @@ Count of created commits:
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">repo_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
     <span class="n">branch</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">checkout_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">checkout_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checkout to repo&#39;s branch.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Checkout to repo's branch."""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">branch</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">cd</span><span class="p">(</span><span class="n">repo_path</span><span class="p">):</span>
-        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Checkout to `</span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="s2">` branch&quot;</span><span class="p">)</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git checkout </span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">checkout_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Checkout to `</span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="s2">` branch"</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"git checkout </span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">checkout_params</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1659,7 +1659,7 @@ Count of created commits:
 
 
 <h2 id="saritasa_invocations.git.clone_repo" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">clone_repo</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">repo_link</span><span class="p">,</span> <span class="n">repo_path</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">clone_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">pull_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">checkout_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">clone_repo</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">repo_link</span><span class="p">,</span> <span class="n">repo_path</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">clone_params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">pull_params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">checkout_params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.git.clone_repo" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1710,27 +1710,27 @@ Count of created commits:
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">repo_link</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">repo_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
-    <span class="n">branch</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">clone_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">pull_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">checkout_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">branch</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">clone_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">pull_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">checkout_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clone repo for work to folder.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Clone repo for work to folder."""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">repo_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Cloning `</span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2">` repository to `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"Cloning `</span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2">` repository to `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`"</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git clone </span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">clone_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"git clone </span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">clone_params</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">checkout_to_branch</span><span class="p">(</span>
             <span class="n">context</span><span class="p">,</span>
             <span class="n">repo_path</span><span class="o">=</span><span class="n">repo_path</span><span class="p">,</span>
             <span class="n">branch</span><span class="o">=</span><span class="n">branch</span><span class="p">,</span>
             <span class="n">checkout_params</span><span class="o">=</span><span class="n">checkout_params</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully cloned to `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">)</span>
+        <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Successfully cloned to `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Pulling changes for `</span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2">` in `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"Pulling changes for `</span><span class="si">{</span><span class="n">repo_link</span><span class="si">}</span><span class="s2">` in `</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">`"</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">checkout_to_branch</span><span class="p">(</span>
             <span class="n">context</span><span class="p">,</span>
@@ -1739,7 +1739,7 @@ Count of created commits:
             <span class="n">checkout_params</span><span class="o">=</span><span class="n">checkout_params</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">cd</span><span class="p">(</span><span class="n">repo_path</span><span class="p">):</span>
-            <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git pull </span><span class="si">{</span><span class="n">pull_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"git pull </span><span class="si">{</span><span class="n">pull_params</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1773,8 +1773,8 @@ Count of created commits:
     <span class="n">setting</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set git setting in config.&quot;&quot;&quot;</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git config --local --add </span><span class="si">{</span><span class="n">setting</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Set git setting in config."""</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"git config --local --add </span><span class="si">{</span><span class="n">setting</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1815,19 +1815,19 @@ Count of created commits:
 <span class="normal">25</span>
 <span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set up git for working.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Setting up git and pre-commit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Set up git for working."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Setting up git and pre-commit"</span><span class="p">)</span>
     <span class="n">pre_commit</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">set_git_setting</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">setting</span><span class="o">=</span><span class="s2">&quot;merge.ff&quot;</span><span class="p">,</span>
+        <span class="n">setting</span><span class="o">=</span><span class="s2">"merge.ff"</span><span class="p">,</span>
         <span class="n">value</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">merge_ff</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">set_git_setting</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="n">setting</span><span class="o">=</span><span class="s2">&quot;pull.ff&quot;</span><span class="p">,</span>
+        <span class="n">setting</span><span class="o">=</span><span class="s2">"pull.ff"</span><span class="p">,</span>
         <span class="n">value</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">pull_ff</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>

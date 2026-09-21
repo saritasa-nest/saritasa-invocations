@@ -1340,9 +1340,9 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">install</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Install dependencies via poetry.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Install dependencies with poetry&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;poetry sync&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Install dependencies via poetry."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Install dependencies with poetry"</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"poetry sync"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1353,7 +1353,7 @@
 
 
 <h2 id="saritasa_invocations.poetry.update" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.poetry.update" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1396,10 +1396,10 @@
 <span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">groups</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">groups</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update dependencies with respect to version constraints using poetry up.</span>
+<span class="w">    </span><span class="sd">"""Update dependencies with respect to version constraints using poetry up.</span>
 
 <span class="sd">    https://python-poetry.org/docs/dependency-specification/</span>
 
@@ -1408,16 +1408,16 @@
 <span class="sd">    Requires:</span>
 <span class="sd">    https://github.com/MousaZeidBaker/poetry-plugin-up</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Update dependencies&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Update dependencies"</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;poetry up </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"poetry up </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">invoke</span><span class="o">.</span><span class="n">UnexpectedExit</span><span class="p">:</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_warn</span><span class="p">(</span>
-            <span class="s2">&quot;Can&#39;t update with respect to version constraints using poetry up,&quot;</span>
-            <span class="s2">&quot; trying with poetry update&quot;</span><span class="p">,</span>
+            <span class="s2">"Can't update with respect to version constraints using poetry up,"</span>
+            <span class="s2">" trying with poetry update"</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;poetry update </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"poetry update </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1428,7 +1428,7 @@
 
 
 <h2 id="saritasa_invocations.poetry.update_to_latest" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">update_to_latest</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">update_to_latest</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.poetry.update_to_latest" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1471,27 +1471,27 @@
 <span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">update_to_latest</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">groups</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">groups</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">fallback</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update dependencies to latest versions using poetry up plugin.</span>
+<span class="w">    </span><span class="sd">"""Update dependencies to latest versions using poetry up plugin.</span>
 
 <span class="sd">    By default fallbacks to `update` task in case of an error.</span>
 
 <span class="sd">    Requires:</span>
 <span class="sd">    https://github.com/MousaZeidBaker/poetry-plugin-up</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Update dependencies to latest versions&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Update dependencies to latest versions"</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;poetry up --latest </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"poetry up --latest </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">_parse_groups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">invoke</span><span class="o">.</span><span class="n">UnexpectedExit</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">fallback</span><span class="p">:</span>
             <span class="k">raise</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_warn</span><span class="p">(</span>
-            <span class="s2">&quot;Can&#39;t update to latest, try to update with respect to version&quot;</span>
-            <span class="s2">&quot; constraints.&quot;</span><span class="p">,</span>
+            <span class="s2">"Can't update to latest, try to update with respect to version"</span>
+            <span class="s2">" constraints."</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">update</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

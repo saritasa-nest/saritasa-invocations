@@ -3903,10 +3903,10 @@ installing them or activating virtualenvs.</p>
 <div class="highlight"><pre><span></span><code>uvx<span class="w"> </span>saritasa-invocations<span class="w"> </span>pre-commit.run-hooks
 </code></pre></div>
 <p>Or if you need extras</p>
-<div class="highlight"><pre><span></span><code>uvx<span class="w"> </span>--from<span class="o">=</span><span class="s2">&quot;saritasa-invocations[env_settings]&quot;</span><span class="w"> </span>pre-commit.run-hooks
+<div class="highlight"><pre><span></span><code>uvx<span class="w"> </span>--from<span class="o">=</span><span class="s2">"saritasa-invocations[env_settings]"</span><span class="w"> </span>pre-commit.run-hooks
 </code></pre></div>
 <p>Or simply create alias for simple usage</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>saritasa-inv<span class="o">=</span><span class="s2">&quot;uvx saritasa-invocations&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>saritasa-inv<span class="o">=</span><span class="s2">"uvx saritasa-invocations"</span>
 saritasa-inv<span class="w"> </span>pre-commit.run-hooks
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
@@ -3927,39 +3927,39 @@ saritasa-inv<span class="w"> </span>pre-commit.run-hooks
 <span class="c1"># Configurations for run command</span>
 <span class="n">ns</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
     <span class="p">{</span>
-        <span class="s2">&quot;run&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;pty&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-            <span class="s2">&quot;echo&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">"run"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"pty"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">"echo"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
         <span class="p">},</span>
-        <span class="s2">&quot;saritasa_invocations&quot;</span><span class="p">:</span> <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">Config</span><span class="p">(</span>
+        <span class="s2">"saritasa_invocations"</span><span class="p">:</span> <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">Config</span><span class="p">(</span>
             <span class="n">pre_commit</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">PreCommitSettings</span><span class="p">(</span>
                 <span class="n">hooks</span><span class="o">=</span><span class="p">(</span>
-                    <span class="s2">&quot;pre-commit&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;pre-push&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;commit-msg&quot;</span><span class="p">,</span>
+                    <span class="s2">"pre-commit"</span><span class="p">,</span>
+                    <span class="s2">"pre-push"</span><span class="p">,</span>
+                    <span class="s2">"commit-msg"</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">),</span>
             <span class="n">git</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">GitSettings</span><span class="p">(</span>
-                <span class="n">merge_ff</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
-                <span class="n">pull_ff</span><span class="o">=</span><span class="s2">&quot;only&quot;</span><span class="p">,</span>
+                <span class="n">merge_ff</span><span class="o">=</span><span class="s2">"true"</span><span class="p">,</span>
+                <span class="n">pull_ff</span><span class="o">=</span><span class="s2">"only"</span><span class="p">,</span>
             <span class="p">),</span>
             <span class="n">docker</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">DockerSettings</span><span class="p">(</span>
                 <span class="n">main_containers</span><span class="o">=</span><span class="p">(</span>
-                    <span class="s2">&quot;opensearch&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;redis&quot;</span><span class="p">,</span>
+                    <span class="s2">"opensearch"</span><span class="p">,</span>
+                    <span class="s2">"redis"</span><span class="p">,</span>
                 <span class="p">),</span>
             <span class="p">),</span>
             <span class="n">system</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">SystemSettings</span><span class="p">(</span>
-                <span class="n">vs_code_settings_template</span><span class="o">=</span><span class="s2">&quot;.vscode/recommended_settings.json&quot;</span><span class="p">,</span>
-                <span class="n">settings_template</span><span class="o">=</span><span class="s2">&quot;config/.env.local&quot;</span><span class="p">,</span>
-                <span class="n">save_settings_from_template_to</span><span class="o">=</span><span class="s2">&quot;config/.env&quot;</span><span class="p">,</span>
+                <span class="n">vs_code_settings_template</span><span class="o">=</span><span class="s2">".vscode/recommended_settings.json"</span><span class="p">,</span>
+                <span class="n">settings_template</span><span class="o">=</span><span class="s2">"config/.env.local"</span><span class="p">,</span>
+                <span class="n">save_settings_from_template_to</span><span class="o">=</span><span class="s2">"config/.env"</span><span class="p">,</span>
             <span class="p">),</span>
             <span class="c1"># Default K8S Settings shared between envs</span>
             <span class="n">k8s_defaults</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SDefaultSettings</span><span class="p">(</span>
-                <span class="n">proxy</span><span class="o">=</span><span class="s2">&quot;teleport.company.com&quot;</span><span class="p">,</span>
+                <span class="n">proxy</span><span class="o">=</span><span class="s2">"teleport.company.com"</span><span class="p">,</span>
                 <span class="n">db_config</span><span class="o">=</span><span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SDBSettings</span><span class="p">(</span>
-                    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">,</span>
-                    <span class="n">pod_selector</span><span class="o">=</span><span class="s2">&quot;app=pod-selector-db&quot;</span><span class="p">,</span>
+                    <span class="n">namespace</span><span class="o">=</span><span class="s2">"db"</span><span class="p">,</span>
+                    <span class="n">pod_selector</span><span class="o">=</span><span class="s2">"app=pod-selector-db"</span><span class="p">,</span>
                 <span class="p">),</span>
             <span class="p">),</span>
         <span class="p">),</span>
@@ -3967,17 +3967,17 @@ saritasa-inv<span class="w"> </span>pre-commit.run-hooks
 <span class="p">)</span>
 
 <span class="c1"># For K8S settings you just need to create a instances of K8SSettings for each</span>
-<span class="c1"># environment. It&#39;ll be all collected automatically.</span>
+<span class="c1"># environment. It'll be all collected automatically.</span>
 <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SSettings</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span>
-    <span class="n">cluster</span><span class="o">=</span><span class="s2">&quot;teleport.company.somewhere.com&quot;</span><span class="p">,</span>
-    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;project_name&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"dev"</span><span class="p">,</span>
+    <span class="n">cluster</span><span class="o">=</span><span class="s2">"teleport.company.somewhere.com"</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">"project_name"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">saritasa_invocations</span><span class="o">.</span><span class="n">K8SSettings</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">,</span>
-    <span class="n">cluster</span><span class="o">=</span><span class="s2">&quot;teleport.client.somewhere.com&quot;</span><span class="p">,</span>
-    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;project_name&quot;</span><span class="p">,</span>
-    <span class="n">proxy</span><span class="o">=</span><span class="s2">&quot;teleport.client.com&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"prod"</span><span class="p">,</span>
+    <span class="n">cluster</span><span class="o">=</span><span class="s2">"teleport.client.somewhere.com"</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">"project_name"</span><span class="p">,</span>
+    <span class="n">proxy</span><span class="o">=</span><span class="s2">"teleport.client.com"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
@@ -4064,19 +4064,19 @@ If no task found in branch, then will be empty</li>
 <ul>
 <li><code>copy_commit_template</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;[automated-commit]: </span><span class="si">{action}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">"[automated-commit]: </span><span class="si">{action}</span><span class="se">\n\n</span><span class="s2">"</span>
 
-<span class="s2">&quot;copy: </span><span class="si">{original_path}</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="s2">&quot;to:</span><span class="se">\n</span><span class="s2">* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-<span class="s2">&quot;</span><span class="si">{project_task}</span><span class="s2">&quot;</span>
+<span class="s2">"copy: </span><span class="si">{original_path}</span><span class="se">\n</span><span class="s2">"</span>
+<span class="s2">"to:</span><span class="se">\n</span><span class="s2">* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">"</span>
+<span class="s2">"</span><span class="si">{project_task}</span><span class="s2">"</span>
 </code></pre></div>
 <ul>
 <li><code>copy_init_message_template</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;Copy </span><span class="si">{original_path}</span><span class="s2"> to:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">"Copy </span><span class="si">{original_path}</span><span class="s2"> to:</span><span class="se">\n</span><span class="s2">"</span>
 
-<span class="s2">&quot;* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-<span class="s2">&quot;Count of created commits: </span><span class="si">{commits_count}</span><span class="s2">&quot;</span>
+<span class="s2">"* </span><span class="si">{destination_paths}</span><span class="se">\n\n</span><span class="s2">"</span>
+<span class="s2">"Count of created commits: </span><span class="si">{commits_count}</span><span class="s2">"</span>
 </code></pre></div>
 <h3 id="pre-commit">pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
 <p>Settings to run <code>.pre-commit-config.yaml</code></p>
@@ -4135,7 +4135,7 @@ If no task found in branch, then will be empty</li>
 </ul>
 <p>This was done to have ability to run code against environment close deployed one or simply test it out.</p>
 <p>Example of usage</p>
-<div class="highlight"><pre><span></span><code><span class="nv">PYTHON_ENV</span><span class="o">=</span>docker<span class="w"> </span>inv<span class="w"> </span>python.run<span class="w"> </span>--command<span class="o">=</span><span class="s2">&quot;--version&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">PYTHON_ENV</span><span class="o">=</span>docker<span class="w"> </span>inv<span class="w"> </span>python.run<span class="w"> </span>--command<span class="o">=</span><span class="s2">"--version"</span>
 </code></pre></div>
 <h4 id="pythonrun">python.run<a class="headerlink" href="#pythonrun" title="Permanent link">&para;</a></h4>
 <p>Run python command depending on <code>PYTHON_ENV</code> variable(<code>docker</code> or <code>local</code>).</p>
@@ -4246,11 +4246,11 @@ variable or single variable with full db url.</p>
   Default:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_NAME&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_HOST&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_PORT&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_USER&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;RDS_DB_PASSWORD&quot;</span><span class="p">,</span>
+    <span class="s2">"dbname"</span><span class="p">:</span> <span class="s2">"RDS_DB_NAME"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"RDS_DB_HOST"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="p">:</span> <span class="s2">"RDS_DB_PORT"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"RDS_DB_USER"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"RDS_DB_PASSWORD"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="djangoload-remote-db">django.load-remote-db<a class="headerlink" href="#djangoload-remote-db" title="Permanent link">&para;</a></h4>
@@ -4322,11 +4322,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">"dbname"</span><span class="p">:</span> <span class="s2">"rds_db_name"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"rds_db_host"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="p">:</span> <span class="s2">"rds_db_port"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"rds_db_user"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"rds_db_password"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicbackup-local-db">alembic.backup-local-db<a class="headerlink" href="#alembicbackup-local-db" title="Permanent link">&para;</a></h4>
@@ -4340,11 +4340,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">"dbname"</span><span class="p">:</span> <span class="s2">"rds_db_name"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"rds_db_host"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="p">:</span> <span class="s2">"rds_db_port"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"rds_db_user"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"rds_db_password"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicbackup-remote-db">alembic.backup-remote-db<a class="headerlink" href="#alembicbackup-remote-db" title="Permanent link">&para;</a></h4>
@@ -4358,11 +4358,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">"dbname"</span><span class="p">:</span> <span class="s2">"rds_db_name"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"rds_db_host"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="p">:</span> <span class="s2">"rds_db_port"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"rds_db_user"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"rds_db_password"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicload-remote-db">alembic.load-remote-db<a class="headerlink" href="#alembicload-remote-db" title="Permanent link">&para;</a></h4>
@@ -4377,11 +4377,11 @@ variable or single variable with full db url.</p>
 </ul>
 <p>Default:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_name&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_host&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_port&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_user&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;rds_db_password&quot;</span><span class="p">,</span>
+    <span class="s2">"dbname"</span><span class="p">:</span> <span class="s2">"rds_db_name"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"rds_db_host"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="p">:</span> <span class="s2">"rds_db_port"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"rds_db_user"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"rds_db_password"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="alembicwait-for-database">alembic.wait-for-database<a class="headerlink" href="#alembicwait-for-database" title="Permanent link">&para;</a></h4>
@@ -4468,7 +4468,7 @@ environment. It'll be all collected automatically.</p>
 <div class="highlight"><pre><span></span><code>celery_start_task: celery --app config.celery:app call ${task}
 </code></pre></div>
 <p>So you can make this invocation</p>
-<div class="highlight"><pre><span></span><code>inv<span class="w"> </span>k8s.execute<span class="w"> </span>--entry<span class="o">=</span><span class="s2">&quot;celery_start_task&quot;</span><span class="w"> </span>--env-params<span class="o">=</span><span class="s2">&quot;task=apps.project.tasks.do_the_thing&quot;</span>
+<div class="highlight"><pre><span></span><code>inv<span class="w"> </span>k8s.execute<span class="w"> </span>--entry<span class="o">=</span><span class="s2">"celery_start_task"</span><span class="w"> </span>--env-params<span class="o">=</span><span class="s2">"task=apps.project.tasks.do_the_thing"</span>
 </code></pre></div>
 <p>Or create your own invocation which could lead to something like this</p>
 <div class="highlight"><pre><span></span><code>inv<span class="w"> </span>project.k8s_start_celery_task<span class="w"> </span>--task<span class="o">=</span>apps.project.tasks.do_the_thing

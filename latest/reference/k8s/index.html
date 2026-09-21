@@ -1608,7 +1608,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.download_file" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">download_file</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">path_to_file_in_pod</span><span class="p">,</span> <span class="n">path_to_where_save_file</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">download_file</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">path_to_file_in_pod</span><span class="p">,</span> <span class="n">path_to_where_save_file</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.download_file" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1643,9 +1643,9 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">path_to_file_in_pod</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">path_to_where_save_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download file from pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Download file from pod."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">download_file_from_pod</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -1703,7 +1703,7 @@
     <span class="n">path_to_file_in_pod</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">path_to_where_save_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download file from k8s and delete it after work is done.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Download file from k8s and delete it after work is done."""</span>
     <span class="n">download_file</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
         <span class="n">path_to_file_in_pod</span><span class="o">=</span><span class="n">path_to_file_in_pod</span><span class="p">,</span>
@@ -1713,7 +1713,7 @@
         <span class="k">yield</span> <span class="n">path_to_where_save_file</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Deleting file(</span><span class="si">{</span><span class="n">path_to_where_save_file</span><span class="si">}</span><span class="s2">) after use&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"Deleting file(</span><span class="si">{</span><span class="n">path_to_where_save_file</span><span class="si">}</span><span class="s2">) after use"</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">path_to_where_save_file</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1761,13 +1761,13 @@
     <span class="n">path_to_where_save_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download file from pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Download file from pod."""</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="s2">&quot;kubectl cp&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot; --namespace </span><span class="si">{</span><span class="n">pod_namespace</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot; --retries=</span><span class="si">{</span><span class="n">retries</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot; $(</span><span class="si">{</span><span class="n">get_pod_name_command</span><span class="si">}</span><span class="s2">):</span><span class="si">{</span><span class="n">path_to_file_in_pod</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">path_to_where_save_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">"kubectl cp"</span>
+        <span class="sa">f</span><span class="s2">" --namespace </span><span class="si">{</span><span class="n">pod_namespace</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">" --retries=</span><span class="si">{</span><span class="n">retries</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">" $(</span><span class="si">{</span><span class="n">get_pod_name_command</span><span class="si">}</span><span class="s2">):</span><span class="si">{</span><span class="n">path_to_file_in_pod</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">" </span><span class="si">{</span><span class="n">path_to_where_save_file</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -1779,7 +1779,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.execute" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">execute</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">entry</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">env_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">pty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">execute</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">entry</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">env_params</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">pty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.execute" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1819,26 +1819,26 @@
 <span class="normal">224</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">entry</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">env_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">entry</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">env_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">pty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">hide</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Result</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute command inside k8s pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Execute command inside k8s pod."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">component</span> <span class="o">=</span> <span class="n">component</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">default_component</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="p">:</span>
         <span class="n">entry</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">default_entry</span>
         <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">default_command</span>
     <span class="k">if</span> <span class="n">env_params</span><span class="p">:</span>
-        <span class="n">env_params</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;env </span><span class="si">{</span><span class="n">env_params</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">entry_cmd</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">env_params</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">command</span><span class="p">)))</span>
-    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Entering into </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">entry_cmd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">env_params</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"env </span><span class="si">{</span><span class="n">env_params</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">entry_cmd</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">env_params</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">command</span><span class="p">)))</span>
+    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Entering into </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">entry_cmd</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">pod_cmd</span> <span class="o">=</span> <span class="n">get_pod_cmd</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;kubectl exec -ti $(</span><span class="si">{</span><span class="n">pod_cmd</span><span class="si">}</span><span class="s2">) -- </span><span class="si">{</span><span class="n">entry_cmd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"kubectl exec -ti $(</span><span class="si">{</span><span class="n">pod_cmd</span><span class="si">}</span><span class="s2">) -- </span><span class="si">{</span><span class="n">entry_cmd</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="n">pty</span><span class="o">=</span><span class="n">pty</span><span class="p">,</span>
         <span class="n">hide</span><span class="o">=</span><span class="n">hide</span><span class="p">,</span>
     <span class="p">)</span>
@@ -1919,11 +1919,11 @@
 <span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_current_env_config_from_context</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_config</span><span class="o">.</span><span class="n">K8SGeneratedSettings</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return current environment data class based on current cluster.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return current environment data class based on current cluster."""</span>
     <span class="n">run_result</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="s2">&quot;kubectl config current-context&quot;</span><span class="p">,</span>
+        <span class="s2">"kubectl config current-context"</span><span class="p">,</span>
         <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">hide</span><span class="o">=</span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
+        <span class="n">hide</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span>
         <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">run_result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
@@ -1933,9 +1933,9 @@
         <span class="p">)</span>
     <span class="n">current_context</span> <span class="o">=</span> <span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">run_result</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="s2">&quot;kubectl config view --minify | grep namespace | awk &#39;{print $2}&#39;&quot;</span><span class="p">,</span>
+        <span class="s2">"kubectl config view --minify | grep namespace | awk '{print $2}'"</span><span class="p">,</span>
         <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">hide</span><span class="o">=</span><span class="s2">&quot;out&quot;</span><span class="p">,</span>
+        <span class="n">hide</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">run_result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">handle_error_on_getting_config</span><span class="p">(</span>
@@ -1956,9 +1956,9 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">found_env</span><span class="p">:</span>
         <span class="n">picked_env</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">prompt</span><span class="o">.</span><span class="n">Prompt</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span>
             <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Environment data class for the context `</span><span class="si">{</span><span class="n">current_context</span><span class="si">}</span><span class="s2">`&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot; and namespace `</span><span class="si">{</span><span class="n">current_namespace</span><span class="si">}</span><span class="s2">` doesn&#39;t exist. &quot;</span>
-                <span class="s2">&quot;Need to set context, which `env` to use?&quot;</span>
+                <span class="sa">f</span><span class="s2">"Environment data class for the context `</span><span class="si">{</span><span class="n">current_context</span><span class="si">}</span><span class="s2">`"</span>
+                <span class="sa">f</span><span class="s2">" and namespace `</span><span class="si">{</span><span class="n">current_namespace</span><span class="si">}</span><span class="s2">` doesn't exist. "</span>
+                <span class="s2">"Need to set context, which `env` to use?"</span>
             <span class="p">),</span>
             <span class="n">choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">k8s_configs</span><span class="p">),</span>
             <span class="n">default</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">default_k8s_env</span><span class="p">,</span>
@@ -2006,7 +2006,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">get_env_secrets</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get secrets from k8s and save it to file.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get secrets from k8s and save it to file."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">download_file_and_remove_afterwards</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
@@ -2059,16 +2059,16 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">env_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_config</span><span class="o">.</span><span class="n">K8SGeneratedSettings</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get environment by its name.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get environment by its name."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">environment</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">k8s_configs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">env_name</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">environment</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Exit</span><span class="p">(</span>
             <span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">message</span><span class="o">=</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Data class for `</span><span class="si">{</span><span class="n">env_name</span><span class="si">}</span><span class="s2">` environment not found. &quot;</span>
-                <span class="s2">&quot;Available environments: &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">k8s_configs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"Data class for `</span><span class="si">{</span><span class="n">env_name</span><span class="si">}</span><span class="s2">` environment not found. "</span>
+                <span class="s2">"Available environments: "</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">k8s_configs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">),</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">_config</span><span class="o">.</span><span class="n">K8SGeneratedSettings</span><span class="o">.</span><span class="n">merge_settings</span><span class="p">(</span>
@@ -2110,7 +2110,7 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">component</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get command for getting exact pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get command for getting exact pod."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">get_pod_name_command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">component_selector</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">component_selector</span><span class="p">,</span>
@@ -2164,20 +2164,20 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">run_result</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">runners</span><span class="o">.</span><span class="n">Result</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_config</span><span class="o">.</span><span class="n">K8SGeneratedSettings</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle error when fetching config.&quot;&quot;&quot;</span>
-    <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Handle error when fetching config."""</span>
+    <span class="n">error_message</span> <span class="o">=</span> <span class="s2">""</span>
     <span class="k">if</span> <span class="n">run_result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Unexpected error!&quot;</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">"Unexpected error!"</span>
     <span class="k">elif</span> <span class="n">run_result</span><span class="o">.</span><span class="n">exited</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">error_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Encountered error: </span><span class="si">{</span><span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Encountered error: </span><span class="si">{</span><span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="n">run_result</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
-        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Unable to fetch data from command!&quot;</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">"Unable to fetch data from command!"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Unexpected error!&quot;</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="s2">"Unexpected error!"</span>
     <span class="n">printing</span><span class="o">.</span><span class="n">print_error</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">prompt</span><span class="o">.</span><span class="n">Prompt</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span>
-        <span class="s2">&quot;Usually such errors fixed by setting context, which `env` to use?&quot;</span><span class="p">,</span>
+        <span class="s2">"Usually such errors fixed by setting context, which `env` to use?"</span><span class="p">,</span>
         <span class="n">choices</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">k8s_configs</span><span class="p">),</span>
         <span class="n">default</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">default_k8s_env</span><span class="p">,</span>
     <span class="p">)</span>
@@ -2193,7 +2193,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.health_check" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">health_check</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">health_check</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.health_check" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2215,9 +2215,9 @@
 <span class="normal">244</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">health_check</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check health of component.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check health of component."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">execute</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">component</span><span class="p">,</span> <span class="n">entry</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">health_check</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2265,15 +2265,15 @@
     <span class="n">auth</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Login into k8s via teleport.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Login into kubernetes CI&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Login into k8s via teleport."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Login into kubernetes CI"</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">proxy</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">auth</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">cluster</span><span class="p">:</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
         <span class="n">proxy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">proxy</span>
         <span class="n">auth</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">auth</span>
         <span class="n">cluster</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">cluster</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">proxy</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;tsh login --proxy=</span><span class="si">{</span><span class="n">proxy</span><span class="si">}</span><span class="s2"> --auth=</span><span class="si">{</span><span class="n">auth</span><span class="si">}</span><span class="s2"> --kube-cluster=</span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"tsh login --proxy=</span><span class="si">{</span><span class="n">proxy</span><span class="si">}</span><span class="s2"> --auth=</span><span class="si">{</span><span class="n">auth</span><span class="si">}</span><span class="s2"> --kube-cluster=</span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2285,7 +2285,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.logs" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">logs</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">logs</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.logs" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2311,14 +2311,14 @@
 <span class="normal">187</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">logs</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get logs for k8s pod.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get logs for k8s pod."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">component</span> <span class="o">=</span> <span class="n">component</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">default_component</span>
-    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Getting logs from </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Getting logs from </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;kubectl logs $(</span><span class="si">{</span><span class="n">get_pod_cmd</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">component</span><span class="o">=</span><span class="n">component</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"kubectl logs $(</span><span class="si">{</span><span class="n">get_pod_cmd</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">component</span><span class="o">=</span><span class="n">component</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2352,9 +2352,9 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">pods</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get pods from k8s.&quot;&quot;&quot;</span>
-    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;Getting pods&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;kubectl get pods&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Get pods from k8s."""</span>
+    <span class="n">success</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">"Getting pods"</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"kubectl get pods"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2365,7 +2365,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.python_shell" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">python_shell</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">python_shell</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.python_shell" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2387,9 +2387,9 @@
 <span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">python_shell</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">component</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enter into python shell.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Enter into python shell."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">execute</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">component</span><span class="p">,</span> <span class="n">entry</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">python_shell</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2402,7 +2402,7 @@
 
 
 <h2 id="saritasa_invocations.k8s.set_context" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">set_context</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">set_context</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.k8s.set_context" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -2442,17 +2442,17 @@
 <span class="normal">152</span>
 <span class="normal">153</span>
 <span class="normal">154</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">set_context</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set k8s context to current project.&quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Setting context for k8s&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_context</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Set k8s context to current project."""</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Setting context for k8s"</span><span class="p">)</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">env</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">default_k8s_env</span>
     <span class="n">environment</span> <span class="o">=</span> <span class="n">get_environment</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;kubectl config use-context </span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"kubectl config use-context </span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">context</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">invoke</span><span class="o">.</span><span class="n">UnexpectedExit</span><span class="p">:</span>
         <span class="n">printing</span><span class="o">.</span><span class="n">print_warn</span><span class="p">(</span>
-            <span class="s2">&quot;User is not logged into the environment, attempting to login&quot;</span><span class="p">,</span>
+            <span class="s2">"User is not logged into the environment, attempting to login"</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="c1"># User needs to login for first time to be able to use env</span>
         <span class="n">login</span><span class="p">(</span>
@@ -2461,13 +2461,13 @@
             <span class="n">auth</span><span class="o">=</span><span class="n">environment</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span>
             <span class="n">cluster</span><span class="o">=</span><span class="n">environment</span><span class="o">.</span><span class="n">cluster</span> <span class="ow">or</span> <span class="n">environment</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;kubectl config use-context </span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">context</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"kubectl config use-context </span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">context</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;kubectl config set-context&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot; --current --namespace=</span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">namespace</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"kubectl config set-context"</span>
+        <span class="sa">f</span><span class="s2">" --current --namespace=</span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">namespace</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">` environment has been set up successfully.&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">"`</span><span class="si">{</span><span class="n">environment</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">` environment has been set up successfully."</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -2504,11 +2504,11 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display success message with mention of environment.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Display success message with mention of environment."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">get_current_env_config_from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span>
         <span class="n">message</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">env_color</span><span class="si">}</span><span class="s2"> bold underline]</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">env_color</span><span class="si">}</span><span class="s2"> bold underline]</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>

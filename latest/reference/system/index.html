@@ -1344,7 +1344,7 @@
 
 
 <h2 id="saritasa_invocations.system.chown" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">chown</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="s1">&#39;$</span><span class="si">{USER}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">chown</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="s1">'$</span><span class="si">{USER}</span><span class="s1">'</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.system.chown" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1373,16 +1373,16 @@ generated using docker-compose (migrations, new app, etc).</p>
 <span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">chown</span><span class="p">(</span>
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
-    <span class="n">owner</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="si">{USER}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+    <span class="n">owner</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"$</span><span class="si">{USER}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"."</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Change ownership of files to user.</span>
+<span class="w">    </span><span class="sd">"""Change ownership of files to user.</span>
 
 <span class="sd">    Shortcut for owning apps dir by specified user after some files were</span>
 <span class="sd">    generated using docker-compose (migrations, new app, etc).</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sudo chown -R </span><span class="si">{</span><span class="n">owner</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sudo chown -R </span><span class="si">{</span><span class="n">owner</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1402,7 +1402,7 @@ generated using docker-compose (migrations, new app, etc).</p>
 
         <p>Copy local settings from template.</p>
         <hr />
-<div class="highlight"><pre><span></span><code>context: invoke&#39;s context
+<div class="highlight"><pre><span></span><code>context: invoke's context
 force_update: rewrite file if exists or not
 </code></pre></div>
 
@@ -1433,14 +1433,14 @@ force_update: rewrite file if exists or not
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">force_update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Copy local settings from template.</span>
+<span class="w">    </span><span class="sd">"""Copy local settings from template.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">    ----</span>
-<span class="sd">        context: invoke&#39;s context</span>
+<span class="sd">        context: invoke's context</span>
 <span class="sd">        force_update: rewrite file if exists or not</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">_rewrite_file</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
@@ -1467,7 +1467,7 @@ force_update: rewrite file if exists or not
 
         <p>Copy vscode settings from template.</p>
         <hr />
-<div class="highlight"><pre><span></span><code>context: invoke&#39;s context
+<div class="highlight"><pre><span></span><code>context: invoke's context
 force_update: rewrite file if exists or not
 </code></pre></div>
 
@@ -1498,19 +1498,19 @@ force_update: rewrite file if exists or not
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">force_update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Copy vscode settings from template.</span>
+<span class="w">    </span><span class="sd">"""Copy vscode settings from template.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">    ----</span>
-<span class="sd">        context: invoke&#39;s context</span>
+<span class="sd">        context: invoke's context</span>
 <span class="sd">        force_update: rewrite file if exists or not</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">_rewrite_file</span><span class="p">(</span>
         <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
         <span class="n">from_path</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">vs_code_settings_template</span><span class="p">,</span>
-        <span class="n">to_path</span><span class="o">=</span><span class="s2">&quot;.vscode/settings.json&quot;</span><span class="p">,</span>
+        <span class="n">to_path</span><span class="o">=</span><span class="s2">".vscode/settings.json"</span><span class="p">,</span>
         <span class="n">force_update</span><span class="o">=</span><span class="n">force_update</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1540,8 +1540,8 @@ force_update: rewrite file if exists or not
 <span class="normal">81</span>
 <span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_tmp_folder</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create folder for temporary files.&quot;&quot;&quot;</span>
-    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.tmp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Create folder for temporary files."""</span>
+    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".tmp"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

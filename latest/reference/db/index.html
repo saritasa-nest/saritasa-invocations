@@ -1300,7 +1300,7 @@
 
 
 <h2 id="saritasa_invocations.db.backup_local_db" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">backup_local_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">backup_local_db</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.db.backup_local_db" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1382,44 +1382,44 @@
     <span class="n">port</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Back up local db.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Back up local db."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Creating backup of local db.&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Creating backup of local db."</span><span class="p">)</span>
     <span class="n">additional_params_list</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_additional_params</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_no_owner</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="s2">&quot;--no-owner&quot;</span><span class="p">,</span>
+            <span class="s2">"--no-owner"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_include_table</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;--table=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_include_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"--table=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_include_table</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;--exclude-table=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"--exclude-table=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table_data</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;--exclude-table-data=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table_data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"--exclude-table-data=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_table_data</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_extension</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;--exclude-extension=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_extension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"--exclude-extension=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_exclude_extension</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_compression_level</span><span class="p">:</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;--compress=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_compression_level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"--compress=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_compression_level</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">additional_params_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="s2">&quot;--format=custom&quot;</span><span class="p">,</span>
+            <span class="s2">"--format=custom"</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.dump&quot;</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">".dump"</span>
     <span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
         <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span>
@@ -1428,12 +1428,12 @@
             <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
             <span class="n">file</span><span class="o">=</span><span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span><span class="p">,</span>
             <span class="n">additional_params</span><span class="o">=</span><span class="n">additional_params</span>
-            <span class="ow">or</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">additional_params_list</span><span class="p">),</span>
+            <span class="ow">or</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">additional_params_list</span><span class="p">),</span>
         <span class="p">),</span>
         <span class="n">watchers</span><span class="o">=</span><span class="p">(</span>
             <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
                 <span class="n">pattern</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">password_pattern</span><span class="p">,</span>
-                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">)</span>
@@ -1447,7 +1447,7 @@
 
 
 <h2 id="saritasa_invocations.db.load_db_dump" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">load_db_dump</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">dbname</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">additional_params</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 
 <a href="#saritasa_invocations.db.load_db_dump" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -1508,16 +1508,16 @@
     <span class="n">port</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="n">additional_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load db dump to local db.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Load db dump to local db."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dump_filename</span>
     <span class="c1"># Extracting a standard extension</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="k">match</span> <span class="n">file_path</span><span class="o">.</span><span class="n">suffix</span><span class="p">:</span>
-        <span class="k">case</span> <span class="s2">&quot;.sql&quot;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">".sql"</span><span class="p">:</span>
             <span class="n">load_dump_command</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_dump_command</span>
             <span class="n">load_additional_params</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">load_additional_params</span>
         <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
@@ -1537,11 +1537,11 @@
         <span class="n">watchers</span><span class="o">=</span><span class="p">(</span>
             <span class="n">invoke</span><span class="o">.</span><span class="n">Responder</span><span class="p">(</span>
                 <span class="n">pattern</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">password_pattern</span><span class="p">,</span>
-                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">response</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">)</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;DB is ready for use&quot;</span><span class="p">)</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"DB is ready for use"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

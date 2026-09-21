@@ -1340,7 +1340,7 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">detach</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Start celery worker.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Start celery worker."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">celery</span>
     <span class="k">match</span> <span class="n">python</span><span class="o">.</span><span class="n">get_python_env</span><span class="p">():</span>
         <span class="k">case</span> <span class="n">python</span><span class="o">.</span><span class="n">PythonEnv</span><span class="o">.</span><span class="n">LOCAL</span><span class="p">:</span>
@@ -1350,7 +1350,7 @@
                     <span class="n">app</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">,</span>
                     <span class="n">scheduler</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">scheduler</span><span class="p">,</span>
                     <span class="n">loglevel</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">loglevel</span><span class="p">,</span>
-                    <span class="n">extra_params</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">extra_params</span><span class="p">),</span>
+                    <span class="n">extra_params</span><span class="o">=</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">extra_params</span><span class="p">),</span>
                 <span class="p">),</span>
             <span class="p">)</span>
         <span class="k">case</span> <span class="n">python</span><span class="o">.</span><span class="n">PythonEnv</span><span class="o">.</span><span class="n">DOCKER</span><span class="p">:</span>
@@ -1393,9 +1393,9 @@
     <span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Send task to celery worker.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Send task to celery worker."""</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">_config</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">from_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">celery</span>
-    <span class="n">python</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;-m celery --app </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="si">}</span><span class="s2"> call </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">python</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"-m celery --app </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="si">}</span><span class="s2"> call </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

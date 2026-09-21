@@ -1305,16 +1305,16 @@
 <span class="normal">17</span>
 <span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@invoke</span><span class="o">.</span><span class="n">task</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">validate_swagger</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">invoke</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check that generated open_api spec is valid.</span>
+<span class="w">    </span><span class="sd">"""Check that generated open_api spec is valid.</span>
 
 <span class="sd">    It creates spec file in ./tmp folder and then validates it.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">&quot;Validating OpenAPI spec&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">printing</span><span class="o">.</span><span class="n">print_success</span><span class="p">(</span><span class="s2">"Validating OpenAPI spec"</span><span class="p">)</span>
     <span class="n">system</span><span class="o">.</span><span class="n">create_tmp_folder</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
     <span class="n">django</span><span class="o">.</span><span class="n">manage</span><span class="p">(</span>
         <span class="n">context</span><span class="p">,</span>
-        <span class="s2">&quot;spectacular --file .tmp/schema.yaml --validate --fail-on-warn&quot;</span><span class="p">,</span>
+        <span class="s2">"spectacular --file .tmp/schema.yaml --validate --fail-on-warn"</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
