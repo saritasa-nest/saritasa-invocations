@@ -149,7 +149,7 @@ def _get_db_k8s_dump_filename(
     generated_filename = k8s_db_config.dump_filename_template.format(
         project_name=config.project_name,
         env=k8s_config.name,
-        timestamp=datetime.datetime.now(tz=datetime.timezone.utc),
+        timestamp=datetime.datetime.now(tz=datetime.UTC),
         extension=(
             "dump" if k8s_config.db_config.dump_compression_level else "sql"
         ),

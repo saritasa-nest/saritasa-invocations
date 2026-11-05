@@ -7,11 +7,7 @@ import invoke
 from . import _config, docker
 
 
-class StrEnum(str, enum.Enum):
-    """Support python 3.10."""
-
-
-class PythonEnv(StrEnum):
+class PythonEnv(enum.StrEnum):
     """All possible python environments."""
 
     DOCKER = "docker"

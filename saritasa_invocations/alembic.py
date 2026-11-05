@@ -34,7 +34,7 @@ def wait_for_database(context: invoke.Context) -> None:
                 )
                 wait_for_database._called = True  # type: ignore
                 return
-            except invoke.UnexpectedExit:  # noqa: PERF203
+            except invoke.UnexpectedExit:
                 time.sleep(1)
                 continue
 

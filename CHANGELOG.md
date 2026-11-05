@@ -4,6 +4,9 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+- Confirm support for python 3.15
+- Drop support for python 3.10
+
 ## 1.13.0
 
 - Fix typo in `docker.up` and `docker.up_containers` parameters:
