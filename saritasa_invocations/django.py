@@ -57,7 +57,6 @@ def manage(
         command: Manage command
         docker_params: Params for docker run
         watchers: Automated responders to command
-        kwargs: additional arguments for python.run
 
     """
     config = _config.Config.from_context(context)
@@ -296,23 +295,28 @@ def show_urls(
 
     """
     console = rich.console.Console()
-    for url_info in manage(
+    with _config.context_override(
         context,
-        command="show_urls",
-        hide=True,
-    ).stdout.splitlines():
-        if search and not re.search(search, url_info):
-            continue
-        url_parts = url_info.split()
-        console.print(
-            rich.text.Text.assemble(
-                url_parts[0],
-                " ",
-                url_parts[1],
-                " ",
-                url_parts[2],
-            ),
-        )
+        run={
+            "hide": True,
+        },
+    ) as context_override:
+        for url_info in manage(
+            context_override,
+            command="show_urls",
+        ).stdout.splitlines():
+            if search and not re.search(search, url_info):
+                continue
+            url_parts = url_info.split()
+            console.print(
+                rich.text.Text.assemble(
+                    url_parts[0],
+                    " ",
+                    url_parts[1],
+                    " ",
+                    url_parts[2],
+                ),
+            )
 
 
 def set_default_site(context: invoke.Context) -> None:
