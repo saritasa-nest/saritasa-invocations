@@ -9,6 +9,7 @@ We follow [Semantic Versions](https://semver.org/).
 - Add patch for `invoke.runners.bytes_to_read` to fix `SystemError: buffer overflow` on Python 3.14 and newer.
   It causes interactive tasks (e.g. `inv django.shell`) ignore the keyboard inputs.
   See [issue](https://github.com/pyinvoke/invoke/issues/1052)
+- Fix `django.show-urls` command
 
 ## 1.13.0
 
