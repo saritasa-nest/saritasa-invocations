@@ -1,7 +1,7 @@
 autolinks
 buildpack
-buildpack
 buildpacks
+FIONREAD
 Khlud
 makemigration
 opensearch
@@ -9,7 +9,6 @@ paketobuildpacks
 prek
 Procfile
 Renderable
-resetdb
 resetdb
 SELFEDU
 Stanislav
