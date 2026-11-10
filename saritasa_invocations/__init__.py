@@ -9,6 +9,7 @@ from saritasa_invocations import (
     fastapi,
     git,
     github_actions,
+    invoke_patch,
     k8s,
     mypy,
     open_api,
