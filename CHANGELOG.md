@@ -4,6 +4,8 @@ We follow [Semantic Versions](https://semver.org/).
 
 ## Unreleased
 
+## 1.14.0
+
 - Confirm support for python 3.15
 - Drop support for python 3.10
 - Add patch for `invoke.runners.bytes_to_read` to fix `SystemError: buffer overflow` on Python 3.14 and newer.
