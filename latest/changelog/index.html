@@ -2154,6 +2154,10 @@
 <ul>
 <li>Confirm support for python 3.15</li>
 <li>Drop support for python 3.10</li>
+<li>Add patch for <code>invoke.runners.bytes_to_read</code> to fix <code>SystemError: buffer overflow</code> on Python 3.14 and newer.
+  It causes interactive tasks (e.g. <code>inv django.shell</code>) ignore the keyboard inputs.
+  See <a href="https://github.com/pyinvoke/invoke/issues/1052">issue</a></li>
+<li>Fix <code>django.show-urls</code> command</li>
 </ul>
 <h2 id="1130">1.13.0<a class="headerlink" href="#1130" title="Permanent link">&para;</a></h2>
 <ul>
